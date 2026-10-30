@@ -122,7 +122,7 @@ CREATE TABLE Invoice (
     InvoiceDate             DATE                DEFAULT SYSDATE NOT NULL,
     TotalAmount             NUMBER(10,2)        NOT NULL CONSTRAINT chk_inv_total CHECK (TotalAmount >= 0),
     TaxAmount               NUMBER(10,2)        DEFAULT 0.00 NOT NULL CONSTRAINT chk_inv_tax CHECK (TaxAmount >= 0),
-    Discount                NUMBER(10,2)        DEFAULT 0.00 NOT NULL CONSTRAINT chk_inv_disc CHECK (Discount >= 0),
+    Discount                NUMBER(10,2)        DEFAULT 0.00 NOT NULL CONSTRAINT chk_inv_disc CHECK (Discount >= 0 AND Discount <= TotalAmount),
     DueDate                 DATE                NOT NULL,
     PaymentStatus           VARCHAR2(20)        DEFAULT 'Unpaid' NOT NULL CONSTRAINT chk_inv_status CHECK (PaymentStatus IN ('Paid', 'Unpaid', 'Partially Paid', 'Overdue')),
     CONSTRAINT fk_inv_pat FOREIGN KEY (PatientID) REFERENCES Patient(PatientID),
