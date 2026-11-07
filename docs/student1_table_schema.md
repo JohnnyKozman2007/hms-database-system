@@ -10,12 +10,15 @@
 
 * **Nurse** (<u>NurseID</u>, FirstName, LastName, /FullName, Gender, Phone, Email, Shift, HireDate, YearsOfExperience, DepartmentID*, SupervisorID*)
 
+* **Salary** [Extra Work] (<u>SalaryID</u>, StaffType, DoctorID*, NurseID*, BaseSalary, Allowance, Deductions, /NetSalary, PaymentFrequency, EffectiveDate, SalaryStatus)
+
 ---
 
 ### Key Notes & Constraints:
 * `/Location` is a **derived virtual attribute** computed from (`Building`, `FloorLevel`).
 * `Building` and `FloorLevel` are **NOT NULL** (enforcing atomic location components in 1NF).
 * `/FullName` is a **derived virtual attribute** in both `Doctor` and `Nurse` computed from (`FirstName`, `LastName`).
+* `/NetSalary` is a **derived virtual attribute** in `Salary` computed from (`BaseSalary + Allowance - Deductions`).
 * `DepartmentName` is **UNIQUE** and **NOT NULL**.
 * `Department.Phone` is **UNIQUE** (`uq_dept_phone`) and **NOT NULL** (dedicated department direct line/extension).
 * `Doctor.Email` and `Nurse.Email` are unique candidate keys (**UNIQUE**, **NOT NULL**, with format check `Email LIKE '%_@__%.__%'`).
@@ -25,12 +28,16 @@
 * `Doctor.HireDate` and `Nurse.HireDate` default to `SYSDATE` and are **NOT NULL**.
 * `Nurse.Shift` defaults to `'Morning'` and enforces a `CHECK` constraint (`IN ('Morning', 'Afternoon', 'Night', 'Rotating')`).
 * `Doctor.SupervisorID` and `Nurse.SupervisorID` are **NULLABLE** to permit top-level leaders (Chief Medical Officer, Head Nurse) who have no supervisor.
+* `Salary` enforces an **exclusive arc check constraint** (`chk_sal_staff`): a salary record must reference either a `DoctorID` OR a `NurseID`, but never both and never neither.
+* `BaseSalary + Allowance >= Deductions` ensures net pay cannot be negative.
 
 ### Foreign Key References:
 * `Doctor(DepartmentID*)` references `Department(DepartmentID)`
-* `Doctor(SupervisorID*)` references `Doctor(DoctorID)` *(Unary/Recursive 1:M relationship: Senior Doctor supervises Doctors)*
+* `Doctor(SupervisorID*)` references `Doctor(DoctorID)` *(Unary/Recursive 1:M relationship)*
 * `Nurse(DepartmentID*)` references `Department(DepartmentID)`
-* `Nurse(SupervisorID*)` references `Nurse(NurseID)` *(Unary/Recursive 1:M relationship: Head/Charge Nurse supervises Nurses)*
+* `Nurse(SupervisorID*)` references `Nurse(NurseID)` *(Unary/Recursive 1:M relationship)*
+* `Salary(DoctorID*)` references `Doctor(DoctorID)` *(Exclusive Arc FK)*
+* `Salary(NurseID*)` references `Nurse(NurseID)` *(Exclusive Arc FK)*
 
 ### External Dependent Entities (Referencing Student 1):
 * `Appointment(DoctorID*)` *(Student 3)* references `Doctor(DoctorID)`
