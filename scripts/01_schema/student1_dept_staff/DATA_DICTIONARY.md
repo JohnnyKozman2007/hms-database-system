@@ -33,7 +33,7 @@ Stores licensed medical doctors, surgeons, and physicians employed by the hospit
 | `Phone` | `VARCHAR2(20)` | NO | Candidate | — | — | Doctor's contact telephone number (`uq_doc_phone`) |
 | `Email` | `VARCHAR2(100)` | NO | Candidate | — | — | Unique professional email address (`uq_doc_email`) |
 | `Specialty` | `VARCHAR2(50)` | NO | None | — | — | Area of medical specialization (e.g., 'Cardiologist', 'Neurologist') |
-| `HireDate` | `DATE` | NO | None | — | — | Date of employment commencement |
+| `HireDate` | `DATE` | NO | None | — | `SYSDATE` | Date of employment commencement (Defaults to current date) |
 | `YearsOfExperience`| `NUMBER(2)` | NO | None | — | `0` | `chk_doc_exp`: Must be `>= 0` |
 | `DepartmentID` | `NUMBER(4)` | NO | **FK** | `Department(DepartmentID)` | — | Department the doctor is assigned to (`fk_doc_dept`) |
 
@@ -51,6 +51,7 @@ Stores registered nurses assigned to hospital departments and shift schedules.
 | `Phone` | `VARCHAR2(20)` | NO | Candidate | — | — | Contact telephone number (`uq_nurse_phone`) |
 | `Email` | `VARCHAR2(100)` | NO | Candidate | — | — | Unique email address (`uq_nurse_email`) |
 | `Shift` | `VARCHAR2(20)` | NO | None | — | — | `chk_nurse_shift`: IN (`'Morning'`, `'Afternoon'`, `'Night'`, `'Rotating'`) |
+| `HireDate` | `DATE` | NO | None | — | `SYSDATE` | Date of employment commencement (Defaults to current date) |
 | `YearsOfExperience`| `NUMBER(2)` | NO | None | — | `0` | `chk_nurse_exp`: Must be `>= 0` |
 | `DepartmentID` | `NUMBER(4)` | NO | **FK** | `Department(DepartmentID)` | — | Department the nurse is assigned to (`fk_nurse_dept`) |
 
@@ -70,5 +71,5 @@ Stores registered nurses assigned to hospital departments and shift schedules.
 
 ### 3NF (Third Normal Form)
 * No transitive functional dependencies exist ($X \to Y$ and $Y \to Z$ where $X$ is the primary key).
-* Non-key attributes such as `Specialty`, `YearsOfExperience`, `Shift`, `Building`, `FloorLevel`, and `DepartmentDescription` depend directly and solely on their respective entity primary keys.
+* Non-key attributes such as `Specialty`, `YearsOfExperience`, `Shift`, `HireDate`, `Building`, `FloorLevel`, and `DepartmentDescription` depend directly and solely on their respective entity primary keys.
 * Relationships between entities are established exclusively through foreign keys (`DepartmentID` in `Doctor` and `Nurse`).

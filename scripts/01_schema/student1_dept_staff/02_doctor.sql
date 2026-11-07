@@ -12,7 +12,7 @@ CREATE TABLE Doctor (
     Phone                   VARCHAR2(20)        NOT NULL CONSTRAINT uq_doc_phone UNIQUE,
     Email                   VARCHAR2(100)       NOT NULL CONSTRAINT uq_doc_email UNIQUE,
     Specialty               VARCHAR2(50)        NOT NULL,
-    HireDate                DATE                NOT NULL,
+    HireDate                DATE                DEFAULT SYSDATE NOT NULL,
     YearsOfExperience       NUMBER(2)           DEFAULT 0 NOT NULL CONSTRAINT chk_doc_exp CHECK (YearsOfExperience >= 0),
     DepartmentID            NUMBER(4)           NOT NULL,
     CONSTRAINT fk_doc_dept FOREIGN KEY (DepartmentID) REFERENCES Department(DepartmentID)

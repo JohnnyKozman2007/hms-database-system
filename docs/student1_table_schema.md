@@ -8,13 +8,14 @@
 
 * **Doctor** (<u>DoctorID</u>, FirstName, LastName, Gender, Phone, Email, Specialty, HireDate, YearsOfExperience, DepartmentID*)
 
-* **Nurse** (<u>NurseID</u>, FirstName, LastName, Gender, Phone, Email, Shift, YearsOfExperience, DepartmentID*)
+* **Nurse** (<u>NurseID</u>, FirstName, LastName, Gender, Phone, Email, Shift, HireDate, YearsOfExperience, DepartmentID*)
 
 ---
 
 ### Key Notes & Constraints:
 * `/Location` is a **derived virtual attribute** computed from (`Building`, `FloorLevel`).
 * `Building` and `FloorLevel` are **NOT NULL** (enforcing atomic location components in 1NF).
+* `Doctor.HireDate` and `Nurse.HireDate` default to `SYSDATE`.
 * `DepartmentName` is **UNIQUE** and **NOT NULL**.
 * `Doctor.Email` and `Nurse.Email` are unique candidate keys (**UNIQUE** and **NOT NULL**).
 * `Doctor.Phone` and `Nurse.Phone` are unique candidate keys (**UNIQUE** and **NOT NULL**).
