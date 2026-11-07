@@ -1,10 +1,10 @@
 # Student 5: Relational Table Schema
 **Module:** Data Modeling for DB (4FTC2063)  
-**Notation:** <u>Primary Key</u> | Foreign Key* | <u>Composite / PK + FK*</u>
+**Notation:** <u>Primary Key</u> | Foreign Key* | /DerivedAttribute | <u>Composite / PK + FK*</u>
 
 ---
 
-* **Supplier** (<u>SupplierID</u>, CompanyName, ContactPerson, Phone, Email, BuildingNumber, Street, City, PostalCode, Address, ContractStatus)
+* **Supplier** (<u>SupplierID</u>, CompanyName, ContactPerson, Phone, Email, BuildingNumber, Street, City, PostalCode, /Address, ContractStatus)
 
 * **Insurance** (<u>InsuranceID</u>, PatientID*, InsuranceCompany, PolicyNumber, CoveragePercentage, StartDate, ExpirationDate, InsuranceStatus)
 
@@ -13,6 +13,11 @@
 * **Payment** (<u>PaymentID</u>, InvoiceID*, PaymentDate, AmountPaid, PaymentMethod, TransactionReference, PaymentStatus)
 
 ---
+
+### Key Notes & Constraints:
+* `/Address` is a **derived virtual attribute** computed from (`BuildingNumber`, `Street`, `City`, `PostalCode`).
+* `PostalCode` is **NOT NULL**.
+* `Invoice.DueDate` has a default value of `SYSDATE + 3`.
 
 ### Foreign Key References:
 * `Insurance(PatientID*)` references `Patient(PatientID)`
