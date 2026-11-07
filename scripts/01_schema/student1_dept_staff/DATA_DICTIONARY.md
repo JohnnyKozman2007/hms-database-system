@@ -16,7 +16,7 @@ Stores clinical, administrative, and operational divisions within the hospital.
 | `Building` | `VARCHAR2(50)` | NO | None | — | — | Hospital building name/identifier (e.g., 'Building A', 'Building B') |
 | `FloorLevel` | `VARCHAR2(50)` | NO | None | — | — | Floor or level (e.g., 'Floor 1', 'Floor 2', 'Ground Floor') |
 | `Location` | `VARCHAR2(100)` | VIRTUAL | Derived | — | Auto-derived | Derived virtual column: `Building || ', ' || FloorLevel` |
-| `Phone` | `VARCHAR2(20)` | NO | None | — | — | Department contact phone / extension number |
+| `Phone` | `VARCHAR2(20)` | NO | Candidate | — | — | Unique department hotline/extension (`uq_dept_phone`) |
 | `DepartmentDescription` | `VARCHAR2(255)` | YES | None | — | — | Brief summary of medical scope and services offered |
 
 ---
@@ -29,13 +29,15 @@ Stores licensed medical doctors, surgeons, and physicians employed by the hospit
 | `DoctorID` | `NUMBER(8)` | NO | **PK** | — | — | Primary identifier (Range: `1..20+`) |
 | `FirstName` | `VARCHAR2(50)` | NO | None | — | — | Doctor's first name |
 | `LastName` | `VARCHAR2(50)` | NO | None | — | — | Doctor's surname |
+| `FullName` | `VARCHAR2(101)` | VIRTUAL | Derived | — | Auto-derived | Derived virtual column: `FirstName || ' ' || LastName` |
 | `Gender` | `VARCHAR2(10)` | NO | None | — | — | `chk_doc_gender`: IN (`'Male'`, `'Female'`) |
-| `Phone` | `VARCHAR2(20)` | NO | Candidate | — | — | Doctor's contact telephone number (`uq_doc_phone`) |
-| `Email` | `VARCHAR2(100)` | NO | Candidate | — | — | Unique professional email address (`uq_doc_email`) |
+| `Phone` | `VARCHAR2(20)` | NO | Candidate | — | — | Unique personal contact number (`uq_doc_phone`) |
+| `Email` | `VARCHAR2(100)` | NO | Candidate | — | — | Unique email (`uq_doc_email`), format check `chk_doc_email_fmt`: `LIKE '%_@__%.__%'` |
 | `Specialty` | `VARCHAR2(50)` | NO | None | — | — | Area of medical specialization (e.g., 'Cardiologist', 'Neurologist') |
 | `HireDate` | `DATE` | NO | None | — | `SYSDATE` | Date of employment commencement (Defaults to current date) |
-| `YearsOfExperience`| `NUMBER(2)` | NO | None | — | `0` | `chk_doc_exp`: Must be `>= 0` |
+| `YearsOfExperience`| `NUMBER(2)` | NO | None | — | `0` | `chk_doc_exp`: Realistic career range `BETWEEN 0 AND 60` |
 | `DepartmentID` | `NUMBER(4)` | NO | **FK** | `Department(DepartmentID)` | — | Department the doctor is assigned to (`fk_doc_dept`) |
+| `SupervisorID` | `NUMBER(8)` | YES | **FK** | `Doctor(DoctorID)` | — | Unary/Recursive reference to senior mentor/supervising doctor (`fk_doc_supervisor`). Nullable for department heads / chief officers. |
 
 ---
 
@@ -47,13 +49,15 @@ Stores registered nurses assigned to hospital departments and shift schedules.
 | `NurseID` | `NUMBER(8)` | NO | **PK** | — | — | Primary identifier (Range: `1..30+`) |
 | `FirstName` | `VARCHAR2(50)` | NO | None | — | — | Nurse's first name |
 | `LastName` | `VARCHAR2(50)` | NO | None | — | — | Nurse's surname |
+| `FullName` | `VARCHAR2(101)` | VIRTUAL | Derived | — | Auto-derived | Derived virtual column: `FirstName || ' ' || LastName` |
 | `Gender` | `VARCHAR2(10)` | NO | None | — | — | `chk_nurse_gender`: IN (`'Male'`, `'Female'`) |
-| `Phone` | `VARCHAR2(20)` | NO | Candidate | — | — | Contact telephone number (`uq_nurse_phone`) |
-| `Email` | `VARCHAR2(100)` | NO | Candidate | — | — | Unique email address (`uq_nurse_email`) |
-| `Shift` | `VARCHAR2(20)` | NO | None | — | — | `chk_nurse_shift`: IN (`'Morning'`, `'Afternoon'`, `'Night'`, `'Rotating'`) |
+| `Phone` | `VARCHAR2(20)` | NO | Candidate | — | — | Unique personal contact telephone number (`uq_nurse_phone`) |
+| `Email` | `VARCHAR2(100)` | NO | Candidate | — | — | Unique email (`uq_nurse_email`), format check `chk_nurse_email_fmt`: `LIKE '%_@__%.__%'` |
+| `Shift` | `VARCHAR2(20)` | NO | None | — | `'Morning'` | `chk_nurse_shift`: IN (`'Morning'`, `'Afternoon'`, `'Night'`, `'Rotating'`). Defaults to `'Morning'`. |
 | `HireDate` | `DATE` | NO | None | — | `SYSDATE` | Date of employment commencement (Defaults to current date) |
-| `YearsOfExperience`| `NUMBER(2)` | NO | None | — | `0` | `chk_nurse_exp`: Must be `>= 0` |
+| `YearsOfExperience`| `NUMBER(2)` | NO | None | — | `0` | `chk_nurse_exp`: Realistic career range `BETWEEN 0 AND 60` |
 | `DepartmentID` | `NUMBER(4)` | NO | **FK** | `Department(DepartmentID)` | — | Department the nurse is assigned to (`fk_nurse_dept`) |
+| `SupervisorID` | `NUMBER(8)` | YES | **FK** | `Nurse(NurseID)` | — | Unary/Recursive reference to Head/Charge Nurse (`fk_nurse_supervisor`). Nullable for senior nursing leadership. |
 
 ---
 
@@ -62,6 +66,7 @@ Stores registered nurses assigned to hospital departments and shift schedules.
 ### 1NF (First Normal Form)
 * All attributes contain strictly atomic, indivisible values.
 * Specifically, the composite attribute `Location` in `Department` has been decomposed into atomic components (`Building` and `FloorLevel`), with `Location` implemented as an auto-derived virtual column.
+* Similarly, `FullName` in both `Doctor` and `Nurse` is an auto-derived virtual column computed from atomic `FirstName` and `LastName`.
 * No repeating groups or multivalued attributes exist across any of the entities.
 * Each table has a defined primary key ensuring record uniqueness.
 
@@ -71,5 +76,7 @@ Stores registered nurses assigned to hospital departments and shift schedules.
 
 ### 3NF (Third Normal Form)
 * No transitive functional dependencies exist ($X \to Y$ and $Y \to Z$ where $X$ is the primary key).
-* Non-key attributes such as `Specialty`, `YearsOfExperience`, `Shift`, `HireDate`, `Building`, `FloorLevel`, and `DepartmentDescription` depend directly and solely on their respective entity primary keys.
-* Relationships between entities are established exclusively through foreign keys (`DepartmentID` in `Doctor` and `Nurse`).
+* Non-key attributes depend directly and solely on their respective entity primary keys.
+* Hierarchical and organizational relationships are modeled cleanly:
+  * Binary 1:M relationships via `DepartmentID` in `Doctor` and `Nurse`.
+  * Unary (recursive) 1:M relationships via `SupervisorID` in `Doctor` and `Nurse`, allowing realistic clinical reporting hierarchies without creating cyclic table dependencies.

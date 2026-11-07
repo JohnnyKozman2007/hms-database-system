@@ -10,6 +10,6 @@ CREATE TABLE Department (
     Building                VARCHAR2(50)        NOT NULL,
     FloorLevel              VARCHAR2(50)        NOT NULL,
     Location                VARCHAR2(100)       GENERATED ALWAYS AS (Building || ', ' || FloorLevel) VIRTUAL,
-    Phone                   VARCHAR2(20)        NOT NULL,
+    Phone                   VARCHAR2(20)        NOT NULL CONSTRAINT uq_dept_phone UNIQUE,
     DepartmentDescription   VARCHAR2(255)
 );
