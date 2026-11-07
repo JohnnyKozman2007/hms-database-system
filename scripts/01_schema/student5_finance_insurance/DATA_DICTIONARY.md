@@ -32,7 +32,7 @@ Stores health insurance policies linked to patients for claim settlements.
 | :--- | :--- | :---: | :---: | :---: | :---: | :--- |
 | `InsuranceID` | `NUMBER(8)` | NO | **PK** | — | — | Primary identifier (Range: `1..100+`) |
 | `PatientID` | `NUMBER(8)` | NO | **FK** | `Patient(PatientID)` | — | Patient covered by this policy (`fk_ins_pat`) |
-| `InsuranceCompany`| `VARCHAR2(100)` | NO | None | — | — | Name of insurer (e.g. Bupa, AXA, NHS) |
+| `InsuranceCompany`| `VARCHAR2(100)` | NO | None | — | — | `chk_ins_company`: Approved Egyptian providers (`AXA Egypt`, `Bupa Egypt`, `Allianz Egypt`, `MetLife Egypt`, `Misr Insurance`, `GIG Egypt`, `Delta Insurance`, `Universal Health Insurance`) |
 | `PolicyNumber` | `VARCHAR2(50)` | NO | Candidate | — | — | Unique contract number (`uq_ins_policy`) |
 | `CoveragePercentage`| `NUMBER(5,2)` | NO | None | — | — | `chk_ins_cov`: BETWEEN `0.00` AND `100.00` |
 | `StartDate` | `DATE` | NO | None | — | — | Policy effective date |
