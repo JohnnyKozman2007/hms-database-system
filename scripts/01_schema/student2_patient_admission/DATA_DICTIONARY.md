@@ -24,10 +24,11 @@ Stores demographic, personal identification, contact details, and baseline medic
 | `BloodType` | `VARCHAR2(5)` | NO | None | — | — | `chk_pat_blood`: IN (`'A+'`, `'A-'`, `'B+'`, `'B-'`, `'AB+'`, `'AB-'`, `'O+'`, `'O-'`) |
 | `Phone` | `VARCHAR2(20)` | NO | Candidate | — | — | Unique primary telephone number (`uq_pat_phone`) |
 | `Email` | `VARCHAR2(100)` | NO | Candidate | — | — | Unique email (`uq_pat_email`), format check `chk_pat_email_fmt`: `LIKE '%_@__%.__%'` |
-| `StreetAddress` | `VARCHAR2(100)` | NO | None | — | — | Atomic residential street name and building/house number |
-| `City` | `VARCHAR2(50)` | NO | None | — | — | City of residence |
-| `PostalCode` | `VARCHAR2(20)` | NO | None | — | — | Postal/ZIP code |
-| `Address` | `VARCHAR2(200)` | VIRTUAL | Derived | — | Auto-derived | Derived virtual column: `StreetAddress || ', ' || City || ' ' || PostalCode` |
+| `BuildingNumber` | `VARCHAR2(20)` | YES | None | — | — | Building/Apartment/House number or name (Standardized with `Supplier`) |
+| `Street` | `VARCHAR2(100)` | NO | None | — | — | Street or avenue name |
+| `City` | `VARCHAR2(50)` | NO | None | — | — | City or town of residence |
+| `PostalCode` | `VARCHAR2(20)` | NO | None | — | — | Postal/ZIP code (Mandatory) |
+| `Address` | `VARCHAR2(250)` | VIRTUAL | Derived | — | Auto-derived | Derived column: `BuildingNumber || ' ' || Street || ', ' || City || ' ' || PostalCode` |
 | `EmergencyContact` | `VARCHAR2(100)` | NO | None | — | — | Emergency contact person and/or phone (`chk_pat_emg`: `<> Phone`) |
 
 ---
@@ -68,7 +69,7 @@ Tracks inpatient hospital admissions, linking a patient to a designated room, wi
 ## 4. Normalization Analysis (3NF Compliance)
 
 ### 1NF (First Normal Form)
-* **Atomic Attributes:** All stored values are indivisible and atomic. The composite attribute `Address` has been decomposed into `StreetAddress`, `City`, and `PostalCode`, with `Address` exposed as a virtual derived column.
+* **Atomic Attributes:** All stored values are indivisible and atomic. The composite attribute `Address` has been decomposed into `BuildingNumber`, `Street`, `City`, and `PostalCode` (unifying the address architecture with `Supplier`), with `Address` exposed as a virtual derived column.
 * **Derived Name:** `FullName` is implemented as an auto-derived virtual column concatenating `FirstName` and `LastName`, avoiding data duplication.
 * **No Repeating Groups:** Multiple phone numbers or multiple admissions are not stored as comma-delimited strings or array fields; each admission is an independent tuple in `Admission`.
 * **Unique Identification:** Every table features a single-attribute primary key (`PatientID`, `RoomID`, `AdmissionID`).

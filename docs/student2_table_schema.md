@@ -4,7 +4,7 @@
 
 ---
 
-* **Patient** (<u>PatientID</u>, FirstName, LastName, /FullName, DateOfBirth, Gender, BloodType, Phone, Email, StreetAddress, City, PostalCode, /Address, EmergencyContact)
+* **Patient** (<u>PatientID</u>, FirstName, LastName, /FullName, DateOfBirth, Gender, BloodType, Phone, Email, BuildingNumber, Street, City, PostalCode, /Address, EmergencyContact)
 
 * **Room** (<u>RoomID</u>, RoomNumber, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus)
 
@@ -14,8 +14,8 @@
 
 ### Key Notes & Constraints:
 * `/FullName` is a **derived virtual attribute** computed from (`FirstName`, `LastName`).
-* `/Address` is a **derived virtual attribute** computed from (`StreetAddress`, `City`, `PostalCode`).
-* `StreetAddress`, `City`, and `PostalCode` are **NOT NULL** (enforcing atomic address components in 1NF).
+* `/Address` is a **derived virtual attribute** computed from (`BuildingNumber`, `Street`, `City`, `PostalCode`), identical to the `Supplier` address architecture.
+* `Street`, `City`, and `PostalCode` are **NOT NULL** (enforcing atomic address components in 1NF). `BuildingNumber` is nullable for premises or rural areas without formal numbers.
 * `Patient.DateOfBirth` enforces a boundary check (`DateOfBirth >= DATE '1900-01-01'`) and is **NOT NULL**.
 * `Patient.Gender` enforces a `CHECK` constraint (`IN ('Male', 'Female')`).
 * `Patient.BloodType` enforces a `CHECK` constraint (`IN ('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-')`).
