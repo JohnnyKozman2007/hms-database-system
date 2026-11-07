@@ -19,8 +19,8 @@ Stores approved vendors and pharmaceutical suppliers providing medical supplies 
 | `BuildingNumber`| `VARCHAR2(20)` | YES| None | — | — | Building/Premises number or name |
 | `Street` | `VARCHAR2(100)` | NO | None | — | — | Street name |
 | `City` | `VARCHAR2(50)` | NO | None | — | — | City or town |
-| `PostalCode` | `VARCHAR2(20)` | YES| None | — | — | Postal/ZIP code |
-| `Address` | `VARCHAR2(250)` | YES| None | — | — | Full combined address string |
+| `PostalCode` | `VARCHAR2(20)` | NO | None | — | — | Postal/ZIP code (Mandatory) |
+| `Address` | `VARCHAR2(250)` | VIRTUAL| Derived | — | Auto-derived | Derived column: `BuildingNumber || ' ' || Street || ', ' || City || ' ' || PostalCode` |
 | `ContractStatus`| `VARCHAR2(20)` | NO | None | — | `'Active'` | `chk_supp_status`: IN (`'Active'`, `'Inactive'`, `'Terminated'`, `'Under Review'`) |
 
 ---

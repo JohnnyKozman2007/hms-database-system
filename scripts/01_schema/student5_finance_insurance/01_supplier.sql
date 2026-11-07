@@ -9,7 +9,7 @@ CREATE TABLE Supplier (
     BuildingNumber          VARCHAR2(20),
     Street                  VARCHAR2(100)       NOT NULL,
     City                    VARCHAR2(50)        NOT NULL,
-    PostalCode              VARCHAR2(20),
-    Address                 VARCHAR2(250),
+    PostalCode              VARCHAR2(20)        NOT NULL,
+    Address                 VARCHAR2(250)       GENERATED ALWAYS AS (BuildingNumber || ' ' || Street || ', ' || City || ' ' || PostalCode) VIRTUAL,
     ContractStatus          VARCHAR2(20)        DEFAULT 'Active' NOT NULL CONSTRAINT chk_supp_status CHECK (ContractStatus IN ('Active', 'Inactive', 'Terminated', 'Under Review'))
 );
