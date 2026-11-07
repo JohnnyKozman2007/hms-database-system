@@ -48,7 +48,7 @@ Records billing summaries issued to patients for hospital consultations, procedu
 | `TotalAmount` | `NUMBER(10,2)` | NO | None | — | — | `chk_inv_total`: `>= 0.00` |
 | `TaxAmount` | `NUMBER(10,2)` | NO | None | — | `0.00` | `chk_inv_tax`: `>= 0.00` |
 | `Discount` | `NUMBER(10,2)` | NO | None | — | `0.00` | `chk_inv_disc`: `>= 0.00 AND <= TotalAmount` |
-| `DueDate` | `DATE` | NO | None | — | — | `chk_inv_dates`: Must be `>= InvoiceDate` |
+| `DueDate` | `DATE` | NO | None | — | `SYSDATE + 3` | `chk_inv_dates`: Must be `>= InvoiceDate` |
 | `PaymentStatus`| `VARCHAR2(20)` | NO | None | — | `'Unpaid'` | `chk_inv_status`: IN (`'Paid'`, `'Unpaid'`, `'Partially Paid'`, `'Overdue'`) |
 
 ---
