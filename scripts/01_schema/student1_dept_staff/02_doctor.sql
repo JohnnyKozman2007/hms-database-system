@@ -3,6 +3,7 @@
 -- Minimum Data Target: 20 doctors
 -- Level 2 Table: Dependent on Department (DepartmentID FK)
 -- Unary Relationship: SupervisorID references Doctor (DoctorID PK)
+-- Egyptian National Telecom Plan (Mobile = 11 digits, Landline = 9-10 digits)
 -- ============================================================================
 
 CREATE TABLE Doctor (
@@ -12,6 +13,7 @@ CREATE TABLE Doctor (
     FullName                VARCHAR2(101)       GENERATED ALWAYS AS (FirstName || ' ' || LastName) VIRTUAL,
     Gender                  VARCHAR2(10)        NOT NULL CONSTRAINT chk_doc_gender CHECK (Gender IN ('Male', 'Female')),
     Phone                   VARCHAR2(20)        NOT NULL CONSTRAINT uq_doc_phone UNIQUE,
+    PhoneType               VARCHAR2(10)        DEFAULT 'Mobile' NOT NULL CONSTRAINT chk_doc_phone_type CHECK (PhoneType IN ('Mobile', 'Landline', 'Phone')),
     Email                   VARCHAR2(100)       NOT NULL 
                                                 CONSTRAINT uq_doc_email UNIQUE
                                                 CONSTRAINT chk_doc_email_fmt CHECK (Email LIKE '%_@__%.__%'),
@@ -21,5 +23,11 @@ CREATE TABLE Doctor (
     DepartmentID            NUMBER(4)           NOT NULL,
     SupervisorID            NUMBER(8),
     CONSTRAINT fk_doc_dept FOREIGN KEY (DepartmentID) REFERENCES Department(DepartmentID),
-    CONSTRAINT fk_doc_supervisor FOREIGN KEY (SupervisorID) REFERENCES Doctor(DoctorID)
+    CONSTRAINT fk_doc_supervisor FOREIGN KEY (SupervisorID) REFERENCES Doctor(DoctorID),
+    CONSTRAINT chk_doc_phone CHECK (
+        REGEXP_LIKE(Phone, '^[0-9]+$') AND (
+            (PhoneType IN ('Mobile', 'Phone') AND LENGTH(Phone) = 11 AND Phone LIKE '01%') OR
+            (PhoneType = 'Landline' AND LENGTH(Phone) IN (9, 10) AND Phone LIKE '0%')
+        )
+    )
 );

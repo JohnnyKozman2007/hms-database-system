@@ -22,14 +22,20 @@ Stores demographic, personal identification, contact details, and baseline medic
 | `DateOfBirth` | `DATE` | NO | None | — | — | Patient's birthdate (`chk_pat_dob`: `>= DATE '1900-01-01'`) |
 | `Gender` | `VARCHAR2(10)` | NO | None | — | — | `chk_pat_gender`: IN (`'Male'`, `'Female'`) |
 | `BloodType` | `VARCHAR2(5)` | NO | None | — | — | `chk_pat_blood`: IN (`'A+'`, `'A-'`, `'B+'`, `'B-'`, `'AB+'`, `'AB-'`, `'O+'`, `'O-'`) |
-| `Phone` | `VARCHAR2(20)` | NO | Candidate | — | — | Unique telephone (`uq_pat_phone`), minimum length check (`chk_pat_phone_len`: `LENGTH(TRIM(Phone)) >= 7`) |
+| `Phone` | `VARCHAR2(20)` | NO | Candidate | — | — | Unique primary telephone number (`uq_pat_phone`) |
+| `PhoneType` | `VARCHAR2(10)` | NO | None | — | `'Mobile'` | `chk_pat_phone_type`: IN (`'Mobile'`, `'Landline'`, `'Phone'`) |
 | `Email` | `VARCHAR2(100)` | NO | Candidate | — | — | Unique email (`uq_pat_email`), format check `chk_pat_email_fmt`: `LIKE '%_@__%.__%'` |
 | `BuildingNumber` | `VARCHAR2(20)` | YES | None | — | — | Building/Apartment/House number or name (Standardized with `Supplier`) |
 | `Street` | `VARCHAR2(100)` | NO | None | — | — | Street or avenue name |
 | `City` | `VARCHAR2(50)` | NO | None | — | — | City or town of residence |
 | `PostalCode` | `VARCHAR2(20)` | NO | None | — | — | Postal/ZIP code (Mandatory) |
 | `Address` | `VARCHAR2(250)` | VIRTUAL | Derived | — | Auto-derived | Derived column: `BuildingNumber || ' ' || Street || ', ' || City || ' ' || PostalCode` |
-| `EmergencyContact` | `VARCHAR2(100)` | NO | None | — | — | Emergency contact (`chk_pat_emg`: `<> Phone`), minimum length check (`chk_pat_emg_len`: `LENGTH(TRIM(EmergencyContact)) >= 7`) |
+| `EmergencyContact` | `VARCHAR2(20)` | NO | None | — | — | Emergency contact phone number (`chk_pat_emg`: `<> Phone`) |
+
+**Table-Level Constraints for `Patient`:**
+* `chk_pat_phone`: Enforces Egyptian National Telecom plan: numbers only (`^[0-9]+$`). If `Mobile`/`Phone`, must be exactly 11 digits starting with `01` (`010`, `011`, `012`, `015`). If `Landline`, must be 9 digits (Alexandria `03`) or 10 digits (Cairo `02` and provincial governorates) starting with `0`.
+* `chk_pat_emg`: Guarantees emergency contact phone is not identical to the patient's own phone.
+* `chk_pat_emg_num`: Enforces emergency contact is pure digits (`^[0-9]+$`) with valid Egyptian numbering (11 digits starting with `01` or 9-10 digits starting with `0`).
 
 ---
 
@@ -85,6 +91,6 @@ Tracks inpatient hospital admissions, linking a patient to a designated room, wi
 
 ### 3NF (Third Normal Form)
 * **No Transitive Dependencies:** A relation is in 3NF if it is in 2NF and no non-key attribute is transitively dependent on the primary key ($X \to Y$ and $Y \to Z$).
-* In `Patient`: Demographics, contact information, and address components depend strictly on `PatientID`.
+* In `Patient`: Demographics, contact information, phone classification, and address components depend strictly on `PatientID`.
 * In `Room`: Room features (`RoomNumber`, `Floor`, `RoomType`, `Capacity`, `DailyCharge`, `AvailabilityStatus`) describe the physical room and depend solely on `RoomID`.
 * In `Admission`: The stay details (`AdmissionDate`, `DischargeDate`, `AdmissionReason`, `AdmissionStatus`) depend directly on `AdmissionID`. Foreign keys `PatientID` and `RoomID` establish standard 1:M relationships without creating transitive dependencies.

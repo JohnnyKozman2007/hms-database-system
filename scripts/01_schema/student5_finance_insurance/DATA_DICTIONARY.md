@@ -15,6 +15,7 @@ Stores approved vendors and pharmaceutical suppliers providing medical supplies 
 | `CompanyName` | `VARCHAR2(100)` | NO | Candidate | — | — | Must be unique (`uq_supp_name`) |
 | `ContactPerson` | `VARCHAR2(100)` | NO | None | — | — | Name of vendor representative |
 | `Phone` | `VARCHAR2(20)` | NO | None | — | — | Contact telephone number |
+| `PhoneType` | `VARCHAR2(10)` | NO | None | — | `'Landline'` | `chk_supp_phone_type`: IN (`'Landline'`, `'Mobile'`, `'Phone'`) |
 | `Email` | `VARCHAR2(100)` | NO | Candidate | — | — | Unique email (`uq_supp_email`), valid email format |
 | `BuildingNumber`| `VARCHAR2(20)` | YES| None | — | — | Building/Premises number or name |
 | `Street` | `VARCHAR2(100)` | NO | None | — | — | Street name |
@@ -22,6 +23,9 @@ Stores approved vendors and pharmaceutical suppliers providing medical supplies 
 | `PostalCode` | `VARCHAR2(20)` | NO | None | — | — | Postal/ZIP code (Mandatory) |
 | `Address` | `VARCHAR2(250)` | VIRTUAL| Derived | — | Auto-derived | Derived column: `BuildingNumber || ' ' || Street || ', ' || City || ' ' || PostalCode` |
 | `ContractStatus`| `VARCHAR2(20)` | NO | None | — | `'Active'` | `chk_supp_status`: IN (`'Active'`, `'Inactive'`, `'Terminated'`, `'Under Review'`) |
+
+**Table-Level Constraints for `Supplier`:**
+* `chk_supp_phone`: Numbers-only validation (`^[0-9]+$`). Egyptian landlines must be 9 digits (Alexandria `03`) or 10 digits (Cairo `02` and provincial governorates) starting with `0`; mobile numbers must be 11 digits starting with `01`.
 
 ---
 

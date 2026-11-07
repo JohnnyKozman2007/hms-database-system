@@ -4,7 +4,7 @@
 
 ---
 
-* **Patient** (<u>PatientID</u>, FirstName, LastName, /FullName, DateOfBirth, Gender, BloodType, Phone, Email, BuildingNumber, Street, City, PostalCode, /Address, EmergencyContact)
+* **Patient** (<u>PatientID</u>, FirstName, LastName, /FullName, DateOfBirth, Gender, BloodType, Phone, PhoneType, Email, BuildingNumber, Street, City, PostalCode, /Address, EmergencyContact)
 
 * **Room** (<u>RoomID</u>, RoomNumber, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus)
 
@@ -20,8 +20,9 @@
 * `Patient.Gender` enforces a `CHECK` constraint (`IN ('Male', 'Female')`).
 * `Patient.BloodType` enforces a `CHECK` constraint (`IN ('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-')`).
 * `Patient.Phone` and `Patient.Email` are unique candidate keys (**UNIQUE**, **NOT NULL**, with format check `Email LIKE '%_@__%.__%'`).
-* `Patient.Phone` enforces a minimum length check (`LENGTH(TRIM(Phone)) >= 7`).
-* `Patient.EmergencyContact` is **NOT NULL**, enforces `CHECK (EmergencyContact <> Phone)`, and minimum length check (`LENGTH(TRIM(EmergencyContact)) >= 7`).
+* `Patient.PhoneType` defaults to `'Mobile'` and enforces `CHECK (PhoneType IN ('Mobile', 'Landline', 'Phone'))`.
+* `Patient.Phone` enforces Egyptian National Telecom Authority rules: pure digits only (`^[0-9]+$`). Mobile numbers are exactly 11 digits starting with `01` (`010`, `011`, `012`, `015`); Landline numbers are 9 digits (Alexandria `03`) or 10 digits (Cairo `02` and provincial governorates) starting with `0`.
+* `Patient.EmergencyContact` is **NOT NULL**, enforces `CHECK (EmergencyContact <> Phone)`, and enforces Egyptian phone validation with digits only (no spaces, commas, or dashes).
 * `Room.RoomNumber` is a unique candidate key (**UNIQUE** and **NOT NULL**).
 * `Room.Floor` enforces a `CHECK` constraint (`BETWEEN -1 AND 20`).
 * `Room.RoomType` enforces a `CHECK` constraint (`IN ('General Ward', 'Semi-Private', 'Private', 'ICU', 'Isolation', 'Emergency', 'Maternity', 'Pediatric', 'Operating Room')`).
