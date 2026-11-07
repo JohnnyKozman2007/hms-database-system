@@ -1,6 +1,6 @@
 # Student 1: Data Dictionary & Mini-Schema Specification
 **Subsystem:** Department and Staff Management  
-**Entities Owned:** `Department`, `Doctor`, `Nurse`, `Salary` *(Extra Work)*  
+**Entities Owned:** `Department`, `Doctor`, `Nurse`  
 **Boundary Dependencies:** Referenced by `Appointment` (Student 3), `MedicalRecord` (Student 3), `MedicalProcedure` (Student 3), `Prescription` (Student 4), `LaboratoryTest` (Student 4)  
 **Normalization Level:** Third Normal Form (3NF)
 
@@ -61,46 +61,22 @@ Stores registered nurses assigned to hospital departments and shift schedules.
 
 ---
 
-## 4. Entity: `Salary` *(Extra Work Extension)*
-Stores compensation packages, basic wages, allowances, deductions, and net salary calculations for clinical staff (Doctors and Nurses).
-
-| Column Name | Data Type | Nullable | Key Type | References | Default | Constraints & Business Rules |
-| :--- | :--- | :---: | :---: | :---: | :---: | :--- |
-| `SalaryID` | `NUMBER(8)` | NO | **PK** | — | — | Primary identifier |
-| `StaffType` | `VARCHAR2(10)` | NO | None | — | — | `chk_sal_type`: IN (`'Doctor'`, `'Nurse'`) |
-| `DoctorID` | `NUMBER(8)` | YES | **FK** | `Doctor(DoctorID)` | — | Foreign key to Doctor (`fk_sal_doc`) |
-| `NurseID` | `NUMBER(8)` | YES | **FK** | `Nurse(NurseID)` | — | Foreign key to Nurse (`fk_sal_nurse`) |
-| `BaseSalary` | `NUMBER(10,2)` | NO | None | — | — | `chk_sal_base`: `> 0.00` |
-| `Allowance` | `NUMBER(10,2)` | NO | None | — | `0.00` | `chk_sal_allow`: `>= 0.00` |
-| `Deductions` | `NUMBER(10,2)` | NO | None | — | `0.00` | `chk_sal_deduct`: `>= 0.00` |
-| `NetSalary` | `NUMBER(10,2)` | VIRTUAL | Derived | — | Auto-derived | Derived virtual column: `BaseSalary + Allowance - Deductions` |
-| `PaymentFrequency`| `VARCHAR2(20)` | NO | None | — | `'Monthly'` | `chk_sal_freq`: IN (`'Monthly'`, `'Bi-Weekly'`, `'Annual'`) |
-| `EffectiveDate` | `DATE` | NO | None | — | `SYSDATE` | Contract/salary effective start date |
-| `SalaryStatus` | `VARCHAR2(20)` | NO | None | — | `'Active'` | `chk_sal_status`: IN (`'Active'`, `'Superseded'`, `'Suspended'`) |
-
-* **Constraint `chk_sal_staff` (Exclusive Arc):** Enforces mutually exclusive linkage:
-  `((StaffType = 'Doctor' AND DoctorID IS NOT NULL AND NurseID IS NULL) OR (StaffType = 'Nurse' AND NurseID IS NOT NULL AND DoctorID IS NULL))`
-* **Constraint `chk_sal_net_nonneg`:** Enforces `BaseSalary + Allowance >= Deductions`.
-
----
-
-## 5. Normalization Analysis (3NF Compliance)
+## 4. Normalization Analysis (3NF Compliance)
 
 ### 1NF (First Normal Form)
 * All attributes contain strictly atomic, indivisible values.
-* Specifically, composite attributes (`Location` in `Department`, `FullName` in `Doctor` and `Nurse`) are decomposed into atomic columns with auto-derived virtual columns.
-* In `Salary`, monetary components (`BaseSalary`, `Allowance`, `Deductions`, `/NetSalary`) are strictly separated into individual atomic columns.
+* Specifically, the composite attribute `Location` in `Department` has been decomposed into atomic components (`Building` and `FloorLevel`), with `Location` implemented as an auto-derived virtual column.
+* Similarly, `FullName` in both `Doctor` and `Nurse` is an auto-derived virtual column computed from atomic `FirstName` and `LastName`.
 * No repeating groups or multivalued attributes exist across any of the entities.
 * Each table has a defined primary key ensuring record uniqueness.
 
 ### 2NF (Second Normal Form)
-* All four tables (`Department`, `Doctor`, `Nurse`, `Salary`) possess single-attribute primary keys (`DepartmentID`, `DoctorID`, `NurseID`, `SalaryID`).
-* Because no composite primary keys exist, partial functional dependencies are impossible; all non-key attributes are fully functionally dependent on their respective primary keys.
+* All three tables (`Department`, `Doctor`, `Nurse`) possess single-attribute primary keys (`DepartmentID`, `DoctorID`, `NurseID`).
+* Because no composite primary keys exist, partial functional dependencies are impossible; all non-key attributes are fully functionally dependent on the entire primary key.
 
 ### 3NF (Third Normal Form)
 * No transitive functional dependencies exist ($X \to Y$ and $Y \to Z$ where $X$ is the primary key).
 * Non-key attributes depend directly and solely on their respective entity primary keys.
-* Cross-table associations and business hierarchies are maintained exclusively via declarative foreign keys:
+* Hierarchical and organizational relationships are modeled cleanly:
   * Binary 1:M relationships via `DepartmentID` in `Doctor` and `Nurse`.
-  * Unary (recursive) 1:M relationships via `SupervisorID` in `Doctor` and `Nurse`.
-  * Exclusive-arc relationships in `Salary` pointing to either `Doctor` or `Nurse`.
+  * Unary (recursive) 1:M relationships via `SupervisorID` in `Doctor` and `Nurse`, allowing realistic clinical reporting hierarchies without creating cyclic table dependencies.
