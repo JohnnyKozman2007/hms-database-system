@@ -4,7 +4,7 @@
 
 ---
 
-* **Department** (<u>DepartmentID</u>, DepartmentName, Location, Phone, DepartmentDescription)
+* **Department** (<u>DepartmentID</u>, DepartmentName, Building, FloorLevel, /Location, Phone, DepartmentDescription)
 
 * **Doctor** (<u>DoctorID</u>, FirstName, LastName, Gender, Phone, Email, Specialty, HireDate, YearsOfExperience, DepartmentID*)
 
@@ -13,6 +13,8 @@
 ---
 
 ### Key Notes & Constraints:
+* `/Location` is a **derived virtual attribute** computed from (`Building`, `FloorLevel`).
+* `Building` and `FloorLevel` are **NOT NULL** (enforcing atomic location components in 1NF).
 * `DepartmentName` is **UNIQUE** and **NOT NULL**.
 * `Doctor.Email` and `Nurse.Email` are unique candidate keys (**UNIQUE** and **NOT NULL**).
 * `Doctor.Phone` and `Nurse.Phone` are unique candidate keys (**UNIQUE** and **NOT NULL**).

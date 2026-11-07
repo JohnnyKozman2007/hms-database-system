@@ -7,7 +7,9 @@
 CREATE TABLE Department (
     DepartmentID            NUMBER(4)           CONSTRAINT pk_department PRIMARY KEY,
     DepartmentName          VARCHAR2(50)        NOT NULL CONSTRAINT uq_dept_name UNIQUE,
-    Location                VARCHAR2(50)        NOT NULL,
+    Building                VARCHAR2(50)        NOT NULL,
+    FloorLevel              VARCHAR2(50)        NOT NULL,
+    Location                VARCHAR2(100)       GENERATED ALWAYS AS (Building || ', ' || FloorLevel) VIRTUAL,
     Phone                   VARCHAR2(20)        NOT NULL,
     DepartmentDescription   VARCHAR2(255)
 );
