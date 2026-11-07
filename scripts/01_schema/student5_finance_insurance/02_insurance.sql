@@ -4,7 +4,8 @@
 CREATE TABLE Insurance (
     InsuranceID             NUMBER(8)           CONSTRAINT pk_insurance PRIMARY KEY,
     PatientID               NUMBER(8)           NOT NULL,
-    InsuranceCompany        VARCHAR2(100)       NOT NULL,
+    InsuranceCompany        VARCHAR2(100)       NOT NULL 
+                            CONSTRAINT chk_ins_company CHECK (InsuranceCompany IN ('AXA Egypt', 'Bupa Egypt', 'Allianz Egypt', 'MetLife Egypt', 'Misr Insurance', 'GIG Egypt', 'Delta Insurance', 'Universal Health Insurance')),
     PolicyNumber            VARCHAR2(50)        NOT NULL CONSTRAINT uq_ins_policy UNIQUE,
     CoveragePercentage      NUMBER(5,2)         NOT NULL CONSTRAINT chk_ins_cov CHECK (CoveragePercentage BETWEEN 0 AND 100),
     StartDate               DATE                NOT NULL,

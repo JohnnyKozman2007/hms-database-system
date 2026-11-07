@@ -16,7 +16,11 @@ Stores approved vendors and pharmaceutical suppliers providing medical supplies 
 | `ContactPerson` | `VARCHAR2(100)` | NO | None | — | — | Name of vendor representative |
 | `Phone` | `VARCHAR2(20)` | NO | None | — | — | Contact telephone number |
 | `Email` | `VARCHAR2(100)` | NO | Candidate | — | — | Unique email (`uq_supp_email`), valid email format |
-| `Address` | `VARCHAR2(150)` | NO | None | — | — | Physical headquarters / depot address |
+| `BuildingNumber`| `VARCHAR2(20)` | YES| None | — | — | Building/Premises number or name |
+| `Street` | `VARCHAR2(100)` | NO | None | — | — | Street name |
+| `City` | `VARCHAR2(50)` | NO | None | — | — | City or town |
+| `PostalCode` | `VARCHAR2(20)` | NO | None | — | — | Postal/ZIP code (Mandatory) |
+| `Address` | `VARCHAR2(250)` | VIRTUAL| Derived | — | Auto-derived | Derived column: `BuildingNumber || ' ' || Street || ', ' || City || ' ' || PostalCode` |
 | `ContractStatus`| `VARCHAR2(20)` | NO | None | — | `'Active'` | `chk_supp_status`: IN (`'Active'`, `'Inactive'`, `'Terminated'`, `'Under Review'`) |
 
 ---
@@ -28,7 +32,7 @@ Stores health insurance policies linked to patients for claim settlements.
 | :--- | :--- | :---: | :---: | :---: | :---: | :--- |
 | `InsuranceID` | `NUMBER(8)` | NO | **PK** | — | — | Primary identifier (Range: `1..100+`) |
 | `PatientID` | `NUMBER(8)` | NO | **FK** | `Patient(PatientID)` | — | Patient covered by this policy (`fk_ins_pat`) |
-| `InsuranceCompany`| `VARCHAR2(100)` | NO | None | — | — | Name of insurer (e.g. Bupa, AXA, NHS) |
+| `InsuranceCompany`| `VARCHAR2(100)` | NO | None | — | — | `chk_ins_company`: Approved Egyptian providers (`AXA Egypt`, `Bupa Egypt`, `Allianz Egypt`, `MetLife Egypt`, `Misr Insurance`, `GIG Egypt`, `Delta Insurance`, `Universal Health Insurance`) |
 | `PolicyNumber` | `VARCHAR2(50)` | NO | Candidate | — | — | Unique contract number (`uq_ins_policy`) |
 | `CoveragePercentage`| `NUMBER(5,2)` | NO | None | — | — | `chk_ins_cov`: BETWEEN `0.00` AND `100.00` |
 | `StartDate` | `DATE` | NO | None | — | — | Policy effective date |
@@ -48,7 +52,7 @@ Records billing summaries issued to patients for hospital consultations, procedu
 | `TotalAmount` | `NUMBER(10,2)` | NO | None | — | — | `chk_inv_total`: `>= 0.00` |
 | `TaxAmount` | `NUMBER(10,2)` | NO | None | — | `0.00` | `chk_inv_tax`: `>= 0.00` |
 | `Discount` | `NUMBER(10,2)` | NO | None | — | `0.00` | `chk_inv_disc`: `>= 0.00 AND <= TotalAmount` |
-| `DueDate` | `DATE` | NO | None | — | — | `chk_inv_dates`: Must be `>= InvoiceDate` |
+| `DueDate` | `DATE` | NO | None | — | `SYSDATE + 3` | `chk_inv_dates`: Must be `>= InvoiceDate` |
 | `PaymentStatus`| `VARCHAR2(20)` | NO | None | — | `'Unpaid'` | `chk_inv_status`: IN (`'Paid'`, `'Unpaid'`, `'Partially Paid'`, `'Overdue'`) |
 
 ---
