@@ -17,7 +17,11 @@ Stores clinical, administrative, and operational divisions within the hospital.
 | `FloorLevel` | `VARCHAR2(50)` | NO | None | — | — | Floor or level (e.g., 'Floor 1', 'Floor 2', 'Ground Floor') |
 | `Location` | `VARCHAR2(100)` | VIRTUAL | Derived | — | Auto-derived | Derived virtual column: `Building || ', ' || FloorLevel` |
 | `Phone` | `VARCHAR2(20)` | NO | Candidate | — | — | Unique department hotline/extension (`uq_dept_phone`) |
+| `PhoneType` | `VARCHAR2(10)` | NO | None | — | `'Landline'` | `chk_dept_phone_type`: IN (`'Landline'`, `'Mobile'`, `'Phone'`) |
 | `DepartmentDescription` | `VARCHAR2(255)` | YES | None | — | — | Brief summary of medical scope and services offered |
+
+**Table-Level Constraints for `Department`:**
+* `chk_dept_phone`: Numbers-only validation (`^[0-9]+$`). Egyptian landlines must be 9 digits (Alexandria `03`) or 10 digits (Cairo `02` and provincial governorates) starting with `0`; mobile numbers must be 11 digits starting with `01`.
 
 ---
 
@@ -32,12 +36,16 @@ Stores licensed medical doctors, surgeons, and physicians employed by the hospit
 | `FullName` | `VARCHAR2(101)` | VIRTUAL | Derived | — | Auto-derived | Derived virtual column: `FirstName || ' ' || LastName` |
 | `Gender` | `VARCHAR2(10)` | NO | None | — | — | `chk_doc_gender`: IN (`'Male'`, `'Female'`) |
 | `Phone` | `VARCHAR2(20)` | NO | Candidate | — | — | Unique personal contact number (`uq_doc_phone`) |
+| `PhoneType` | `VARCHAR2(10)` | NO | None | — | `'Mobile'` | `chk_doc_phone_type`: IN (`'Mobile'`, `'Landline'`, `'Phone'`) |
 | `Email` | `VARCHAR2(100)` | NO | Candidate | — | — | Unique email (`uq_doc_email`), format check `chk_doc_email_fmt`: `LIKE '%_@__%.__%'` |
 | `Specialty` | `VARCHAR2(50)` | NO | None | — | — | Area of medical specialization (e.g., 'Cardiologist', 'Neurologist') |
 | `HireDate` | `DATE` | NO | None | — | `SYSDATE` | Date of employment commencement (Defaults to current date) |
 | `YearsOfExperience`| `NUMBER(2)` | NO | None | — | `0` | `chk_doc_exp`: Realistic career range `BETWEEN 0 AND 60` |
 | `DepartmentID` | `NUMBER(4)` | NO | **FK** | `Department(DepartmentID)` | — | Department the doctor is assigned to (`fk_doc_dept`) |
 | `SupervisorID` | `NUMBER(8)` | YES | **FK** | `Doctor(DoctorID)` | — | Unary/Recursive reference to senior mentor/supervising doctor (`fk_doc_supervisor`). Nullable for department heads / chief officers. |
+
+**Table-Level Constraints for `Doctor`:**
+* `chk_doc_phone`: Numbers-only validation (`^[0-9]+$`). Egyptian mobile numbers must be 11 digits starting with `01`; landlines must be 9-10 digits starting with `0`.
 
 ---
 
@@ -52,12 +60,16 @@ Stores registered nurses assigned to hospital departments and shift schedules.
 | `FullName` | `VARCHAR2(101)` | VIRTUAL | Derived | — | Auto-derived | Derived virtual column: `FirstName || ' ' || LastName` |
 | `Gender` | `VARCHAR2(10)` | NO | None | — | — | `chk_nurse_gender`: IN (`'Male'`, `'Female'`) |
 | `Phone` | `VARCHAR2(20)` | NO | Candidate | — | — | Unique personal contact telephone number (`uq_nurse_phone`) |
+| `PhoneType` | `VARCHAR2(10)` | NO | None | — | `'Mobile'` | `chk_nurse_phone_type`: IN (`'Mobile'`, `'Landline'`, `'Phone'`) |
 | `Email` | `VARCHAR2(100)` | NO | Candidate | — | — | Unique email (`uq_nurse_email`), format check `chk_nurse_email_fmt`: `LIKE '%_@__%.__%'` |
 | `Shift` | `VARCHAR2(20)` | NO | None | — | `'Morning'` | `chk_nurse_shift`: IN (`'Morning'`, `'Afternoon'`, `'Night'`, `'Rotating'`). Defaults to `'Morning'`. |
 | `HireDate` | `DATE` | NO | None | — | `SYSDATE` | Date of employment commencement (Defaults to current date) |
 | `YearsOfExperience`| `NUMBER(2)` | NO | None | — | `0` | `chk_nurse_exp`: Realistic career range `BETWEEN 0 AND 60` |
 | `DepartmentID` | `NUMBER(4)` | NO | **FK** | `Department(DepartmentID)` | — | Department the nurse is assigned to (`fk_nurse_dept`) |
 | `SupervisorID` | `NUMBER(8)` | YES | **FK** | `Nurse(NurseID)` | — | Unary/Recursive reference to Head/Charge Nurse (`fk_nurse_supervisor`). Nullable for senior nursing leadership. |
+
+**Table-Level Constraints for `Nurse`:**
+* `chk_nurse_phone`: Numbers-only validation (`^[0-9]+$`). Egyptian mobile numbers must be 11 digits starting with `01`; landlines must be 9-10 digits starting with `0`.
 
 ---
 

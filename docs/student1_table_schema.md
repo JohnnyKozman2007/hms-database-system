@@ -4,11 +4,11 @@
 
 ---
 
-* **Department** (<u>DepartmentID</u>, DepartmentName, Building, FloorLevel, /Location, Phone, DepartmentDescription)
+* **Department** (<u>DepartmentID</u>, DepartmentName, Building, FloorLevel, /Location, Phone, PhoneType, DepartmentDescription)
 
-* **Doctor** (<u>DoctorID</u>, FirstName, LastName, /FullName, Gender, Phone, Email, Specialty, HireDate, YearsOfExperience, DepartmentID*, SupervisorID*)
+* **Doctor** (<u>DoctorID</u>, FirstName, LastName, /FullName, Gender, Phone, PhoneType, Email, Specialty, HireDate, YearsOfExperience, DepartmentID*, SupervisorID*)
 
-* **Nurse** (<u>NurseID</u>, FirstName, LastName, /FullName, Gender, Phone, Email, Shift, HireDate, YearsOfExperience, DepartmentID*, SupervisorID*)
+* **Nurse** (<u>NurseID</u>, FirstName, LastName, /FullName, Gender, Phone, PhoneType, Email, Shift, HireDate, YearsOfExperience, DepartmentID*, SupervisorID*)
 
 ---
 
@@ -18,6 +18,8 @@
 * `/FullName` is a **derived virtual attribute** in both `Doctor` and `Nurse` computed from (`FirstName`, `LastName`).
 * `DepartmentName` is **UNIQUE** and **NOT NULL**.
 * `Department.Phone` is **UNIQUE** (`uq_dept_phone`) and **NOT NULL** (dedicated department direct line/extension).
+* `PhoneType` in `Department`, `Doctor`, and `Nurse` enforces `CHECK (PhoneType IN ('Landline', 'Mobile', 'Phone'))`.
+* `Phone` in `Department`, `Doctor`, and `Nurse` enforces Egyptian National Telecom Authority rules: pure digits only (`^[0-9]+$`). Mobile numbers are exactly 11 digits starting with `01`; Landlines are 9 digits (Alexandria `03`) or 10 digits (Cairo `02` and provincial governorates) starting with `0`.
 * `Doctor.Email` and `Nurse.Email` are unique candidate keys (**UNIQUE**, **NOT NULL**, with format check `Email LIKE '%_@__%.__%'`).
 * `Doctor.Phone` and `Nurse.Phone` are unique candidate keys (**UNIQUE** and **NOT NULL**).
 * `Doctor.Gender` and `Nurse.Gender` enforce a `CHECK` constraint (`IN ('Male', 'Female')`).
