@@ -20,16 +20,19 @@
 * `Patient.Gender` enforces a `CHECK` constraint (`IN ('Male', 'Female')`).
 * `Patient.BloodType` enforces a `CHECK` constraint (`IN ('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-')`).
 * `Patient.Phone` and `Patient.Email` are unique candidate keys (**UNIQUE**, **NOT NULL**, with format check `Email LIKE '%_@__%.__%'`).
-* `Patient.EmergencyContact` is **NOT NULL** and enforces `CHECK (EmergencyContact <> Phone)`.
+* `Patient.Phone` enforces a minimum length check (`LENGTH(TRIM(Phone)) >= 7`).
+* `Patient.EmergencyContact` is **NOT NULL**, enforces `CHECK (EmergencyContact <> Phone)`, and minimum length check (`LENGTH(TRIM(EmergencyContact)) >= 7`).
 * `Room.RoomNumber` is a unique candidate key (**UNIQUE** and **NOT NULL**).
 * `Room.Floor` enforces a `CHECK` constraint (`BETWEEN -1 AND 20`).
 * `Room.RoomType` enforces a `CHECK` constraint (`IN ('General Ward', 'Semi-Private', 'Private', 'ICU', 'Isolation', 'Emergency', 'Maternity', 'Pediatric', 'Operating Room')`).
 * `Room.Capacity` defaults to `1` and enforces `CHECK (Capacity > 0 AND Capacity <= 20)`.
-* `Room.DailyCharge` is **NOT NULL** and enforces `CHECK (DailyCharge >= 0)`.
+* `Room` enforces clinical capacity correlation `chk_room_type_cap`: Private, ICU, and Isolation rooms must have `Capacity = 1`; Semi-Private rooms must have `Capacity = 2`.
+* `Room.DailyCharge` is **NOT NULL** and enforces a realistic positive billing range `CHECK (DailyCharge > 0 AND DailyCharge <= 10000.00)`.
 * `Room.AvailabilityStatus` defaults to `'Available'` and enforces `CHECK (AvailabilityStatus IN ('Available', 'Occupied', 'Maintenance', 'Reserved'))`.
 * `Admission.AdmissionDate` defaults to `SYSDATE` and is **NOT NULL**.
 * `Admission.DischargeDate` is **NULLABLE** to reflect current inpatients who have not yet been discharged.
 * `Admission` enforces a table-level date validation `CHECK (DischargeDate IS NULL OR DischargeDate >= AdmissionDate)`.
+* `Admission` enforces status and discharge date synchronization `chk_adm_status_sync`: currently admitted patients must have `DischargeDate IS NULL`, while discharged or transferred patients must have `DischargeDate IS NOT NULL`.
 * `Admission.AdmissionStatus` defaults to `'Admitted'` and enforces `CHECK (AdmissionStatus IN ('Admitted', 'Discharged', 'Transferred'))`.
 
 ### Foreign Key References:

@@ -22,14 +22,14 @@ Stores demographic, personal identification, contact details, and baseline medic
 | `DateOfBirth` | `DATE` | NO | None | — | — | Patient's birthdate (`chk_pat_dob`: `>= DATE '1900-01-01'`) |
 | `Gender` | `VARCHAR2(10)` | NO | None | — | — | `chk_pat_gender`: IN (`'Male'`, `'Female'`) |
 | `BloodType` | `VARCHAR2(5)` | NO | None | — | — | `chk_pat_blood`: IN (`'A+'`, `'A-'`, `'B+'`, `'B-'`, `'AB+'`, `'AB-'`, `'O+'`, `'O-'`) |
-| `Phone` | `VARCHAR2(20)` | NO | Candidate | — | — | Unique primary telephone number (`uq_pat_phone`) |
+| `Phone` | `VARCHAR2(20)` | NO | Candidate | — | — | Unique telephone (`uq_pat_phone`), minimum length check (`chk_pat_phone_len`: `LENGTH(TRIM(Phone)) >= 7`) |
 | `Email` | `VARCHAR2(100)` | NO | Candidate | — | — | Unique email (`uq_pat_email`), format check `chk_pat_email_fmt`: `LIKE '%_@__%.__%'` |
 | `BuildingNumber` | `VARCHAR2(20)` | YES | None | — | — | Building/Apartment/House number or name (Standardized with `Supplier`) |
 | `Street` | `VARCHAR2(100)` | NO | None | — | — | Street or avenue name |
 | `City` | `VARCHAR2(50)` | NO | None | — | — | City or town of residence |
 | `PostalCode` | `VARCHAR2(20)` | NO | None | — | — | Postal/ZIP code (Mandatory) |
 | `Address` | `VARCHAR2(250)` | VIRTUAL | Derived | — | Auto-derived | Derived column: `BuildingNumber || ' ' || Street || ', ' || City || ' ' || PostalCode` |
-| `EmergencyContact` | `VARCHAR2(100)` | NO | None | — | — | Emergency contact person and/or phone (`chk_pat_emg`: `<> Phone`) |
+| `EmergencyContact` | `VARCHAR2(100)` | NO | None | — | — | Emergency contact (`chk_pat_emg`: `<> Phone`), minimum length check (`chk_pat_emg_len`: `LENGTH(TRIM(EmergencyContact)) >= 7`) |
 
 ---
 
@@ -43,8 +43,11 @@ Stores physical accommodation units across hospital wards, care units, and floor
 | `Floor` | `NUMBER(2)` | NO | None | — | — | Floor number (`chk_room_floor`: `BETWEEN -1 AND 20`) |
 | `RoomType` | `VARCHAR2(30)` | NO | None | — | — | `chk_room_type`: IN (`'General Ward'`, `'Semi-Private'`, `'Private'`, `'ICU'`, `'Isolation'`, `'Emergency'`, `'Maternity'`, `'Pediatric'`, `'Operating Room'`) |
 | `Capacity` | `NUMBER(3)` | NO | None | — | `1` | Total bed capacity (`chk_room_capacity`: `Capacity > 0 AND Capacity <= 20`) |
-| `DailyCharge` | `NUMBER(10,2)` | NO | None | — | — | Daily room stay rate in currency units (`chk_room_charge`: `>= 0`) |
+| `DailyCharge` | `NUMBER(10,2)` | NO | None | — | — | Daily room stay rate (`chk_room_charge`: `DailyCharge > 0 AND DailyCharge <= 10000.00`) |
 | `AvailabilityStatus` | `VARCHAR2(20)` | NO | None | — | `'Available'` | `chk_room_status`: IN (`'Available'`, `'Occupied'`, `'Maintenance'`, `'Reserved'`) |
+
+**Table-Level Constraints for `Room`:**
+* `chk_room_type_cap`: Enforces that `'Private'`, `'ICU'`, and `'Isolation'` rooms have `Capacity = 1`, and `'Semi-Private'` rooms have `Capacity = 2`.
 
 ---
 
@@ -63,6 +66,7 @@ Tracks inpatient hospital admissions, linking a patient to a designated room, wi
 
 **Table-Level Constraints for `Admission`:**
 * `chk_adm_dates`: `CHECK (DischargeDate IS NULL OR DischargeDate >= AdmissionDate)` ensures discharge timestamp cannot precede admission timestamp.
+* `chk_adm_status_sync`: `CHECK ((AdmissionStatus = 'Admitted' AND DischargeDate IS NULL) OR (AdmissionStatus IN ('Discharged', 'Transferred') AND DischargeDate IS NOT NULL))` guarantees active patients have no discharge date, while discharged/transferred patients always have an explicit discharge timestamp.
 
 ---
 
