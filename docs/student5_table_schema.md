@@ -4,7 +4,7 @@
 
 ---
 
-* **Supplier** (<u>SupplierID</u>, CompanyName, ContactPerson, Phone, Email, Address, ContractStatus)
+* **Supplier** (<u>SupplierID</u>, CompanyName, ContactPerson, Phone, Email, BuildingNumber, Street, City, PostalCode, Address, ContractStatus)
 
 * **Insurance** (<u>InsuranceID</u>, PatientID*, InsuranceCompany, PolicyNumber, CoveragePercentage, StartDate, ExpirationDate, InsuranceStatus)
 

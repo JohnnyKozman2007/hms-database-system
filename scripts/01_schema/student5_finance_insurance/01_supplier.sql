@@ -6,6 +6,10 @@ CREATE TABLE Supplier (
     ContactPerson           VARCHAR2(100)       NOT NULL,
     Phone                   VARCHAR2(20)        NOT NULL,
     Email                   VARCHAR2(100)       NOT NULL CONSTRAINT uq_supp_email UNIQUE,
-    Address                 VARCHAR2(150)       NOT NULL,
+    BuildingNumber          VARCHAR2(20),
+    Street                  VARCHAR2(100)       NOT NULL,
+    City                    VARCHAR2(50)        NOT NULL,
+    PostalCode              VARCHAR2(20),
+    Address                 VARCHAR2(250),
     ContractStatus          VARCHAR2(20)        DEFAULT 'Active' NOT NULL CONSTRAINT chk_supp_status CHECK (ContractStatus IN ('Active', 'Inactive', 'Terminated', 'Under Review'))
 );

@@ -16,7 +16,11 @@ Stores approved vendors and pharmaceutical suppliers providing medical supplies 
 | `ContactPerson` | `VARCHAR2(100)` | NO | None | — | — | Name of vendor representative |
 | `Phone` | `VARCHAR2(20)` | NO | None | — | — | Contact telephone number |
 | `Email` | `VARCHAR2(100)` | NO | Candidate | — | — | Unique email (`uq_supp_email`), valid email format |
-| `Address` | `VARCHAR2(150)` | NO | None | — | — | Physical headquarters / depot address |
+| `BuildingNumber`| `VARCHAR2(20)` | YES| None | — | — | Building/Premises number or name |
+| `Street` | `VARCHAR2(100)` | NO | None | — | — | Street name |
+| `City` | `VARCHAR2(50)` | NO | None | — | — | City or town |
+| `PostalCode` | `VARCHAR2(20)` | YES| None | — | — | Postal/ZIP code |
+| `Address` | `VARCHAR2(250)` | YES| None | — | — | Full combined address string |
 | `ContractStatus`| `VARCHAR2(20)` | NO | None | — | `'Active'` | `chk_supp_status`: IN (`'Active'`, `'Inactive'`, `'Terminated'`, `'Under Review'`) |
 
 ---
