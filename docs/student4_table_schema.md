@@ -6,7 +6,7 @@
 
 * **Medication** (<u>MedicationID</u>, MedicationName, Manufacturer, Category, DosageForm, UnitPrice, QuantityInStock, ExpirationDate, SupplierID*)
 
-* **Prescription** (<u>PrescriptionID</u>, PatientID*, DoctorID*, MedicationID*, Dosage, Frequency, Duration, PrescriptionDate, /PrescriptionTime, /EndDate, Notes)
+* **Prescription** (<u>PrescriptionID</u>, PatientID*, DoctorID*, MedicationID*, Dosage, Frequency, Duration, QuantityPrescribed, DispenseStatus, PrescriptionDate, /PrescriptionTime, /EndDate, Notes)
 
 * **LaboratoryTest** (<u>TestID</u>, PatientID*, DoctorID*, TestType, RequestedDate, CompletedDate, TestStatus, TestResult, TestCost)
 
@@ -23,6 +23,8 @@
 * `Prescription.Dosage` is **NOT NULL** (e.g., `'500 mg'`, `'10 ml'`, `'1 tablet'`).
 * `Prescription.Frequency` is **NOT NULL** and enforces standard medical dosing intervals (`chk_rx_frequency`: `IN ('Once daily', 'Twice daily', 'Three times daily', 'Four times daily', 'Every 4 hours', 'Every 6 hours', 'Every 8 hours', 'Every 12 hours', 'As needed (PRN)', 'At bedtime', 'Weekly', 'Before meals', 'After meals')`).
 * `Prescription.Duration` is in days, **NOT NULL**, and bounded between 1 and 365 days (`chk_rx_duration`: `Duration > 0 AND Duration <= 365`).
+* `Prescription.QuantityPrescribed` defaults to `1`, is **NOT NULL**, and enforces strictly positive dispensed units (`chk_rx_qty`: `QuantityPrescribed > 0 AND QuantityPrescribed <= 1000`).
+* `Prescription.DispenseStatus` defaults to `'Pending'`, is **NOT NULL**, and tracks pharmacy fulfillment lifecycle (`chk_rx_dispense`: `IN ('Pending', 'Dispensed', 'Cancelled')`).
 * `Prescription.PrescriptionDate` stores both **Date and Time** (`YYYY-MM-DD HH24:MI:SS`), defaults to `SYSDATE`, is **NOT NULL**, and enforces boundary check (`chk_rx_date`: `PrescriptionDate >= DATE '2020-01-01'`).
 * `/PrescriptionTime` is an **auto-derived virtual attribute** extracted from `PrescriptionDate` via `TO_CHAR(PrescriptionDate, 'HH24:MI')`, ensuring exact time synchronization without redundant manual entry.
 * `/EndDate` is an **auto-derived virtual attribute** calculated as `PrescriptionDate + Duration`, keeping treatment completion dates synchronized without redundant manual entry.
