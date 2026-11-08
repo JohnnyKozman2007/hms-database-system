@@ -22,11 +22,12 @@ Tracks clinical outpatient visits and specialist consultations scheduled between
 | `AppointmentTime` | `VARCHAR2(5)` | VIRTUAL | Derived | — | Auto-derived | Derived virtual column: `TO_CHAR(AppointmentDate, 'HH24:MI')` |
 | `Status` | `VARCHAR2(20)` | NO | None | — | `'Scheduled'` | `chk_apt_status`: IN (`'Scheduled'`, `'Completed'`, `'Cancelled'`, `'No-Show'`, `'In-Progress'`, `'Rescheduled'`) |
 | `Reason` | `VARCHAR2(255)` | NO | None | — | — | Chief complaint or purpose of consultation |
-| `Notes` | `VARCHAR2(500)` | YES | None | — | — | Optional triage, clinical, or front-desk notes |
+| `Notes` | `VARCHAR2(500)` | YES | None | — | — | Triage, clinical, or front-desk notes (mandatory if cancelled/rescheduled) |
 
 **Table-Level Constraints for `Appointment`:**
 * `chk_apt_status`: Enforces permissible appointment lifecycle stages.
 * Date boundary `chk_apt_date`: Ensures appointment timestamps are realistic (`>= DATE '2020-01-01'`).
+* `chk_apt_cancel_note`: `CHECK (Status NOT IN ('Cancelled', 'Rescheduled') OR Notes IS NOT NULL)` guarantees that whenever an appointment is cancelled or rescheduled, an explanatory note is recorded.
 
 ---
 
@@ -39,13 +40,13 @@ Maintains longitudinal clinical encounter records, recorded diagnoses, managemen
 | `PatientID` | `NUMBER(8)` | NO | **FK** | `Patient(PatientID)` | — | Patient whom this record concerns (`fk_mr_patient`) |
 | `DoctorID` | `NUMBER(8)` | NO | **FK** | `Doctor(DoctorID)` | — | Physician authoring the medical entry (`fk_mr_doctor`) |
 | `Diagnosis` | `VARCHAR2(255)` | NO | None | — | — | Clinically identified diagnosis / pathology |
-| `Treatment` | `VARCHAR2(500)` | NO | None | — | — | Prescribed therapy, lifestyle intervention, or medication plan |
+| `Treatment` | `VARCHAR2(500)` | NO | None | — | `'Routine Monitoring / Conservative Management'` | Prescribed therapy or clinical management plan |
 | `Notes` | `VARCHAR2(1000)` | YES | None | — | — | Detailed physician observations, symptoms, and medical history |
 | `RecordDate` | `DATE` | NO | None | — | `SYSDATE` | Date encounter was documented (`chk_mr_rec_date`: `>= DATE '2020-01-01'`) |
 | `FollowUpDate` | `DATE` | YES | None | — | — | Scheduled return visit date (NULL if routine discharge/no follow-up) |
 
 **Table-Level Constraints for `MedicalRecord`:**
-* `chk_mr_dates`: `CHECK (FollowUpDate IS NULL OR FollowUpDate >= RecordDate)` ensures follow-up appointments cannot precede the initial record creation date.
+* `chk_mr_dates`: `CHECK (FollowUpDate IS NULL OR (FollowUpDate >= RecordDate AND FollowUpDate <= RecordDate + 365))` ensures follow-up appointments cannot precede the initial record creation date and are capped within a realistic 1-year window.
 
 ---
 
@@ -59,14 +60,15 @@ Logs clinical, interventional, surgical, and diagnostic procedures performed on 
 | `DoctorID` | `NUMBER(8)` | NO | **FK** | `Doctor(DoctorID)` | — | Primary surgeon/proceduralist (`fk_proc_doctor`) |
 | `ProcedureName` | `VARCHAR2(100)` | NO | None | — | — | Clinical name of procedure performed |
 | `ProcedureDate` | `DATE` | NO | None | — | `SYSDATE` | Date procedure was executed (`chk_proc_date`: `>= DATE '2020-01-01'`) |
-| `OperatingRoom` | `VARCHAR2(30)` | NO | None | — | — | Operating room / surgical suite designation (e.g., `'OR-1'`, `'Cath Lab'`) |
+| `OperatingRoom` | `VARCHAR2(30)` | NO | None | — | — | Standardized theater designation (`chk_proc_room`: IN (`'OR-1'`, `'OR-2'`, `'OR-3'`, `'Cath Lab'`, `'Endoscopy Suite'`, `'Minor Surgery 1'`)) |
 | `Duration` | `NUMBER(4)` | NO | None | — | — | Procedure length in minutes (`chk_proc_duration`: `Duration > 0 AND Duration <= 1440`) |
-| `ProcedureCost` | `NUMBER(10,2)` | NO | None | — | — | Procedure fee (`chk_proc_cost`: `ProcedureCost >= 0 AND ProcedureCost <= 1000000.00`) |
+| `ProcedureCost` | `NUMBER(10,2)` | NO | None | — | — | Procedure gross fee (`chk_proc_cost`: `ProcedureCost > 0 AND ProcedureCost <= 1000000.00`) |
 | `Outcome` | `VARCHAR2(30)` | NO | None | — | `'Successful'` | `chk_proc_outcome`: IN (`'Successful'`, `'Completed with Complications'`, `'Unsuccessful'`, `'Pending'`, `'In-Progress'`, `'Aborted'`) |
 
 **Table-Level Constraints for `MedicalProcedure`:**
+* `chk_proc_room`: Standardizes operating suites and surgical rooms across hospital departments.
 * `chk_proc_duration`: Ensures procedure duration is strictly positive and capped within a realistic 24-hour limit (1,440 minutes).
-* `chk_proc_cost`: Enforces valid non-negative procedure charges.
+* `chk_proc_cost`: Enforces strictly positive procedure charges (`> 0.00`).
 * `chk_proc_outcome`: Restricts procedural outcomes to standardized hospital clinical statuses.
 
 ---

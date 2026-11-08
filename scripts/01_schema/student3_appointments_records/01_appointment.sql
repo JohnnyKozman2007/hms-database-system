@@ -14,5 +14,6 @@ CREATE TABLE Appointment (
     Reason                  VARCHAR2(255)       NOT NULL,
     Notes                   VARCHAR2(500),
     CONSTRAINT fk_apt_patient FOREIGN KEY (PatientID) REFERENCES Patient(PatientID),
-    CONSTRAINT fk_apt_doctor FOREIGN KEY (DoctorID) REFERENCES Doctor(DoctorID)
+    CONSTRAINT fk_apt_doctor FOREIGN KEY (DoctorID) REFERENCES Doctor(DoctorID),
+    CONSTRAINT chk_apt_cancel_note CHECK (Status NOT IN ('Cancelled', 'Rescheduled') OR Notes IS NOT NULL)
 );
