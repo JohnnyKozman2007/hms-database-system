@@ -1,4 +1,18 @@
--- Entity: Appointment (Owner: Student 3)
--- Target: Minimum 300 appointments
--- Attributes: AppointmentID (PK), PatientID (FK), DoctorID (FK), AppointmentDate, AppointmentTime, Status, Reason, Notes
--- TODO: Student 3 write CREATE TABLE statement here
+-- ============================================================================
+-- Entity: Appointment (Student 3 - Appointments and Medical Records)
+-- Minimum Data Target: 300 appointments
+-- Level 3 Table: Dependent on Patient (PatientID FK) and Doctor (DoctorID FK)
+-- ============================================================================
+
+CREATE TABLE Appointment (
+    AppointmentID           NUMBER(8)           CONSTRAINT pk_appointment PRIMARY KEY,
+    PatientID               NUMBER(8)           NOT NULL,
+    DoctorID                NUMBER(8)           NOT NULL,
+    AppointmentDate         DATE                DEFAULT SYSDATE NOT NULL CONSTRAINT chk_apt_date CHECK (AppointmentDate >= DATE '2020-01-01'),
+    AppointmentTime         VARCHAR2(8)         NOT NULL CONSTRAINT chk_apt_time CHECK (REGEXP_LIKE(AppointmentTime, '^([01][0-9]|2[0-3]):[0-5][0-9]$')),
+    Status                  VARCHAR2(20)        DEFAULT 'Scheduled' NOT NULL CONSTRAINT chk_apt_status CHECK (Status IN ('Scheduled', 'Completed', 'Cancelled', 'No-Show', 'In-Progress', 'Rescheduled')),
+    Reason                  VARCHAR2(255)       NOT NULL,
+    Notes                   VARCHAR2(500),
+    CONSTRAINT fk_apt_patient FOREIGN KEY (PatientID) REFERENCES Patient(PatientID),
+    CONSTRAINT fk_apt_doctor FOREIGN KEY (DoctorID) REFERENCES Doctor(DoctorID)
+);
