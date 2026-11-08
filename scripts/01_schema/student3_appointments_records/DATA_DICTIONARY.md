@@ -18,16 +18,17 @@ Tracks clinical outpatient visits and specialist consultations scheduled between
 | `AppointmentID` | `NUMBER(8)` | NO | **PK** | — | — | Primary identifier (Agreed Range: `1..300+`) |
 | `PatientID` | `NUMBER(8)` | NO | **FK** | `Patient(PatientID)` | — | Patient booked for the appointment (`fk_apt_patient`) |
 | `DoctorID` | `NUMBER(8)` | NO | **FK** | `Doctor(DoctorID)` | — | Doctor conducting the consultation (`fk_apt_doctor`) |
-| `AppointmentDate` | `DATE` | NO | None | — | `SYSDATE` | Scheduled calendar date and timestamp (`chk_apt_date`: `>= DATE '2020-01-01'`) |
+| `AppointmentDate` | `DATE` | NO | Candidate | — | `SYSDATE` | Scheduled calendar date and timestamp (`chk_apt_date`: `>= DATE '2020-01-01'`) |
 | `AppointmentTime` | `VARCHAR2(5)` | VIRTUAL | Derived | — | Auto-derived | Derived virtual column: `TO_CHAR(AppointmentDate, 'HH24:MI')` |
 | `Status` | `VARCHAR2(20)` | NO | None | — | `'Scheduled'` | `chk_apt_status`: IN (`'Scheduled'`, `'Completed'`, `'Cancelled'`, `'No-Show'`, `'In-Progress'`, `'Rescheduled'`) |
 | `Reason` | `VARCHAR2(255)` | NO | None | — | — | Chief complaint or purpose of consultation |
-| `Notes` | `VARCHAR2(500)` | YES | None | — | — | Triage, clinical, or front-desk notes (mandatory if cancelled/rescheduled) |
+| `Notes` | `VARCHAR2(500)` | YES | None | — | — | Triage, clinical, or front-desk notes (mandatory if cancelled, rescheduled, or no-show) |
 
 **Table-Level Constraints for `Appointment`:**
 * `chk_apt_status`: Enforces permissible appointment lifecycle stages.
-* Date boundary `chk_apt_date`: Ensures appointment timestamps are realistic (`>= DATE '2020-01-01'`).
-* `chk_apt_cancel_note`: `CHECK (Status NOT IN ('Cancelled', 'Rescheduled') OR Notes IS NOT NULL)` guarantees that whenever an appointment is cancelled or rescheduled, an explanatory note is recorded.
+* `chk_apt_date`: Ensures appointment timestamps are realistic (`>= DATE '2020-01-01'`).
+* `chk_apt_status_note`: `CHECK (Status NOT IN ('Cancelled', 'Rescheduled', 'No-Show') OR Notes IS NOT NULL)` guarantees that whenever an appointment is cancelled, rescheduled, or missed, an explanatory note is recorded.
+* `uq_apt_pat_time`: `UNIQUE (PatientID, AppointmentDate)` guarantees that no patient can be booked for two simultaneous appointments at the exact same start timestamp.
 
 ---
 
@@ -42,11 +43,12 @@ Maintains longitudinal clinical encounter records, recorded diagnoses, managemen
 | `Diagnosis` | `VARCHAR2(255)` | NO | None | — | — | Clinically identified diagnosis / pathology |
 | `Treatment` | `VARCHAR2(500)` | NO | None | — | `'Routine Monitoring / Conservative Management'` | Prescribed therapy or clinical management plan |
 | `Notes` | `VARCHAR2(1000)` | YES | None | — | — | Detailed physician observations, symptoms, and medical history |
-| `RecordDate` | `DATE` | NO | None | — | `SYSDATE` | Date encounter was documented (`chk_mr_rec_date`: `>= DATE '2020-01-01'`) |
+| `RecordDate` | `DATE` | NO | Candidate | — | `SYSDATE` | Date encounter was documented (`chk_mr_rec_date`: `>= DATE '2020-01-01'`) |
 | `FollowUpDate` | `DATE` | YES | None | — | — | Scheduled return visit date (NULL if routine discharge/no follow-up) |
 
 **Table-Level Constraints for `MedicalRecord`:**
 * `chk_mr_dates`: `CHECK (FollowUpDate IS NULL OR (FollowUpDate >= RecordDate AND FollowUpDate <= RecordDate + 365))` ensures follow-up appointments cannot precede the initial record creation date and are capped within a realistic 1-year window.
+* `uq_mr_encounter`: `UNIQUE (PatientID, DoctorID, RecordDate)` prevents accidental duplicate documentation of the same encounter between a patient and doctor at the same timestamp.
 
 ---
 
@@ -64,15 +66,16 @@ Logs clinical, interventional, surgical, and diagnostic procedures performed on 
 | `EndTime` | `DATE` | VIRTUAL | Derived | — | Auto-derived | Auto-derived virtual column: `ProcedureDate + (Duration / 1440)` |
 | `OperatingRoom` | `VARCHAR2(30)` | NO | Candidate | — | — | Standardized theater designation (`chk_proc_room`: IN (`'OR-1'`, `'OR-2'`, `'OR-3'`, `'Cath Lab'`, `'Endoscopy Suite'`, `'Minor Surgery 1'`)) |
 | `ProcedureCost` | `NUMBER(10,2)` | NO | None | — | — | Procedure gross fee (`chk_proc_cost`: `ProcedureCost > 0 AND ProcedureCost <= 1000000.00`) |
-| `Outcome` | `VARCHAR2(30)` | NO | None | — | `'Successful'` | `chk_proc_outcome`: IN (`'Successful'`, `'Completed with Complications'`, `'Unsuccessful'`, `'Pending'`, `'In-Progress'`, `'Aborted'`) |
+| `Outcome` | `VARCHAR2(30)` | NO | None | — | `'Pending'` | `chk_proc_outcome`: IN (`'Pending'`, `'In-Progress'`, `'Successful'`, `'Completed with Complications'`, `'Unsuccessful'`, `'Aborted'`) |
 
 **Table-Level Constraints for `MedicalProcedure`:**
 * `uq_proc_doc_time`: `UNIQUE (DoctorID, ProcedureDate)` guarantees that no doctor can be scheduled for two procedures at the exact same start time.
 * `uq_proc_room_time`: `UNIQUE (OperatingRoom, ProcedureDate)` guarantees that no single operating room can host two procedures at the exact same start time.
+* `uq_proc_pat_time`: `UNIQUE (PatientID, ProcedureDate)` guarantees that no patient can be scheduled for two surgical procedures at the exact same start time.
 * `chk_proc_room`: Standardizes operating suites and surgical rooms across hospital departments.
 * `chk_proc_duration`: Ensures procedure duration is strictly positive and capped within a realistic 24-hour limit (1,440 minutes).
 * `chk_proc_cost`: Enforces strictly positive procedure charges (`> 0.00`).
-* `chk_proc_outcome`: Restricts procedural outcomes to standardized hospital clinical statuses.
+* `chk_proc_outcome`: Restricts procedural outcomes to standardized hospital clinical statuses, starting in `'Pending'` state upon booking.
 
 ---
 

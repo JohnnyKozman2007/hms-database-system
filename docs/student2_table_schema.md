@@ -24,7 +24,7 @@
 * `Patient.Phone` enforces Egyptian National Telecom Authority rules: pure digits only (`^[0-9]+$`). Mobile numbers are exactly 11 digits starting with `01` (`010`, `011`, `012`, `015`); Landline numbers are 9 digits (Alexandria `03`) or 10 digits (Cairo `02` and provincial governorates) starting with `0`.
 * `Patient.EmergencyContact` is **NOT NULL**, enforces `CHECK (EmergencyContact <> Phone)`, and enforces Egyptian phone validation with digits only (no spaces, commas, or dashes).
 * `Room.RoomNumber` is a unique candidate key (**UNIQUE** and **NOT NULL**).
-* `Room.Floor` enforces a `CHECK` constraint (`BETWEEN -1 AND 20`).
+* `Room.Floor` is **NOT NULL** and stored as `VARCHAR2(10)` (architectural location level, not a mathematical number).
 * `Room.RoomType` enforces a `CHECK` constraint (`IN ('General Ward', 'Semi-Private', 'Private', 'ICU', 'Isolation', 'Emergency', 'Maternity', 'Pediatric', 'Operating Room')`).
 * `Room.Capacity` defaults to `1` and enforces `CHECK (Capacity > 0 AND Capacity <= 20)`.
 * `Room` enforces clinical capacity correlation `chk_room_type_cap`: Private, ICU, and Isolation rooms must have `Capacity = 1`; Semi-Private rooms must have `Capacity = 2`.

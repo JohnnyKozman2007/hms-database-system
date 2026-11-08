@@ -2,6 +2,9 @@
 -- Entity: MedicalRecord (Student 3 - Appointments and Medical Records)
 -- Minimum Data Target: 250 records
 -- Level 3 Table: Dependent on Patient (PatientID FK) and Doctor (DoctorID FK)
+-- Constraints:
+--   - chk_mr_dates: FollowUpDate must be on/after RecordDate and within 365 days
+--   - uq_mr_encounter: Candidate key preventing duplicate encounter documentation
 -- ============================================================================
 
 CREATE TABLE MedicalRecord (
@@ -15,5 +18,6 @@ CREATE TABLE MedicalRecord (
     FollowUpDate            DATE,
     CONSTRAINT fk_mr_patient FOREIGN KEY (PatientID) REFERENCES Patient(PatientID),
     CONSTRAINT fk_mr_doctor FOREIGN KEY (DoctorID) REFERENCES Doctor(DoctorID),
-    CONSTRAINT chk_mr_dates CHECK (FollowUpDate IS NULL OR (FollowUpDate >= RecordDate AND FollowUpDate <= RecordDate + 365))
+    CONSTRAINT chk_mr_dates CHECK (FollowUpDate IS NULL OR (FollowUpDate >= RecordDate AND FollowUpDate <= RecordDate + 365)),
+    CONSTRAINT uq_mr_encounter UNIQUE (PatientID, DoctorID, RecordDate)
 );
