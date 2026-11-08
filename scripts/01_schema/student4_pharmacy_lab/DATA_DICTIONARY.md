@@ -49,7 +49,8 @@ Represents clinical prescription orders issued by attending physicians, dispensi
 | `Dosage` | `VARCHAR2(50)` | NO | None | — | — | Prescribed strength and quantity (e.g., `'500 mg'`, `'10 ml'`) |
 | `Frequency` | `VARCHAR2(50)` | NO | None | — | — | `chk_rx_frequency`: IN (`'Once daily'`, `'Twice daily'`, `'Three times daily'`, `'Four times daily'`, `'Every 4 hours'`, `'Every 6 hours'`, `'Every 8 hours'`, `'Every 12 hours'`, `'As needed (PRN)'`, `'At bedtime'`, `'Weekly'`, `'Before meals'`, `'After meals'`) |
 | `Duration` | `NUMBER(3)` | NO | None | — | — | Course duration in days (`chk_rx_duration`: `Duration > 0 AND Duration <= 365`) |
-| `PrescriptionDate` | `DATE` | NO | Candidate | — | `SYSDATE` | Date order was signed (`chk_rx_date`: `>= DATE '2020-01-01'`) |
+| `PrescriptionDate` | `DATE` | NO | Candidate | — | `SYSDATE` | Date and timestamp order was signed (`chk_rx_date`: `>= DATE '2020-01-01'`) |
+| `PrescriptionTime` | `VARCHAR2(5)` | VIRTUAL | Derived | — | Auto-derived | Auto-derived virtual column: `TO_CHAR(PrescriptionDate, 'HH24:MI')` |
 | `EndDate` | `DATE` | VIRTUAL | Derived | — | Auto-derived | Auto-derived virtual column: `PrescriptionDate + Duration` |
 | `Notes` | `VARCHAR2(500)` | YES | None | — | — | Special dispensing, dietary, or warning notes |
 
@@ -61,7 +62,7 @@ Represents clinical prescription orders issued by attending physicians, dispensi
 * `chk_rx_frequency`: Standardizes intake scheduling instructions.
 * `chk_rx_duration`: Validates that prescription durations are strictly positive and capped within 1 calendar year (365 days).
 * `chk_rx_date`: Validates prescription date limits.
-* `uq_rx_order`: `UNIQUE (PatientID, DoctorID, MedicationID, PrescriptionDate)` prevents duplicate prescription orders for the same drug to the same patient on the same day.
+* `uq_rx_order`: `UNIQUE (PatientID, DoctorID, MedicationID, PrescriptionDate)` prevents duplicate prescription orders for the same drug at the exact same moment. Because `PrescriptionDate` contains the full time component (`HH24:MI:SS`), same-day prescriptions (such as morning and evening orders) are handled naturally without conflict.
 
 ---
 
@@ -98,7 +99,9 @@ Tracks pathology and diagnostic laboratory orders requested by clinical doctors,
 
 ### 1NF (First Normal Form)
 * **Atomic Attributes:** All fields contain indivisible atomic values (distinct units for dosage, numeric duration in days, and independent test types).
-* **Derived Virtual Column:** `/EndDate` is auto-calculated via `PrescriptionDate + Duration`, eliminating temporal redundancy while keeping prescription end dates synchronized without duplicate storage.
+* **Derived Virtual Columns:** 
+  * `/PrescriptionTime` is auto-extracted via `TO_CHAR(PrescriptionDate, 'HH24:MI')`, keeping date and time cleanly synchronized without manual input duplication (matching `AppointmentTime` in `Appointment`).
+  * `/EndDate` is auto-calculated via `PrescriptionDate + Duration`, eliminating temporal redundancy while keeping prescription end dates synchronized without duplicate storage.
 * **No Repeating Groups:** Multiple medications or lab tests are stored as distinct relational tuples in `Prescription` and `LaboratoryTest`, never as comma-separated strings or nested arrays.
 * **Unique Identification:** Every table is uniquely keyed by a designated single-attribute primary key (`MedicationID`, `PrescriptionID`, `TestID`).
 
@@ -110,5 +113,5 @@ Tracks pathology and diagnostic laboratory orders requested by clinical doctors,
 ### 3NF (Third Normal Form)
 * **No Transitive Dependencies:** A relation is in 3NF if it satisfies 2NF and contains no transitive dependencies ($X \to Y$ and $Y \to Z$ where $Y$ is not a superkey).
 * In `Medication`: `MedicationName`, `Manufacturer`, `Category`, `DosageForm`, `UnitPrice`, `QuantityInStock`, and `ExpirationDate` describe the specific pharmaceutical product and depend strictly on `MedicationID`. Foreign key `SupplierID` references the vendor without creating transitive attributes.
-* In `Prescription`: `Dosage`, `Frequency`, `Duration`, `PrescriptionDate`, `/EndDate`, and `Notes` describe the specific prescription order and depend solely on `PrescriptionID`. Foreign keys `PatientID`, `DoctorID`, and `MedicationID` define direct associations.
+* In `Prescription`: `Dosage`, `Frequency`, `Duration`, `PrescriptionDate`, `/PrescriptionTime`, `/EndDate`, and `Notes` describe the specific prescription order and depend solely on `PrescriptionID`. Foreign keys `PatientID`, `DoctorID`, and `MedicationID` define direct associations.
 * In `LaboratoryTest`: `TestType`, `RequestedDate`, `CompletedDate`, `TestStatus`, `TestResult`, and `TestCost` describe the individual test specimen and depend solely on `TestID`. Foreign keys `PatientID` and `DoctorID` establish direct foreign relationships without introducing transitive dependencies.
