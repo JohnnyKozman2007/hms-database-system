@@ -6,8 +6,8 @@
 -- ============================================================================
 -- Architecture (Two-Layer Defense-in-Depth):
 -- 1. Front-Door Application Layer (Stored Procedures):
---    - sp_book_appointment: Validates existence and books clean appointments.
---    - sp_schedule_procedure: Calculates interval end-times and validates availability.
+--    - sp_book_appointment: Validates existence, dates, reasons, and books clean appointments.
+--    - sp_schedule_procedure: Validates rooms, costs, durations, interval end-times, and availability.
 -- 2. Engine-Level Backstop Layer (Compound Triggers):
 --    - trg_procedure_overlap_guard: Blocks rogue raw INSERT/UPDATE interval collisions.
 --    - trg_appointment_conflict_guard: Blocks rogue raw INSERT/UPDATE appointment collisions.
@@ -18,8 +18,9 @@ SET SERVEROUTPUT ON;
 
 -- ----------------------------------------------------------------------------
 -- 1. PROCEDURE: sp_book_appointment
--- Description: Books an appointment, ensuring neither the Doctor nor the Patient
---              already has an active scheduled appointment at the exact requested time.
+-- Description: Books an appointment, ensuring input integrity and that neither
+--              the Doctor nor the Patient already has an active scheduled appointment
+--              at the exact requested time.
 -- ----------------------------------------------------------------------------
 CREATE OR REPLACE PROCEDURE sp_book_appointment (
     p_appointment_id   IN NUMBER,
@@ -35,7 +36,17 @@ CREATE OR REPLACE PROCEDURE sp_book_appointment (
     v_pat_conflict_count  NUMBER := 0;
     v_time_str            VARCHAR2(5);
 BEGIN
-    -- 1. Validate Patient existence
+    -- 1. Validate Reason
+    IF p_reason IS NULL OR TRIM(p_reason) IS NULL THEN
+        RAISE_APPLICATION_ERROR(-20012, 'Error: Appointment reason cannot be null or blank.');
+    END IF;
+
+    -- 2. Validate Appointment Date
+    IF p_appointment_date IS NULL OR p_appointment_date < DATE '2020-01-01' THEN
+        RAISE_APPLICATION_ERROR(-20013, 'Error: Appointment date must be valid and on or after 2020-01-01.');
+    END IF;
+
+    -- 3. Validate Patient existence
     SELECT COUNT(*) INTO v_patient_exists
     FROM Patient
     WHERE PatientID = p_patient_id;
@@ -44,7 +55,7 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20010, 'Error: Patient ID ' || p_patient_id || ' does not exist in the database.');
     END IF;
 
-    -- 2. Validate Doctor existence
+    -- 4. Validate Doctor existence
     SELECT COUNT(*) INTO v_doctor_exists
     FROM Doctor
     WHERE DoctorID = p_doctor_id;
@@ -53,10 +64,10 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20011, 'Error: Doctor ID ' || p_doctor_id || ' does not exist in the database.');
     END IF;
 
-    -- 3. Extract time string for logging/checking
+    -- 5. Extract time string for logging/checking
     v_time_str := TO_CHAR(p_appointment_date, 'HH24:MI');
 
-    -- 4. Check for active appointment conflict for the doctor
+    -- 6. Check for active appointment conflict for the doctor
     SELECT COUNT(*)
     INTO v_doc_conflict_count
     FROM Appointment
@@ -70,7 +81,7 @@ BEGIN
             ' already has an active appointment at ' || TO_CHAR(p_appointment_date, 'YYYY-MM-DD HH24:MI') || '.');
     END IF;
 
-    -- 5. Check for active appointment conflict for the patient
+    -- 7. Check for active appointment conflict for the patient
     SELECT COUNT(*)
     INTO v_pat_conflict_count
     FROM Appointment
@@ -84,7 +95,7 @@ BEGIN
             ' already has an active appointment at ' || TO_CHAR(p_appointment_date, 'YYYY-MM-DD HH24:MI') || '.');
     END IF;
 
-    -- 6. Insert clean appointment tuple
+    -- 8. Insert clean appointment tuple
     INSERT INTO Appointment (
         AppointmentID,
         PatientID,
@@ -111,7 +122,8 @@ END sp_book_appointment;
 
 -- ----------------------------------------------------------------------------
 -- 2. PROCEDURE: sp_schedule_procedure
--- Description: Schedules a medical/surgical procedure, verifying that neither
+-- Description: Schedules a medical/surgical procedure, verifying that input values,
+--              operating rooms, and time windows are clean and that neither
 --              the Doctor, the Operating Room, nor the Patient has an overlapping time window.
 -- ----------------------------------------------------------------------------
 CREATE OR REPLACE PROCEDURE sp_schedule_procedure (
@@ -131,17 +143,33 @@ CREATE OR REPLACE PROCEDURE sp_schedule_procedure (
     v_pat_conflicts    NUMBER := 0;
     v_new_end_time     DATE;
 BEGIN
-    -- 1. Validate Duration
+    -- 1. Validate Procedure Name
+    IF p_procedure_name IS NULL OR TRIM(p_procedure_name) IS NULL THEN
+        RAISE_APPLICATION_ERROR(-20023, 'Error: Procedure name cannot be null or blank.');
+    END IF;
+
+    -- 2. Validate Procedure Date
+    IF p_procedure_date IS NULL OR p_procedure_date < DATE '2020-01-01' THEN
+        RAISE_APPLICATION_ERROR(-20024, 'Error: Procedure date must be on or after 2020-01-01.');
+    END IF;
+
+    -- 3. Validate Duration
     IF p_duration <= 0 OR p_duration > 1440 THEN
         RAISE_APPLICATION_ERROR(-20020, 'Error: Duration must be between 1 and 1440 minutes.');
     END IF;
 
-    -- 2. Validate Cost
+    -- 4. Validate Cost
     IF p_procedure_cost <= 0 THEN
         RAISE_APPLICATION_ERROR(-20021, 'Error: Procedure cost must be strictly positive.');
     END IF;
 
-    -- 3. Validate Patient existence
+    -- 5. Validate Operating Room against standardized hospital surgical suites
+    IF p_operating_room NOT IN ('OR-1', 'OR-2', 'OR-3', 'Cath Lab', 'Endoscopy Suite', 'Minor Surgery 1') THEN
+        RAISE_APPLICATION_ERROR(-20022, 'Error: Invalid Operating Room "' || p_operating_room || 
+            '". Permitted theaters: OR-1, OR-2, OR-3, Cath Lab, Endoscopy Suite, Minor Surgery 1.');
+    END IF;
+
+    -- 6. Validate Patient existence
     SELECT COUNT(*) INTO v_patient_exists
     FROM Patient
     WHERE PatientID = p_patient_id;
@@ -150,7 +178,7 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20010, 'Error: Patient ID ' || p_patient_id || ' does not exist in the database.');
     END IF;
 
-    -- 4. Validate Doctor existence
+    -- 7. Validate Doctor existence
     SELECT COUNT(*) INTO v_doctor_exists
     FROM Doctor
     WHERE DoctorID = p_doctor_id;
@@ -159,10 +187,10 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20011, 'Error: Doctor ID ' || p_doctor_id || ' does not exist in the database.');
     END IF;
 
-    -- 5. Calculate proposed end time
+    -- 8. Calculate proposed end time
     v_new_end_time := p_procedure_date + (p_duration / 1440);
 
-    -- 6. Check for Doctor Schedule Interval Overlap
+    -- 9. Check for Doctor Schedule Interval Overlap
     SELECT COUNT(*)
     INTO v_doc_conflicts
     FROM MedicalProcedure
@@ -177,7 +205,7 @@ BEGIN
             TO_CHAR(p_procedure_date, 'HH24:MI') || ' and ' || TO_CHAR(v_new_end_time, 'HH24:MI') || '.');
     END IF;
 
-    -- 7. Check for Operating Room Interval Overlap
+    -- 10. Check for Operating Room Interval Overlap
     SELECT COUNT(*)
     INTO v_room_conflicts
     FROM MedicalProcedure
@@ -191,7 +219,7 @@ BEGIN
             ' is already occupied by another procedure during this time window.');
     END IF;
 
-    -- 8. Check for Patient Schedule Interval Overlap
+    -- 11. Check for Patient Schedule Interval Overlap
     SELECT COUNT(*)
     INTO v_pat_conflicts
     FROM MedicalProcedure
@@ -205,7 +233,7 @@ BEGIN
             ' is already undergoing another procedure during this time window.');
     END IF;
 
-    -- 9. Insert clean procedure tuple with initial 'Pending' state
+    -- 12. Insert clean procedure tuple with initial 'Pending' state
     INSERT INTO MedicalProcedure (
         ProcedureID,
         PatientID,
