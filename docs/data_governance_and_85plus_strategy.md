@@ -108,3 +108,35 @@ In commit `5d82ccb`, the following attributes and constraints were added to `Pre
 1. **In Section 4 (Requirements & Integrity Rules):** Embed the **Master Deletion & Retention Matrix** to prove enterprise data governance compliance.
 2. **In Section 8 (Normalization):** Emphasize how `Prescription` maintains 3NF by calculating total cost on the fly via `Medication.UnitPrice * QuantityPrescribed`, rather than storing redundant calculated fields.
 3. **In Section 11 (Advanced Database Features):** Highlight the **Student 4 Trigger** (Stock Deduction & Guard) and the **Student 3 Stored Procedures** (3-Way Scheduling Guard) as evidence of distinction-level software engineering.
+
+---
+
+## 7. Open Architectural Discussion Items (Reminders for Professor Consultation)
+
+> [!IMPORTANT]
+> **Action Item for Student Team:** Discuss the following architectural question during the next office hours / lab consultation with the module leader (**Mohammed Abd AlAleem**):
+
+### Question: Primary Key & Foreign Key Data Types (`NUMBER` vs. `VARCHAR2`)
+
+* **Background Context:**
+  * In database theory, attributes that do not undergo mathematical operations (like `Phone`, `PostalCode`, `RoomNumber`, `Floor`) should not be stored as numbers. We have already audited and ensured all of these are `VARCHAR2`.
+  * For **Primary Keys and Foreign Keys** (e.g., `PatientID`, `DoctorID`, `DepartmentID`, `AppointmentID`), there are two accepted industry/academic paradigms:
+
+* **The Two Options:**
+  1. **Option A (Current Repository Standard - Numeric Surrogate Keys):**
+     * Data Type: `NUMBER(8)` / `NUMBER(5)` (e.g., `1, 2, 3... 100+`).
+     * **Advantages:** Native Oracle sequence auto-increment (`SEQUENCE.NEXTVAL` / `IDENTITY`), optimal B-tree index performance in memory, faster CPU join processing, and smaller storage footprint (~3–4 bytes per FK).
+     * **Status:** Agreed across all current student mini-schemas (`Student 1`, `Student 2`, `Student 3`, `Student 4`, `Student 5`).
+  2. **Option B (Formatted Alphanumeric Business Codes):**
+     * Data Type: `VARCHAR2(10)` (e.g., `'PAT-0001'`, `'DOC-0001'`, `'DEPT-01'`, `'APT-0001'`).
+     * **Advantages:** Strictly aligns with the theoretical rule that IDs do not undergo mathematical calculations; human-readable in hospital UI.
+     * **Trade-off:** In Oracle, string keys cannot use standard integer auto-increment identity columns without custom triggers/sequences, and string foreign key comparisons require more memory and slightly slower index scans across 16 joined tables.
+
+* **Action Plan if Professor Prefers Option B:**
+  * If the professor explicitly mandates formatted string codes (`VARCHAR2`), we will systematically convert:
+    1. All 16 primary key definitions across `scripts/01_schema/`.
+    2. All 25+ referencing foreign keys across the schema.
+    3. Stored procedure parameter types (`p_patient_id`, `p_doctor_id`, etc.) from `IN NUMBER` to `IN VARCHAR2`.
+    4. Compound trigger record buffers from `NUMBER` to `VARCHAR2(10)`.
+    5. All documentation tables in `DATA_DICTIONARY.md` and `studentX_table_schema.md`.
+
