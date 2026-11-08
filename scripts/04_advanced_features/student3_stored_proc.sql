@@ -9,17 +9,18 @@
 -- operations (MedicalProcedure).
 --
 -- Procedures included:
--- 1. sp_book_appointment: Books an appointment verifying doctor availability.
--- 2. sp_schedule_procedure: Schedules a surgical procedure verifying both
---    Doctor schedule availability and Operating Room interval availability.
+-- 1. sp_book_appointment: Books an appointment verifying both Doctor and
+--    Patient availability at the requested timestamp.
+-- 2. sp_schedule_procedure: Schedules a surgical procedure verifying Doctor,
+--    Operating Room, and Patient interval availability.
 -- ============================================================================
 
 SET SERVEROUTPUT ON;
 
 -- ----------------------------------------------------------------------------
 -- 1. PROCEDURE: sp_book_appointment
--- Description: Books an appointment, ensuring the doctor does not already have
---              an active scheduled appointment at the exact requested time.
+-- Description: Books an appointment, ensuring neither the Doctor nor the Patient
+--              already has an active scheduled appointment at the exact requested time.
 -- ----------------------------------------------------------------------------
 CREATE OR REPLACE PROCEDURE sp_book_appointment (
     p_appointment_id   IN NUMBER,
@@ -29,10 +30,11 @@ CREATE OR REPLACE PROCEDURE sp_book_appointment (
     p_reason           IN VARCHAR2,
     p_notes            IN VARCHAR2 DEFAULT NULL
 ) IS
-    v_patient_exists NUMBER := 0;
-    v_doctor_exists  NUMBER := 0;
-    v_conflict_count NUMBER := 0;
-    v_time_str       VARCHAR2(5);
+    v_patient_exists      NUMBER := 0;
+    v_doctor_exists       NUMBER := 0;
+    v_doc_conflict_count  NUMBER := 0;
+    v_pat_conflict_count  NUMBER := 0;
+    v_time_str            VARCHAR2(5);
 BEGIN
     -- 1. Validate Patient existence
     SELECT COUNT(*) INTO v_patient_exists
@@ -57,19 +59,33 @@ BEGIN
 
     -- 4. Check for active appointment conflict for the doctor
     SELECT COUNT(*)
-    INTO v_conflict_count
+    INTO v_doc_conflict_count
     FROM Appointment
     WHERE DoctorID = p_doctor_id
       AND TRUNC(AppointmentDate) = TRUNC(p_appointment_date)
       AND AppointmentTime = v_time_str
       AND Status IN ('Scheduled', 'In-Progress');
 
-    IF v_conflict_count > 0 THEN
+    IF v_doc_conflict_count > 0 THEN
         RAISE_APPLICATION_ERROR(-20001, 'Booking Conflict: Doctor ' || p_doctor_id || 
             ' already has an active appointment at ' || TO_CHAR(p_appointment_date, 'YYYY-MM-DD HH24:MI') || '.');
     END IF;
 
-    -- 5. Insert clean appointment tuple
+    -- 5. Check for active appointment conflict for the patient
+    SELECT COUNT(*)
+    INTO v_pat_conflict_count
+    FROM Appointment
+    WHERE PatientID = p_patient_id
+      AND TRUNC(AppointmentDate) = TRUNC(p_appointment_date)
+      AND AppointmentTime = v_time_str
+      AND Status IN ('Scheduled', 'In-Progress');
+
+    IF v_pat_conflict_count > 0 THEN
+        RAISE_APPLICATION_ERROR(-20005, 'Booking Conflict: Patient ' || p_patient_id || 
+            ' already has an active appointment at ' || TO_CHAR(p_appointment_date, 'YYYY-MM-DD HH24:MI') || '.');
+    END IF;
+
+    -- 6. Insert clean appointment tuple
     INSERT INTO Appointment (
         AppointmentID,
         PatientID,
@@ -97,7 +113,7 @@ END sp_book_appointment;
 -- ----------------------------------------------------------------------------
 -- 2. PROCEDURE: sp_schedule_procedure
 -- Description: Schedules a medical/surgical procedure, verifying that neither
---              the Doctor nor the Operating Room has an overlapping time window.
+--              the Doctor, the Operating Room, nor the Patient has an overlapping time window.
 -- ----------------------------------------------------------------------------
 CREATE OR REPLACE PROCEDURE sp_schedule_procedure (
     p_procedure_id     IN NUMBER,
@@ -109,11 +125,12 @@ CREATE OR REPLACE PROCEDURE sp_schedule_procedure (
     p_duration         IN NUMBER,
     p_procedure_cost   IN NUMBER
 ) IS
-    v_patient_exists  NUMBER := 0;
-    v_doctor_exists   NUMBER := 0;
-    v_doc_conflicts   NUMBER := 0;
-    v_room_conflicts  NUMBER := 0;
-    v_new_end_time    DATE;
+    v_patient_exists   NUMBER := 0;
+    v_doctor_exists    NUMBER := 0;
+    v_doc_conflicts    NUMBER := 0;
+    v_room_conflicts   NUMBER := 0;
+    v_pat_conflicts    NUMBER := 0;
+    v_new_end_time     DATE;
 BEGIN
     -- 1. Validate Duration
     IF p_duration <= 0 OR p_duration > 1440 THEN
@@ -176,7 +193,21 @@ BEGIN
             ' is already occupied by another procedure during this time window.');
     END IF;
 
-    -- 8. Insert clean procedure tuple
+    -- 8. Check for Patient Schedule Interval Overlap
+    SELECT COUNT(*)
+    INTO v_pat_conflicts
+    FROM MedicalProcedure
+    WHERE PatientID = p_patient_id
+      AND Outcome NOT IN ('Aborted', 'Cancelled')
+      AND p_procedure_date < EndTime
+      AND v_new_end_time   > ProcedureDate;
+
+    IF v_pat_conflicts > 0 THEN
+        RAISE_APPLICATION_ERROR(-20004, 'Patient Conflict: Patient ' || p_patient_id || 
+            ' is already undergoing another procedure during this time window.');
+    END IF;
+
+    -- 9. Insert clean procedure tuple with initial 'Pending' state
     INSERT INTO MedicalProcedure (
         ProcedureID,
         PatientID,
@@ -196,7 +227,7 @@ BEGIN
         p_duration,
         p_operating_room,
         p_procedure_cost,
-        'Successful'
+        'Pending'
     );
 
     DBMS_OUTPUT.PUT_LINE('Success: Procedure #' || p_procedure_id || ' (' || p_procedure_name || 
