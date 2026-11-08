@@ -8,7 +8,7 @@
 
 * **MedicalRecord** (<u>RecordID</u>, PatientID*, DoctorID*, Diagnosis, Treatment, Notes, RecordDate, FollowUpDate)
 
-* **MedicalProcedure** (<u>ProcedureID</u>, PatientID*, DoctorID*, ProcedureName, ProcedureDate, OperatingRoom, Duration, ProcedureCost, Outcome)
+* **MedicalProcedure** (<u>ProcedureID</u>, PatientID*, DoctorID*, ProcedureName, ProcedureDate, Duration, /EndTime, OperatingRoom, ProcedureCost, Outcome)
 
 ---
 
@@ -25,10 +25,12 @@
 * `MedicalRecord` enforces a chronological check constraint `chk_mr_dates`: `CHECK (FollowUpDate IS NULL OR (FollowUpDate >= RecordDate AND FollowUpDate <= RecordDate + 365))`, ensuring follow-up dates are on or after the encounter and capped within 1 year.
 * `MedicalProcedure.ProcedureName` is **NOT NULL** (e.g., `'Appendectomy'`, `'Coronary Angiography'`, `'Endoscopy'`).
 * `MedicalProcedure.ProcedureDate` defaults to `SYSDATE`, is **NOT NULL**, and enforces boundary check (`ProcedureDate >= DATE '2020-01-01'`).
-* `MedicalProcedure.OperatingRoom` is **NOT NULL** and enforces standardized theater designations (`chk_proc_room`: `IN ('OR-1', 'OR-2', 'OR-3', 'Cath Lab', 'Endoscopy Suite', 'Minor Surgery 1')`).
 * `MedicalProcedure.Duration` is in minutes, **NOT NULL**, and enforces realistic duration limits (`chk_proc_duration`: `Duration > 0 AND Duration <= 1440`).
+* `/EndTime` is an **auto-derived virtual attribute** calculated as `ProcedureDate + (Duration / 1440)`, maintaining strict 3NF compliance without data redundancy.
+* `MedicalProcedure.OperatingRoom` is **NOT NULL** and enforces standardized theater designations (`chk_proc_room`: `IN ('OR-1', 'OR-2', 'OR-3', 'Cath Lab', 'Endoscopy Suite', 'Minor Surgery 1')`).
 * `MedicalProcedure.ProcedureCost` is **NOT NULL** and enforces a strictly positive billing range (`chk_proc_cost`: `ProcedureCost > 0 AND ProcedureCost <= 1000000.00`).
 * `MedicalProcedure.Outcome` defaults to `'Successful'`, is **NOT NULL**, and enforces valid procedural outcomes (`chk_proc_outcome`: `IN ('Successful', 'Completed with Complications', 'Unsuccessful', 'Pending', 'In-Progress', 'Aborted')`).
+* `MedicalProcedure` enforces candidate key uniqueness (`uq_proc_doc_time`: `UNIQUE (DoctorID, ProcedureDate)`) and room uniqueness (`uq_proc_room_time`: `UNIQUE (OperatingRoom, ProcedureDate)`), preventing duplicate start times.
 
 ### Foreign Key References:
 * `Appointment(PatientID*)` references `Patient(PatientID)` *(Student 2)*

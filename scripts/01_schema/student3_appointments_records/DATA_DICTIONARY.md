@@ -59,13 +59,16 @@ Logs clinical, interventional, surgical, and diagnostic procedures performed on 
 | `PatientID` | `NUMBER(8)` | NO | **FK** | `Patient(PatientID)` | — | Patient undergoing the procedure (`fk_proc_patient`) |
 | `DoctorID` | `NUMBER(8)` | NO | **FK** | `Doctor(DoctorID)` | — | Primary surgeon/proceduralist (`fk_proc_doctor`) |
 | `ProcedureName` | `VARCHAR2(100)` | NO | None | — | — | Clinical name of procedure performed |
-| `ProcedureDate` | `DATE` | NO | None | — | `SYSDATE` | Date procedure was executed (`chk_proc_date`: `>= DATE '2020-01-01'`) |
-| `OperatingRoom` | `VARCHAR2(30)` | NO | None | — | — | Standardized theater designation (`chk_proc_room`: IN (`'OR-1'`, `'OR-2'`, `'OR-3'`, `'Cath Lab'`, `'Endoscopy Suite'`, `'Minor Surgery 1'`)) |
+| `ProcedureDate` | `DATE` | NO | Candidate | — | `SYSDATE` | Start date and timestamp of procedure (`chk_proc_date`: `>= DATE '2020-01-01'`) |
 | `Duration` | `NUMBER(4)` | NO | None | — | — | Procedure length in minutes (`chk_proc_duration`: `Duration > 0 AND Duration <= 1440`) |
+| `EndTime` | `DATE` | VIRTUAL | Derived | — | Auto-derived | Auto-derived virtual column: `ProcedureDate + (Duration / 1440)` |
+| `OperatingRoom` | `VARCHAR2(30)` | NO | Candidate | — | — | Standardized theater designation (`chk_proc_room`: IN (`'OR-1'`, `'OR-2'`, `'OR-3'`, `'Cath Lab'`, `'Endoscopy Suite'`, `'Minor Surgery 1'`)) |
 | `ProcedureCost` | `NUMBER(10,2)` | NO | None | — | — | Procedure gross fee (`chk_proc_cost`: `ProcedureCost > 0 AND ProcedureCost <= 1000000.00`) |
 | `Outcome` | `VARCHAR2(30)` | NO | None | — | `'Successful'` | `chk_proc_outcome`: IN (`'Successful'`, `'Completed with Complications'`, `'Unsuccessful'`, `'Pending'`, `'In-Progress'`, `'Aborted'`) |
 
 **Table-Level Constraints for `MedicalProcedure`:**
+* `uq_proc_doc_time`: `UNIQUE (DoctorID, ProcedureDate)` guarantees that no doctor can be scheduled for two procedures at the exact same start time.
+* `uq_proc_room_time`: `UNIQUE (OperatingRoom, ProcedureDate)` guarantees that no single operating room can host two procedures at the exact same start time.
 * `chk_proc_room`: Standardizes operating suites and surgical rooms across hospital departments.
 * `chk_proc_duration`: Ensures procedure duration is strictly positive and capped within a realistic 24-hour limit (1,440 minutes).
 * `chk_proc_cost`: Enforces strictly positive procedure charges (`> 0.00`).
@@ -77,7 +80,7 @@ Logs clinical, interventional, surgical, and diagnostic procedures performed on 
 
 ### 1NF (First Normal Form)
 * **Atomic Attributes:** All fields contain indivisible single values (e.g., distinct numerical duration in minutes, and atomic procedure names).
-* **Derived Virtual Column:** `/AppointmentTime` is implemented as an auto-derived virtual column using `TO_CHAR(AppointmentDate, 'HH24:MI')`, eliminating temporal redundancy between date and time storage.
+* **Derived Virtual Columns:** `/AppointmentTime` (extracted via `TO_CHAR(AppointmentDate, 'HH24:MI')`) and `/EndTime` (calculated via `ProcedureDate + (Duration / 1440)`) eliminate temporal redundancy while guaranteeing 100% calculation accuracy.
 * **No Repeating Groups:** Encounters, procedures, and diagnoses are stored as individual relational tuples rather than delimited arrays.
 * **Unique Identification:** Each table has a designated single-column primary key (`AppointmentID`, `RecordID`, `ProcedureID`).
 
