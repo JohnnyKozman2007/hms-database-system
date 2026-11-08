@@ -1,18 +1,17 @@
 -- ============================================================================
 -- ADVANCED DATABASE FEATURE: Student 3
--- Stored Procedures: Conflict-Free Scheduling Engine
+-- Stored Procedures & Automatic Backstop Triggers: Complete Conflict-Free Engine
 -- Module: Data Modeling for DB (4FTC2063)
 -- Subsystem: Appointments and Medical Records
 -- ============================================================================
--- This script defines transactional stored procedures to eliminate scheduling
--- conflicts for both outpatient consultations (Appointment) and surgical
--- operations (MedicalProcedure).
---
--- Procedures included:
--- 1. sp_book_appointment: Books an appointment verifying both Doctor and
---    Patient availability at the requested timestamp.
--- 2. sp_schedule_procedure: Schedules a surgical procedure verifying Doctor,
---    Operating Room, and Patient interval availability.
+-- Architecture (Two-Layer Defense-in-Depth):
+-- 1. Front-Door Application Layer (Stored Procedures):
+--    - sp_book_appointment: Validates existence and books clean appointments.
+--    - sp_schedule_procedure: Calculates interval end-times and validates availability.
+-- 2. Engine-Level Backstop Layer (Compound Triggers):
+--    - trg_procedure_overlap_guard: Blocks rogue raw INSERT/UPDATE interval collisions.
+--    - trg_appointment_conflict_guard: Blocks rogue raw INSERT/UPDATE appointment collisions.
+-- (Compound triggers eliminate ORA-04091 mutating table errors in Oracle SQL).
 -- ============================================================================
 
 SET SERVEROUTPUT ON;
@@ -164,7 +163,6 @@ BEGIN
     v_new_end_time := p_procedure_date + (p_duration / 1440);
 
     -- 6. Check for Doctor Schedule Interval Overlap
-    -- Two intervals [S1, E1] and [S2, E2] overlap iff S1 < E2 AND E1 > S2
     SELECT COUNT(*)
     INTO v_doc_conflicts
     FROM MedicalProcedure
@@ -235,4 +233,177 @@ BEGIN
                          TO_CHAR(p_procedure_date, 'HH24:MI') || ' to ' || 
                          TO_CHAR(v_new_end_time, 'HH24:MI') || '.');
 END sp_schedule_procedure;
+/
+
+-- ============================================================================
+-- 3. COMPOUND TRIGGER: trg_procedure_overlap_guard
+-- Description: Un-bypassable database engine backstop for MedicalProcedure.
+--              Guarantees that even if someone bypasses the stored procedure and
+--              runs a raw SQL INSERT or UPDATE directly on MedicalProcedure,
+--              time-interval overlaps for Doctor, Operating Room, and Patient
+--              are automatically blocked with an application error.
+-- Architecture: Compound Trigger pattern (eliminates ORA-04091 mutating table error).
+-- ============================================================================
+CREATE OR REPLACE TRIGGER trg_procedure_overlap_guard
+FOR INSERT OR UPDATE ON MedicalProcedure
+COMPOUND TRIGGER
+
+    TYPE r_proc_record IS RECORD (
+        procedure_id   NUMBER,
+        patient_id     NUMBER,
+        doctor_id      NUMBER,
+        room           VARCHAR2(30),
+        start_date     DATE,
+        end_date       DATE,
+        outcome        VARCHAR2(30)
+    );
+    TYPE t_proc_table IS TABLE OF r_proc_record;
+    g_procs t_proc_table := t_proc_table();
+
+    BEFORE STATEMENT IS
+    BEGIN
+        g_procs.DELETE;
+    END BEFORE STATEMENT;
+
+    BEFORE EACH ROW IS
+    BEGIN
+        g_procs.EXTEND;
+        g_procs(g_procs.LAST).procedure_id := :NEW.ProcedureID;
+        g_procs(g_procs.LAST).patient_id   := :NEW.PatientID;
+        g_procs(g_procs.LAST).doctor_id    := :NEW.DoctorID;
+        g_procs(g_procs.LAST).room         := :NEW.OperatingRoom;
+        g_procs(g_procs.LAST).start_date   := :NEW.ProcedureDate;
+        g_procs(g_procs.LAST).end_date     := :NEW.ProcedureDate + (:NEW.Duration / 1440);
+        g_procs(g_procs.LAST).outcome      := :NEW.Outcome;
+    END BEFORE EACH ROW;
+
+    AFTER STATEMENT IS
+        v_doc_conflicts  NUMBER := 0;
+        v_room_conflicts NUMBER := 0;
+        v_pat_conflicts  NUMBER := 0;
+    BEGIN
+        FOR i IN 1 .. g_procs.COUNT LOOP
+            IF g_procs(i).outcome NOT IN ('Aborted', 'Cancelled') THEN
+                -- 1. Doctor Interval Collision Check
+                SELECT COUNT(*)
+                INTO v_doc_conflicts
+                FROM MedicalProcedure
+                WHERE DoctorID = g_procs(i).doctor_id
+                  AND ProcedureID <> NVL(g_procs(i).procedure_id, -1)
+                  AND Outcome NOT IN ('Aborted', 'Cancelled')
+                  AND g_procs(i).start_date < EndTime
+                  AND g_procs(i).end_date   > ProcedureDate;
+
+                IF v_doc_conflicts > 0 THEN
+                    RAISE_APPLICATION_ERROR(-20002, 'Rogue DML Blocked: Doctor already has an active procedure scheduled in this time interval.');
+                END IF;
+
+                -- 2. Operating Room Collision Check
+                SELECT COUNT(*)
+                INTO v_room_conflicts
+                FROM MedicalProcedure
+                WHERE OperatingRoom = g_procs(i).room
+                  AND ProcedureID <> NVL(g_procs(i).procedure_id, -1)
+                  AND Outcome NOT IN ('Aborted', 'Cancelled')
+                  AND g_procs(i).start_date < EndTime
+                  AND g_procs(i).end_date   > ProcedureDate;
+
+                IF v_room_conflicts > 0 THEN
+                    RAISE_APPLICATION_ERROR(-20003, 'Rogue DML Blocked: Operating Room is already occupied in this time interval.');
+                END IF;
+
+                -- 3. Patient Collision Check
+                SELECT COUNT(*)
+                INTO v_pat_conflicts
+                FROM MedicalProcedure
+                WHERE PatientID = g_procs(i).patient_id
+                  AND ProcedureID <> NVL(g_procs(i).procedure_id, -1)
+                  AND Outcome NOT IN ('Aborted', 'Cancelled')
+                  AND g_procs(i).start_date < EndTime
+                  AND g_procs(i).end_date   > ProcedureDate;
+
+                IF v_pat_conflicts > 0 THEN
+                    RAISE_APPLICATION_ERROR(-20004, 'Rogue DML Blocked: Patient is already scheduled for another procedure in this time interval.');
+                END IF;
+            END IF;
+        END LOOP;
+    END AFTER STATEMENT;
+
+END trg_procedure_overlap_guard;
+/
+
+-- ============================================================================
+-- 4. COMPOUND TRIGGER: trg_appointment_conflict_guard
+-- Description: Un-bypassable database engine backstop for Appointment.
+--              Guarantees that even if someone runs a raw SQL INSERT or UPDATE
+--              directly on Appointment, a Doctor cannot have two active
+--              appointments ('Scheduled' or 'In-Progress') at the exact same minute.
+-- ============================================================================
+CREATE OR REPLACE TRIGGER trg_appointment_conflict_guard
+FOR INSERT OR UPDATE ON Appointment
+COMPOUND TRIGGER
+
+    TYPE r_apt_record IS RECORD (
+        appointment_id NUMBER,
+        doctor_id      NUMBER,
+        patient_id     NUMBER,
+        apt_date       DATE,
+        status         VARCHAR2(20)
+    );
+    TYPE t_apt_table IS TABLE OF r_apt_record;
+    g_apts t_apt_table := t_apt_table();
+
+    BEFORE STATEMENT IS
+    BEGIN
+        g_apts.DELETE;
+    END BEFORE STATEMENT;
+
+    BEFORE EACH ROW IS
+    BEGIN
+        g_apts.EXTEND;
+        g_apts(g_apts.LAST).appointment_id := :NEW.AppointmentID;
+        g_apts(g_apts.LAST).doctor_id      := :NEW.DoctorID;
+        g_apts(g_apts.LAST).patient_id     := :NEW.PatientID;
+        g_apts(g_apts.LAST).apt_date       := :NEW.AppointmentDate;
+        g_apts(g_apts.LAST).status         := :NEW.Status;
+    END BEFORE EACH ROW;
+
+    AFTER STATEMENT IS
+        v_doc_conflicts NUMBER := 0;
+        v_pat_conflicts NUMBER := 0;
+    BEGIN
+        FOR i IN 1 .. g_apts.COUNT LOOP
+            IF g_apts(i).status IN ('Scheduled', 'In-Progress') THEN
+                -- Doctor Conflict
+                SELECT COUNT(*)
+                INTO v_doc_conflicts
+                FROM Appointment
+                WHERE DoctorID = g_apts(i).doctor_id
+                  AND AppointmentID <> NVL(g_apts(i).appointment_id, -1)
+                  AND Status IN ('Scheduled', 'In-Progress')
+                  AND TRUNC(AppointmentDate) = TRUNC(g_apts(i).apt_date)
+                  AND TO_CHAR(AppointmentDate, 'HH24:MI') = TO_CHAR(g_apts(i).apt_date, 'HH24:MI');
+
+                IF v_doc_conflicts > 0 THEN
+                    RAISE_APPLICATION_ERROR(-20001, 'Rogue DML Blocked: Doctor already has an active appointment at this date and time.');
+                END IF;
+
+                -- Patient Conflict
+                SELECT COUNT(*)
+                INTO v_pat_conflicts
+                FROM Appointment
+                WHERE PatientID = g_apts(i).patient_id
+                  AND AppointmentID <> NVL(g_apts(i).appointment_id, -1)
+                  AND Status IN ('Scheduled', 'In-Progress')
+                  AND TRUNC(AppointmentDate) = TRUNC(g_apts(i).apt_date)
+                  AND TO_CHAR(AppointmentDate, 'HH24:MI') = TO_CHAR(g_apts(i).apt_date, 'HH24:MI');
+
+                IF v_pat_conflicts > 0 THEN
+                    RAISE_APPLICATION_ERROR(-20005, 'Rogue DML Blocked: Patient already has an active appointment at this date and time.');
+                END IF;
+            END IF;
+        END LOOP;
+    END AFTER STATEMENT;
+
+END trg_appointment_conflict_guard;
 /
