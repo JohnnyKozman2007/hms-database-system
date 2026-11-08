@@ -9,7 +9,7 @@ CREATE TABLE Appointment (
     PatientID               NUMBER(8)           NOT NULL,
     DoctorID                NUMBER(8)           NOT NULL,
     AppointmentDate         DATE                DEFAULT SYSDATE NOT NULL CONSTRAINT chk_apt_date CHECK (AppointmentDate >= DATE '2020-01-01'),
-    AppointmentTime         VARCHAR2(8)         NOT NULL CONSTRAINT chk_apt_time CHECK (REGEXP_LIKE(AppointmentTime, '^([01][0-9]|2[0-3]):[0-5][0-9]$')),
+    AppointmentTime         VARCHAR2(5)         GENERATED ALWAYS AS (TO_CHAR(AppointmentDate, 'HH24:MI')) VIRTUAL,
     Status                  VARCHAR2(20)        DEFAULT 'Scheduled' NOT NULL CONSTRAINT chk_apt_status CHECK (Status IN ('Scheduled', 'Completed', 'Cancelled', 'No-Show', 'In-Progress', 'Rescheduled')),
     Reason                  VARCHAR2(255)       NOT NULL,
     Notes                   VARCHAR2(500),

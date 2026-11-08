@@ -4,7 +4,7 @@
 
 ---
 
-* **Appointment** (<u>AppointmentID</u>, PatientID*, DoctorID*, AppointmentDate, AppointmentTime, Status, Reason, Notes)
+* **Appointment** (<u>AppointmentID</u>, PatientID*, DoctorID*, AppointmentDate, /AppointmentTime, Status, Reason, Notes)
 
 * **MedicalRecord** (<u>RecordID</u>, PatientID*, DoctorID*, Diagnosis, Treatment, Notes, RecordDate, FollowUpDate)
 
@@ -13,8 +13,8 @@
 ---
 
 ### Key Notes & Constraints:
-* `Appointment.AppointmentDate` defaults to `SYSDATE`, is **NOT NULL**, and enforces a historical boundary check (`AppointmentDate >= DATE '2020-01-01'`).
-* `Appointment.AppointmentTime` is **NOT NULL** and enforces 24-hour military time formatting (`chk_apt_time`: `REGEXP_LIKE(AppointmentTime, '^([01][0-9]|2[0-3]):[0-5][0-9]$')`).
+* `/AppointmentTime` is a **derived virtual attribute** auto-extracted from `AppointmentDate` via `TO_CHAR(AppointmentDate, 'HH24:MI')`, keeping date and time synchronized without duplicate input.
+* `Appointment.AppointmentDate` stores the scheduled consultation timestamp, defaults to `SYSDATE`, is **NOT NULL**, and enforces a historical boundary check (`AppointmentDate >= DATE '2020-01-01'`).
 * `Appointment.Status` defaults to `'Scheduled'`, is **NOT NULL**, and enforces allowable lifecycle stages (`chk_apt_status`: `IN ('Scheduled', 'Completed', 'Cancelled', 'No-Show', 'In-Progress', 'Rescheduled')`).
 * `Appointment.Reason` is **NOT NULL** (mandating a declared clinical or consultation purpose).
 * `Appointment.Notes` is **NULLABLE** (reserved for triage or physician remarks).

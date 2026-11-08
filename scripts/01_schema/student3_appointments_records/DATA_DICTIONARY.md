@@ -18,15 +18,15 @@ Tracks clinical outpatient visits and specialist consultations scheduled between
 | `AppointmentID` | `NUMBER(8)` | NO | **PK** | — | — | Primary identifier (Agreed Range: `1..300+`) |
 | `PatientID` | `NUMBER(8)` | NO | **FK** | `Patient(PatientID)` | — | Patient booked for the appointment (`fk_apt_patient`) |
 | `DoctorID` | `NUMBER(8)` | NO | **FK** | `Doctor(DoctorID)` | — | Doctor conducting the consultation (`fk_apt_doctor`) |
-| `AppointmentDate` | `DATE` | NO | None | — | `SYSDATE` | Scheduled calendar date (`chk_apt_date`: `>= DATE '2020-01-01'`) |
-| `AppointmentTime` | `VARCHAR2(8)` | NO | None | — | — | Time slot formatted as 24-hr `HH24:MI` (`chk_apt_time`) |
+| `AppointmentDate` | `DATE` | NO | None | — | `SYSDATE` | Scheduled calendar date and timestamp (`chk_apt_date`: `>= DATE '2020-01-01'`) |
+| `AppointmentTime` | `VARCHAR2(5)` | VIRTUAL | Derived | — | Auto-derived | Derived virtual column: `TO_CHAR(AppointmentDate, 'HH24:MI')` |
 | `Status` | `VARCHAR2(20)` | NO | None | — | `'Scheduled'` | `chk_apt_status`: IN (`'Scheduled'`, `'Completed'`, `'Cancelled'`, `'No-Show'`, `'In-Progress'`, `'Rescheduled'`) |
 | `Reason` | `VARCHAR2(255)` | NO | None | — | — | Chief complaint or purpose of consultation |
 | `Notes` | `VARCHAR2(500)` | YES | None | — | — | Optional triage, clinical, or front-desk notes |
 
 **Table-Level Constraints for `Appointment`:**
-* `chk_apt_time`: `CHECK (REGEXP_LIKE(AppointmentTime, '^([01][0-9]|2[0-3]):[0-5][0-9]$'))` ensures valid 24-hour military time representation.
 * `chk_apt_status`: Enforces permissible appointment lifecycle stages.
+* Date boundary `chk_apt_date`: Ensures appointment timestamps are realistic (`>= DATE '2020-01-01'`).
 
 ---
 
@@ -74,7 +74,8 @@ Logs clinical, interventional, surgical, and diagnostic procedures performed on 
 ## 4. Normalization Analysis (3NF Compliance)
 
 ### 1NF (First Normal Form)
-* **Atomic Attributes:** All fields contain indivisible single values (e.g., separate date and time attributes for appointments, distinct numerical duration in minutes, and atomic procedure names).
+* **Atomic Attributes:** All fields contain indivisible single values (e.g., distinct numerical duration in minutes, and atomic procedure names).
+* **Derived Virtual Column:** `/AppointmentTime` is implemented as an auto-derived virtual column using `TO_CHAR(AppointmentDate, 'HH24:MI')`, eliminating temporal redundancy between date and time storage.
 * **No Repeating Groups:** Encounters, procedures, and diagnoses are stored as individual relational tuples rather than delimited arrays.
 * **Unique Identification:** Each table has a designated single-column primary key (`AppointmentID`, `RecordID`, `ProcedureID`).
 
