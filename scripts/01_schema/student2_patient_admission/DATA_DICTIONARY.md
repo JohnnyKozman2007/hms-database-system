@@ -46,7 +46,7 @@ Stores physical accommodation units across hospital wards, care units, and floor
 | :--- | :--- | :---: | :---: | :---: | :---: | :--- |
 | `RoomID` | `NUMBER(4)` | NO | **PK** | — | — | Primary identifier (Range: `1..50+`) |
 | `RoomNumber` | `VARCHAR2(10)` | NO | Candidate | — | — | Unique room identifier (`uq_room_number`), e.g., `'101'`, `'ICU-01'` |
-| `Floor` | `NUMBER(2)` | NO | None | — | — | Floor number (`chk_room_floor`: `BETWEEN -1 AND 20`) |
+| `Floor` | `VARCHAR2(10)` | NO | None | — | — | Building floor/level code (e.g., `'1'`, `'2'`, `'Ground'`, `'Basement'`) |
 | `RoomType` | `VARCHAR2(30)` | NO | None | — | — | `chk_room_type`: IN (`'General Ward'`, `'Semi-Private'`, `'Private'`, `'ICU'`, `'Isolation'`, `'Emergency'`, `'Maternity'`, `'Pediatric'`, `'Operating Room'`) |
 | `Capacity` | `NUMBER(3)` | NO | None | — | `1` | Total bed capacity (`chk_room_capacity`: `Capacity > 0 AND Capacity <= 20`) |
 | `DailyCharge` | `NUMBER(10,2)` | NO | None | — | — | Daily room stay rate (`chk_room_charge`: `DailyCharge > 0 AND DailyCharge <= 10000.00`) |
