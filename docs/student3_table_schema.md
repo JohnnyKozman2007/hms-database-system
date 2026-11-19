@@ -17,18 +17,18 @@
 * `/AppointmentTime` is a **derived virtual attribute** auto-extracted from `AppointmentDate` via `TO_CHAR(AppointmentDate, 'HH24:MI')`, keeping date and time synchronized without duplicate input.
 * `Appointment.AppointmentDate` stores the scheduled consultation timestamp, defaults to `SYSDATE`, is **NOT NULL**, and enforces a historical boundary check (`AppointmentDate >= DATE '2020-01-01'`).
 * `Appointment.Status` defaults to `'Scheduled'`, is **NOT NULL**, and enforces allowable lifecycle stages (`chk_apt_status`: `IN ('Scheduled', 'Completed', 'Cancelled', 'No-Show', 'In-Progress', 'Rescheduled')`).
-* `Appointment.Reason` is **NOT NULL** and enforces minimum length `LENGTH(TRIM(Reason)) >= 3`.
+* `Appointment.Reason` is **NOT NULL** and enforces minimum length `LENGTH(TRIM(Reason)) >= 5`.
 * `Appointment.Notes` is conditionally mandatory (`chk_apt_status_note`: requires documented reason if `Status` is `'Cancelled'`, `'Rescheduled'`, or `'No-Show'`).
 * `Appointment` enforces mutual candidate key uniqueness guards:
   * `uq_apt_pat_time`: `UNIQUE (PatientID, AppointmentDate)` prevents a patient from being booked for two simultaneous appointments.
   * `uq_apt_doc_time`: `UNIQUE (DoctorID, AppointmentDate)` prevents a doctor from being booked for two simultaneous appointments.
-* `MedicalRecord.Diagnosis` is **NOT NULL** and enforces minimum length `LENGTH(TRIM(Diagnosis)) >= 3`.
-* `MedicalRecord.Treatment` is **NOT NULL** (mandating an explicit clinical care/treatment plan without artificial defaults) and enforces minimum length `LENGTH(TRIM(Treatment)) >= 3`.
+* `MedicalRecord.Diagnosis` is **NOT NULL** and enforces minimum length `LENGTH(TRIM(Diagnosis)) >= 5`.
+* `MedicalRecord.Treatment` is **NOT NULL** (mandating an explicit clinical care/treatment plan without artificial defaults) and enforces minimum length `LENGTH(TRIM(Treatment)) >= 5`.
 * `MedicalRecord.RecordDate` defaults to `SYSDATE`, is **NOT NULL**, and enforces boundary check (`RecordDate >= DATE '2020-01-01'`).
 * `MedicalRecord.FollowUpDate` is **NULLABLE** (accommodating discharged patients who do not require a follow-up consultation).
 * `MedicalRecord` enforces a chronological check constraint `chk_mr_dates`: `CHECK (FollowUpDate IS NULL OR (FollowUpDate >= RecordDate AND FollowUpDate <= RecordDate + 365))`, ensuring follow-up dates are on or after the encounter and capped within 1 year.
 * `MedicalRecord` enforces candidate key uniqueness (`uq_mr_encounter`: `UNIQUE (PatientID, DoctorID, RecordDate)`), preventing duplicate encounter records at the same timestamp.
-* `MedicalProcedure.ProcedureName` is **NOT NULL** (e.g., `'Appendectomy'`, `'Coronary Angiography'`, `'Endoscopy'`) and enforces minimum length `LENGTH(TRIM(ProcedureName)) >= 3`.
+* `MedicalProcedure.ProcedureName` is **NOT NULL** (e.g., `'Appendectomy'`, `'Coronary Angiography'`, `'Endoscopy'`) and enforces minimum length `LENGTH(TRIM(ProcedureName)) >= 5`.
 * `MedicalProcedure.ProcedureDate` defaults to `SYSDATE`, is **NOT NULL**, and enforces boundary check (`ProcedureDate >= DATE '2020-01-01'`).
 * `MedicalProcedure.Duration` is in minutes, **NOT NULL**, and enforces realistic duration limits (`chk_proc_duration`: `Duration > 0 AND Duration <= 1440`).
 * `/EndTime` is an **auto-derived virtual attribute** calculated as `ProcedureDate + (Duration / 1440)`, maintaining strict 3NF compliance without data redundancy.

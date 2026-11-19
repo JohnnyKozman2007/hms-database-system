@@ -4,7 +4,7 @@
 
 ---
 
-* **Medication** (<u>MedicationID</u>, MedicationName, Manufacturer, Category, DosageForm, UnitPrice, QuantityInStock, ExpirationDate, SupplierID*)
+* **Medication** (<u>MedicationID</u>, MedicationName, Manufacturer, Category, DosageForm, UnitPrice, QuantityInStock, ImportDate, ExpirationDate, SupplierID*)
 
 * **Prescription** (<u>PrescriptionID</u>, PatientID*, DoctorID*, MedicationID*, Dosage, Frequency, Duration, QuantityPrescribed, DispenseStatus, PrescriptionDate, /PrescriptionTime, /EndDate, Notes)
 
@@ -13,13 +13,16 @@
 ---
 
 ### Key Notes & Constraints:
-* `Medication.MedicationName` is **UNIQUE** (`uq_med_name`) and **NOT NULL**, maintaining an unambiguous pharmaceutical catalog.
-* `Medication.Manufacturer` is **NOT NULL**.
+* `MedicationID`, `PrescriptionID`, and `TestID` are **VARCHAR2(10)** alphanumeric primary keys.
+* `Medication.MedicationName` is **NOT NULL** and enforces minimum length `LENGTH(TRIM(MedicationName)) >= 5`.
+* `Medication.Manufacturer` is **NOT NULL** and enforces minimum length `LENGTH(TRIM(Manufacturer)) >= 5`.
+* `Medication` enforces composite batch candidate key uniqueness `uq_med_batch`: `UNIQUE (MedicationName, Manufacturer, DosageForm, ExpirationDate)`, accommodating different batches or suppliers while preventing exact duplicate stock entries.
+* `Medication.ImportDate` defaults to `SYSDATE` and is **NOT NULL**.
+* `Medication` enforces chronological stock validation `chk_med_dates`: `CHECK (ExpirationDate > ImportDate)`.
 * `Medication.Category` is **NOT NULL** and enforces standardized pharmaceutical classes (`chk_med_category`: `IN ('Antibiotic', 'Analgesic', 'Antipyretic', 'Antihypertensive', 'Antidiabetic', 'Anticoagulant', 'Antihistamine', 'Bronchodilator', 'Statin', 'Gastrointestinal', 'Corticosteroid', 'Antidepressant', 'Antiviral', 'Cardiovascular', 'Dermatological', 'Other')`).
 * `Medication.DosageForm` is **NOT NULL** and enforces approved administration forms (`chk_med_dosage_form`: `IN ('Tablet', 'Capsule', 'Syrup', 'Injection', 'Ointment', 'Cream', 'Inhaler', 'Drops', 'Suspension', 'Patch', 'Suppository')`).
 * `Medication.UnitPrice` is **NOT NULL** and enforces positive price boundaries (`chk_med_unit_price`: `UnitPrice > 0 AND UnitPrice <= 50000.00`).
 * `Medication.QuantityInStock` defaults to `0`, is **NOT NULL**, and strictly prevents negative stock levels (`chk_med_stock`: `QuantityInStock >= 0 AND QuantityInStock <= 100000`).
-* `Medication.ExpirationDate` is **NOT NULL** with a valid calendar check (`chk_med_exp_date`: `ExpirationDate >= DATE '2020-01-01'`).
 * `Prescription.Dosage` is **NOT NULL** (e.g., `'500 mg'`, `'10 ml'`, `'1 tablet'`).
 * `Prescription.Frequency` is **NOT NULL** and enforces standard medical dosing intervals (`chk_rx_frequency`: `IN ('Once daily', 'Twice daily', 'Three times daily', 'Four times daily', 'Every 4 hours', 'Every 6 hours', 'Every 8 hours', 'Every 12 hours', 'As needed (PRN)', 'At bedtime', 'Weekly', 'Before meals', 'After meals')`).
 * `Prescription.Duration` is in days, **NOT NULL**, and bounded between 1 and 365 days (`chk_rx_duration`: `Duration > 0 AND Duration <= 365`).

@@ -17,7 +17,7 @@ ALTER TABLE Appointment ADD CONSTRAINT chk_apt_id
     CHECK (REGEXP_LIKE(AppointmentID, '^[A-Za-z0-9_-]+$'));
 
 ALTER TABLE Appointment ADD CONSTRAINT chk_apt_reason_len 
-    CHECK (LENGTH(TRIM(Reason)) >= 3);
+    CHECK (LENGTH(TRIM(Reason)) >= 5);
 
 ALTER TABLE Appointment ADD CONSTRAINT uq_apt_doc_time 
     UNIQUE (DoctorID, AppointmentDate);

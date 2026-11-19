@@ -20,4 +20,4 @@ ALTER TABLE MedicalProcedure ADD CONSTRAINT chk_proc_id
     CHECK (REGEXP_LIKE(ProcedureID, '^[A-Za-z0-9_-]+$'));
 
 ALTER TABLE MedicalProcedure ADD CONSTRAINT chk_proc_name_len 
-    CHECK (LENGTH(TRIM(ProcedureName)) >= 3);
+    CHECK (LENGTH(TRIM(ProcedureName)) >= 5);

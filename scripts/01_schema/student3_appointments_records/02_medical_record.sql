@@ -17,7 +17,7 @@ ALTER TABLE MedicalRecord ADD CONSTRAINT chk_mr_id
     CHECK (REGEXP_LIKE(RecordID, '^[A-Za-z0-9_-]+$'));
 
 ALTER TABLE MedicalRecord ADD CONSTRAINT chk_mr_diag_len 
-    CHECK (LENGTH(TRIM(Diagnosis)) >= 3);
+    CHECK (LENGTH(TRIM(Diagnosis)) >= 5);
 
 ALTER TABLE MedicalRecord ADD CONSTRAINT chk_mr_treat_len 
-    CHECK (LENGTH(TRIM(Treatment)) >= 3);
+    CHECK (LENGTH(TRIM(Treatment)) >= 5);
