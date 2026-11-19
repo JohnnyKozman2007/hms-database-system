@@ -6,7 +6,7 @@
 -- ============================================================================
 
 CREATE TABLE Room (
-    RoomID                  NUMBER(4)           CONSTRAINT pk_room PRIMARY KEY,
+    RoomID                  VARCHAR2(10)        CONSTRAINT pk_room PRIMARY KEY,
     RoomNumber              VARCHAR2(10)        NOT NULL CONSTRAINT uq_room_number UNIQUE,
     Floor                   VARCHAR2(10)        NOT NULL,
     RoomType                VARCHAR2(30)        NOT NULL CONSTRAINT chk_room_type CHECK (RoomType IN ('General Ward', 'Semi-Private', 'Private', 'ICU', 'Isolation', 'Emergency', 'Maternity', 'Pediatric', 'Operating Room')),

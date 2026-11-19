@@ -2,7 +2,7 @@
 -- Minimum Data Target: 15 suppliers
 -- Egyptian National Telecom Plan (Landline = 9-10 digits, Mobile = 11 digits)
 CREATE TABLE Supplier (
-    SupplierID              NUMBER(5)           CONSTRAINT pk_supplier PRIMARY KEY,
+    SupplierID              VARCHAR2(10)        CONSTRAINT pk_supplier PRIMARY KEY,
     CompanyName             VARCHAR2(100)       NOT NULL CONSTRAINT uq_supp_name UNIQUE,
     ContactPerson           VARCHAR2(100)       NOT NULL,
     Phone                   VARCHAR2(20)        NOT NULL,

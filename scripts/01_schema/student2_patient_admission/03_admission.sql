@@ -5,9 +5,9 @@
 -- ============================================================================
 
 CREATE TABLE Admission (
-    AdmissionID             NUMBER(8)           CONSTRAINT pk_admission PRIMARY KEY,
-    PatientID               NUMBER(8)           NOT NULL,
-    RoomID                  NUMBER(4)           NOT NULL,
+    AdmissionID             VARCHAR2(10)        CONSTRAINT pk_admission PRIMARY KEY,
+    PatientID               VARCHAR2(10)        NOT NULL,
+    RoomID                  VARCHAR2(10)        NOT NULL,
     AdmissionDate           DATE                DEFAULT SYSDATE NOT NULL,
     DischargeDate           DATE,
     AdmissionReason         VARCHAR2(255)       NOT NULL,

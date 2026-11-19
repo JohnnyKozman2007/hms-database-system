@@ -11,9 +11,9 @@
 -- ============================================================================
 
 CREATE TABLE MedicalProcedure (
-    ProcedureID             NUMBER(8)           CONSTRAINT pk_medical_procedure PRIMARY KEY,
-    PatientID               NUMBER(8)           NOT NULL,
-    DoctorID                NUMBER(8)           NOT NULL,
+    ProcedureID             VARCHAR2(10)        CONSTRAINT pk_medical_procedure PRIMARY KEY,
+    PatientID               VARCHAR2(10)        NOT NULL,
+    DoctorID                VARCHAR2(10)        NOT NULL,
     ProcedureName           VARCHAR2(100)       NOT NULL,
     ProcedureDate           DATE                DEFAULT SYSDATE NOT NULL CONSTRAINT chk_proc_date CHECK (ProcedureDate >= DATE '2020-01-01'),
     Duration                NUMBER(4)           NOT NULL CONSTRAINT chk_proc_duration CHECK (Duration > 0 AND Duration <= 1440),

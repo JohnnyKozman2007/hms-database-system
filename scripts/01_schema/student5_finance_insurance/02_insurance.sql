@@ -2,8 +2,8 @@
 -- Minimum Data Target: 100 insurance records
 -- Foreign Key: PatientID references Patient
 CREATE TABLE Insurance (
-    InsuranceID             NUMBER(8)           CONSTRAINT pk_insurance PRIMARY KEY,
-    PatientID               NUMBER(8)           NOT NULL,
+    InsuranceID             VARCHAR2(10)        CONSTRAINT pk_insurance PRIMARY KEY,
+    PatientID               VARCHAR2(10)        NOT NULL,
     InsuranceCompany        VARCHAR2(100)       NOT NULL 
                             CONSTRAINT chk_ins_company CHECK (InsuranceCompany IN ('AXA Egypt', 'Bupa Egypt', 'Allianz Egypt', 'MetLife Egypt', 'Misr Insurance', 'GIG Egypt', 'Delta Insurance', 'Universal Health Insurance')),
     PolicyNumber            VARCHAR2(50)        NOT NULL CONSTRAINT uq_ins_policy UNIQUE,

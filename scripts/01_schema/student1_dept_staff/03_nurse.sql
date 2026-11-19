@@ -7,7 +7,7 @@
 -- ============================================================================
 
 CREATE TABLE Nurse (
-    NurseID                 NUMBER(8)           CONSTRAINT pk_nurse PRIMARY KEY,
+    NurseID                 VARCHAR2(10)        CONSTRAINT pk_nurse PRIMARY KEY,
     FirstName               VARCHAR2(50)        NOT NULL,
     LastName                VARCHAR2(50)        NOT NULL,
     FullName                VARCHAR2(101)       GENERATED ALWAYS AS (FirstName || ' ' || LastName) VIRTUAL,
@@ -20,8 +20,8 @@ CREATE TABLE Nurse (
     Shift                   VARCHAR2(20)        DEFAULT 'Morning' NOT NULL CONSTRAINT chk_nurse_shift CHECK (Shift IN ('Morning', 'Afternoon', 'Night', 'Rotating')),
     HireDate                DATE                DEFAULT SYSDATE NOT NULL,
     YearsOfExperience       NUMBER(2)           DEFAULT 0 NOT NULL CONSTRAINT chk_nurse_exp CHECK (YearsOfExperience BETWEEN 0 AND 60),
-    DepartmentID            NUMBER(4)           NOT NULL,
-    SupervisorID            NUMBER(8),
+    DepartmentID            VARCHAR2(10)        NOT NULL,
+    SupervisorID            VARCHAR2(10),
     CONSTRAINT fk_nurse_dept FOREIGN KEY (DepartmentID) REFERENCES Department(DepartmentID),
     CONSTRAINT fk_nurse_supervisor FOREIGN KEY (SupervisorID) REFERENCES Nurse(NurseID),
     CONSTRAINT chk_nurse_phone CHECK (

@@ -9,9 +9,9 @@
 -- ============================================================================
 
 CREATE TABLE Appointment (
-    AppointmentID           NUMBER(8)           CONSTRAINT pk_appointment PRIMARY KEY,
-    PatientID               NUMBER(8)           NOT NULL,
-    DoctorID                NUMBER(8)           NOT NULL,
+    AppointmentID           VARCHAR2(10)        CONSTRAINT pk_appointment PRIMARY KEY,
+    PatientID               VARCHAR2(10)        NOT NULL,
+    DoctorID                VARCHAR2(10)        NOT NULL,
     AppointmentDate         DATE                DEFAULT SYSDATE NOT NULL CONSTRAINT chk_apt_date CHECK (AppointmentDate >= DATE '2020-01-01'),
     AppointmentTime         VARCHAR2(5)         GENERATED ALWAYS AS (TO_CHAR(AppointmentDate, 'HH24:MI')) VIRTUAL,
     Status                  VARCHAR2(20)        DEFAULT 'Scheduled' NOT NULL CONSTRAINT chk_apt_status CHECK (Status IN ('Scheduled', 'Completed', 'Cancelled', 'No-Show', 'In-Progress', 'Rescheduled')),

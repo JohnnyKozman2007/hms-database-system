@@ -8,9 +8,9 @@
 -- ============================================================================
 
 CREATE TABLE MedicalRecord (
-    RecordID                NUMBER(8)           CONSTRAINT pk_medical_record PRIMARY KEY,
-    PatientID               NUMBER(8)           NOT NULL,
-    DoctorID                NUMBER(8)           NOT NULL,
+    RecordID                VARCHAR2(10)        CONSTRAINT pk_medical_record PRIMARY KEY,
+    PatientID               VARCHAR2(10)        NOT NULL,
+    DoctorID                VARCHAR2(10)        NOT NULL,
     Diagnosis               VARCHAR2(255)       NOT NULL,
     Treatment               VARCHAR2(500)       DEFAULT 'Routine Monitoring / Conservative Management' NOT NULL,
     Notes                   VARCHAR2(1000),

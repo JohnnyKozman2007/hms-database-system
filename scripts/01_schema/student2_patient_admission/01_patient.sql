@@ -7,7 +7,7 @@
 -- ============================================================================
 
 CREATE TABLE Patient (
-    PatientID               NUMBER(8)           CONSTRAINT pk_patient PRIMARY KEY,
+    PatientID               VARCHAR2(10)        CONSTRAINT pk_patient PRIMARY KEY,
     FirstName               VARCHAR2(50)        NOT NULL,
     LastName                VARCHAR2(50)        NOT NULL,
     FullName                VARCHAR2(101)       GENERATED ALWAYS AS (FirstName || ' ' || LastName) VIRTUAL,

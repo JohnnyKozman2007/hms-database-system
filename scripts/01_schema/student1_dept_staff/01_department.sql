@@ -54,14 +54,14 @@ ALTER TABLE Department
 -- Check Constraints: Phone Type Domain
 ALTER TABLE Department 
     ADD CONSTRAINT chk_dept_phone_type CHECK (
-        PhoneType IN ('Landline', 'Mobile', 'Phone')
+        PhoneType IN ('Landline', 'Mobile')
     );
 
 -- Check Constraints: Egyptian National Telecom Number Format
 ALTER TABLE Department 
     ADD CONSTRAINT chk_dept_phone CHECK (
         REGEXP_LIKE(Phone, '^[0-9]+$') AND (
-            (PhoneType IN ('Mobile', 'Phone') AND LENGTH(Phone) = 11 AND Phone LIKE '01%') OR
+            (PhoneType = 'Mobile' AND LENGTH(Phone) = 11 AND Phone LIKE '01%') OR
             (PhoneType = 'Landline' AND LENGTH(Phone) IN (9, 10) AND Phone LIKE '0%')
         )
     );

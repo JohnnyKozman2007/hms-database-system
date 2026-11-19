@@ -2,8 +2,8 @@
 -- Minimum Data Target: 200 invoices
 -- Foreign Key: PatientID references Patient
 CREATE TABLE Invoice (
-    InvoiceID               NUMBER(8)           CONSTRAINT pk_invoice PRIMARY KEY,
-    PatientID               NUMBER(8)           NOT NULL,
+    InvoiceID               VARCHAR2(10)        CONSTRAINT pk_invoice PRIMARY KEY,
+    PatientID               VARCHAR2(10)        NOT NULL,
     InvoiceDate             DATE                DEFAULT SYSDATE NOT NULL,
     TotalAmount             NUMBER(10,2)        NOT NULL CONSTRAINT chk_inv_total CHECK (TotalAmount >= 0),
     TaxAmount               NUMBER(10,2)        DEFAULT 0.00 NOT NULL CONSTRAINT chk_inv_tax CHECK (TaxAmount >= 0),
