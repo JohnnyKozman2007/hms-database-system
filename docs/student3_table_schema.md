@@ -22,8 +22,8 @@
 * `Appointment` enforces mutual candidate key uniqueness guards:
   * `uq_apt_pat_time`: `UNIQUE (PatientID, AppointmentDate)` prevents a patient from being booked for two simultaneous appointments.
   * `uq_apt_doc_time`: `UNIQUE (DoctorID, AppointmentDate)` prevents a doctor from being booked for two simultaneous appointments.
-* `MedicalRecord.Diagnosis` is **NOT NULL**.
-* `MedicalRecord.Treatment` defaults to `'Routine Monitoring / Conservative Management'` and is **NOT NULL** (ensuring complete clinical documentation without null gaps).
+* `MedicalRecord.Diagnosis` is **NOT NULL** and enforces minimum length `LENGTH(TRIM(Diagnosis)) >= 3`.
+* `MedicalRecord.Treatment` is **NOT NULL** (mandating an explicit clinical care/treatment plan without artificial defaults) and enforces minimum length `LENGTH(TRIM(Treatment)) >= 3`.
 * `MedicalRecord.RecordDate` defaults to `SYSDATE`, is **NOT NULL**, and enforces boundary check (`RecordDate >= DATE '2020-01-01'`).
 * `MedicalRecord.FollowUpDate` is **NULLABLE** (accommodating discharged patients who do not require a follow-up consultation).
 * `MedicalRecord` enforces a chronological check constraint `chk_mr_dates`: `CHECK (FollowUpDate IS NULL OR (FollowUpDate >= RecordDate AND FollowUpDate <= RecordDate + 365))`, ensuring follow-up dates are on or after the encounter and capped within 1 year.
