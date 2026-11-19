@@ -5,9 +5,9 @@
 -- ============================================================================
 
 CREATE TABLE LaboratoryTest (
-    TestID                  NUMBER(8)           CONSTRAINT pk_laboratory_test PRIMARY KEY,
-    PatientID               NUMBER(8)           NOT NULL,
-    DoctorID                NUMBER(8)           NOT NULL,
+    TestID                  VARCHAR2(10)        CONSTRAINT pk_laboratory_test PRIMARY KEY,
+    PatientID               VARCHAR2(10)        NOT NULL,
+    DoctorID                VARCHAR2(10)        NOT NULL,
     TestType                VARCHAR2(100)       NOT NULL,
     RequestedDate           DATE                DEFAULT SYSDATE NOT NULL CONSTRAINT chk_lab_req_date CHECK (RequestedDate >= DATE '2020-01-01'),
     CompletedDate           DATE,

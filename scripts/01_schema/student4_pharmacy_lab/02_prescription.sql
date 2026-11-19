@@ -14,10 +14,10 @@
 -- ============================================================================
 
 CREATE TABLE Prescription (
-    PrescriptionID          NUMBER(8)           CONSTRAINT pk_prescription PRIMARY KEY,
-    PatientID               NUMBER(8)           NOT NULL,
-    DoctorID                NUMBER(8)           NOT NULL,
-    MedicationID            NUMBER(8)           NOT NULL,
+    PrescriptionID          VARCHAR2(10)        CONSTRAINT pk_prescription PRIMARY KEY,
+    PatientID               VARCHAR2(10)        NOT NULL,
+    DoctorID                VARCHAR2(10)        NOT NULL,
+    MedicationID            VARCHAR2(10)        NOT NULL,
     Dosage                  VARCHAR2(50)        NOT NULL,
     Frequency               VARCHAR2(50)        NOT NULL CONSTRAINT chk_rx_frequency CHECK (Frequency IN ('Once daily', 'Twice daily', 'Three times daily', 'Four times daily', 'Every 4 hours', 'Every 6 hours', 'Every 8 hours', 'Every 12 hours', 'As needed (PRN)', 'At bedtime', 'Weekly', 'Before meals', 'After meals')),
     Duration                NUMBER(3)           NOT NULL CONSTRAINT chk_rx_duration CHECK (Duration > 0 AND Duration <= 365),
