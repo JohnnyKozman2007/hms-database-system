@@ -1,15 +1,3 @@
--- ============================================================================
--- Entity: MedicalProcedure (Student 3 - Appointments and Medical Records)
--- Minimum Data Target: 100 procedures
--- Level 3 Table: Dependent on Patient (PatientID FK) and Doctor (DoctorID FK)
--- Virtual Column: EndTime auto-calculated from ProcedureDate + Duration
--- Constraints:
---   - chk_proc_outcome: Restricts lifecycle states, defaulting to 'Pending' upon booking
---   - uq_proc_doc_time: Guarantees a doctor cannot start two procedures simultaneously
---   - uq_proc_room_time: Guarantees an operating room cannot host two procedures simultaneously
---   - uq_proc_pat_time: Guarantees a patient cannot be scheduled for two procedures simultaneously
--- ============================================================================
-
 CREATE TABLE MedicalProcedure (
     ProcedureID             VARCHAR2(10)        CONSTRAINT pk_medical_procedure PRIMARY KEY,
     PatientID               VARCHAR2(10)        NOT NULL,
@@ -27,3 +15,9 @@ CREATE TABLE MedicalProcedure (
     CONSTRAINT uq_proc_room_time UNIQUE (OperatingRoom, ProcedureDate),
     CONSTRAINT uq_proc_pat_time UNIQUE (PatientID, ProcedureDate)
 );
+
+ALTER TABLE MedicalProcedure ADD CONSTRAINT chk_proc_id 
+    CHECK (REGEXP_LIKE(ProcedureID, '^[A-Za-z0-9_-]+$'));
+
+ALTER TABLE MedicalProcedure ADD CONSTRAINT chk_proc_name_len 
+    CHECK (LENGTH(TRIM(ProcedureName)) >= 3);

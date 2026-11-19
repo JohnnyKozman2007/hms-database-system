@@ -28,7 +28,7 @@
 * `MedicalRecord.FollowUpDate` is **NULLABLE** (accommodating discharged patients who do not require a follow-up consultation).
 * `MedicalRecord` enforces a chronological check constraint `chk_mr_dates`: `CHECK (FollowUpDate IS NULL OR (FollowUpDate >= RecordDate AND FollowUpDate <= RecordDate + 365))`, ensuring follow-up dates are on or after the encounter and capped within 1 year.
 * `MedicalRecord` enforces candidate key uniqueness (`uq_mr_encounter`: `UNIQUE (PatientID, DoctorID, RecordDate)`), preventing duplicate encounter records at the same timestamp.
-* `MedicalProcedure.ProcedureName` is **NOT NULL** (e.g., `'Appendectomy'`, `'Coronary Angiography'`, `'Endoscopy'`).
+* `MedicalProcedure.ProcedureName` is **NOT NULL** (e.g., `'Appendectomy'`, `'Coronary Angiography'`, `'Endoscopy'`) and enforces minimum length `LENGTH(TRIM(ProcedureName)) >= 3`.
 * `MedicalProcedure.ProcedureDate` defaults to `SYSDATE`, is **NOT NULL**, and enforces boundary check (`ProcedureDate >= DATE '2020-01-01'`).
 * `MedicalProcedure.Duration` is in minutes, **NOT NULL**, and enforces realistic duration limits (`chk_proc_duration`: `Duration > 0 AND Duration <= 1440`).
 * `/EndTime` is an **auto-derived virtual attribute** calculated as `ProcedureDate + (Duration / 1440)`, maintaining strict 3NF compliance without data redundancy.
