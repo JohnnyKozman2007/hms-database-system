@@ -60,6 +60,7 @@ When any table includes one of the standard semantic columns below, it **must** 
 | **Phone Number** | `Phone` | `VARCHAR2(20)` | — | NOT NULL + UQ + Telecom CHK (in CREATE) | `CONSTRAINT uq_<entity>_phone UNIQUE`<br>`CONSTRAINT chk_<entity>_phone CHECK (`<br>`  REGEXP_LIKE(Phone, '^[0-9]+$') AND (`<br>`    (PhoneType = 'Mobile' AND LENGTH(Phone) = 11 AND Phone LIKE '01%') OR`<br>`    (PhoneType = 'Landline' AND LENGTH(Phone) IN (9, 10) AND Phone LIKE '0%')))` |
 | **Experience** | `YearsOfExperience` | `NUMBER(2)` | `0` | NOT NULL + Range CHK (in CREATE) | `CONSTRAINT chk_<entity>_exp CHECK (YearsOfExperience BETWEEN 0 AND 60)` |
 | **Hire Date** | `HireDate` | `DATE` | `SYSDATE` | NOT NULL (in CREATE) + Bound CHK (in ALTER) | In ALTER: `chk_<entity>_hire_date CHECK (HireDate >= DATE '1980-01-01')`<br>*(Oracle prohibits `SYSDATE` in CHECK constraints)* |
+| **Nurse Shift** | `Shift` | `VARCHAR2(20)` | `'Morning'` | NOT NULL + Domain CHK (in CREATE) | `CONSTRAINT chk_nurse_shift CHECK (Shift IN ('Morning', 'Afternoon', 'Night', 'Rotating'))` |
 | **Campus Building** | `Building` | `VARCHAR2(50)` | — | NOT NULL (in CREATE) + Domain CHK (in ALTER) | In ALTER: `chk_dept_bldg CHECK (Building IN ('Building A', 'Building B', 'Building C', 'Building D'))` |
 | **Campus Story** | `FloorLevel` | `VARCHAR2(20)` | — | NOT NULL (in CREATE) + Domain CHK (in ALTER) | In ALTER: `chk_dept_floor CHECK (FloorLevel IN ('Ground Floor', '1st Floor', '2nd Floor', '3rd Floor', '4th Floor', '5th Floor'))` |
 | **Derived Location** | `/Location` | `VARCHAR2(80)` | — | VIRTUAL (in CREATE) | `GENERATED ALWAYS AS (Building \|\| ', ' \|\| FloorLevel) VIRTUAL` |
@@ -144,3 +145,51 @@ ALTER TABLE Doctor ADD CONSTRAINT chk_doc_hire_date
 ALTER TABLE Doctor ADD CONSTRAINT chk_doc_no_self_sup 
     CHECK (SupervisorID IS NULL OR SupervisorID <> DoctorID);
 ```
+
+---
+
+### Table 3: `Nurse` (Student 1 - Subsystem 1)
+
+```sql
+CREATE TABLE Nurse (
+    NurseID                 VARCHAR2(10)        CONSTRAINT pk_nurse PRIMARY KEY,
+    FirstName               VARCHAR2(50)        NOT NULL,
+    LastName                VARCHAR2(50)        NOT NULL,
+    FullName                VARCHAR2(101)       GENERATED ALWAYS AS (FirstName || ' ' || LastName) VIRTUAL,
+    Gender                  VARCHAR2(10)        NOT NULL CONSTRAINT chk_nurse_gender CHECK (Gender IN ('Male', 'Female')),
+    Phone                   VARCHAR2(20)        NOT NULL CONSTRAINT uq_nurse_phone UNIQUE,
+    PhoneType               VARCHAR2(10)        DEFAULT 'Mobile' NOT NULL CONSTRAINT chk_nurse_phone_type CHECK (PhoneType IN ('Mobile', 'Landline')),
+    Email                   VARCHAR2(100)       NOT NULL 
+                                                CONSTRAINT uq_nurse_email UNIQUE
+                                                CONSTRAINT chk_nurse_email_fmt CHECK (Email LIKE '%_@__%.__%'),
+    Shift                   VARCHAR2(20)        DEFAULT 'Morning' NOT NULL CONSTRAINT chk_nurse_shift CHECK (Shift IN ('Morning', 'Afternoon', 'Night', 'Rotating')),
+    HireDate                DATE                DEFAULT SYSDATE NOT NULL,
+    YearsOfExperience       NUMBER(2)           DEFAULT 0 NOT NULL CONSTRAINT chk_nurse_exp CHECK (YearsOfExperience BETWEEN 0 AND 60),
+    DepartmentID            VARCHAR2(10)        NOT NULL,
+    SupervisorID            VARCHAR2(10),
+    CONSTRAINT fk_nurse_dept FOREIGN KEY (DepartmentID) REFERENCES Department(DepartmentID),
+    CONSTRAINT fk_nurse_supervisor FOREIGN KEY (SupervisorID) REFERENCES Nurse(NurseID),
+    CONSTRAINT chk_nurse_phone CHECK (
+        REGEXP_LIKE(Phone, '^[0-9]+$') AND (
+            (PhoneType = 'Mobile' AND LENGTH(Phone) = 11 AND Phone LIKE '01%') OR
+            (PhoneType = 'Landline' AND LENGTH(Phone) IN (9, 10) AND Phone LIKE '0%')
+        )
+    )
+);
+
+ALTER TABLE Nurse ADD CONSTRAINT chk_nurse_id 
+    CHECK (REGEXP_LIKE(NurseID, '^[A-Za-z0-9_-]+$'));
+
+ALTER TABLE Nurse ADD CONSTRAINT chk_nurse_fname 
+    CHECK (REGEXP_LIKE(FirstName, '^[A-Za-z'' -]+$'));
+
+ALTER TABLE Nurse ADD CONSTRAINT chk_nurse_lname 
+    CHECK (REGEXP_LIKE(LastName, '^[A-Za-z'' -]+$'));
+
+ALTER TABLE Nurse ADD CONSTRAINT chk_nurse_hire_date 
+    CHECK (HireDate >= DATE '1980-01-01');
+
+ALTER TABLE Nurse ADD CONSTRAINT chk_nurse_no_self_sup 
+    CHECK (SupervisorID IS NULL OR SupervisorID <> NurseID);
+```
+
