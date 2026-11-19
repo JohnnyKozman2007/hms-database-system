@@ -13,12 +13,15 @@
 ---
 
 ### Key Notes & Constraints:
+* `AppointmentID`, `RecordID`, and `ProcedureID` are **VARCHAR2(10)** alphanumeric primary keys matching institutional appointment codes.
 * `/AppointmentTime` is a **derived virtual attribute** auto-extracted from `AppointmentDate` via `TO_CHAR(AppointmentDate, 'HH24:MI')`, keeping date and time synchronized without duplicate input.
 * `Appointment.AppointmentDate` stores the scheduled consultation timestamp, defaults to `SYSDATE`, is **NOT NULL**, and enforces a historical boundary check (`AppointmentDate >= DATE '2020-01-01'`).
 * `Appointment.Status` defaults to `'Scheduled'`, is **NOT NULL**, and enforces allowable lifecycle stages (`chk_apt_status`: `IN ('Scheduled', 'Completed', 'Cancelled', 'No-Show', 'In-Progress', 'Rescheduled')`).
-* `Appointment.Reason` is **NOT NULL** (mandating a declared clinical or consultation purpose).
+* `Appointment.Reason` is **NOT NULL** and enforces minimum length `LENGTH(TRIM(Reason)) >= 3`.
 * `Appointment.Notes` is conditionally mandatory (`chk_apt_status_note`: requires documented reason if `Status` is `'Cancelled'`, `'Rescheduled'`, or `'No-Show'`).
-* `Appointment` enforces candidate key uniqueness (`uq_apt_pat_time`: `UNIQUE (PatientID, AppointmentDate)`), preventing a patient from being booked for two simultaneous appointments.
+* `Appointment` enforces mutual candidate key uniqueness guards:
+  * `uq_apt_pat_time`: `UNIQUE (PatientID, AppointmentDate)` prevents a patient from being booked for two simultaneous appointments.
+  * `uq_apt_doc_time`: `UNIQUE (DoctorID, AppointmentDate)` prevents a doctor from being booked for two simultaneous appointments.
 * `MedicalRecord.Diagnosis` is **NOT NULL**.
 * `MedicalRecord.Treatment` defaults to `'Routine Monitoring / Conservative Management'` and is **NOT NULL** (ensuring complete clinical documentation without null gaps).
 * `MedicalRecord.RecordDate` defaults to `SYSDATE`, is **NOT NULL**, and enforces boundary check (`RecordDate >= DATE '2020-01-01'`).

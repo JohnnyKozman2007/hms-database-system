@@ -1,13 +1,3 @@
--- ============================================================================
--- Entity: Appointment (Student 3 - Appointments and Medical Records)
--- Minimum Data Target: 300 appointments
--- Level 3 Table: Dependent on Patient (PatientID FK) and Doctor (DoctorID FK)
--- Virtual Column: AppointmentTime auto-extracted from AppointmentDate ('HH24:MI')
--- Constraints:
---   - chk_apt_status_note: Explanatory notes mandatory for Cancelled, Rescheduled, or No-Show
---   - uq_apt_pat_time: Guarantees a patient cannot be double-booked at the same start time
--- ============================================================================
-
 CREATE TABLE Appointment (
     AppointmentID           VARCHAR2(10)        CONSTRAINT pk_appointment PRIMARY KEY,
     PatientID               VARCHAR2(10)        NOT NULL,
@@ -22,3 +12,12 @@ CREATE TABLE Appointment (
     CONSTRAINT chk_apt_status_note CHECK (Status NOT IN ('Cancelled', 'Rescheduled', 'No-Show') OR Notes IS NOT NULL),
     CONSTRAINT uq_apt_pat_time UNIQUE (PatientID, AppointmentDate)
 );
+
+ALTER TABLE Appointment ADD CONSTRAINT chk_apt_id 
+    CHECK (REGEXP_LIKE(AppointmentID, '^[A-Za-z0-9_-]+$'));
+
+ALTER TABLE Appointment ADD CONSTRAINT chk_apt_reason_len 
+    CHECK (LENGTH(TRIM(Reason)) >= 3);
+
+ALTER TABLE Appointment ADD CONSTRAINT uq_apt_doc_time 
+    UNIQUE (DoctorID, AppointmentDate);
