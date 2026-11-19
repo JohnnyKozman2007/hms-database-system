@@ -6,25 +6,27 @@
 
 * **Patient** (<u>PatientID</u>, FirstName, LastName, /FullName, DateOfBirth, Gender, BloodType, Phone, PhoneType, Email, BuildingNumber, Street, City, PostalCode, /Address, EmergencyContact)
 
-* **Room** (<u>RoomID</u>, RoomNumber, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus)
+* **Room** (<u>RoomID</u>, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus)
 
 * **Admission** (<u>AdmissionID</u>, PatientID*, RoomID*, AdmissionDate, DischargeDate, AdmissionReason, AdmissionStatus)
 
 ---
 
 ### Key Notes & Constraints:
+* `PatientID`, `RoomID`, and `AdmissionID` are **VARCHAR2(10)** alphanumeric primary keys.
 * `/FullName` is a **derived virtual attribute** computed from (`FirstName`, `LastName`).
 * `/Address` is a **derived virtual attribute** computed from (`BuildingNumber`, `Street`, `City`, `PostalCode`), identical to the `Supplier` address architecture.
 * `Street`, `City`, and `PostalCode` are **NOT NULL** (enforcing atomic address components in 1NF). `BuildingNumber` is nullable for premises or rural areas without formal numbers.
-* `Patient.DateOfBirth` enforces a boundary check (`DateOfBirth >= DATE '1900-01-01'`) and is **NOT NULL**.
+* `Patient.DateOfBirth` enforces boundary checks (`DateOfBirth >= DATE '1900-01-01'` and `DateOfBirth <= DATE '2026-12-31'`) and is **NOT NULL**.
 * `Patient.Gender` enforces a `CHECK` constraint (`IN ('Male', 'Female')`).
 * `Patient.BloodType` enforces a `CHECK` constraint (`IN ('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-')`).
 * `Patient.Phone` and `Patient.Email` are unique candidate keys (**UNIQUE**, **NOT NULL**, with format check `Email LIKE '%_@__%.__%'`).
-* `Patient.PhoneType` defaults to `'Mobile'` and enforces `CHECK (PhoneType IN ('Mobile', 'Landline', 'Phone'))`.
-* `Patient.Phone` enforces Egyptian National Telecom Authority rules: pure digits only (`^[0-9]+$`). Mobile numbers are exactly 11 digits starting with `01` (`010`, `011`, `012`, `015`); Landline numbers are 9 digits (Alexandria `03`) or 10 digits (Cairo `02` and provincial governorates) starting with `0`.
-* `Patient.EmergencyContact` is **NOT NULL**, enforces `CHECK (EmergencyContact <> Phone)`, and enforces Egyptian phone validation with digits only (no spaces, commas, or dashes).
-* `Room.RoomNumber` is a unique candidate key (**UNIQUE** and **NOT NULL**).
-* `Room.Floor` is **NOT NULL** and stored as `VARCHAR2(10)` (architectural location level, not a mathematical number).
+* `Patient.PhoneType` defaults to `'Mobile'` and enforces `CHECK (PhoneType IN ('Mobile', 'Landline'))`.
+* `Patient.Phone` enforces Egyptian National Telecom Authority rules: pure digits only (`^[0-9]+$`). Mobile numbers are exactly 11 digits starting with `01`; Landline numbers are 9–10 digits starting with `0`.
+* `Patient.EmergencyContact` is **NOT NULL**, enforces `CHECK (EmergencyContact <> Phone)`, and strictly enforces Egyptian Mobile validation (`^[0-9]+$`, 11 digits starting with `01`) for 24/7 emergency reachability.
+* `Room.Building` is **NOT NULL** and enforces standardized campus codes (`IN ('Building A', 'Building B', 'Building C', 'Building D')`).
+* `Room.Floor` is **NOT NULL**, stored as `VARCHAR2(20)`, and enforces standardized campus stories (`IN ('Ground Floor', '1st Floor', '2nd Floor', '3rd Floor', '4th Floor', '5th Floor')`).
+* `Room` enforces composite uniqueness `uq_room_bldg_floor_num`: `UNIQUE (Building, Floor, RoomNumber)`.
 * `Room.RoomType` enforces a `CHECK` constraint (`IN ('General Ward', 'Semi-Private', 'Private', 'ICU', 'Isolation', 'Emergency', 'Maternity', 'Pediatric', 'Operating Room')`).
 * `Room.Capacity` defaults to `1` and enforces `CHECK (Capacity > 0 AND Capacity <= 20)`.
 * `Room` enforces clinical capacity correlation `chk_room_type_cap`: Private, ICU, and Isolation rooms must have `Capacity = 1`; Semi-Private rooms must have `Capacity = 2`.
