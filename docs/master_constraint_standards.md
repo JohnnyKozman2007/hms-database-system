@@ -67,7 +67,7 @@ When any table includes one of the standard semantic columns below, it **must** 
 | **Blood Type** | `BloodType` | `VARCHAR2(5)` | — | NOT NULL + Domain CHK (in CREATE) | `CONSTRAINT chk_pat_blood CHECK (BloodType IN ('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'))` |
 | **Date of Birth** | `DateOfBirth` | `DATE` | — | NOT NULL + Bound CHKs | In CREATE: `chk_pat_dob CHECK (DateOfBirth >= DATE '1900-01-01')`<br>In ALTER: `chk_pat_dob_upper CHECK (DateOfBirth <= DATE '2026-12-31')` |
 | **Postal Code** | `PostalCode` | `VARCHAR2(20)` | — | NOT NULL (in CREATE) + Format CHK (in ALTER) | In ALTER: `chk_<entity>_postal CHECK (REGEXP_LIKE(PostalCode, '^[A-Za-z0-9 -]+$'))` |
-| **Derived Address** | `/Address` | `VARCHAR2(250)` | — | VIRTUAL (in CREATE) | `GENERATED ALWAYS AS (BuildingNumber \|\| ' ' \|\| Street \|\| ', ' \|\| City \|\| ' ' \|\| PostalCode) VIRTUAL` |
+| **Derived Address** | `/Address` | `VARCHAR2(250)` | — | VIRTUAL (in CREATE) | `GENERATED ALWAYS AS (NVL2(BuildingNumber, BuildingNumber \|\| ' ', '') \|\| Street \|\| ', ' \|\| City \|\| ' ' \|\| PostalCode) VIRTUAL` |
 | **Emergency Contact** | `EmergencyContact` | `VARCHAR2(20)` | — | NOT NULL + Diff CHK + Mobile CHK (in CREATE) | `chk_pat_emg CHECK (EmergencyContact <> Phone)`<br>`chk_pat_emg_num CHECK (REGEXP_LIKE(EmergencyContact, '^[0-9]+$') AND LENGTH(EmergencyContact) = 11 AND EmergencyContact LIKE '01%')` |
 
 ---
@@ -220,7 +220,7 @@ CREATE TABLE Patient (
     Street                  VARCHAR2(100)       NOT NULL,
     City                    VARCHAR2(50)        NOT NULL,
     PostalCode              VARCHAR2(20)        NOT NULL,
-    Address                 VARCHAR2(250)       GENERATED ALWAYS AS (BuildingNumber || ' ' || Street || ', ' || City || ' ' || PostalCode) VIRTUAL,
+    Address                 VARCHAR2(250)       GENERATED ALWAYS AS (NVL2(BuildingNumber, BuildingNumber || ' ', '') || Street || ', ' || City || ' ' || PostalCode) VIRTUAL,
     EmergencyContact        VARCHAR2(20)        NOT NULL,
     CONSTRAINT chk_pat_phone CHECK (
         REGEXP_LIKE(Phone, '^[0-9]+$') AND (
@@ -335,7 +335,7 @@ CREATE TABLE Appointment (
     AppointmentTime         VARCHAR2(5)         GENERATED ALWAYS AS (TO_CHAR(AppointmentDate, 'HH24:MI')) VIRTUAL,
     Status                  VARCHAR2(20)        DEFAULT 'Scheduled' NOT NULL CONSTRAINT chk_apt_status CHECK (Status IN ('Scheduled', 'Completed', 'Cancelled', 'No-Show', 'In-Progress', 'Rescheduled')),
     Reason                  VARCHAR2(255)       NOT NULL,
-    Notes                   VARCHAR2(500),
+    Notes                   VARCHAR2(500)       CONSTRAINT chk_apt_notes_len CHECK (Notes IS NULL OR LENGTH(TRIM(Notes)) >= 5),
     CONSTRAINT fk_apt_patient FOREIGN KEY (PatientID) REFERENCES Patient(PatientID),
     CONSTRAINT fk_apt_doctor FOREIGN KEY (DoctorID) REFERENCES Doctor(DoctorID),
     CONSTRAINT chk_apt_status_note CHECK (Status NOT IN ('Cancelled', 'Rescheduled', 'No-Show') OR Notes IS NOT NULL),
@@ -363,7 +363,7 @@ CREATE TABLE MedicalRecord (
     DoctorID                VARCHAR2(10)        NOT NULL,
     Diagnosis               VARCHAR2(255)       NOT NULL,
     Treatment               VARCHAR2(500)       NOT NULL,
-    Notes                   VARCHAR2(1000),
+    Notes                   VARCHAR2(1000)      CONSTRAINT chk_mr_notes_len CHECK (Notes IS NULL OR LENGTH(TRIM(Notes)) >= 5),
     RecordDate              DATE                DEFAULT SYSDATE NOT NULL CONSTRAINT chk_mr_rec_date CHECK (RecordDate >= DATE '2020-01-01'),
     FollowUpDate            DATE,
     CONSTRAINT fk_mr_patient FOREIGN KEY (PatientID) REFERENCES Patient(PatientID),
@@ -425,7 +425,7 @@ CREATE TABLE Medication (
     DosageForm              VARCHAR2(30)        NOT NULL CONSTRAINT chk_med_dosage_form CHECK (DosageForm IN ('Tablet', 'Capsule', 'Syrup', 'Injection', 'Ointment', 'Cream', 'Inhaler', 'Drops', 'Suspension', 'Patch', 'Suppository')),
     UnitPrice               NUMBER(10, 2)       NOT NULL CONSTRAINT chk_med_unit_price CHECK (UnitPrice > 0 AND UnitPrice <= 50000.00),
     QuantityInStock         NUMBER(6)           DEFAULT 0 NOT NULL CONSTRAINT chk_med_stock CHECK (QuantityInStock >= 0 AND QuantityInStock <= 100000),
-    ImportDate              DATE                DEFAULT SYSDATE NOT NULL,
+    ImportDate              DATE                DEFAULT SYSDATE NOT NULL CONSTRAINT chk_med_import_date CHECK (ImportDate >= DATE '2020-01-01'),
     ExpirationDate          DATE                NOT NULL,
     SupplierID              VARCHAR2(10)        NOT NULL,
     CONSTRAINT fk_med_supplier FOREIGN KEY (SupplierID) REFERENCES Supplier(SupplierID),
@@ -456,7 +456,7 @@ CREATE TABLE Prescription (
     Dosage                  VARCHAR2(50)        NOT NULL,
     Frequency               VARCHAR2(50)        NOT NULL CONSTRAINT chk_rx_frequency CHECK (Frequency IN ('Once daily', 'Twice daily', 'Three times daily', 'Four times daily', 'Every 4 hours', 'Every 6 hours', 'Every 8 hours', 'Every 12 hours', 'As needed (PRN)', 'At bedtime', 'Weekly', 'Before meals', 'After meals')),
     Duration                NUMBER(3)           NOT NULL CONSTRAINT chk_rx_duration CHECK (Duration > 0 AND Duration <= 365),
-    QuantityPrescribed      NUMBER(3)           DEFAULT 1 NOT NULL CONSTRAINT chk_rx_qty CHECK (QuantityPrescribed > 0 AND QuantityPrescribed <= 1000),
+    QuantityPrescribed      NUMBER(4)           DEFAULT 1 NOT NULL CONSTRAINT chk_rx_qty CHECK (QuantityPrescribed > 0 AND QuantityPrescribed <= 1000),
     DispenseStatus          VARCHAR2(20)        DEFAULT 'Pending' NOT NULL CONSTRAINT chk_rx_dispense CHECK (DispenseStatus IN ('Pending', 'Dispensed', 'Cancelled')),
     PrescriptionDate        DATE                DEFAULT SYSDATE NOT NULL CONSTRAINT chk_rx_date CHECK (PrescriptionDate >= DATE '2020-01-01'),
     PrescriptionTime        VARCHAR2(5)         GENERATED ALWAYS AS (TO_CHAR(PrescriptionDate, 'HH24:MI')) VIRTUAL,
@@ -494,9 +494,9 @@ CREATE TABLE LaboratoryTest (
     CONSTRAINT fk_lab_doctor FOREIGN KEY (DoctorID) REFERENCES Doctor(DoctorID),
     CONSTRAINT chk_lab_dates CHECK (CompletedDate IS NULL OR CompletedDate >= RequestedDate),
     CONSTRAINT chk_lab_status_sync CHECK (
-        (TestStatus IN ('Pending', 'In-Progress', 'Sample Collected') AND CompletedDate IS NULL) OR
+        (TestStatus IN ('Pending', 'In-Progress', 'Sample Collected') AND CompletedDate IS NULL AND TestResult IS NULL) OR
         (TestStatus = 'Completed' AND CompletedDate IS NOT NULL AND TestResult IS NOT NULL) OR
-        (TestStatus = 'Cancelled')
+        (TestStatus = 'Cancelled' AND CompletedDate IS NULL)
     ),
     CONSTRAINT uq_lab_order UNIQUE (PatientID, DoctorID, TestType, RequestedDate)
 );

@@ -18,12 +18,13 @@
 * `Appointment.AppointmentDate` stores the scheduled consultation timestamp, defaults to `SYSDATE`, is **NOT NULL**, and enforces a historical boundary check (`AppointmentDate >= DATE '2020-01-01'`).
 * `Appointment.Status` defaults to `'Scheduled'`, is **NOT NULL**, and enforces allowable lifecycle stages (`chk_apt_status`: `IN ('Scheduled', 'Completed', 'Cancelled', 'No-Show', 'In-Progress', 'Rescheduled')`).
 * `Appointment.Reason` is **NOT NULL** and enforces minimum length `LENGTH(TRIM(Reason)) >= 5`.
-* `Appointment.Notes` is conditionally mandatory (`chk_apt_status_note`: requires documented reason if `Status` is `'Cancelled'`, `'Rescheduled'`, or `'No-Show'`).
+* `Appointment.Notes` is conditionally mandatory (`chk_apt_status_note`: requires documented reason if `Status` is `'Cancelled'`, `'Rescheduled'`, or `'No-Show'`) and enforces minimum length `CHECK (Notes IS NULL OR LENGTH(TRIM(Notes)) >= 5)`.
 * `Appointment` enforces mutual candidate key uniqueness guards:
   * `uq_apt_pat_time`: `UNIQUE (PatientID, AppointmentDate)` prevents a patient from being booked for two simultaneous appointments.
   * `uq_apt_doc_time`: `UNIQUE (DoctorID, AppointmentDate)` prevents a doctor from being booked for two simultaneous appointments.
 * `MedicalRecord.Diagnosis` is **NOT NULL** and enforces minimum length `LENGTH(TRIM(Diagnosis)) >= 5`.
 * `MedicalRecord.Treatment` is **NOT NULL** (mandating an explicit clinical care/treatment plan without artificial defaults) and enforces minimum length `LENGTH(TRIM(Treatment)) >= 5`.
+* `MedicalRecord.Notes` is optional (nullable) and enforces minimum length `CHECK (Notes IS NULL OR LENGTH(TRIM(Notes)) >= 5)`.
 * `MedicalRecord.RecordDate` defaults to `SYSDATE`, is **NOT NULL**, and enforces boundary check (`RecordDate >= DATE '2020-01-01'`).
 * `MedicalRecord.FollowUpDate` is **NULLABLE** (accommodating discharged patients who do not require a follow-up consultation).
 * `MedicalRecord` enforces a chronological check constraint `chk_mr_dates`: `CHECK (FollowUpDate IS NULL OR (FollowUpDate >= RecordDate AND FollowUpDate <= RecordDate + 365))`, ensuring follow-up dates are on or after the encounter and capped within 1 year.

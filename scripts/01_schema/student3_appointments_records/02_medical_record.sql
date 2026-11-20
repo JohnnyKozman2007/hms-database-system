@@ -4,7 +4,7 @@ CREATE TABLE MedicalRecord (
     DoctorID                VARCHAR2(10)        NOT NULL,
     Diagnosis               VARCHAR2(255)       NOT NULL,
     Treatment               VARCHAR2(500)       NOT NULL,
-    Notes                   VARCHAR2(1000),
+    Notes                   VARCHAR2(1000)      CONSTRAINT chk_mr_notes_len CHECK (Notes IS NULL OR LENGTH(TRIM(Notes)) >= 5),
     RecordDate              DATE                DEFAULT SYSDATE NOT NULL CONSTRAINT chk_mr_rec_date CHECK (RecordDate >= DATE '2020-01-01'),
     FollowUpDate            DATE,
     CONSTRAINT fk_mr_patient FOREIGN KEY (PatientID) REFERENCES Patient(PatientID),

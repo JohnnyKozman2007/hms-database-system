@@ -6,7 +6,7 @@ CREATE TABLE Medication (
     DosageForm              VARCHAR2(30)        NOT NULL CONSTRAINT chk_med_dosage_form CHECK (DosageForm IN ('Tablet', 'Capsule', 'Syrup', 'Injection', 'Ointment', 'Cream', 'Inhaler', 'Drops', 'Suspension', 'Patch', 'Suppository')),
     UnitPrice               NUMBER(10, 2)       NOT NULL CONSTRAINT chk_med_unit_price CHECK (UnitPrice > 0 AND UnitPrice <= 50000.00),
     QuantityInStock         NUMBER(6)           DEFAULT 0 NOT NULL CONSTRAINT chk_med_stock CHECK (QuantityInStock >= 0 AND QuantityInStock <= 100000),
-    ImportDate              DATE                DEFAULT SYSDATE NOT NULL,
+    ImportDate              DATE                DEFAULT SYSDATE NOT NULL CONSTRAINT chk_med_import_date CHECK (ImportDate >= DATE '2020-01-01'),
     ExpirationDate          DATE                NOT NULL,
     SupplierID              VARCHAR2(10)        NOT NULL,
     CONSTRAINT fk_med_supplier FOREIGN KEY (SupplierID) REFERENCES Supplier(SupplierID),

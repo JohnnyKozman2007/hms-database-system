@@ -15,7 +15,7 @@ CREATE TABLE Patient (
     Street                  VARCHAR2(100)       NOT NULL,
     City                    VARCHAR2(50)        NOT NULL,
     PostalCode              VARCHAR2(20)        NOT NULL,
-    Address                 VARCHAR2(250)       GENERATED ALWAYS AS (BuildingNumber || ' ' || Street || ', ' || City || ' ' || PostalCode) VIRTUAL,
+    Address                 VARCHAR2(250)       GENERATED ALWAYS AS (NVL2(BuildingNumber, BuildingNumber || ' ', '') || Street || ', ' || City || ' ' || PostalCode) VIRTUAL,
     EmergencyContact        VARCHAR2(20)        NOT NULL,
     CONSTRAINT chk_pat_phone CHECK (
         REGEXP_LIKE(Phone, '^[0-9]+$') AND (

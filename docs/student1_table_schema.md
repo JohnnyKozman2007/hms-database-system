@@ -22,7 +22,7 @@
 * `/FullName` is a **derived virtual attribute** in both `Doctor` and `Nurse` computed from (`FirstName`, `LastName`).
 * `DepartmentName` is **UNIQUE** and **NOT NULL**.
 * `Department.Phone` is **UNIQUE** (`uq_dept_phone`) and **NOT NULL** (dedicated department direct line/extension).
-* `PhoneType` in `Department`, `Doctor`, and `Nurse` enforces `CHECK (PhoneType IN ('Landline', 'Mobile', 'Phone'))`.
+* `PhoneType` in `Department`, `Doctor`, and `Nurse` enforces `CHECK (PhoneType IN ('Landline', 'Mobile'))`.
 * `Phone` in `Department`, `Doctor`, and `Nurse` enforces Egyptian National Telecom Authority rules: pure digits only (`^[0-9]+$`). Mobile numbers are exactly 11 digits starting with `01`; Landlines are 9 digits (Alexandria `03`) or 10 digits (Cairo `02` and provincial governorates) starting with `0`.
 * `DoctorID` and `NurseID` are **VARCHAR2(10)** alphanumeric primary keys matching institutional badge codes (e.g., `'DOC01'`, `'001'`).
 * `Doctor.FirstName` and `Doctor.LastName` enforce alphabetic formatting (`^[A-Za-z'' -]+$`).

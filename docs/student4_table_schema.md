@@ -17,7 +17,7 @@
 * `Medication.MedicationName` is **NOT NULL** and enforces minimum length `LENGTH(TRIM(MedicationName)) >= 5`.
 * `Medication.Manufacturer` is **NOT NULL** and enforces minimum length `LENGTH(TRIM(Manufacturer)) >= 5`.
 * `Medication` enforces composite batch candidate key uniqueness `uq_med_batch`: `UNIQUE (MedicationName, Manufacturer, DosageForm, ExpirationDate)`, accommodating different batches or suppliers while preventing exact duplicate stock entries.
-* `Medication.ImportDate` defaults to `SYSDATE` and is **NOT NULL**.
+* `Medication.ImportDate` defaults to `SYSDATE`, is **NOT NULL**, and enforces boundary check (`chk_med_import_date`: `ImportDate >= DATE '2020-01-01'`).
 * `Medication` enforces chronological stock validation `chk_med_dates`: `CHECK (ExpirationDate > ImportDate)`.
 * `Medication.Category` is **NOT NULL** and enforces standardized pharmaceutical classes (`chk_med_category`: `IN ('Antibiotic', 'Analgesic', 'Antipyretic', 'Antihypertensive', 'Antidiabetic', 'Anticoagulant', 'Antihistamine', 'Bronchodilator', 'Statin', 'Gastrointestinal', 'Corticosteroid', 'Antidepressant', 'Antiviral', 'Cardiovascular', 'Dermatological', 'Other')`).
 * `Medication.DosageForm` is **NOT NULL** and enforces approved administration forms (`chk_med_dosage_form`: `IN ('Tablet', 'Capsule', 'Syrup', 'Injection', 'Ointment', 'Cream', 'Inhaler', 'Drops', 'Suspension', 'Patch', 'Suppository')`).
@@ -40,7 +40,7 @@
 * `LaboratoryTest.TestStatus` defaults to `'Pending'`, is **NOT NULL**, and enforces valid lab workflow states (`chk_lab_status`: `IN ('Pending', 'In-Progress', 'Completed', 'Cancelled', 'Sample Collected')`).
 * `LaboratoryTest.TestCost` is **NOT NULL** and strictly positive (`chk_lab_cost`: `TestCost > 0 AND TestCost <= 50000.00`).
 * `LaboratoryTest` enforces chronological check constraint `chk_lab_dates`: `CHECK (CompletedDate IS NULL OR CompletedDate >= RequestedDate)`.
-* `LaboratoryTest` enforces lifecycle synchronization `chk_lab_status_sync`: pending/in-progress tests must have `CompletedDate IS NULL`, while completed tests must possess both `CompletedDate IS NOT NULL` and `TestResult IS NOT NULL`.
+* `LaboratoryTest` enforces lifecycle synchronization `chk_lab_status_sync`: pending/in-progress/sample-collected tests must have `CompletedDate IS NULL` and `TestResult IS NULL`, cancelled tests must have `CompletedDate IS NULL`, and completed tests must possess both `CompletedDate IS NOT NULL` and `TestResult IS NOT NULL`.
 * `LaboratoryTest` enforces candidate uniqueness (`uq_lab_order`: `UNIQUE (PatientID, DoctorID, TestType, RequestedDate)`), preventing duplicate test orders at the same timestamp.
 
 ### Foreign Key References:
