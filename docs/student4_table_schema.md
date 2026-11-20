@@ -31,6 +31,7 @@
 * `Prescription.PrescriptionDate` stores both **Date and Time** (`YYYY-MM-DD HH24:MI:SS`), defaults to `SYSDATE`, is **NOT NULL**, and enforces boundary check (`chk_rx_date`: `PrescriptionDate >= DATE '2020-01-01'`).
 * `/PrescriptionTime` is an **auto-derived virtual attribute** extracted from `PrescriptionDate` via `TO_CHAR(PrescriptionDate, 'HH24:MI')`, ensuring exact time synchronization without redundant manual entry.
 * `/EndDate` is an **auto-derived virtual attribute** calculated as `PrescriptionDate + Duration`, keeping treatment completion dates synchronized without redundant manual entry.
+* `Prescription.Notes` is optional (nullable) and enforces minimum length `CHECK (Notes IS NULL OR LENGTH(TRIM(Notes)) >= 5)`.
 * `Prescription` enforces candidate uniqueness (`uq_rx_order`: `UNIQUE (PatientID, DoctorID, MedicationID, PrescriptionDate)`). Because `PrescriptionDate` holds the timestamp down to the minute/second, the hospital can prescribe the **same medication twice a day** (e.g., morning 08:00 and evening 20:00) while still preventing accidental duplicate orders at the exact same moment.
 * `LaboratoryTest.TestType` is **NOT NULL** (e.g., `'Complete Blood Count (CBC)'`, `'Lipid Panel'`).
 * `LaboratoryTest.RequestedDate` defaults to `SYSDATE`, is **NOT NULL**, and enforces boundary check (`chk_lab_req_date`: `RequestedDate >= DATE '2020-01-01'`).

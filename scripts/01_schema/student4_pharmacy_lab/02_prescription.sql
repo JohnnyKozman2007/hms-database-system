@@ -1,18 +1,3 @@
--- ============================================================================
--- Entity: Prescription (Student 4 - Pharmacy and Laboratory Management)
--- Minimum Data Target: 300 prescriptions
--- Level 4 Table: Dependent on Patient (PatientID FK), Doctor (DoctorID FK), and Medication (MedicationID FK)
--- Virtual Columns: 
---   1. PrescriptionTime: Auto-extracted from PrescriptionDate ('HH24:MI')
---   2. EndDate: Auto-calculated from PrescriptionDate + Duration
--- Business Extensions:
---   - QuantityPrescribed: Units/packages dispensed to patient
---   - DispenseStatus: Lifecycle state ('Pending', 'Dispensed', 'Cancelled')
--- Note on PrescriptionDate: Stores Date + Time (HH24:MI:SS). This allows
--- prescribing the same medication twice on the same day at different times
--- (e.g., morning 08:00 and evening 20:00) while preventing exact duplicate orders.
--- ============================================================================
-
 CREATE TABLE Prescription (
     PrescriptionID          VARCHAR2(10)        CONSTRAINT pk_prescription PRIMARY KEY,
     PatientID               VARCHAR2(10)        NOT NULL,
@@ -32,3 +17,9 @@ CREATE TABLE Prescription (
     CONSTRAINT fk_rx_medication FOREIGN KEY (MedicationID) REFERENCES Medication(MedicationID),
     CONSTRAINT uq_rx_order UNIQUE (PatientID, DoctorID, MedicationID, PrescriptionDate)
 );
+
+ALTER TABLE Prescription ADD CONSTRAINT chk_rx_id 
+    CHECK (REGEXP_LIKE(PrescriptionID, '^[A-Za-z0-9_-]+$'));
+
+ALTER TABLE Prescription ADD CONSTRAINT chk_rx_notes_len 
+    CHECK (Notes IS NULL OR LENGTH(TRIM(Notes)) >= 5);
