@@ -33,7 +33,8 @@
 * `/EndDate` is an **auto-derived virtual attribute** calculated as `PrescriptionDate + Duration`, keeping treatment completion dates synchronized without redundant manual entry.
 * `Prescription.Notes` is optional (nullable) and enforces minimum length `CHECK (Notes IS NULL OR LENGTH(TRIM(Notes)) >= 5)`.
 * `Prescription` enforces candidate uniqueness (`uq_rx_order`: `UNIQUE (PatientID, DoctorID, MedicationID, PrescriptionDate)`). Because `PrescriptionDate` holds the timestamp down to the minute/second, the hospital can prescribe the **same medication twice a day** (e.g., morning 08:00 and evening 20:00) while still preventing accidental duplicate orders at the exact same moment.
-* `LaboratoryTest.TestType` is **NOT NULL** (e.g., `'Complete Blood Count (CBC)'`, `'Lipid Panel'`).
+* `LaboratoryTest.TestType` is **NOT NULL** and enforces minimum length `LENGTH(TRIM(TestType)) >= 5` (e.g., `'Complete Blood Count (CBC)'`, `'Lipid Panel'`).
+* `LaboratoryTest.TestResult` is optional (nullable) and enforces minimum length `CHECK (TestResult IS NULL OR LENGTH(TRIM(TestResult)) >= 5)`.
 * `LaboratoryTest.RequestedDate` defaults to `SYSDATE`, is **NOT NULL**, and enforces boundary check (`chk_lab_req_date`: `RequestedDate >= DATE '2020-01-01'`).
 * `LaboratoryTest.CompletedDate` is **NULLABLE** (NULL while test is pending or in progress).
 * `LaboratoryTest.TestStatus` defaults to `'Pending'`, is **NOT NULL**, and enforces valid lab workflow states (`chk_lab_status`: `IN ('Pending', 'In-Progress', 'Completed', 'Cancelled', 'Sample Collected')`).

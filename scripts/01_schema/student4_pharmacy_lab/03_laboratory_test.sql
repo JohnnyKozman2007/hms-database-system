@@ -1,9 +1,3 @@
--- ============================================================================
--- Entity: LaboratoryTest (Student 4 - Pharmacy and Laboratory Management)
--- Minimum Data Target: 200 laboratory tests
--- Level 3 Table: Dependent on Patient (PatientID FK) and Doctor (DoctorID FK)
--- ============================================================================
-
 CREATE TABLE LaboratoryTest (
     TestID                  VARCHAR2(10)        CONSTRAINT pk_laboratory_test PRIMARY KEY,
     PatientID               VARCHAR2(10)        NOT NULL,
@@ -24,3 +18,12 @@ CREATE TABLE LaboratoryTest (
     ),
     CONSTRAINT uq_lab_order UNIQUE (PatientID, DoctorID, TestType, RequestedDate)
 );
+
+ALTER TABLE LaboratoryTest ADD CONSTRAINT chk_lab_id 
+    CHECK (REGEXP_LIKE(TestID, '^[A-Za-z0-9_-]+$'));
+
+ALTER TABLE LaboratoryTest ADD CONSTRAINT chk_lab_type_len 
+    CHECK (LENGTH(TRIM(TestType)) >= 5);
+
+ALTER TABLE LaboratoryTest ADD CONSTRAINT chk_lab_result_len 
+    CHECK (TestResult IS NULL OR LENGTH(TRIM(TestResult)) >= 5);
