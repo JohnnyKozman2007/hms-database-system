@@ -28,15 +28,58 @@ SELECT
 FROM Supplier
 ORDER BY SupplierID;
 
--- Medium:
--- 3. Display invoices together with patient information.
--- TODO: Write Query 3 here
+-- Medium 3. Display invoices together with patient information.
+SELECT
+    i.InvoiceID,
+    i.InvoiceDate,
+    i.DueDate,
+    i.TotalAmount,
+    i.TaxAmount,
+    i.Discount,
+    i.NetAmount,
+    i.PaymentStatus,
+    p.PatientID,
+    p.FullName AS PatientName,
+    p.Phone,
+    p.Email
+FROM Invoice i
+JOIN Patient p
+    ON i.PatientID = p.PatientID
+ORDER BY i.InvoiceDate DESC, i.InvoiceID;
 
--- 4. Display invoices together with their payments.
--- TODO: Write Query 4 here
+-- Medium 4. Display invoices together with their payments.
+SELECT
+    i.InvoiceID,
+    i.PatientID,
+    i.InvoiceDate,
+    i.NetAmount,
+    i.PaymentStatus AS InvoiceStatus,
+    p.PaymentID,
+    p.PaymentDate,
+    p.AmountPaid,
+    p.PaymentMethod,
+    p.TransactionReference,
+    p.PaymentStatus AS PaymentStatus
+FROM Invoice i
+LEFT JOIN Payment p
+    ON i.InvoiceID = p.InvoiceID
+ORDER BY i.InvoiceID, p.PaymentDate;
 
--- 5. Calculate the total amount paid for each invoice.
--- TODO: Write Query 5 here
+-- Medium 5. Calculate the total amount paid for each invoice.
+SELECT
+    i.InvoiceID,
+    i.PatientID,
+    i.InvoiceDate,
+    i.NetAmount,
+    NVL(SUM(p.AmountPaid), 0) AS TotalPaid,
+    i.NetAmount - NVL(SUM(p.AmountPaid), 0) AS RemainingBalance,
+    i.PaymentStatus
+FROM Invoice i
+LEFT JOIN Payment p
+    ON i.InvoiceID = p.InvoiceID
+   AND p.PaymentStatus = 'Completed'
+GROUP BY i.InvoiceID, i.PatientID, i.InvoiceDate, i.NetAmount, i.PaymentStatus
+ORDER BY i.InvoiceID;
 
 -- Hard:
 -- 6. Find patients who have outstanding invoice balances.
