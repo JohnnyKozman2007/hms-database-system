@@ -81,9 +81,45 @@ LEFT JOIN Payment p
 GROUP BY i.InvoiceID, i.PatientID, i.InvoiceDate, i.NetAmount, i.PaymentStatus
 ORDER BY i.InvoiceID;
 
--- Hard:
--- 6. Find patients who have outstanding invoice balances.
--- TODO: Write Query 6 here
+-- Hard 6. Find patients who have outstanding invoice balances.
+WITH invoice_payments AS (
+    SELECT
+        InvoiceID,
+        SUM(AmountPaid) AS CompletedPaid
+    FROM Payment
+    WHERE PaymentStatus = 'Completed'
+    GROUP BY InvoiceID
+)
+SELECT
+    p.PatientID,
+    p.FullName AS PatientName,
+    p.Phone,
+    p.Email,
+    SUM(i.NetAmount) AS TotalBilled,
+    SUM(NVL(ip.CompletedPaid, 0)) AS TotalPaid,
+    SUM(i.NetAmount - NVL(ip.CompletedPaid, 0)) AS OutstandingBalance
+FROM Patient p
+JOIN Invoice i
+    ON p.PatientID = i.PatientID
+LEFT JOIN invoice_payments ip
+    ON i.InvoiceID = ip.InvoiceID
+GROUP BY p.PatientID, p.FullName, p.Phone, p.Email
+HAVING SUM(i.NetAmount - NVL(ip.CompletedPaid, 0)) > 0
+ORDER BY OutstandingBalance DESC, p.PatientID;
 
--- 7. Find the supplier that provides the highest number of medications.
--- TODO: Write Query 7 here
+-- Hard 7. Find the supplier that provides the highest number of medications.
+SELECT
+    s.SupplierID,
+    s.CompanyName,
+    s.ContactPerson,
+    s.ContractStatus,
+    COUNT(m.MedicationID) AS MedicationCount
+FROM Supplier s
+JOIN Medication m
+    ON s.SupplierID = m.SupplierID
+GROUP BY s.SupplierID, s.CompanyName, s.ContactPerson, s.ContractStatus
+HAVING COUNT(m.MedicationID) = (
+    SELECT MAX(COUNT(MedicationID))
+    FROM Medication
+    GROUP BY SupplierID
+);
