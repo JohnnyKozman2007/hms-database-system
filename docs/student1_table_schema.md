@@ -18,7 +18,7 @@
 * `FloorLevel` enforces standardized ordinal stories via `CHECK (FloorLevel IN ('Ground Floor', '1st Floor', '2nd Floor', '3rd Floor', '4th Floor', '5th Floor'))`.
 * `/Location` is a **derived virtual attribute** computed from (`Building`, `FloorLevel`).
 * `Building` and `FloorLevel` are **NOT NULL** (enforcing atomic location components in 1NF).
-* All table constraints are explicitly declared using `ALTER TABLE ... ADD CONSTRAINT`.
+* Baseline table constraints are declared inside `CREATE TABLE`, while refinement constraints (`chk_*_id`, `chk_dept_bldg`, `chk_dept_floor`, name/date/self-supervisor guards) are added via `ALTER TABLE ... ADD CONSTRAINT`.
 * `/FullName` is a **derived virtual attribute** in both `Doctor` and `Nurse` computed from (`FirstName`, `LastName`).
 * `DepartmentName` is **UNIQUE** and **NOT NULL**.
 * `Department.Phone` is **UNIQUE** (`uq_dept_phone`) and **NOT NULL** (dedicated department direct line/extension).

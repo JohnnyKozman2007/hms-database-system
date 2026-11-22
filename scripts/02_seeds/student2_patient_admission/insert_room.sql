@@ -1,4 +1,55 @@
--- SEED DATA: Room (Student 2)
--- Target: Minimum 50 rooms
--- TODO: Add INSERT statements here
+-- SEED DATA: Room (Student 2) - 50 rows
+-- Row 1 omits Capacity (1) and AvailabilityStatus ('Available') to exercise DEFAULTS.
 
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, DailyCharge) VALUES ('RM001', '101', 'Building A', 'Ground Floor', 'Private', 1800.00);
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM002', '102', 'Building B', 'Ground Floor', 'Semi-Private', 2, 1150.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM003', '103', 'Building C', 'Ground Floor', 'General Ward', 4, 550.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM004', '104', 'Building D', 'Ground Floor', 'ICU', 1, 4650.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM005', '205', 'Building A', '1st Floor', 'Isolation', 1, 2800.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM006', '206', 'Building B', '1st Floor', 'Emergency', 2, 950.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM007', '207', 'Building C', '1st Floor', 'Maternity', 2, 1650.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM008', '208', 'Building D', '1st Floor', 'Pediatric', 3, 950.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM009', '309', 'Building A', '2nd Floor', 'Operating Room', 1, 6150.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM010', '310', 'Building B', '2nd Floor', 'Private', 1, 2000.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM011', '311', 'Building C', '2nd Floor', 'Semi-Private', 2, 1100.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM012', '312', 'Building D', '2nd Floor', 'General Ward', 4, 500.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM013', '413', 'Building A', '3rd Floor', 'ICU', 1, 4600.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM014', '414', 'Building B', '3rd Floor', 'Isolation', 1, 2750.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM015', '415', 'Building C', '3rd Floor', 'Emergency', 2, 1150.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM016', '416', 'Building D', '3rd Floor', 'Maternity', 2, 1600.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM017', '517', 'Building A', '4th Floor', 'Pediatric', 3, 900.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM018', '518', 'Building B', '4th Floor', 'Operating Room', 1, 6100.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM019', '519', 'Building C', '4th Floor', 'Private', 1, 1950.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM020', '520', 'Building D', '4th Floor', 'Semi-Private', 2, 1300.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM021', '621', 'Building A', '5th Floor', 'General Ward', 4, 450.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM022', '622', 'Building B', '5th Floor', 'ICU', 1, 4550.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM023', '623', 'Building C', '5th Floor', 'Isolation', 1, 2700.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM024', '624', 'Building D', '5th Floor', 'Emergency', 2, 1100.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM025', '125', 'Building A', 'Ground Floor', 'Maternity', 2, 1800.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM026', '126', 'Building B', 'Ground Floor', 'Pediatric', 3, 850.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM027', '127', 'Building C', 'Ground Floor', 'Operating Room', 1, 6050.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM028', '128', 'Building D', 'Ground Floor', 'Private', 1, 1900.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM029', '229', 'Building A', '1st Floor', 'Semi-Private', 2, 1250.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM030', '230', 'Building B', '1st Floor', 'General Ward', 4, 650.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM031', '231', 'Building C', '1st Floor', 'ICU', 1, 4500.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM032', '232', 'Building D', '1st Floor', 'Isolation', 1, 2650.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM033', '333', 'Building A', '2nd Floor', 'Emergency', 2, 1050.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM034', '334', 'Building B', '2nd Floor', 'Maternity', 2, 1750.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM035', '335', 'Building C', '2nd Floor', 'Pediatric', 3, 1050.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM036', '336', 'Building D', '2nd Floor', 'Operating Room', 1, 6000.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM037', '437', 'Building A', '3rd Floor', 'Private', 1, 1850.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM038', '438', 'Building B', '3rd Floor', 'Semi-Private', 2, 1200.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM039', '439', 'Building C', '3rd Floor', 'General Ward', 4, 600.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM040', '440', 'Building D', '3rd Floor', 'ICU', 1, 4700.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM041', '541', 'Building A', '4th Floor', 'Isolation', 1, 2600.00, 'Maintenance');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM042', '542', 'Building B', '4th Floor', 'Emergency', 2, 1000.00, 'Maintenance');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM043', '543', 'Building C', '4th Floor', 'Maternity', 2, 1700.00, 'Maintenance');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM044', '544', 'Building D', '4th Floor', 'Pediatric', 3, 1000.00, 'Maintenance');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM045', '645', 'Building A', '5th Floor', 'Operating Room', 1, 6200.00, 'Reserved');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM046', '646', 'Building B', '5th Floor', 'Private', 1, 1800.00, 'Reserved');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM047', '647', 'Building C', '5th Floor', 'Semi-Private', 2, 1150.00, 'Reserved');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM048', '648', 'Building D', '5th Floor', 'General Ward', 4, 550.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM049', '149', 'Building A', 'Ground Floor', 'ICU', 1, 4650.00, 'Available');
+INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge, AvailabilityStatus) VALUES ('RM050', '150', 'Building B', 'Ground Floor', 'Isolation', 1, 2800.00, 'Available');
+
+COMMIT;
