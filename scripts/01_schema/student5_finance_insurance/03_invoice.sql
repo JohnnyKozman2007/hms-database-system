@@ -10,7 +10,7 @@ CREATE TABLE Invoice (
                                                         ELSE 0.14
                                                     END, 2)
                                                 ) VIRTUAL,
-    Discount                NUMBER(10,2)        DEFAULT 0.00 NOT NULL CONSTRAINT chk_inv_disc CHECK (Discount >= 0 AND Discount <= TotalAmount),
+    Discount                NUMBER(10,2)        DEFAULT 0.00 NOT NULL,
     NetAmount               NUMBER(12,2)        GENERATED ALWAYS AS (
                                                     TotalAmount + ROUND(TotalAmount * CASE
                                                         WHEN TotalAmount < 1000 THEN 0.05
@@ -21,6 +21,7 @@ CREATE TABLE Invoice (
     DueDate                 DATE                DEFAULT SYSDATE + 3 NOT NULL,
     PaymentStatus           VARCHAR2(20)        DEFAULT 'Unpaid' NOT NULL CONSTRAINT chk_inv_status CHECK (PaymentStatus IN ('Unpaid', 'Overdue', 'Partially Paid', 'Paid')),
     CONSTRAINT fk_inv_patient FOREIGN KEY (PatientID) REFERENCES Patient(PatientID),
+    CONSTRAINT chk_inv_disc CHECK (Discount >= 0 AND Discount <= TotalAmount),
     CONSTRAINT chk_inv_dates CHECK (DueDate >= InvoiceDate AND DueDate <= InvoiceDate + 3)
 );
 
