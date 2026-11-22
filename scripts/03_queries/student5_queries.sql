@@ -1,14 +1,32 @@
--- ============================================================================
 -- STUDENT 5: Finance and Insurance Management Queries
 -- Assigned Entities: Invoice, Payment, Supplier, Insurance
--- ============================================================================
 
--- Easy:
--- 1. Display all invoices.
--- TODO: Write Query 1 here
+-- Easy 1. Display all invoices.
+SELECT
+    InvoiceID,
+    PatientID,
+    InvoiceDate,
+    TotalAmount,
+    TaxAmount,
+    Discount,
+    NetAmount,
+    DueDate,
+    PaymentStatus
+FROM Invoice
+ORDER BY InvoiceDate DESC, InvoiceID;
 
--- 2. Display all suppliers.
--- TODO: Write Query 2 here
+-- Easy 2. Display all suppliers.
+SELECT
+    SupplierID,
+    CompanyName,
+    ContactPerson,
+    Phone,
+    PhoneType,
+    Email,
+    Address,
+    ContractStatus
+FROM Supplier
+ORDER BY SupplierID;
 
 -- Medium:
 -- 3. Display invoices together with patient information.
