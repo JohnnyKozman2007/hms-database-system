@@ -11,29 +11,24 @@
 ---
 
 ## 1. Entity: `Medication`
-Maintains the hospital pharmacy's catalog of pharmaceutical drugs, formulation details, therapeutic categories, unit pricing, real-time stock levels, and expiration monitoring.
+Maintains the hospital pharmacy's catalog of pharmaceutical drugs, formulation details, therapeutic categories, unit pricing, real-time stock levels, import dates, and expiration monitoring.
 
 | Column Name | Data Type | Nullable | Key Type | References | Default | Constraints & Business Rules |
 | :--- | :--- | :---: | :---: | :---: | :---: | :--- |
-| `MedicationID` | `NUMBER(8)` | NO | **PK** | — | — | Primary identifier (Agreed Range: `1..50+`) |
-| `MedicationName` | `VARCHAR2(100)` | NO | Candidate | — | — | Unique medication brand/generic trade name (`uq_med_name`) |
-| `Manufacturer` | `VARCHAR2(100)` | NO | None | — | — | Pharmaceutical manufacturing laboratory or company |
+| `MedicationID` | `VARCHAR2(10)` | NO | **PK** | — | — | `pk_medication`; `chk_med_id`: `REGEXP_LIKE(MedicationID, '^[A-Za-z0-9_-]+$')` |
+| `MedicationName` | `VARCHAR2(100)` | NO | Candidate | — | — | `chk_med_name_len`: `LENGTH(TRIM(MedicationName)) >= 5`; part of `uq_med_batch` |
+| `Manufacturer` | `VARCHAR2(100)` | NO | Candidate | — | — | `chk_med_mfg_len`: `LENGTH(TRIM(Manufacturer)) >= 5`; part of `uq_med_batch` |
 | `Category` | `VARCHAR2(50)` | NO | None | — | — | `chk_med_category`: IN (`'Antibiotic'`, `'Analgesic'`, `'Antipyretic'`, `'Antihypertensive'`, `'Antidiabetic'`, `'Anticoagulant'`, `'Antihistamine'`, `'Bronchodilator'`, `'Statin'`, `'Gastrointestinal'`, `'Corticosteroid'`, `'Antidepressant'`, `'Antiviral'`, `'Cardiovascular'`, `'Dermatological'`, `'Other'`) |
-| `DosageForm` | `VARCHAR2(30)` | NO | None | — | — | `chk_med_dosage_form`: IN (`'Tablet'`, `'Capsule'`, `'Syrup'`, `'Injection'`, `'Ointment'`, `'Cream'`, `'Inhaler'`, `'Drops'`, `'Suspension'`, `'Patch'`, `'Suppository'`) |
-| `UnitPrice` | `NUMBER(10,2)` | NO | None | — | — | Retail unit price per package/unit (`chk_med_unit_price`: `UnitPrice > 0 AND UnitPrice <= 50000.00`) |
-| `QuantityInStock` | `NUMBER(6)` | NO | None | — | `0` | Current physical inventory on hand (`chk_med_stock`: `QuantityInStock >= 0 AND QuantityInStock <= 100000`) |
-| `ExpirationDate` | `DATE` | NO | None | — | — | Batch expiration date (`chk_med_exp_date`: `>= DATE '2020-01-01'`) |
-| `SupplierID` | `NUMBER(5)` | NO | **FK** | `Supplier(SupplierID)` | — | Pharmaceutical wholesale distributor (`fk_med_supplier`) |
+| `DosageForm` | `VARCHAR2(30)` | NO | Candidate | — | — | `chk_med_dosage_form`: IN (`'Tablet'`, `'Capsule'`, `'Syrup'`, `'Injection'`, `'Ointment'`, `'Cream'`, `'Inhaler'`, `'Drops'`, `'Suspension'`, `'Patch'`, `'Suppository'`); part of `uq_med_batch` |
+| `UnitPrice` | `NUMBER(10,2)` | NO | None | — | — | `chk_med_unit_price`: `UnitPrice > 0 AND UnitPrice <= 50000.00` |
+| `QuantityInStock` | `NUMBER(6)` | NO | None | — | `0` | `chk_med_stock`: `QuantityInStock >= 0 AND QuantityInStock <= 100000` |
+| `ImportDate` | `DATE` | NO | None | — | `SYSDATE` | `chk_med_import_date`: `>= DATE '2020-01-01'`; capped at `SYSDATE` via `trg_med_import_date_max` |
+| `ExpirationDate` | `DATE` | NO | Candidate | — | — | `chk_med_dates`: `ExpirationDate > ImportDate`; part of `uq_med_batch` |
+| `SupplierID` | `VARCHAR2(10)` | NO | **FK** | `Supplier(SupplierID)` | — | Pharmaceutical wholesale distributor (`fk_med_supplier`) |
 
 **Table-Level Constraints for `Medication`:**
-* `pk_medication`: Enforces primary key integrity on `MedicationID`.
-* `uq_med_name`: Guarantees drug trade names remain distinct in the formulary.
-* `chk_med_category`: Enforces standardized pharmacotherapeutic classifications.
-* `chk_med_dosage_form`: Restricts formulation types to accepted pharmaceutical administration standards.
-* `chk_med_unit_price`: Guarantees medication pricing is strictly positive and bounded.
-* `chk_med_stock`: Ensures inventory counts cannot drop below zero (`>= 0`).
-* `chk_med_exp_date`: Validates sensible expiration calendar boundaries.
-* `fk_med_supplier`: Enforces referential integrity with the accredited `Supplier` table.
+* `chk_med_dates`: `CHECK (ExpirationDate > ImportDate)`.
+* `uq_med_batch`: `UNIQUE (MedicationName, Manufacturer, DosageForm, ExpirationDate)`.
 
 ---
 
@@ -42,31 +37,22 @@ Represents clinical prescription orders issued by attending physicians, dispensi
 
 | Column Name | Data Type | Nullable | Key Type | References | Default | Constraints & Business Rules |
 | :--- | :--- | :---: | :---: | :---: | :---: | :--- |
-| `PrescriptionID` | `NUMBER(8)` | NO | **PK** | — | — | Primary identifier (Agreed Range: `1..300+`) |
-| `PatientID` | `NUMBER(8)` | NO | **FK** | `Patient(PatientID)` | — | Patient receiving the prescription (`fk_rx_patient`) |
-| `DoctorID` | `NUMBER(8)` | NO | **FK** | `Doctor(DoctorID)` | — | Physician authoring the prescription (`fk_rx_doctor`) |
-| `MedicationID` | `NUMBER(8)` | NO | **FK** | `Medication(MedicationID)` | — | Dispensed pharmaceutical product (`fk_rx_medication`) |
+| `PrescriptionID` | `VARCHAR2(10)` | NO | **PK** | — | — | `pk_prescription`; `chk_rx_id`: `REGEXP_LIKE(PrescriptionID, '^[A-Za-z0-9_-]+$')` |
+| `PatientID` | `VARCHAR2(10)` | NO | **FK** | `Patient(PatientID)` | — | Patient receiving the prescription (`fk_rx_patient`) |
+| `DoctorID` | `VARCHAR2(10)` | NO | **FK** | `Doctor(DoctorID)` | — | Physician authoring the prescription (`fk_rx_doctor`) |
+| `MedicationID` | `VARCHAR2(10)` | NO | **FK** | `Medication(MedicationID)` | — | Dispensed pharmaceutical product (`fk_rx_medication`) |
 | `Dosage` | `VARCHAR2(50)` | NO | None | — | — | Prescribed strength and quantity (e.g., `'500 mg'`, `'10 ml'`) |
 | `Frequency` | `VARCHAR2(50)` | NO | None | — | — | `chk_rx_frequency`: IN (`'Once daily'`, `'Twice daily'`, `'Three times daily'`, `'Four times daily'`, `'Every 4 hours'`, `'Every 6 hours'`, `'Every 8 hours'`, `'Every 12 hours'`, `'As needed (PRN)'`, `'At bedtime'`, `'Weekly'`, `'Before meals'`, `'After meals'`) |
-| `Duration` | `NUMBER(3)` | NO | None | — | — | Course duration in days (`chk_rx_duration`: `Duration > 0 AND Duration <= 365`) |
-| `QuantityPrescribed` | `NUMBER(3)` | NO | None | — | `1` | Total units/packages dispensed (`chk_rx_qty`: `QuantityPrescribed > 0 AND QuantityPrescribed <= 1000`) |
-| `DispenseStatus` | `VARCHAR2(20)` | NO | None | — | `'Pending'` | Pharmacy fulfillment lifecycle (`chk_rx_dispense`: IN (`'Pending'`, `'Dispensed'`, `'Cancelled'`)) |
-| `PrescriptionDate` | `DATE` | NO | Candidate | — | `SYSDATE` | Date and timestamp order was signed (`chk_rx_date`: `>= DATE '2020-01-01'`) |
+| `Duration` | `NUMBER(3)` | NO | None | — | — | `chk_rx_duration`: `Duration > 0 AND Duration <= 365` (days) |
+| `QuantityPrescribed` | `NUMBER(4)` | NO | None | — | `1` | `chk_rx_qty`: `QuantityPrescribed > 0 AND QuantityPrescribed <= 1000` |
+| `DispenseStatus` | `VARCHAR2(20)` | NO | None | — | `'Pending'` | `chk_rx_dispense`: IN (`'Pending'`, `'Dispensed'`, `'Cancelled'`) |
+| `PrescriptionDate` | `DATE` | NO | Candidate | — | `SYSDATE` | `chk_rx_date`: `>= DATE '2020-01-01'`; capped at `SYSDATE` via `trg_rx_date_max` |
 | `PrescriptionTime` | `VARCHAR2(5)` | VIRTUAL | Derived | — | Auto-derived | Auto-derived virtual column: `TO_CHAR(PrescriptionDate, 'HH24:MI')` |
 | `EndDate` | `DATE` | VIRTUAL | Derived | — | Auto-derived | Auto-derived virtual column: `PrescriptionDate + Duration` |
-| `Notes` | `VARCHAR2(500)` | YES | None | — | — | Special dispensing, dietary, or warning notes |
+| `Notes` | `VARCHAR2(500)` | YES | None | — | — | `chk_rx_notes_len`: `Notes IS NULL OR LENGTH(TRIM(Notes)) >= 5` |
 
 **Table-Level Constraints for `Prescription`:**
-* `pk_prescription`: Enforces primary key integrity on `PrescriptionID`.
-* `fk_rx_patient`: Enforces referential integrity to `Patient(PatientID)`.
-* `fk_rx_doctor`: Enforces referential integrity to `Doctor(DoctorID)`.
-* `fk_rx_medication`: Enforces referential integrity to `Medication(MedicationID)`.
-* `chk_rx_frequency`: Standardizes intake scheduling instructions.
-* `chk_rx_duration`: Validates that prescription durations are strictly positive and capped within 1 calendar year (365 days).
-* `chk_rx_qty`: Enforces positive dispensed quantities (`1..1000`).
-* `chk_rx_dispense`: Enforces valid dispensing lifecycle status (`Pending`, `Dispensed`, `Cancelled`).
-* `chk_rx_date`: Validates prescription date limits.
-* `uq_rx_order`: `UNIQUE (PatientID, DoctorID, MedicationID, PrescriptionDate)` prevents duplicate prescription orders for the same drug at the exact same moment. Because `PrescriptionDate` contains the full time component (`HH24:MI:SS`), same-day prescriptions (such as morning and evening orders) are handled naturally without conflict.
+* `uq_rx_order`: `UNIQUE (PatientID, DoctorID, MedicationID, PrescriptionDate)`.
 
 ---
 
@@ -75,47 +61,33 @@ Tracks pathology and diagnostic laboratory orders requested by clinical doctors,
 
 | Column Name | Data Type | Nullable | Key Type | References | Default | Constraints & Business Rules |
 | :--- | :--- | :---: | :---: | :---: | :---: | :--- |
-| `TestID` | `NUMBER(8)` | NO | **PK** | — | — | Primary identifier (Agreed Range: `1..200+`) |
-| `PatientID` | `NUMBER(8)` | NO | **FK** | `Patient(PatientID)` | — | Patient undergoing diagnostic test (`fk_lab_patient`) |
-| `DoctorID` | `NUMBER(8)` | NO | **FK** | `Doctor(DoctorID)` | — | Attending physician ordering the test (`fk_lab_doctor`) |
-| `TestType` | `VARCHAR2(100)` | NO | Candidate | — | — | Diagnostic panel or assay name (e.g., `'Complete Blood Count (CBC)'`, `'Lipid Panel'`) |
-| `RequestedDate` | `DATE` | NO | Candidate | — | `SYSDATE` | Date/time test was ordered (`chk_lab_req_date`: `>= DATE '2020-01-01'`) |
-| `CompletedDate` | `DATE` | YES | None | — | — | Date/time lab analysis was completed and verified |
+| `TestID` | `VARCHAR2(10)` | NO | **PK** | — | — | `pk_laboratory_test`; `chk_lab_id`: `REGEXP_LIKE(TestID, '^[A-Za-z0-9_-]+$')` |
+| `PatientID` | `VARCHAR2(10)` | NO | **FK** | `Patient(PatientID)` | — | Patient undergoing diagnostic test (`fk_lab_patient`) |
+| `DoctorID` | `VARCHAR2(10)` | NO | **FK** | `Doctor(DoctorID)` | — | Attending physician ordering the test (`fk_lab_doctor`) |
+| `TestType` | `VARCHAR2(100)` | NO | Candidate | — | — | `chk_lab_type_len`: `LENGTH(TRIM(TestType)) >= 5` |
+| `RequestedDate` | `DATE` | NO | Candidate | — | `SYSDATE` | `chk_lab_req_date`: `>= DATE '2020-01-01'`; capped at `SYSDATE` via `trg_lab_date_max` |
+| `CompletedDate` | `DATE` | YES | None | — | — | NULL unless `'Completed'`; capped at `SYSDATE` via `trg_lab_date_max` |
 | `TestStatus` | `VARCHAR2(20)` | NO | None | — | `'Pending'` | `chk_lab_status`: IN (`'Pending'`, `'In-Progress'`, `'Completed'`, `'Cancelled'`, `'Sample Collected'`) |
-| `TestResult` | `VARCHAR2(500)` | YES | None | — | — | Findings, quantitative measurements, or diagnostic report |
-| `TestCost` | `NUMBER(10,2)` | NO | None | — | — | Standard laboratory test fee (`chk_lab_cost`: `TestCost > 0 AND TestCost <= 50000.00`) |
+| `TestResult` | `VARCHAR2(500)` | YES | None | — | — | `chk_lab_result_len`: `TestResult IS NULL OR LENGTH(TRIM(TestResult)) >= 5` |
+| `TestCost` | `NUMBER(10,2)` | NO | None | — | — | `chk_lab_cost`: `TestCost > 0 AND TestCost <= 50000.00` |
 
 **Table-Level Constraints for `LaboratoryTest`:**
-* `pk_laboratory_test`: Enforces primary key integrity on `TestID`.
-* `fk_lab_patient`: Enforces referential integrity to `Patient(PatientID)`.
-* `fk_lab_doctor`: Enforces referential integrity to `Doctor(DoctorID)`.
-* `chk_lab_cost`: Guarantees laboratory test fees are strictly positive (`> 0.00`).
-* `chk_lab_dates`: `CHECK (CompletedDate IS NULL OR CompletedDate >= RequestedDate)` ensures lab completion cannot precede the order date.
-* `chk_lab_status_sync`: Synchronizes status with dates and results:
-  * Tests with status `'Pending'`, `'In-Progress'`, or `'Sample Collected'` must have `CompletedDate IS NULL`.
-  * Tests with status `'Completed'` must have both `CompletedDate IS NOT NULL` and `TestResult IS NOT NULL`.
-  * Tests with status `'Cancelled'` are explicitly permitted without mandatory completion dates.
-* `uq_lab_order`: `UNIQUE (PatientID, DoctorID, TestType, RequestedDate)` prevents duplicate test orders for the same test on the same patient at the exact same requested time.
+* `chk_lab_dates`: `CHECK (CompletedDate IS NULL OR CompletedDate >= RequestedDate)`.
+* `chk_lab_status_sync`:
+  * `'Pending'`, `'In-Progress'`, or `'Sample Collected'` → `CompletedDate IS NULL AND TestResult IS NULL`.
+  * `'Completed'` → `CompletedDate IS NOT NULL AND TestResult IS NOT NULL`.
+  * `'Cancelled'` → `CompletedDate IS NULL`.
+* `uq_lab_order`: `UNIQUE (PatientID, DoctorID, TestType, RequestedDate)`.
 
 ---
 
 ## 4. Normalization Analysis (3NF Compliance)
 
 ### 1NF (First Normal Form)
-* **Atomic Attributes:** All fields contain indivisible atomic values (distinct units for dosage, numeric duration in days, discrete prescribed quantity, and independent test types).
-* **Derived Virtual Columns:** 
-  * `/PrescriptionTime` is auto-extracted via `TO_CHAR(PrescriptionDate, 'HH24:MI')`, keeping date and time cleanly synchronized without manual input duplication (matching `AppointmentTime` in `Appointment`).
-  * `/EndDate` is auto-calculated via `PrescriptionDate + Duration`, eliminating temporal redundancy while keeping prescription end dates synchronized without duplicate storage.
-* **No Repeating Groups:** Multiple medications or lab tests are stored as distinct relational tuples in `Prescription` and `LaboratoryTest`, never as comma-separated strings or nested arrays.
-* **Unique Identification:** Every table is uniquely keyed by a designated single-attribute primary key (`MedicationID`, `PrescriptionID`, `TestID`).
+* All fields contain indivisible atomic values; `/PrescriptionTime` and `/EndDate` are virtual derived columns eliminating temporal redundancy.
 
 ### 2NF (Second Normal Form)
-* **Full Functional Dependency:** A relation is in 2NF if it satisfies 1NF and contains no partial dependencies on any candidate key.
-* All three tables (`Medication`, `Prescription`, `LaboratoryTest`) employ single-attribute primary keys (`NUMBER(8)` surrogate PKs).
-* Because no composite primary key is used, partial key dependencies cannot exist. All non-key attributes are fully functionally dependent on the entire primary key.
+* All three tables (`Medication`, `Prescription`, `LaboratoryTest`) use single-attribute `VARCHAR2(10)` primary keys (`MedicationID`, `PrescriptionID`, `TestID`), eliminating partial key dependencies.
 
 ### 3NF (Third Normal Form)
-* **No Transitive Dependencies:** A relation is in 3NF if it satisfies 2NF and contains no transitive dependencies ($X \to Y$ and $Y \to Z$ where $Y$ is not a superkey).
-* In `Medication`: `MedicationName`, `Manufacturer`, `Category`, `DosageForm`, `UnitPrice`, `QuantityInStock`, and `ExpirationDate` describe the specific pharmaceutical product and depend strictly on `MedicationID`. Foreign key `SupplierID` references the vendor without creating transitive attributes.
-* In `Prescription`: `Dosage`, `Frequency`, `Duration`, `QuantityPrescribed`, `DispenseStatus`, `PrescriptionDate`, `/PrescriptionTime`, `/EndDate`, and `Notes` describe the specific prescription order and depend solely on `PrescriptionID`. Foreign keys `PatientID`, `DoctorID`, and `MedicationID` define direct associations.
-* In `LaboratoryTest`: `TestType`, `RequestedDate`, `CompletedDate`, `TestStatus`, `TestResult`, and `TestCost` describe the individual test specimen and depend solely on `TestID`. Foreign keys `PatientID` and `DoctorID` establish direct foreign relationships without introducing transitive dependencies.
+* All non-key attributes depend strictly on their respective primary keys. Prescription total cost is calculated dynamically via `QuantityPrescribed * Medication.UnitPrice` rather than stored redundantly.
