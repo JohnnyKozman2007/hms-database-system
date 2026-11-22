@@ -4,7 +4,7 @@
 
 ---
 
-* **Medication** (<u>MedicationID</u>, MedicationName, Manufacturer, Category, DosageForm, UnitPrice, QuantityInStock, ExpirationDate, SupplierID*)
+* **Medication** (<u>MedicationID</u>, MedicationName, Manufacturer, Category, DosageForm, UnitPrice, QuantityInStock, ImportDate, ExpirationDate, SupplierID*)
 
 * **Prescription** (<u>PrescriptionID</u>, PatientID*, DoctorID*, MedicationID*, Dosage, Frequency, Duration, QuantityPrescribed, DispenseStatus, PrescriptionDate, /PrescriptionTime, /EndDate, Notes)
 
@@ -13,13 +13,16 @@
 ---
 
 ### Key Notes & Constraints:
-* `Medication.MedicationName` is **UNIQUE** (`uq_med_name`) and **NOT NULL**, maintaining an unambiguous pharmaceutical catalog.
-* `Medication.Manufacturer` is **NOT NULL**.
+* `MedicationID`, `PrescriptionID`, and `TestID` are **VARCHAR2(10)** alphanumeric primary keys.
+* `Medication.MedicationName` is **NOT NULL** and enforces minimum length `LENGTH(TRIM(MedicationName)) >= 5`.
+* `Medication.Manufacturer` is **NOT NULL** and enforces minimum length `LENGTH(TRIM(Manufacturer)) >= 5`.
+* `Medication` enforces composite batch candidate key uniqueness `uq_med_batch`: `UNIQUE (MedicationName, Manufacturer, DosageForm, ExpirationDate)`, accommodating different batches or suppliers while preventing exact duplicate stock entries.
+* `Medication.ImportDate` defaults to `SYSDATE`, is **NOT NULL**, and enforces boundary check (`chk_med_import_date`: `ImportDate >= DATE '2020-01-01'`).
+* `Medication` enforces chronological stock validation `chk_med_dates`: `CHECK (ExpirationDate > ImportDate)`.
 * `Medication.Category` is **NOT NULL** and enforces standardized pharmaceutical classes (`chk_med_category`: `IN ('Antibiotic', 'Analgesic', 'Antipyretic', 'Antihypertensive', 'Antidiabetic', 'Anticoagulant', 'Antihistamine', 'Bronchodilator', 'Statin', 'Gastrointestinal', 'Corticosteroid', 'Antidepressant', 'Antiviral', 'Cardiovascular', 'Dermatological', 'Other')`).
 * `Medication.DosageForm` is **NOT NULL** and enforces approved administration forms (`chk_med_dosage_form`: `IN ('Tablet', 'Capsule', 'Syrup', 'Injection', 'Ointment', 'Cream', 'Inhaler', 'Drops', 'Suspension', 'Patch', 'Suppository')`).
 * `Medication.UnitPrice` is **NOT NULL** and enforces positive price boundaries (`chk_med_unit_price`: `UnitPrice > 0 AND UnitPrice <= 50000.00`).
 * `Medication.QuantityInStock` defaults to `0`, is **NOT NULL**, and strictly prevents negative stock levels (`chk_med_stock`: `QuantityInStock >= 0 AND QuantityInStock <= 100000`).
-* `Medication.ExpirationDate` is **NOT NULL** with a valid calendar check (`chk_med_exp_date`: `ExpirationDate >= DATE '2020-01-01'`).
 * `Prescription.Dosage` is **NOT NULL** (e.g., `'500 mg'`, `'10 ml'`, `'1 tablet'`).
 * `Prescription.Frequency` is **NOT NULL** and enforces standard medical dosing intervals (`chk_rx_frequency`: `IN ('Once daily', 'Twice daily', 'Three times daily', 'Four times daily', 'Every 4 hours', 'Every 6 hours', 'Every 8 hours', 'Every 12 hours', 'As needed (PRN)', 'At bedtime', 'Weekly', 'Before meals', 'After meals')`).
 * `Prescription.Duration` is in days, **NOT NULL**, and bounded between 1 and 365 days (`chk_rx_duration`: `Duration > 0 AND Duration <= 365`).
@@ -28,14 +31,16 @@
 * `Prescription.PrescriptionDate` stores both **Date and Time** (`YYYY-MM-DD HH24:MI:SS`), defaults to `SYSDATE`, is **NOT NULL**, and enforces boundary check (`chk_rx_date`: `PrescriptionDate >= DATE '2020-01-01'`).
 * `/PrescriptionTime` is an **auto-derived virtual attribute** extracted from `PrescriptionDate` via `TO_CHAR(PrescriptionDate, 'HH24:MI')`, ensuring exact time synchronization without redundant manual entry.
 * `/EndDate` is an **auto-derived virtual attribute** calculated as `PrescriptionDate + Duration`, keeping treatment completion dates synchronized without redundant manual entry.
+* `Prescription.Notes` is optional (nullable) and enforces minimum length `CHECK (Notes IS NULL OR LENGTH(TRIM(Notes)) >= 5)`.
 * `Prescription` enforces candidate uniqueness (`uq_rx_order`: `UNIQUE (PatientID, DoctorID, MedicationID, PrescriptionDate)`). Because `PrescriptionDate` holds the timestamp down to the minute/second, the hospital can prescribe the **same medication twice a day** (e.g., morning 08:00 and evening 20:00) while still preventing accidental duplicate orders at the exact same moment.
-* `LaboratoryTest.TestType` is **NOT NULL** (e.g., `'Complete Blood Count (CBC)'`, `'Lipid Panel'`).
+* `LaboratoryTest.TestType` is **NOT NULL** and enforces minimum length `LENGTH(TRIM(TestType)) >= 5` (e.g., `'Complete Blood Count (CBC)'`, `'Lipid Panel'`).
+* `LaboratoryTest.TestResult` is optional (nullable) and enforces minimum length `CHECK (TestResult IS NULL OR LENGTH(TRIM(TestResult)) >= 5)`.
 * `LaboratoryTest.RequestedDate` defaults to `SYSDATE`, is **NOT NULL**, and enforces boundary check (`chk_lab_req_date`: `RequestedDate >= DATE '2020-01-01'`).
 * `LaboratoryTest.CompletedDate` is **NULLABLE** (NULL while test is pending or in progress).
 * `LaboratoryTest.TestStatus` defaults to `'Pending'`, is **NOT NULL**, and enforces valid lab workflow states (`chk_lab_status`: `IN ('Pending', 'In-Progress', 'Completed', 'Cancelled', 'Sample Collected')`).
 * `LaboratoryTest.TestCost` is **NOT NULL** and strictly positive (`chk_lab_cost`: `TestCost > 0 AND TestCost <= 50000.00`).
 * `LaboratoryTest` enforces chronological check constraint `chk_lab_dates`: `CHECK (CompletedDate IS NULL OR CompletedDate >= RequestedDate)`.
-* `LaboratoryTest` enforces lifecycle synchronization `chk_lab_status_sync`: pending/in-progress tests must have `CompletedDate IS NULL`, while completed tests must possess both `CompletedDate IS NOT NULL` and `TestResult IS NOT NULL`.
+* `LaboratoryTest` enforces lifecycle synchronization `chk_lab_status_sync`: pending/in-progress/sample-collected tests must have `CompletedDate IS NULL` and `TestResult IS NULL`, cancelled tests must have `CompletedDate IS NULL`, and completed tests must possess both `CompletedDate IS NOT NULL` and `TestResult IS NOT NULL`.
 * `LaboratoryTest` enforces candidate uniqueness (`uq_lab_order`: `UNIQUE (PatientID, DoctorID, TestType, RequestedDate)`), preventing duplicate test orders at the same timestamp.
 
 ### Foreign Key References:

@@ -1,19 +1,10 @@
--- ============================================================================
--- Entity: MedicalRecord (Student 3 - Appointments and Medical Records)
--- Minimum Data Target: 250 records
--- Level 3 Table: Dependent on Patient (PatientID FK) and Doctor (DoctorID FK)
--- Constraints:
---   - chk_mr_dates: FollowUpDate must be on/after RecordDate and within 365 days
---   - uq_mr_encounter: Candidate key preventing duplicate encounter documentation
--- ============================================================================
-
 CREATE TABLE MedicalRecord (
-    RecordID                NUMBER(8)           CONSTRAINT pk_medical_record PRIMARY KEY,
-    PatientID               NUMBER(8)           NOT NULL,
-    DoctorID                NUMBER(8)           NOT NULL,
+    RecordID                VARCHAR2(10)        CONSTRAINT pk_medical_record PRIMARY KEY,
+    PatientID               VARCHAR2(10)        NOT NULL,
+    DoctorID                VARCHAR2(10)        NOT NULL,
     Diagnosis               VARCHAR2(255)       NOT NULL,
-    Treatment               VARCHAR2(500)       DEFAULT 'Routine Monitoring / Conservative Management' NOT NULL,
-    Notes                   VARCHAR2(1000),
+    Treatment               VARCHAR2(500)       NOT NULL,
+    Notes                   VARCHAR2(1000)      CONSTRAINT chk_mr_notes_len CHECK (Notes IS NULL OR LENGTH(TRIM(Notes)) >= 5),
     RecordDate              DATE                DEFAULT SYSDATE NOT NULL CONSTRAINT chk_mr_rec_date CHECK (RecordDate >= DATE '2020-01-01'),
     FollowUpDate            DATE,
     CONSTRAINT fk_mr_patient FOREIGN KEY (PatientID) REFERENCES Patient(PatientID),
@@ -21,3 +12,12 @@ CREATE TABLE MedicalRecord (
     CONSTRAINT chk_mr_dates CHECK (FollowUpDate IS NULL OR (FollowUpDate >= RecordDate AND FollowUpDate <= RecordDate + 365)),
     CONSTRAINT uq_mr_encounter UNIQUE (PatientID, DoctorID, RecordDate)
 );
+
+ALTER TABLE MedicalRecord ADD CONSTRAINT chk_mr_id 
+    CHECK (REGEXP_LIKE(RecordID, '^[A-Za-z0-9_-]+$'));
+
+ALTER TABLE MedicalRecord ADD CONSTRAINT chk_mr_diag_len 
+    CHECK (LENGTH(TRIM(Diagnosis)) >= 5);
+
+ALTER TABLE MedicalRecord ADD CONSTRAINT chk_mr_treat_len 
+    CHECK (LENGTH(TRIM(Treatment)) >= 5);
