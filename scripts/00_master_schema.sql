@@ -1,5 +1,10 @@
--- HMS Master Schema Script (Oracle SQL / Oracle APEX)
--- Creates all 16 tables in student-grouped FK order: Student 1 -> 2 -> 3 -> 5 -> 4.
+-- HMS Master Schema & Features Script (Oracle SQL / Oracle APEX)
+-- Creates all 16 tables in student-grouped FK order (Student 1 -> 2 -> 3 -> 5 -> 4)
+-- followed by all 29 global date triggers & Student 1-5 advanced PL/SQL objects.
+
+-- ============================================================================
+-- SECTION 1: TABLE DDL & CONSTRAINTS (STUDENT ORDER: 1 -> 2 -> 3 -> 5 -> 4)
+-- ============================================================================
 
 -- ----------------------------------------------------------------------------
 -- STUDENT 1: Department & Staff Management
@@ -535,3 +540,1062 @@ ALTER TABLE LaboratoryTest ADD CONSTRAINT chk_lab_type_len
 
 ALTER TABLE LaboratoryTest ADD CONSTRAINT chk_lab_result_len 
     CHECK (TestResult IS NULL OR LENGTH(TRIM(TestResult)) >= 5);
+
+-- ============================================================================
+-- SECTION 2: GLOBAL DATE TRIGGERS & STUDENTS 1-5 ADVANCED FEATURES
+-- ============================================================================
+
+-- Source: scripts/00_global_date_triggers.sql
+CREATE OR REPLACE PROCEDURE sp_validate_date_upper_bound (
+    p_date           IN DATE,
+    p_max_days_ahead IN NUMBER,
+    p_column_label   IN VARCHAR2
+) IS
+BEGIN
+    IF p_date IS NOT NULL AND p_date > SYSDATE + p_max_days_ahead THEN
+        IF p_max_days_ahead = 0 THEN
+            RAISE_APPLICATION_ERROR(-20001, p_column_label || ' cannot be in the future (exceeds SYSDATE).');
+        ELSE
+            RAISE_APPLICATION_ERROR(-20001, p_column_label || ' cannot be more than ' || p_max_days_ahead || ' days in the future.');
+        END IF;
+    END IF;
+END;
+/
+
+CREATE OR REPLACE TRIGGER trg_doc_date_max
+BEFORE INSERT OR UPDATE OF HireDate ON Doctor
+FOR EACH ROW
+BEGIN
+    sp_validate_date_upper_bound(:NEW.HireDate, 0, 'Doctor.HireDate');
+END;
+/
+
+CREATE OR REPLACE TRIGGER trg_nurse_date_max
+BEFORE INSERT OR UPDATE OF HireDate ON Nurse
+FOR EACH ROW
+BEGIN
+    sp_validate_date_upper_bound(:NEW.HireDate, 0, 'Nurse.HireDate');
+END;
+/
+
+CREATE OR REPLACE TRIGGER trg_pat_dob_max
+BEFORE INSERT OR UPDATE OF DateOfBirth ON Patient
+FOR EACH ROW
+BEGIN
+    sp_validate_date_upper_bound(:NEW.DateOfBirth, 0, 'Patient.DateOfBirth');
+END;
+/
+
+CREATE OR REPLACE TRIGGER trg_adm_date_max
+BEFORE INSERT OR UPDATE OF AdmissionDate, DischargeDate ON Admission
+FOR EACH ROW
+BEGIN
+    sp_validate_date_upper_bound(:NEW.AdmissionDate, 0, 'Admission.AdmissionDate');
+    sp_validate_date_upper_bound(:NEW.DischargeDate, 0, 'Admission.DischargeDate');
+END;
+/
+
+CREATE OR REPLACE TRIGGER trg_mr_date_max
+BEFORE INSERT OR UPDATE OF RecordDate ON MedicalRecord
+FOR EACH ROW
+BEGIN
+    sp_validate_date_upper_bound(:NEW.RecordDate, 0, 'MedicalRecord.RecordDate');
+END;
+/
+
+CREATE OR REPLACE TRIGGER trg_med_import_date_max
+BEFORE INSERT OR UPDATE OF ImportDate ON Medication
+FOR EACH ROW
+BEGIN
+    sp_validate_date_upper_bound(:NEW.ImportDate, 0, 'Medication.ImportDate');
+END;
+/
+
+CREATE OR REPLACE TRIGGER trg_rx_date_max
+BEFORE INSERT OR UPDATE OF PrescriptionDate ON Prescription
+FOR EACH ROW
+BEGIN
+    sp_validate_date_upper_bound(:NEW.PrescriptionDate, 0, 'Prescription.PrescriptionDate');
+END;
+/
+
+CREATE OR REPLACE TRIGGER trg_lab_date_max
+BEFORE INSERT OR UPDATE OF RequestedDate, CompletedDate ON LaboratoryTest
+FOR EACH ROW
+BEGIN
+    sp_validate_date_upper_bound(:NEW.RequestedDate, 0, 'LaboratoryTest.RequestedDate');
+    sp_validate_date_upper_bound(:NEW.CompletedDate, 0, 'LaboratoryTest.CompletedDate');
+END;
+/
+
+CREATE OR REPLACE TRIGGER trg_inv_date_max
+BEFORE INSERT OR UPDATE OF InvoiceDate ON Invoice
+FOR EACH ROW
+BEGIN
+    sp_validate_date_upper_bound(:NEW.InvoiceDate, 0, 'Invoice.InvoiceDate');
+END;
+/
+
+CREATE OR REPLACE TRIGGER trg_ins_start_date_max
+BEFORE INSERT OR UPDATE OF StartDate ON Insurance
+FOR EACH ROW
+BEGIN
+    sp_validate_date_upper_bound(:NEW.StartDate, 0, 'Insurance.StartDate');
+END;
+/
+
+CREATE OR REPLACE TRIGGER trg_pay_date_max
+BEFORE INSERT OR UPDATE OF PaymentDate ON Payment
+FOR EACH ROW
+BEGIN
+    sp_validate_date_upper_bound(:NEW.PaymentDate, 0, 'Payment.PaymentDate');
+END;
+/
+
+CREATE OR REPLACE TRIGGER trg_apt_date_horizon
+BEFORE INSERT OR UPDATE OF AppointmentDate ON Appointment
+FOR EACH ROW
+BEGIN
+    sp_validate_date_upper_bound(:NEW.AppointmentDate, 365, 'Appointment.AppointmentDate');
+END;
+/
+
+CREATE OR REPLACE TRIGGER trg_proc_date_horizon
+BEFORE INSERT OR UPDATE OF ProcedureDate ON MedicalProcedure
+FOR EACH ROW
+BEGIN
+    sp_validate_date_upper_bound(:NEW.ProcedureDate, 365, 'MedicalProcedure.ProcedureDate');
+END;
+/
+
+-- Source: scripts/04_advanced_features/student1_view.sql
+CREATE OR REPLACE VIEW vw_doctor_dept_workload AS
+SELECT
+    d.DoctorID,
+    d.FullName                                          AS DoctorName,
+    d.Specialty,
+    d.YearsOfExperience,
+    dept.DepartmentID,
+    dept.DepartmentName,
+    dept.Location                                       AS DepartmentLocation,
+    sup.FullName                                        AS SupervisorName,
+    (SELECT COUNT(*) FROM Appointment a
+      WHERE a.DoctorID = d.DoctorID)                    AS TotalAppointments,
+    (SELECT COUNT(*) FROM Appointment a
+      WHERE a.DoctorID = d.DoctorID
+        AND a.Status IN ('Scheduled', 'In-Progress'))   AS ActiveAppointments,
+    (SELECT COUNT(*) FROM MedicalRecord mr
+      WHERE mr.DoctorID = d.DoctorID)                   AS TotalMedicalRecords,
+    (SELECT COUNT(*) FROM MedicalProcedure mp
+      WHERE mp.DoctorID = d.DoctorID)                   AS TotalProcedures,
+    (SELECT COUNT(*) FROM Prescription rx
+      WHERE rx.DoctorID = d.DoctorID)                   AS TotalPrescriptions,
+    (SELECT COUNT(*) FROM LaboratoryTest lt
+      WHERE lt.DoctorID = d.DoctorID)                   AS TotalLabTests
+FROM Doctor d
+JOIN Department dept ON d.DepartmentID = dept.DepartmentID
+LEFT JOIN Doctor sup ON d.SupervisorID = sup.DoctorID;
+
+CREATE OR REPLACE VIEW vw_department_staff_summary AS
+SELECT
+    dept.DepartmentID,
+    dept.DepartmentName,
+    dept.Location,
+    dept.Phone                                          AS DepartmentPhone,
+    COUNT(DISTINCT d.DoctorID)                          AS DoctorCount,
+    COUNT(DISTINCT n.NurseID)                           AS NurseCount,
+    COUNT(DISTINCT d.DoctorID) + COUNT(DISTINCT n.NurseID) AS TotalClinicalStaff,
+    ROUND(NVL(AVG(d.YearsOfExperience), 0), 1)          AS AvgDoctorExperience,
+    ROUND(NVL(AVG(n.YearsOfExperience), 0), 1)          AS AvgNurseExperience
+FROM Department dept
+LEFT JOIN Doctor d ON dept.DepartmentID = d.DepartmentID
+LEFT JOIN Nurse n  ON dept.DepartmentID = n.DepartmentID
+GROUP BY
+    dept.DepartmentID,
+    dept.DepartmentName,
+    dept.Location,
+    dept.Phone;
+
+-- Source: scripts/04_advanced_features/student2_trigger.sql
+CREATE OR REPLACE TRIGGER trg_adm_sync_room_status
+FOR INSERT OR UPDATE OR DELETE ON Admission
+COMPOUND TRIGGER
+    TYPE t_room_map IS TABLE OF BOOLEAN INDEX BY VARCHAR2(10);
+    g_affected_rooms t_room_map;
+
+    BEFORE EACH ROW IS
+        v_room_status VARCHAR2(20);
+    BEGIN
+        IF (INSERTING OR UPDATING) AND :NEW.AdmissionStatus = 'Admitted' THEN
+            BEGIN
+                SELECT AvailabilityStatus
+                INTO v_room_status
+                FROM Room
+                WHERE RoomID = :NEW.RoomID;
+
+                IF v_room_status = 'Maintenance' THEN
+                    RAISE_APPLICATION_ERROR(-20011, 'Cannot admit patient to Room ' || :NEW.RoomID || ': Room is currently under Maintenance.');
+                END IF;
+            EXCEPTION
+                WHEN NO_DATA_FOUND THEN
+                    NULL; -- Let Oracle's declarative FK constraint raise ORA-02291
+            END;
+        END IF;
+    END BEFORE EACH ROW;
+
+    AFTER EACH ROW IS
+    BEGIN
+        IF INSERTING OR UPDATING THEN
+            g_affected_rooms(:NEW.RoomID) := TRUE;
+        END IF;
+        IF UPDATING OR DELETING THEN
+            g_affected_rooms(:OLD.RoomID) := TRUE;
+        END IF;
+    END AFTER EACH ROW;
+
+    AFTER STATEMENT IS
+        v_room_id      VARCHAR2(10);
+        v_capacity     NUMBER(3);
+        v_curr_status  VARCHAR2(20);
+        v_active_count NUMBER;
+    BEGIN
+        v_room_id := g_affected_rooms.FIRST;
+        WHILE v_room_id IS NOT NULL LOOP
+            SELECT Capacity, AvailabilityStatus
+            INTO v_capacity, v_curr_status
+            FROM Room
+            WHERE RoomID = v_room_id;
+
+            SELECT COUNT(*)
+            INTO v_active_count
+            FROM Admission
+            WHERE RoomID = v_room_id
+              AND AdmissionStatus = 'Admitted';
+
+            IF v_active_count > v_capacity THEN
+                RAISE_APPLICATION_ERROR(-20010, 'Room capacity exceeded for Room ' || v_room_id || ' (Capacity: ' || v_capacity || ').');
+            END IF;
+
+            IF v_curr_status <> 'Maintenance' THEN
+                IF v_active_count = v_capacity THEN
+                    UPDATE Room
+                    SET AvailabilityStatus = 'Occupied'
+                    WHERE RoomID = v_room_id;
+                ELSIF v_curr_status = 'Occupied' AND v_active_count < v_capacity THEN
+                    UPDATE Room
+                    SET AvailabilityStatus = 'Available'
+                    WHERE RoomID = v_room_id;
+                END IF;
+            END IF;
+
+            v_room_id := g_affected_rooms.NEXT(v_room_id);
+        END LOOP;
+        g_affected_rooms.DELETE;
+    END AFTER STATEMENT;
+END trg_adm_sync_room_status;
+/
+
+-- Source: scripts/04_advanced_features/student3_stored_proc.sql
+-- ============================================================================
+-- ADVANCED DATABASE FEATURE: Student 3
+-- Stored Procedures & Automatic Backstop Triggers: Complete Conflict-Free Engine
+-- Module: Data Modeling for DB (4FTC2063)
+-- Subsystem: Appointments and Medical Records
+-- ============================================================================
+-- Architecture (Two-Layer Defense-in-Depth):
+-- 1. Front-Door Application Layer (Stored Procedures):
+--    - sp_book_appointment: Validates existence, dates, reasons, and books clean appointments.
+--    - sp_schedule_procedure: Validates rooms, costs, durations, interval end-times, and availability.
+-- 2. Engine-Level Backstop Layer (Compound Triggers):
+--    - trg_procedure_overlap_guard: Blocks rogue raw INSERT/UPDATE interval collisions.
+--    - trg_appointment_conflict_guard: Blocks rogue raw INSERT/UPDATE appointment collisions.
+-- (Compound triggers eliminate ORA-04091 mutating table errors in Oracle SQL).
+-- ============================================================================
+
+-- ----------------------------------------------------------------------------
+-- 1. PROCEDURE: sp_book_appointment
+-- Description: Books an appointment, ensuring input integrity and that neither
+--              the Doctor nor the Patient already has an active scheduled appointment
+--              at the exact requested time.
+-- ----------------------------------------------------------------------------
+CREATE OR REPLACE PROCEDURE sp_book_appointment (
+    p_appointment_id   IN VARCHAR2,
+    p_patient_id       IN VARCHAR2,
+    p_doctor_id        IN VARCHAR2,
+    p_appointment_date IN DATE,
+    p_reason           IN VARCHAR2,
+    p_notes            IN VARCHAR2 DEFAULT NULL
+) IS
+    v_patient_exists      NUMBER := 0;
+    v_doctor_exists       NUMBER := 0;
+    v_doc_conflict_count  NUMBER := 0;
+    v_pat_conflict_count  NUMBER := 0;
+    v_time_str            VARCHAR2(5);
+BEGIN
+    -- 1. Validate Reason
+    IF p_reason IS NULL OR TRIM(p_reason) IS NULL THEN
+        RAISE_APPLICATION_ERROR(-20012, 'Error: Appointment reason cannot be null or blank.');
+    END IF;
+
+    -- 2. Validate Appointment Date
+    IF p_appointment_date IS NULL OR p_appointment_date < DATE '2020-01-01' THEN
+        RAISE_APPLICATION_ERROR(-20013, 'Error: Appointment date must be valid and on or after 2020-01-01.');
+    END IF;
+
+    -- 3. Validate Patient existence
+    SELECT COUNT(*) INTO v_patient_exists
+    FROM Patient
+    WHERE PatientID = p_patient_id;
+
+    IF v_patient_exists = 0 THEN
+        RAISE_APPLICATION_ERROR(-20010, 'Error: Patient ID ' || p_patient_id || ' does not exist in the database.');
+    END IF;
+
+    -- 4. Validate Doctor existence
+    SELECT COUNT(*) INTO v_doctor_exists
+    FROM Doctor
+    WHERE DoctorID = p_doctor_id;
+
+    IF v_doctor_exists = 0 THEN
+        RAISE_APPLICATION_ERROR(-20011, 'Error: Doctor ID ' || p_doctor_id || ' does not exist in the database.');
+    END IF;
+
+    -- 5. Extract time string for logging/checking
+    v_time_str := TO_CHAR(p_appointment_date, 'HH24:MI');
+
+    -- 6. Check for active appointment conflict for the doctor
+    SELECT COUNT(*)
+    INTO v_doc_conflict_count
+    FROM Appointment
+    WHERE DoctorID = p_doctor_id
+      AND TRUNC(AppointmentDate) = TRUNC(p_appointment_date)
+      AND AppointmentTime = v_time_str
+      AND Status IN ('Scheduled', 'In-Progress');
+
+    IF v_doc_conflict_count > 0 THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Booking Conflict: Doctor ' || p_doctor_id || 
+            ' already has an active appointment at ' || TO_CHAR(p_appointment_date, 'YYYY-MM-DD HH24:MI') || '.');
+    END IF;
+
+    -- 7. Check for active appointment conflict for the patient
+    SELECT COUNT(*)
+    INTO v_pat_conflict_count
+    FROM Appointment
+    WHERE PatientID = p_patient_id
+      AND TRUNC(AppointmentDate) = TRUNC(p_appointment_date)
+      AND AppointmentTime = v_time_str
+      AND Status IN ('Scheduled', 'In-Progress');
+
+    IF v_pat_conflict_count > 0 THEN
+        RAISE_APPLICATION_ERROR(-20005, 'Booking Conflict: Patient ' || p_patient_id || 
+            ' already has an active appointment at ' || TO_CHAR(p_appointment_date, 'YYYY-MM-DD HH24:MI') || '.');
+    END IF;
+
+    -- 8. Insert clean appointment tuple
+    INSERT INTO Appointment (
+        AppointmentID,
+        PatientID,
+        DoctorID,
+        AppointmentDate,
+        Status,
+        Reason,
+        Notes
+    ) VALUES (
+        p_appointment_id,
+        p_patient_id,
+        p_doctor_id,
+        p_appointment_date,
+        'Scheduled',
+        p_reason,
+        p_notes
+    );
+
+    DBMS_OUTPUT.PUT_LINE('Success: Appointment #' || p_appointment_id || 
+                         ' successfully booked for Patient ' || p_patient_id || 
+                         ' with Doctor ' || p_doctor_id || ' at ' || TO_CHAR(p_appointment_date, 'YYYY-MM-DD HH24:MI') || '.');
+END sp_book_appointment;
+/
+
+-- ----------------------------------------------------------------------------
+-- 2. PROCEDURE: sp_schedule_procedure
+-- Description: Schedules a medical/surgical procedure, verifying that input values,
+--              operating rooms, and time windows are clean and that neither
+--              the Doctor, the Operating Room, nor the Patient has an overlapping time window.
+-- ----------------------------------------------------------------------------
+CREATE OR REPLACE PROCEDURE sp_schedule_procedure (
+    p_procedure_id     IN VARCHAR2,
+    p_patient_id       IN VARCHAR2,
+    p_doctor_id        IN VARCHAR2,
+    p_procedure_name   IN VARCHAR2,
+    p_procedure_date   IN DATE,
+    p_operating_room   IN VARCHAR2,
+    p_duration         IN NUMBER,
+    p_procedure_cost   IN NUMBER
+) IS
+    v_patient_exists   NUMBER := 0;
+    v_doctor_exists    NUMBER := 0;
+    v_doc_conflicts    NUMBER := 0;
+    v_room_conflicts   NUMBER := 0;
+    v_pat_conflicts    NUMBER := 0;
+    v_new_end_time     DATE;
+BEGIN
+    -- 1. Validate Procedure Name
+    IF p_procedure_name IS NULL OR TRIM(p_procedure_name) IS NULL THEN
+        RAISE_APPLICATION_ERROR(-20023, 'Error: Procedure name cannot be null or blank.');
+    END IF;
+
+    -- 2. Validate Procedure Date
+    IF p_procedure_date IS NULL OR p_procedure_date < DATE '2020-01-01' THEN
+        RAISE_APPLICATION_ERROR(-20024, 'Error: Procedure date must be on or after 2020-01-01.');
+    END IF;
+
+    -- 3. Validate Duration
+    IF p_duration <= 0 OR p_duration > 1440 THEN
+        RAISE_APPLICATION_ERROR(-20020, 'Error: Duration must be between 1 and 1440 minutes.');
+    END IF;
+
+    -- 4. Validate Cost
+    IF p_procedure_cost <= 0 THEN
+        RAISE_APPLICATION_ERROR(-20021, 'Error: Procedure cost must be strictly positive.');
+    END IF;
+
+    -- 5. Validate Operating Room against standardized hospital surgical suites
+    IF p_operating_room NOT IN ('OR-1', 'OR-2', 'OR-3', 'Cath Lab', 'Endoscopy Suite', 'Minor Surgery 1') THEN
+        RAISE_APPLICATION_ERROR(-20022, 'Error: Invalid Operating Room "' || p_operating_room || 
+            '". Permitted theaters: OR-1, OR-2, OR-3, Cath Lab, Endoscopy Suite, Minor Surgery 1.');
+    END IF;
+
+    -- 6. Validate Patient existence
+    SELECT COUNT(*) INTO v_patient_exists
+    FROM Patient
+    WHERE PatientID = p_patient_id;
+
+    IF v_patient_exists = 0 THEN
+        RAISE_APPLICATION_ERROR(-20010, 'Error: Patient ID ' || p_patient_id || ' does not exist in the database.');
+    END IF;
+
+    -- 7. Validate Doctor existence
+    SELECT COUNT(*) INTO v_doctor_exists
+    FROM Doctor
+    WHERE DoctorID = p_doctor_id;
+
+    IF v_doctor_exists = 0 THEN
+        RAISE_APPLICATION_ERROR(-20011, 'Error: Doctor ID ' || p_doctor_id || ' does not exist in the database.');
+    END IF;
+
+    -- 8. Calculate proposed end time
+    v_new_end_time := p_procedure_date + (p_duration / 1440);
+
+    -- 9. Check for Doctor Schedule Interval Overlap
+    SELECT COUNT(*)
+    INTO v_doc_conflicts
+    FROM MedicalProcedure
+    WHERE DoctorID = p_doctor_id
+      AND Outcome NOT IN ('Aborted', 'Cancelled')
+      AND p_procedure_date < EndTime
+      AND v_new_end_time   > ProcedureDate;
+
+    IF v_doc_conflicts > 0 THEN
+        RAISE_APPLICATION_ERROR(-20002, 'Doctor Conflict: Doctor ' || p_doctor_id || 
+            ' already has a procedure scheduled between ' || 
+            TO_CHAR(p_procedure_date, 'HH24:MI') || ' and ' || TO_CHAR(v_new_end_time, 'HH24:MI') || '.');
+    END IF;
+
+    -- 10. Check for Operating Room Interval Overlap
+    SELECT COUNT(*)
+    INTO v_room_conflicts
+    FROM MedicalProcedure
+    WHERE OperatingRoom = p_operating_room
+      AND Outcome NOT IN ('Aborted', 'Cancelled')
+      AND p_procedure_date < EndTime
+      AND v_new_end_time   > ProcedureDate;
+
+    IF v_room_conflicts > 0 THEN
+        RAISE_APPLICATION_ERROR(-20003, 'Operating Room Conflict: Room ' || p_operating_room || 
+            ' is already occupied by another procedure during this time window.');
+    END IF;
+
+    -- 11. Check for Patient Schedule Interval Overlap
+    SELECT COUNT(*)
+    INTO v_pat_conflicts
+    FROM MedicalProcedure
+    WHERE PatientID = p_patient_id
+      AND Outcome NOT IN ('Aborted', 'Cancelled')
+      AND p_procedure_date < EndTime
+      AND v_new_end_time   > ProcedureDate;
+
+    IF v_pat_conflicts > 0 THEN
+        RAISE_APPLICATION_ERROR(-20004, 'Patient Conflict: Patient ' || p_patient_id || 
+            ' is already undergoing another procedure during this time window.');
+    END IF;
+
+    -- 12. Insert clean procedure tuple with initial 'Pending' state
+    INSERT INTO MedicalProcedure (
+        ProcedureID,
+        PatientID,
+        DoctorID,
+        ProcedureName,
+        ProcedureDate,
+        Duration,
+        OperatingRoom,
+        ProcedureCost,
+        Outcome
+    ) VALUES (
+        p_procedure_id,
+        p_patient_id,
+        p_doctor_id,
+        p_procedure_name,
+        p_procedure_date,
+        p_duration,
+        p_operating_room,
+        p_procedure_cost,
+        'Pending'
+    );
+
+    DBMS_OUTPUT.PUT_LINE('Success: Procedure #' || p_procedure_id || ' (' || p_procedure_name || 
+                         ') scheduled in ' || p_operating_room || ' from ' || 
+                         TO_CHAR(p_procedure_date, 'HH24:MI') || ' to ' || 
+                         TO_CHAR(v_new_end_time, 'HH24:MI') || '.');
+END sp_schedule_procedure;
+/
+
+-- ============================================================================
+-- 3. COMPOUND TRIGGER: trg_procedure_overlap_guard
+-- Description: Un-bypassable database engine backstop for MedicalProcedure.
+--              Guarantees that even if someone bypasses the stored procedure and
+--              runs a raw SQL INSERT or UPDATE directly on MedicalProcedure,
+--              time-interval overlaps for Doctor, Operating Room, and Patient
+--              are automatically blocked with an application error.
+-- Architecture: Compound Trigger pattern (eliminates ORA-04091 mutating table error).
+-- ============================================================================
+CREATE OR REPLACE TRIGGER trg_procedure_overlap_guard
+FOR INSERT OR UPDATE ON MedicalProcedure
+COMPOUND TRIGGER
+
+    TYPE r_proc_record IS RECORD (
+        procedure_id   VARCHAR2(10),
+        patient_id     VARCHAR2(10),
+        doctor_id      VARCHAR2(10),
+        room           VARCHAR2(30),
+        start_date     DATE,
+        end_date       DATE,
+        outcome        VARCHAR2(30)
+    );
+    TYPE t_proc_table IS TABLE OF r_proc_record;
+    g_procs t_proc_table := t_proc_table();
+
+    BEFORE STATEMENT IS
+    BEGIN
+        g_procs.DELETE;
+    END BEFORE STATEMENT;
+
+    BEFORE EACH ROW IS
+    BEGIN
+        g_procs.EXTEND;
+        g_procs(g_procs.LAST).procedure_id := :NEW.ProcedureID;
+        g_procs(g_procs.LAST).patient_id   := :NEW.PatientID;
+        g_procs(g_procs.LAST).doctor_id    := :NEW.DoctorID;
+        g_procs(g_procs.LAST).room         := :NEW.OperatingRoom;
+        g_procs(g_procs.LAST).start_date   := :NEW.ProcedureDate;
+        g_procs(g_procs.LAST).end_date     := :NEW.ProcedureDate + (:NEW.Duration / 1440);
+        g_procs(g_procs.LAST).outcome      := :NEW.Outcome;
+    END BEFORE EACH ROW;
+
+    AFTER STATEMENT IS
+        v_doc_conflicts  NUMBER := 0;
+        v_room_conflicts NUMBER := 0;
+        v_pat_conflicts  NUMBER := 0;
+    BEGIN
+        FOR i IN 1 .. g_procs.COUNT LOOP
+            IF g_procs(i).outcome NOT IN ('Aborted', 'Cancelled') THEN
+                -- 1. Doctor Interval Collision Check
+                SELECT COUNT(*)
+                INTO v_doc_conflicts
+                FROM MedicalProcedure
+                WHERE DoctorID = g_procs(i).doctor_id
+                  AND ProcedureID <> NVL(g_procs(i).procedure_id, ' ')
+                  AND Outcome NOT IN ('Aborted', 'Cancelled')
+                  AND g_procs(i).start_date < EndTime
+                  AND g_procs(i).end_date   > ProcedureDate;
+
+                IF v_doc_conflicts > 0 THEN
+                    RAISE_APPLICATION_ERROR(-20002, 'Rogue DML Blocked: Doctor already has an active procedure scheduled in this time interval.');
+                END IF;
+
+                -- 2. Operating Room Collision Check
+                SELECT COUNT(*)
+                INTO v_room_conflicts
+                FROM MedicalProcedure
+                WHERE OperatingRoom = g_procs(i).room
+                  AND ProcedureID <> NVL(g_procs(i).procedure_id, ' ')
+                  AND Outcome NOT IN ('Aborted', 'Cancelled')
+                  AND g_procs(i).start_date < EndTime
+                  AND g_procs(i).end_date   > ProcedureDate;
+
+                IF v_room_conflicts > 0 THEN
+                    RAISE_APPLICATION_ERROR(-20003, 'Rogue DML Blocked: Operating Room is already occupied in this time interval.');
+                END IF;
+
+                -- 3. Patient Collision Check
+                SELECT COUNT(*)
+                INTO v_pat_conflicts
+                FROM MedicalProcedure
+                WHERE PatientID = g_procs(i).patient_id
+                  AND ProcedureID <> NVL(g_procs(i).procedure_id, ' ')
+                  AND Outcome NOT IN ('Aborted', 'Cancelled')
+                  AND g_procs(i).start_date < EndTime
+                  AND g_procs(i).end_date   > ProcedureDate;
+
+                IF v_pat_conflicts > 0 THEN
+                    RAISE_APPLICATION_ERROR(-20004, 'Rogue DML Blocked: Patient is already scheduled for another procedure in this time interval.');
+                END IF;
+            END IF;
+        END LOOP;
+    END AFTER STATEMENT;
+
+END trg_procedure_overlap_guard;
+/
+
+-- ============================================================================
+-- 4. COMPOUND TRIGGER: trg_appointment_conflict_guard
+-- Description: Un-bypassable database engine backstop for Appointment.
+--              Guarantees that even if someone runs a raw SQL INSERT or UPDATE
+--              directly on Appointment, a Doctor cannot have two active
+--              appointments ('Scheduled' or 'In-Progress') at the exact same minute.
+-- ============================================================================
+CREATE OR REPLACE TRIGGER trg_appointment_conflict_guard
+FOR INSERT OR UPDATE ON Appointment
+COMPOUND TRIGGER
+
+    TYPE r_apt_record IS RECORD (
+        appointment_id VARCHAR2(10),
+        doctor_id      VARCHAR2(10),
+        patient_id     VARCHAR2(10),
+        apt_date       DATE,
+        status         VARCHAR2(20)
+    );
+    TYPE t_apt_table IS TABLE OF r_apt_record;
+    g_apts t_apt_table := t_apt_table();
+
+    BEFORE STATEMENT IS
+    BEGIN
+        g_apts.DELETE;
+    END BEFORE STATEMENT;
+
+    BEFORE EACH ROW IS
+    BEGIN
+        g_apts.EXTEND;
+        g_apts(g_apts.LAST).appointment_id := :NEW.AppointmentID;
+        g_apts(g_apts.LAST).doctor_id      := :NEW.DoctorID;
+        g_apts(g_apts.LAST).patient_id     := :NEW.PatientID;
+        g_apts(g_apts.LAST).apt_date       := :NEW.AppointmentDate;
+        g_apts(g_apts.LAST).status         := :NEW.Status;
+    END BEFORE EACH ROW;
+
+    AFTER STATEMENT IS
+        v_doc_conflicts NUMBER := 0;
+        v_pat_conflicts NUMBER := 0;
+    BEGIN
+        FOR i IN 1 .. g_apts.COUNT LOOP
+            IF g_apts(i).status IN ('Scheduled', 'In-Progress') THEN
+                -- Doctor Conflict
+                SELECT COUNT(*)
+                INTO v_doc_conflicts
+                FROM Appointment
+                WHERE DoctorID = g_apts(i).doctor_id
+                  AND AppointmentID <> NVL(g_apts(i).appointment_id, ' ')
+                  AND Status IN ('Scheduled', 'In-Progress')
+                  AND TRUNC(AppointmentDate) = TRUNC(g_apts(i).apt_date)
+                  AND TO_CHAR(AppointmentDate, 'HH24:MI') = TO_CHAR(g_apts(i).apt_date, 'HH24:MI');
+
+                IF v_doc_conflicts > 0 THEN
+                    RAISE_APPLICATION_ERROR(-20001, 'Rogue DML Blocked: Doctor already has an active appointment at this date and time.');
+                END IF;
+
+                -- Patient Conflict
+                SELECT COUNT(*)
+                INTO v_pat_conflicts
+                FROM Appointment
+                WHERE PatientID = g_apts(i).patient_id
+                  AND AppointmentID <> NVL(g_apts(i).appointment_id, ' ')
+                  AND Status IN ('Scheduled', 'In-Progress')
+                  AND TRUNC(AppointmentDate) = TRUNC(g_apts(i).apt_date)
+                  AND TO_CHAR(AppointmentDate, 'HH24:MI') = TO_CHAR(g_apts(i).apt_date, 'HH24:MI');
+
+                IF v_pat_conflicts > 0 THEN
+                    RAISE_APPLICATION_ERROR(-20005, 'Rogue DML Blocked: Patient already has an active appointment at this date and time.');
+                END IF;
+            END IF;
+        END LOOP;
+    END AFTER STATEMENT;
+
+END trg_appointment_conflict_guard;
+/
+
+-- Source: scripts/04_advanced_features/student4_trigger.sql
+CREATE OR REPLACE TRIGGER trg_rx_manage_medication_stock
+BEFORE INSERT OR UPDATE OF DispenseStatus, QuantityPrescribed, MedicationID ON Prescription
+FOR EACH ROW
+DECLARE
+    v_stock    NUMBER(6);
+    v_exp_date DATE;
+BEGIN
+    IF INSERTING THEN
+        IF :NEW.DispenseStatus = 'Dispensed' THEN
+            SELECT QuantityInStock, ExpirationDate
+            INTO v_stock, v_exp_date
+            FROM Medication
+            WHERE MedicationID = :NEW.MedicationID
+            FOR UPDATE;
+
+            IF v_exp_date < SYSDATE THEN
+                RAISE_APPLICATION_ERROR(-20031, 'Cannot dispense Medication ' || :NEW.MedicationID || ': Batch is expired.');
+            END IF;
+
+            IF v_stock < :NEW.QuantityPrescribed THEN
+                RAISE_APPLICATION_ERROR(-20030, 'Insufficient stock for Medication ' || :NEW.MedicationID || ' (Available: ' || v_stock || ', Requested: ' || :NEW.QuantityPrescribed || ').');
+            END IF;
+
+            UPDATE Medication
+            SET QuantityInStock = QuantityInStock - :NEW.QuantityPrescribed
+            WHERE MedicationID = :NEW.MedicationID;
+        END IF;
+
+    ELSIF UPDATING THEN
+        IF :OLD.DispenseStatus = 'Dispensed' AND :NEW.DispenseStatus <> 'Dispensed' THEN
+            UPDATE Medication
+            SET QuantityInStock = QuantityInStock + :OLD.QuantityPrescribed
+            WHERE MedicationID = :OLD.MedicationID;
+
+        ELSIF :OLD.DispenseStatus <> 'Dispensed' AND :NEW.DispenseStatus = 'Dispensed' THEN
+            SELECT QuantityInStock, ExpirationDate
+            INTO v_stock, v_exp_date
+            FROM Medication
+            WHERE MedicationID = :NEW.MedicationID
+            FOR UPDATE;
+
+            IF v_exp_date < SYSDATE THEN
+                RAISE_APPLICATION_ERROR(-20031, 'Cannot dispense Medication ' || :NEW.MedicationID || ': Batch is expired.');
+            END IF;
+
+            IF v_stock < :NEW.QuantityPrescribed THEN
+                RAISE_APPLICATION_ERROR(-20030, 'Insufficient stock for Medication ' || :NEW.MedicationID || ' (Available: ' || v_stock || ', Requested: ' || :NEW.QuantityPrescribed || ').');
+            END IF;
+
+            UPDATE Medication
+            SET QuantityInStock = QuantityInStock - :NEW.QuantityPrescribed
+            WHERE MedicationID = :NEW.MedicationID;
+
+        ELSIF :OLD.DispenseStatus = 'Dispensed' AND :NEW.DispenseStatus = 'Dispensed' THEN
+            IF :OLD.MedicationID <> :NEW.MedicationID OR :OLD.QuantityPrescribed <> :NEW.QuantityPrescribed THEN
+                UPDATE Medication
+                SET QuantityInStock = QuantityInStock + :OLD.QuantityPrescribed
+                WHERE MedicationID = :OLD.MedicationID;
+
+                SELECT QuantityInStock, ExpirationDate
+                INTO v_stock, v_exp_date
+                FROM Medication
+                WHERE MedicationID = :NEW.MedicationID
+                FOR UPDATE;
+
+                IF v_exp_date < SYSDATE THEN
+                    RAISE_APPLICATION_ERROR(-20031, 'Cannot dispense Medication ' || :NEW.MedicationID || ': Batch is expired.');
+                END IF;
+
+                IF v_stock < :NEW.QuantityPrescribed THEN
+                    RAISE_APPLICATION_ERROR(-20030, 'Insufficient stock for Medication ' || :NEW.MedicationID || ' (Available: ' || v_stock || ', Requested: ' || :NEW.QuantityPrescribed || ').');
+                END IF;
+
+                UPDATE Medication
+                SET QuantityInStock = QuantityInStock - :NEW.QuantityPrescribed
+                WHERE MedicationID = :NEW.MedicationID;
+            END IF;
+        END IF;
+    END IF;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        NULL; -- Let Oracle's declarative FK constraint raise ORA-02291
+END trg_rx_manage_medication_stock;
+/
+
+-- Source: scripts/04_advanced_features/student5_function.sql
+CREATE OR REPLACE FUNCTION fn_get_patient_net_balance (
+    p_patient_id IN VARCHAR2
+) RETURN NUMBER IS
+    v_patient_exists NUMBER := 0;
+    v_total_billed   NUMBER(12, 2) := 0;
+    v_total_paid     NUMBER(12, 2) := 0;
+BEGIN
+    SELECT COUNT(*)
+    INTO v_patient_exists
+    FROM Patient
+    WHERE PatientID = p_patient_id;
+
+    IF v_patient_exists = 0 THEN
+        RAISE_APPLICATION_ERROR(-20040, 'Patient ID ' || p_patient_id || ' does not exist.');
+    END IF;
+
+    SELECT NVL(SUM(NetAmount), 0)
+    INTO v_total_billed
+    FROM Invoice
+    WHERE PatientID = p_patient_id;
+
+    SELECT NVL(SUM(p.AmountPaid), 0)
+    INTO v_total_paid
+    FROM Payment p
+    JOIN Invoice i ON p.InvoiceID = i.InvoiceID
+    WHERE i.PatientID = p_patient_id
+      AND p.PaymentStatus = 'Completed';
+
+    RETURN ROUND(v_total_billed - v_total_paid, 2);
+END fn_get_patient_net_balance;
+/
+
+CREATE OR REPLACE FUNCTION fn_get_invoice_patient_copay (
+    p_invoice_id IN VARCHAR2
+) RETURN NUMBER IS
+    v_patient_id   VARCHAR2(10);
+    v_net_amount   NUMBER(12, 2);
+    v_coverage_pct NUMBER(5, 2) := 0;
+BEGIN
+    SELECT PatientID, NetAmount
+    INTO v_patient_id, v_net_amount
+    FROM Invoice
+    WHERE InvoiceID = p_invoice_id;
+
+    SELECT NVL(MAX(CoveragePercentage), 0)
+    INTO v_coverage_pct
+    FROM Insurance
+    WHERE PatientID = v_patient_id
+      AND InsuranceStatus = 'Active'
+      AND ExpirationDate >= SYSDATE;
+
+    RETURN ROUND(v_net_amount * (1 - (v_coverage_pct / 100)), 2);
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        RAISE_APPLICATION_ERROR(-20041, 'Invoice ID ' || p_invoice_id || ' does not exist.');
+END fn_get_invoice_patient_copay;
+/
+
+CREATE OR REPLACE FUNCTION fn_get_patient_financial_status (
+    p_patient_id IN VARCHAR2
+) RETURN VARCHAR2 IS
+    v_base_balance  NUMBER(12, 2) := 0;
+    v_late_Penalty  NUMBER(12, 2) := 0;
+    v_total_owed    NUMBER(12, 2) := 0;
+    v_overdue_count NUMBER := 0;
+    v_max_weeks     NUMBER := 0;
+BEGIN
+    v_base_balance := fn_get_patient_net_balance(p_patient_id);
+
+    SELECT
+        COUNT(*),
+        NVL(MAX(FLOOR((SYSDATE - i.DueDate) / 7)), 0),
+        NVL(SUM(
+            (i.NetAmount - NVL((
+                SELECT SUM(p.AmountPaid)
+                FROM Payment p
+                WHERE p.InvoiceID = i.InvoiceID
+                  AND p.PaymentStatus = 'Completed'
+            ), 0)) * (0.10 * GREATEST(FLOOR((SYSDATE - i.DueDate) / 7), 0))
+        ), 0)
+    INTO v_overdue_count, v_max_weeks, v_late_penalty
+    FROM Invoice i
+    WHERE i.PatientID = p_patient_id
+      AND i.PaymentStatus <> 'Paid'
+      AND i.DueDate < SYSDATE;
+
+    v_total_owed := ROUND(v_base_balance + v_late_penalty, 2);
+
+    IF v_total_owed <= 0 THEN
+        RETURN 'CLEAR (Balance: 0.00)';
+    ELSIF v_overdue_count > 0 AND v_max_weeks >= 1 THEN
+        RETURN 'BANNED - OVERDUE ' || v_max_weeks || ' WEEK(S) (Base: ' || v_base_balance ||
+               ', +10%/wk Penalty: ' || ROUND(v_late_penalty, 2) || ', Total Owed: ' || v_total_owed || ')';
+    ELSIF v_overdue_count > 0 THEN
+        RETURN 'WARNING - PAST DUE <1 WEEK (Total Owed: ' || v_total_owed || ')';
+    ELSE
+        RETURN 'ACTIVE TAB - NOT YET DUE (Total Owed: ' || v_total_owed || ')';
+    END IF;
+END fn_get_patient_financial_status;
+/
+
+-- Source: scripts/04_advanced_features/student5_triggers.sql
+CREATE OR REPLACE TRIGGER trg_ins_status_date_guard
+BEFORE INSERT OR UPDATE OF ExpirationDate, InsuranceStatus ON Insurance
+FOR EACH ROW
+BEGIN
+    IF :NEW.ExpirationDate < SYSDATE AND :NEW.InsuranceStatus = 'Active' THEN
+        RAISE_APPLICATION_ERROR(-20005, 'Cannot set InsuranceStatus to Active when ExpirationDate is in the past; must be Expired.');
+    ELSIF :NEW.ExpirationDate >= SYSDATE AND :NEW.InsuranceStatus = 'Expired' THEN
+        RAISE_APPLICATION_ERROR(-20006, 'Cannot set InsuranceStatus to Expired when ExpirationDate has not passed yet.');
+    END IF;
+END trg_ins_status_date_guard;
+/
+
+CREATE OR REPLACE TRIGGER trg_inv_status_guard
+BEFORE INSERT OR UPDATE ON Invoice
+FOR EACH ROW
+DECLARE
+    v_total_paid      NUMBER(12, 2) := 0;
+    v_expected_status VARCHAR2(20);
+BEGIN
+    IF INSERTING THEN
+        IF :NEW.PaymentStatus IN ('Paid', 'Partially Paid') THEN
+            RAISE_APPLICATION_ERROR(-20007, 'New invoices cannot be inserted directly as Paid or Partially Paid; insert as Unpaid/Overdue and add rows to Payment.');
+        ELSIF :NEW.DueDate < SYSDATE AND :NEW.PaymentStatus = 'Unpaid' THEN
+            RAISE_APPLICATION_ERROR(-20008, 'Cannot insert Invoice as Unpaid when DueDate is already in the past; must be Overdue.');
+        ELSIF :NEW.DueDate >= SYSDATE AND :NEW.PaymentStatus = 'Overdue' THEN
+            RAISE_APPLICATION_ERROR(-20009, 'Cannot insert Invoice as Overdue when DueDate has not passed yet; must be Unpaid.');
+        END IF;
+    ELSIF UPDATING THEN
+        SELECT NVL(SUM(AmountPaid), 0)
+        INTO v_total_paid
+        FROM Payment
+        WHERE InvoiceID = :NEW.InvoiceID
+          AND PaymentStatus = 'Completed';
+
+        IF v_total_paid > :NEW.NetAmount THEN
+            RAISE_APPLICATION_ERROR(-20002, 'Invoice NetAmount cannot be reduced below already-completed payments (' || v_total_paid || ').');
+        END IF;
+
+        IF v_total_paid >= :NEW.NetAmount THEN
+            v_expected_status := 'Paid';
+        ELSIF v_total_paid > 0 THEN
+            v_expected_status := 'Partially Paid';
+        ELSIF :NEW.DueDate < SYSDATE THEN
+            v_expected_status := 'Overdue';
+        ELSE
+            v_expected_status := 'Unpaid';
+        END IF;
+
+        IF UPDATING('PaymentStatus')
+           AND NOT UPDATING('TotalAmount')
+           AND NOT UPDATING('Discount')
+           AND NOT UPDATING('DueDate') THEN
+            IF :NEW.PaymentStatus <> v_expected_status THEN
+                RAISE_APPLICATION_ERROR(-20007, 'Cannot manually set Invoice.PaymentStatus to ' || :NEW.PaymentStatus || '; expected status from Payment is ' || v_expected_status || '.');
+            END IF;
+        ELSE
+            :NEW.PaymentStatus := v_expected_status;
+        END IF;
+    END IF;
+END trg_inv_status_guard;
+/
+
+CREATE OR REPLACE TRIGGER trg_pay_check_insurance
+BEFORE INSERT OR UPDATE OF PaymentMethod, InvoiceID ON Payment
+FOR EACH ROW
+WHEN (NEW.PaymentMethod = 'Insurance Claim')
+DECLARE
+    v_active_ins NUMBER := 0;
+BEGIN
+    UPDATE Insurance
+    SET InsuranceStatus = 'Expired'
+    WHERE InsuranceStatus = 'Active'
+      AND ExpirationDate < SYSDATE;
+
+    SELECT COUNT(*)
+    INTO v_active_ins
+    FROM Invoice inv
+    JOIN Insurance ins ON inv.PatientID = ins.PatientID
+    WHERE inv.InvoiceID = :NEW.InvoiceID
+      AND ins.InsuranceStatus = 'Active'
+      AND ins.ExpirationDate >= SYSDATE;
+
+    IF v_active_ins = 0 THEN
+        RAISE_APPLICATION_ERROR(-20003, 'Insurance Claim payment rejected: Patient has no active, unexpired insurance policy.');
+    END IF;
+END trg_pay_check_insurance;
+/
+
+CREATE OR REPLACE TRIGGER trg_pay_balance_and_status
+FOR INSERT OR UPDATE OR DELETE ON Payment
+COMPOUND TRIGGER
+    TYPE t_inv_map IS TABLE OF BOOLEAN INDEX BY VARCHAR2(10);
+    g_affected_invoices t_inv_map;
+
+    BEFORE EACH ROW IS
+        v_inv_date DATE;
+    BEGIN
+        IF INSERTING OR UPDATING THEN
+            BEGIN
+                SELECT InvoiceDate
+                INTO v_inv_date
+                FROM Invoice
+                WHERE InvoiceID = :NEW.InvoiceID;
+
+                IF :NEW.PaymentDate < v_inv_date THEN
+                    RAISE_APPLICATION_ERROR(-20004, 'PaymentDate cannot be earlier than Invoice.InvoiceDate for Invoice ' || :NEW.InvoiceID || '.');
+                END IF;
+            EXCEPTION
+                WHEN NO_DATA_FOUND THEN
+                    NULL; -- Let Oracle's declarative FK constraint raise ORA-02291
+            END;
+        END IF;
+    END BEFORE EACH ROW;
+
+    AFTER EACH ROW IS
+    BEGIN
+        IF INSERTING OR UPDATING THEN
+            g_affected_invoices(:NEW.InvoiceID) := TRUE;
+        END IF;
+        IF UPDATING OR DELETING THEN
+            g_affected_invoices(:OLD.InvoiceID) := TRUE;
+        END IF;
+    END AFTER EACH ROW;
+
+    AFTER STATEMENT IS
+        v_inv_id     VARCHAR2(10);
+        v_net_amount NUMBER(12, 2);
+        v_due_date   DATE;
+        v_total_paid NUMBER(12, 2);
+        v_new_status VARCHAR2(20);
+    BEGIN
+        UPDATE Insurance
+        SET InsuranceStatus = 'Expired'
+        WHERE InsuranceStatus = 'Active'
+          AND ExpirationDate < SYSDATE;
+
+        UPDATE Invoice
+        SET PaymentStatus = 'Overdue'
+        WHERE PaymentStatus = 'Unpaid'
+          AND DueDate < SYSDATE;
+
+        v_inv_id := g_affected_invoices.FIRST;
+        WHILE v_inv_id IS NOT NULL LOOP
+            SELECT NetAmount, DueDate
+            INTO v_net_amount, v_due_date
+            FROM Invoice
+            WHERE InvoiceID = v_inv_id;
+
+            SELECT NVL(SUM(AmountPaid), 0)
+            INTO v_total_paid
+            FROM Payment
+            WHERE InvoiceID = v_inv_id
+              AND PaymentStatus = 'Completed';
+
+            IF v_total_paid > v_net_amount THEN
+                RAISE_APPLICATION_ERROR(-20002, 'Payment exceeds remaining invoice balance for Invoice ' || v_inv_id || '.');
+            END IF;
+
+            IF v_total_paid >= v_net_amount THEN
+                v_new_status := 'Paid';
+            ELSIF v_total_paid > 0 THEN
+                v_new_status := 'Partially Paid';
+            ELSIF v_due_date < SYSDATE THEN
+                v_new_status := 'Overdue';
+            ELSE
+                v_new_status := 'Unpaid';
+            END IF;
+
+            UPDATE Invoice
+            SET PaymentStatus = v_new_status
+            WHERE InvoiceID = v_inv_id;
+
+            v_inv_id := g_affected_invoices.NEXT(v_inv_id);
+        END LOOP;
+        g_affected_invoices.DELETE;
+    END AFTER STATEMENT;
+END trg_pay_balance_and_status;
+/
