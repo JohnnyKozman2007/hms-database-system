@@ -23,9 +23,9 @@ SET SERVEROUTPUT ON;
 --              at the exact requested time.
 -- ----------------------------------------------------------------------------
 CREATE OR REPLACE PROCEDURE sp_book_appointment (
-    p_appointment_id   IN NUMBER,
-    p_patient_id       IN NUMBER,
-    p_doctor_id        IN NUMBER,
+    p_appointment_id   IN VARCHAR2,
+    p_patient_id       IN VARCHAR2,
+    p_doctor_id        IN VARCHAR2,
     p_appointment_date IN DATE,
     p_reason           IN VARCHAR2,
     p_notes            IN VARCHAR2 DEFAULT NULL
@@ -127,9 +127,9 @@ END sp_book_appointment;
 --              the Doctor, the Operating Room, nor the Patient has an overlapping time window.
 -- ----------------------------------------------------------------------------
 CREATE OR REPLACE PROCEDURE sp_schedule_procedure (
-    p_procedure_id     IN NUMBER,
-    p_patient_id       IN NUMBER,
-    p_doctor_id        IN NUMBER,
+    p_procedure_id     IN VARCHAR2,
+    p_patient_id       IN VARCHAR2,
+    p_doctor_id        IN VARCHAR2,
     p_procedure_name   IN VARCHAR2,
     p_procedure_date   IN DATE,
     p_operating_room   IN VARCHAR2,
@@ -277,9 +277,9 @@ FOR INSERT OR UPDATE ON MedicalProcedure
 COMPOUND TRIGGER
 
     TYPE r_proc_record IS RECORD (
-        procedure_id   NUMBER,
-        patient_id     NUMBER,
-        doctor_id      NUMBER,
+        procedure_id   VARCHAR2(10),
+        patient_id     VARCHAR2(10),
+        doctor_id      VARCHAR2(10),
         room           VARCHAR2(30),
         start_date     DATE,
         end_date       DATE,
@@ -317,7 +317,7 @@ COMPOUND TRIGGER
                 INTO v_doc_conflicts
                 FROM MedicalProcedure
                 WHERE DoctorID = g_procs(i).doctor_id
-                  AND ProcedureID <> NVL(g_procs(i).procedure_id, -1)
+                  AND ProcedureID <> NVL(g_procs(i).procedure_id, ' ')
                   AND Outcome NOT IN ('Aborted', 'Cancelled')
                   AND g_procs(i).start_date < EndTime
                   AND g_procs(i).end_date   > ProcedureDate;
@@ -331,7 +331,7 @@ COMPOUND TRIGGER
                 INTO v_room_conflicts
                 FROM MedicalProcedure
                 WHERE OperatingRoom = g_procs(i).room
-                  AND ProcedureID <> NVL(g_procs(i).procedure_id, -1)
+                  AND ProcedureID <> NVL(g_procs(i).procedure_id, ' ')
                   AND Outcome NOT IN ('Aborted', 'Cancelled')
                   AND g_procs(i).start_date < EndTime
                   AND g_procs(i).end_date   > ProcedureDate;
@@ -345,7 +345,7 @@ COMPOUND TRIGGER
                 INTO v_pat_conflicts
                 FROM MedicalProcedure
                 WHERE PatientID = g_procs(i).patient_id
-                  AND ProcedureID <> NVL(g_procs(i).procedure_id, -1)
+                  AND ProcedureID <> NVL(g_procs(i).procedure_id, ' ')
                   AND Outcome NOT IN ('Aborted', 'Cancelled')
                   AND g_procs(i).start_date < EndTime
                   AND g_procs(i).end_date   > ProcedureDate;
@@ -372,9 +372,9 @@ FOR INSERT OR UPDATE ON Appointment
 COMPOUND TRIGGER
 
     TYPE r_apt_record IS RECORD (
-        appointment_id NUMBER,
-        doctor_id      NUMBER,
-        patient_id     NUMBER,
+        appointment_id VARCHAR2(10),
+        doctor_id      VARCHAR2(10),
+        patient_id     VARCHAR2(10),
         apt_date       DATE,
         status         VARCHAR2(20)
     );
@@ -407,7 +407,7 @@ COMPOUND TRIGGER
                 INTO v_doc_conflicts
                 FROM Appointment
                 WHERE DoctorID = g_apts(i).doctor_id
-                  AND AppointmentID <> NVL(g_apts(i).appointment_id, -1)
+                  AND AppointmentID <> NVL(g_apts(i).appointment_id, ' ')
                   AND Status IN ('Scheduled', 'In-Progress')
                   AND TRUNC(AppointmentDate) = TRUNC(g_apts(i).apt_date)
                   AND TO_CHAR(AppointmentDate, 'HH24:MI') = TO_CHAR(g_apts(i).apt_date, 'HH24:MI');
@@ -421,7 +421,7 @@ COMPOUND TRIGGER
                 INTO v_pat_conflicts
                 FROM Appointment
                 WHERE PatientID = g_apts(i).patient_id
-                  AND AppointmentID <> NVL(g_apts(i).appointment_id, -1)
+                  AND AppointmentID <> NVL(g_apts(i).appointment_id, ' ')
                   AND Status IN ('Scheduled', 'In-Progress')
                   AND TRUNC(AppointmentDate) = TRUNC(g_apts(i).apt_date)
                   AND TO_CHAR(AppointmentDate, 'HH24:MI') = TO_CHAR(g_apts(i).apt_date, 'HH24:MI');

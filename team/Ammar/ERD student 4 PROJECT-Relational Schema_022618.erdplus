@@ -1,0 +1,360 @@
+{
+  "diagramType": 2,
+  "data": {
+    "nodes": [
+      {
+        "id": "f08f32ba-b564-4656-84f7-19cc06893f12",
+        "type": "Table",
+        "position": {
+          "x": 886.5779950849648,
+          "y": 297.4860729984181
+        },
+        "data": {
+          "label": "PRESCRIPTION",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "c57a040b-5c39-43d6-bc42-cbe932f357f4",
+              "name": "PrescriptionID (PK)",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "794855c4-30cf-4134-8a05-10681406e142",
+              "name": "PatientID (FK)",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "dee6ad21-263e-4966-8094-995993cd4243",
+              "name": "DoctorID (FK)",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "def83eb4-71a8-43ca-8c60-f31c25500e77",
+              "name": "MedicationID (FK)",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "7c84265c-0885-4a4e-8ae9-6d5aa64d5bce",
+              "name": "Dosage",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "9a5f19eb-0913-478d-95f6-b8f0f34922f5",
+              "name": "Frequency",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "0c1f2b13-fbd9-48e7-ad1b-0d113df3e449",
+              "name": "Duration",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "7bb6644d-59a3-453d-8fec-c55ca0fbb1c3",
+              "name": "PrescriptionDate",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "5d05208f-b926-4eab-ab47-80011ef7093c",
+              "name": "Notes",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "9cbeefb1-4d09-4815-9f9f-d1d0672f78e8",
+              "name": "fk_MEDICATION",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "61c3f6cf-331c-4e4b-9daf-330076b24fa1",
+                "sourceTableId": "cc72ba64-8e6f-4360-998c-eadad2d21d44",
+                "columns": [
+                  {
+                    "id": "fk_ed88b56d-2bf0-4b3d-b87b-8749037f914b",
+                    "name": "MedicationID (PK)",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": true
+        },
+        "measured": {
+          "width": 240,
+          "height": 273
+        },
+        "selected": true,
+        "dragging": false
+      },
+      {
+        "id": "48cb4d51-bdee-40c3-b606-59d2b1347631",
+        "type": "Table",
+        "position": {
+          "x": 489.1434520497579,
+          "y": -134.93734409757553
+        },
+        "data": {
+          "label": "LABORATORYTEST",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "f676472b-f78c-4898-b1b8-1bc653416b25",
+              "name": "TestID (PK)",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "d8eaabfe-2122-4462-8496-67ca988692d3",
+              "name": "PatientID (FK)",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "09356e63-936a-4390-b8be-8b17e650459e",
+              "name": "DoctorID (FK)",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "4ac9bb0e-d86e-4dc9-95ae-80fdefc579ac",
+              "name": "TestType",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "7d8ef54d-e277-49b8-9ee5-f0b5090b8097",
+              "name": "RequestedDate",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "e598b864-b04c-4385-a9c6-5c7b3eae3c85",
+              "name": "CompletedDate",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "e40e31b1-efe1-4929-b359-19bb48f76f0a",
+              "name": "TestStatus",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "8dad5ecb-d825-4cb9-8eab-ff0606128cb2",
+              "name": "TestResult",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "a9d5db44-67db-42c7-8749-96d94f6889ff",
+              "name": "TestCost",
+              "type": "INT",
+              "isPrimaryKey": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 247
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "cc72ba64-8e6f-4360-998c-eadad2d21d44",
+        "type": "Table",
+        "position": {
+          "x": 317.8906721749273,
+          "y": 301.1491304985321
+        },
+        "data": {
+          "label": "MEDICATION",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "ed88b56d-2bf0-4b3d-b87b-8749037f914b",
+              "name": "MedicationID (PK)",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "position": 0
+            },
+            {
+              "id": "6ab4e33d-111e-4cac-b578-8baa8dfef61f",
+              "name": "MedicationName",
+              "type": "INT",
+              "isPrimaryKey": false,
+              "position": 1
+            },
+            {
+              "id": "e17efbb7-5528-4125-8984-2b22208f18b5",
+              "name": "SupplierID (FK)",
+              "type": "INT",
+              "isPrimaryKey": false,
+              "position": 2
+            },
+            {
+              "id": "f306742c-e124-4de2-807a-6e49b2f8c592",
+              "name": "Manufacturer",
+              "type": "INT",
+              "isPrimaryKey": false,
+              "position": 3
+            },
+            {
+              "id": "bd466b30-d37c-4367-b83c-f0337168cbe1",
+              "name": "Category",
+              "type": "INT",
+              "isPrimaryKey": false,
+              "position": 4
+            },
+            {
+              "id": "4b3093fa-faca-4107-a06c-afa5b18c46c8",
+              "name": "DosageForm",
+              "type": "INT",
+              "isPrimaryKey": false,
+              "position": 5
+            },
+            {
+              "id": "4058d930-2840-4b10-a40e-0d927e7b41d9",
+              "name": "Attribute",
+              "type": "INT",
+              "isPrimaryKey": false,
+              "position": 6
+            },
+            {
+              "id": "c73c874a-5eeb-442d-ad3d-16af3b55dd90",
+              "name": "UnitPrice",
+              "type": "INT",
+              "isPrimaryKey": false,
+              "position": 7
+            },
+            {
+              "id": "9a7ea90d-5ba0-46a3-89c4-5d0666960da0",
+              "name": "QuantityInStock",
+              "type": "INT",
+              "isPrimaryKey": false,
+              "position": 8
+            },
+            {
+              "id": "18afcb10-c8e5-4cc6-8e9a-2a1152212d3a",
+              "name": "ExpirationDate",
+              "type": "INT",
+              "isPrimaryKey": false,
+              "position": 9
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 272
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "eab54be8-670c-499a-9e28-939cdde5dd5c",
+        "type": "Table",
+        "position": {
+          "x": 827.6948147018096,
+          "y": 59.51642675429163
+        },
+        "data": {
+          "label": "PATIENT",
+          "isConnectable": false,
+          "columns": [],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 26
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "1c94b891-6afc-4f9d-9db5-478b5b3ff12a",
+        "type": "Table",
+        "position": {
+          "x": 954.4483606017621,
+          "y": 9.82002585493305
+        },
+        "data": {
+          "label": "DOCTOR",
+          "isConnectable": false,
+          "columns": [],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 26
+        },
+        "selected": false,
+        "dragging": false
+      }
+    ],
+    "edges": [
+      {
+        "id": "cc72ba64-8e6f-4360-998c-eadad2d21d44->f08f32ba-b564-4656-84f7-19cc06893f12_61c3f6cf-331c-4e4b-9daf-330076b24fa1",
+        "type": "Relational",
+        "source": "cc72ba64-8e6f-4360-998c-eadad2d21d44",
+        "targetHandle": "foreign-key-handle-61c3f6cf-331c-4e4b-9daf-330076b24fa1",
+        "target": "f08f32ba-b564-4656-84f7-19cc06893f12",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "61c3f6cf-331c-4e4b-9daf-330076b24fa1",
+            "sourceTableId": "cc72ba64-8e6f-4360-998c-eadad2d21d44",
+            "columns": [
+              {
+                "id": "fk_ed88b56d-2bf0-4b3d-b87b-8749037f914b",
+                "name": "MedicationID (PK)",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "viewport": {
+      "x": 151.65713541142253,
+      "y": 150.63504710311273,
+      "zoom": 0.624652084422294
+    }
+  },
+  "name": "erd PROJECT-Relational Schema",
+  "folder": {
+    "name": "PROJECT1",
+    "folderType": 2,
+    "parentFolder": {
+      "depth": 0,
+      "id": 488301,
+      "name": "Diagrams",
+      "folderType": 1
+    },
+    "depth": 1,
+    "id": 488303
+  },
+  "id": 715834,
+  "updatedAtTimestamp": 1793707104
+}

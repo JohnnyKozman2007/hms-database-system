@@ -26,3 +26,6 @@ ALTER TABLE Admission ADD CONSTRAINT chk_adm_reason_len
 
 ALTER TABLE Admission ADD CONSTRAINT uq_adm_pat_date 
     UNIQUE (PatientID, AdmissionDate);
+
+CREATE UNIQUE INDEX uq_adm_one_active_stay
+    ON Admission (CASE WHEN AdmissionStatus = 'Admitted' THEN PatientID END);

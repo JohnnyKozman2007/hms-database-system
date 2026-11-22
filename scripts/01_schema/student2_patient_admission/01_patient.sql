@@ -40,8 +40,11 @@ ALTER TABLE Patient ADD CONSTRAINT chk_pat_fname
 ALTER TABLE Patient ADD CONSTRAINT chk_pat_lname 
     CHECK (REGEXP_LIKE(LastName, '^[A-Za-z'' -]+$'));
 
-ALTER TABLE Patient ADD CONSTRAINT chk_pat_dob_upper 
-    CHECK (DateOfBirth <= DATE '2026-12-31');
-
 ALTER TABLE Patient ADD CONSTRAINT chk_pat_postal 
     CHECK (REGEXP_LIKE(PostalCode, '^[A-Za-z0-9 -]+$'));
+
+ALTER TABLE Patient ADD CONSTRAINT chk_pat_street_len
+    CHECK (LENGTH(TRIM(Street)) >= 3);
+
+ALTER TABLE Patient ADD CONSTRAINT chk_pat_city_fmt
+    CHECK (REGEXP_LIKE(City, '^[A-Za-z'' -]+$') AND LENGTH(TRIM(City)) >= 2);

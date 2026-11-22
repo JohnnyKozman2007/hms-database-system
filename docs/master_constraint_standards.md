@@ -16,7 +16,7 @@
   * `NOT NULL`
   * `DEFAULT`
   * `VIRTUAL COLUMNS` (`GENERATED ALWAYS AS (...) VIRTUAL` for 1NF/3NF computed attributes)
-* **Prohibition:** **No triggers or stored procedures** shall be used for basic constraint enforcement in Students 1–4.
+* **Prohibition:** **No triggers or stored procedures** shall be used for basic constraint enforcement in Students 1–4, **with one Oracle-mandated exception:** because Oracle prohibits `SYSDATE` inside `CHECK` constraints (`ORA-02436`), dynamic `SYSDATE` upper bounds (preventing future dates or enforcing near-term scheduling horizons) are enforced centrally via `scripts/00_global_date_triggers.sql`.
 
 ### Directive 2: Constraint Placement Policy (`CREATE TABLE` vs `ALTER TABLE`)
 > [!IMPORTANT]
@@ -65,7 +65,7 @@ When any table includes one of the standard semantic columns below, it **must** 
 | **Campus Story** | `FloorLevel` | `VARCHAR2(20)` | — | NOT NULL (in CREATE) + Domain CHK (in ALTER) | In ALTER: `chk_dept_floor CHECK (FloorLevel IN ('Ground Floor', '1st Floor', '2nd Floor', '3rd Floor', '4th Floor', '5th Floor'))` |
 | **Derived Location** | `/Location` | `VARCHAR2(80)` | — | VIRTUAL (in CREATE) | `GENERATED ALWAYS AS (Building \|\| ', ' \|\| FloorLevel) VIRTUAL` |
 | **Blood Type** | `BloodType` | `VARCHAR2(5)` | — | NOT NULL + Domain CHK (in CREATE) | `CONSTRAINT chk_pat_blood CHECK (BloodType IN ('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'))` |
-| **Date of Birth** | `DateOfBirth` | `DATE` | — | NOT NULL + Bound CHKs | In CREATE: `chk_pat_dob CHECK (DateOfBirth >= DATE '1900-01-01')`<br>In ALTER: `chk_pat_dob_upper CHECK (DateOfBirth <= DATE '2026-12-31')` |
+| **Date of Birth** | `DateOfBirth` | `DATE` | — | NOT NULL + Bound CHK + Global Trigger | In CREATE: `chk_pat_dob CHECK (DateOfBirth >= DATE '1900-01-01')`<br>In `00_global_date_triggers.sql`: `DateOfBirth <= SYSDATE` |
 | **Postal Code** | `PostalCode` | `VARCHAR2(20)` | — | NOT NULL (in CREATE) + Format CHK (in ALTER) | In ALTER: `chk_<entity>_postal CHECK (REGEXP_LIKE(PostalCode, '^[A-Za-z0-9 -]+$'))` |
 | **Derived Address** | `/Address` | `VARCHAR2(250)` | — | VIRTUAL (in CREATE) | `GENERATED ALWAYS AS (NVL2(BuildingNumber, BuildingNumber \|\| ' ', '') \|\| Street \|\| ', ' \|\| City \|\| ' ' \|\| PostalCode) VIRTUAL` |
 | **Emergency Contact** | `EmergencyContact` | `VARCHAR2(20)` | — | NOT NULL + Diff CHK + Mobile CHK (in CREATE) | `chk_pat_emg CHECK (EmergencyContact <> Phone)`<br>`chk_pat_emg_num CHECK (REGEXP_LIKE(EmergencyContact, '^[0-9]+$') AND LENGTH(EmergencyContact) = 11 AND EmergencyContact LIKE '01%')` |
@@ -245,11 +245,14 @@ ALTER TABLE Patient ADD CONSTRAINT chk_pat_fname
 ALTER TABLE Patient ADD CONSTRAINT chk_pat_lname 
     CHECK (REGEXP_LIKE(LastName, '^[A-Za-z'' -]+$'));
 
-ALTER TABLE Patient ADD CONSTRAINT chk_pat_dob_upper 
-    CHECK (DateOfBirth <= DATE '2026-12-31');
-
 ALTER TABLE Patient ADD CONSTRAINT chk_pat_postal 
     CHECK (REGEXP_LIKE(PostalCode, '^[A-Za-z0-9 -]+$'));
+
+ALTER TABLE Patient ADD CONSTRAINT chk_pat_street_len
+    CHECK (LENGTH(TRIM(Street)) >= 3);
+
+ALTER TABLE Patient ADD CONSTRAINT chk_pat_city_fmt
+    CHECK (REGEXP_LIKE(City, '^[A-Za-z'' -]+$') AND LENGTH(TRIM(City)) >= 2);
 ```
 
 ---
@@ -320,6 +323,9 @@ ALTER TABLE Admission ADD CONSTRAINT chk_adm_reason_len
 
 ALTER TABLE Admission ADD CONSTRAINT uq_adm_pat_date 
     UNIQUE (PatientID, AdmissionDate);
+
+CREATE UNIQUE INDEX uq_adm_one_active_stay
+    ON Admission (CASE WHEN AdmissionStatus = 'Admitted' THEN PatientID END);
 ```
 
 ---
@@ -509,6 +515,155 @@ ALTER TABLE LaboratoryTest ADD CONSTRAINT chk_lab_type_len
 
 ALTER TABLE LaboratoryTest ADD CONSTRAINT chk_lab_result_len 
     CHECK (TestResult IS NULL OR LENGTH(TRIM(TestResult)) >= 5);
+```
+
+---
+
+### Table 13: `Supplier` (Student 5 - Subsystem 5)
+
+```sql
+CREATE TABLE Supplier (
+    SupplierID              VARCHAR2(10)        CONSTRAINT pk_supplier PRIMARY KEY,
+    CompanyName             VARCHAR2(100)       NOT NULL CONSTRAINT uq_supp_name UNIQUE,
+    ContactPerson           VARCHAR2(100)       NOT NULL,
+    Phone                   VARCHAR2(20)        NOT NULL CONSTRAINT uq_supp_phone UNIQUE,
+    PhoneType               VARCHAR2(10)        DEFAULT 'Landline' NOT NULL CONSTRAINT chk_supp_phone_type CHECK (PhoneType IN ('Landline', 'Mobile')),
+    Email                   VARCHAR2(100)       NOT NULL
+                                                CONSTRAINT uq_supp_email UNIQUE
+                                                CONSTRAINT chk_supp_email_fmt CHECK (Email LIKE '%_@__%.__%'),
+    BuildingNumber          VARCHAR2(20),
+    Street                  VARCHAR2(100)       NOT NULL,
+    City                    VARCHAR2(50)        NOT NULL,
+    PostalCode              VARCHAR2(20)        NOT NULL,
+    Address                 VARCHAR2(250)       GENERATED ALWAYS AS (NVL2(BuildingNumber, BuildingNumber || ' ', '') || Street || ', ' || City || ' ' || PostalCode) VIRTUAL,
+    ContractStatus          VARCHAR2(20)        DEFAULT 'Active' NOT NULL CONSTRAINT chk_supp_status CHECK (ContractStatus IN ('Active', 'Inactive', 'Terminated', 'Under Review')),
+    CONSTRAINT chk_supp_phone CHECK (
+        REGEXP_LIKE(Phone, '^[0-9]+$') AND (
+            (PhoneType = 'Mobile' AND LENGTH(Phone) = 11 AND Phone LIKE '01%') OR
+            (PhoneType = 'Landline' AND LENGTH(Phone) IN (9, 10) AND Phone LIKE '0%')
+        )
+    )
+);
+
+ALTER TABLE Supplier ADD CONSTRAINT chk_supp_id
+    CHECK (REGEXP_LIKE(SupplierID, '^[A-Za-z0-9_-]+$'));
+
+ALTER TABLE Supplier ADD CONSTRAINT chk_supp_company_len
+    CHECK (LENGTH(TRIM(CompanyName)) >= 2);
+
+ALTER TABLE Supplier ADD CONSTRAINT chk_supp_contact_fmt
+    CHECK (REGEXP_LIKE(ContactPerson, '^[A-Za-z'' -]+$') AND LENGTH(TRIM(ContactPerson)) >= 3);
+
+ALTER TABLE Supplier ADD CONSTRAINT chk_supp_postal
+    CHECK (REGEXP_LIKE(PostalCode, '^[A-Za-z0-9 -]+$'));
+
+ALTER TABLE Supplier ADD CONSTRAINT chk_supp_street_len
+    CHECK (LENGTH(TRIM(Street)) >= 3);
+
+ALTER TABLE Supplier ADD CONSTRAINT chk_supp_city_fmt
+    CHECK (REGEXP_LIKE(City, '^[A-Za-z'' -]+$') AND LENGTH(TRIM(City)) >= 2);
+```
+
+---
+
+### Table 14: `Insurance` (Student 5 - Subsystem 5)
+
+```sql
+CREATE TABLE Insurance (
+    InsuranceID             VARCHAR2(10)        CONSTRAINT pk_insurance PRIMARY KEY,
+    PatientID               VARCHAR2(10)        NOT NULL,
+    InsuranceCompany        VARCHAR2(100)       NOT NULL
+                                                CONSTRAINT chk_ins_company CHECK (InsuranceCompany IN ('AXA Egypt', 'Bupa Egypt', 'Allianz Egypt', 'MetLife Egypt', 'Misr Insurance', 'GIG Egypt', 'Delta Insurance', 'Universal Health Insurance')),
+    PolicyNumber            VARCHAR2(50)        NOT NULL CONSTRAINT uq_ins_policy UNIQUE,
+    CoveragePercentage      NUMBER(5,2)         NOT NULL CONSTRAINT chk_ins_cov CHECK (CoveragePercentage BETWEEN 0 AND 100),
+    StartDate               DATE                NOT NULL,
+    ExpirationDate          DATE                NOT NULL,
+    InsuranceStatus         VARCHAR2(20)        DEFAULT 'Active' NOT NULL CONSTRAINT chk_ins_status CHECK (InsuranceStatus IN ('Active', 'Expired', 'Cancelled', 'Suspended')),
+    CONSTRAINT fk_ins_patient FOREIGN KEY (PatientID) REFERENCES Patient(PatientID),
+    CONSTRAINT chk_ins_dates CHECK (ExpirationDate > StartDate)
+);
+
+ALTER TABLE Insurance ADD CONSTRAINT chk_ins_id
+    CHECK (REGEXP_LIKE(InsuranceID, '^[A-Za-z0-9_-]+$'));
+
+ALTER TABLE Insurance ADD CONSTRAINT chk_ins_policy_fmt
+    CHECK (REGEXP_LIKE(PolicyNumber, '^[A-Za-z0-9_-]+$') AND LENGTH(TRIM(PolicyNumber)) >= 4);
+
+ALTER TABLE Insurance ADD CONSTRAINT chk_ins_start_date
+    CHECK (StartDate >= DATE '2020-01-01');
+
+ALTER TABLE Insurance ADD CONSTRAINT uq_ins_pat_comp_start
+    UNIQUE (PatientID, InsuranceCompany, StartDate);
+
+CREATE UNIQUE INDEX uq_ins_one_active_comp
+    ON Insurance (
+        CASE WHEN InsuranceStatus = 'Active' THEN PatientID END,
+        CASE WHEN InsuranceStatus = 'Active' THEN InsuranceCompany END
+    );
+```
+
+---
+
+### Table 15: `Invoice` (Student 5 - Subsystem 5)
+
+```sql
+CREATE TABLE Invoice (
+    InvoiceID               VARCHAR2(10)        CONSTRAINT pk_invoice PRIMARY KEY,
+    PatientID               VARCHAR2(10)        NOT NULL,
+    InvoiceDate             DATE                DEFAULT SYSDATE NOT NULL,
+    TotalAmount             NUMBER(10,2)        NOT NULL CONSTRAINT chk_inv_total CHECK (TotalAmount > 0),
+    TaxAmount               NUMBER(10,2)        GENERATED ALWAYS AS (
+                                                    ROUND(TotalAmount * CASE
+                                                        WHEN TotalAmount < 1000 THEN 0.05
+                                                        WHEN TotalAmount <= 10000 THEN 0.10
+                                                        ELSE 0.14
+                                                    END, 2)
+                                                ) VIRTUAL,
+    Discount                NUMBER(10,2)        DEFAULT 0.00 NOT NULL CONSTRAINT chk_inv_disc CHECK (Discount >= 0 AND Discount <= TotalAmount),
+    NetAmount               NUMBER(12,2)        GENERATED ALWAYS AS (
+                                                    TotalAmount + ROUND(TotalAmount * CASE
+                                                        WHEN TotalAmount < 1000 THEN 0.05
+                                                        WHEN TotalAmount <= 10000 THEN 0.10
+                                                        ELSE 0.14
+                                                    END, 2) - Discount
+                                                ) VIRTUAL,
+    DueDate                 DATE                DEFAULT SYSDATE + 3 NOT NULL,
+    PaymentStatus           VARCHAR2(20)        DEFAULT 'Unpaid' NOT NULL CONSTRAINT chk_inv_status CHECK (PaymentStatus IN ('Unpaid', 'Overdue', 'Partially Paid', 'Paid')),
+    CONSTRAINT fk_inv_patient FOREIGN KEY (PatientID) REFERENCES Patient(PatientID),
+    CONSTRAINT chk_inv_dates CHECK (DueDate >= InvoiceDate AND DueDate <= InvoiceDate + 3)
+);
+
+ALTER TABLE Invoice ADD CONSTRAINT chk_inv_id
+    CHECK (REGEXP_LIKE(InvoiceID, '^[A-Za-z0-9_-]+$'));
+
+ALTER TABLE Invoice ADD CONSTRAINT chk_inv_date_lower
+    CHECK (InvoiceDate >= DATE '2020-01-01');
+```
+
+---
+
+### Table 16: `Payment` (Student 5 - Subsystem 5)
+
+```sql
+CREATE TABLE Payment (
+    PaymentID               VARCHAR2(10)        CONSTRAINT pk_payment PRIMARY KEY,
+    InvoiceID               VARCHAR2(10)        NOT NULL,
+    PaymentDate             DATE                DEFAULT SYSDATE NOT NULL,
+    AmountPaid              NUMBER(10,2)        NOT NULL CONSTRAINT chk_pay_amt CHECK (AmountPaid > 0),
+    PaymentMethod           VARCHAR2(30)        NOT NULL CONSTRAINT chk_pay_method CHECK (PaymentMethod IN ('Cash', 'Credit Card', 'Debit Card', 'Bank Transfer', 'Insurance Claim')),
+    TransactionReference    VARCHAR2(100)       NOT NULL CONSTRAINT uq_pay_ref UNIQUE,
+    PaymentStatus           VARCHAR2(20)        DEFAULT 'Completed' NOT NULL CONSTRAINT chk_pay_status CHECK (PaymentStatus IN ('Completed', 'Pending', 'Failed', 'Refunded')),
+    CONSTRAINT fk_pay_invoice FOREIGN KEY (InvoiceID) REFERENCES Invoice(InvoiceID)
+);
+
+ALTER TABLE Payment ADD CONSTRAINT chk_pay_id
+    CHECK (REGEXP_LIKE(PaymentID, '^[A-Za-z0-9_-]+$'));
+
+ALTER TABLE Payment ADD CONSTRAINT chk_pay_date_lower
+    CHECK (PaymentDate >= DATE '2020-01-01');
+
+ALTER TABLE Payment ADD CONSTRAINT chk_pay_ref_fmt
+    CHECK (REGEXP_LIKE(TransactionReference, '^[A-Za-z0-9_-]+$') AND LENGTH(TRIM(TransactionReference)) >= 4);
 ```
 
 
