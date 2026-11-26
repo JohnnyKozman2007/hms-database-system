@@ -11,7 +11,7 @@ BEGIN
     FROM vw_department_staff_summary WHERE DepartmentID = 'DEPT01';
 
     INSERT INTO Doctor (DoctorID, FirstName, LastName, Gender, Phone, PhoneType, Email, Specialty, HireDate, YearsOfExperience, DepartmentID)
-    VALUES ('DOC_VW1', 'Youssef', 'Adel', 'Male', '01099887701', 'Mobile', 'youssef.adel@hms.org', 'Cardiology', DATE '2018-01-10', 8, 'DEPT01');
+    VALUES ('DOC_VW1', 'Youssef', 'Adel', 'Male', '01099887701', 'Mobile', 'youssef.vw1@hms.org', 'Cardiology', DATE '2018-01-10', 8, 'DEPT01');
 
     INSERT INTO Nurse (NurseID, FirstName, LastName, Gender, Phone, PhoneType, Email, Shift, HireDate, YearsOfExperience, DepartmentID)
     VALUES ('NRS_VW1', 'Salma', 'Nader', 'Female', '01199887701', 'Mobile', 'salma.nader@hms.org', 'Morning', DATE '2020-03-15', 6, 'DEPT01');

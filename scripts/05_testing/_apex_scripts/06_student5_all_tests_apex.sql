@@ -193,9 +193,10 @@ UPDATE Supplier SET Phone = '0224180002' WHERE SupplierID = 'SUP001';
 -- Expected: ORA-00001: unique constraint (UQ_SUPP_PHONE) violated.
 
 -- [24] student_5\02_supplier\negative\08_invalid_phonetype
--- [NEGATIVE] Invalid PhoneType (chk_supp_phone_type)
+-- [NEGATIVE] Invalid PhoneType (chk_supp_phone_type / chk_supp_phone)
 UPDATE Supplier SET PhoneType = 'Fax' WHERE SupplierID = 'SUP001';
--- Expected: ORA-02290: check constraint (CHK_SUPP_PHONE_TYPE) violated.
+-- Expected: ORA-02290: check constraint (CHK_SUPP_PHONE_TYPE / CHK_SUPP_PHONE) violated.
+-- Note: Oracle does not guarantee evaluation order between two overlapping CHECK constraints.
 
 -- [25] student_5\02_supplier\negative\09_invalid_phone_format
 -- [NEGATIVE] Invalid Phone format/length (chk_supp_phone)

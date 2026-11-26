@@ -295,9 +295,10 @@ UPDATE LaboratoryTest SET TestStatus = 'Completed', CompletedDate = TRUNC(SYSDAT
 -- Expected: ORA-02290: check constraint (CHK_LAB_RESULT_LEN) violated.
 
 -- [37] student_4\04_laboratory_test\negative\07_invalid_test_status
--- [NEGATIVE] Invalid TestStatus (chk_lab_status)
+-- [NEGATIVE] Invalid TestStatus (chk_lab_status / chk_lab_status_sync)
 UPDATE LaboratoryTest SET TestStatus = 'Archived' WHERE TestID = 'LAB001';
--- Expected: ORA-02290: check constraint (CHK_LAB_STATUS) violated.
+-- Expected: ORA-02290: check constraint (CHK_LAB_STATUS / CHK_LAB_STATUS_SYNC) violated.
+-- Note: Oracle does not guarantee evaluation order between two overlapping CHECK constraints.
 
 -- [38] student_4\04_laboratory_test\positive\01_min_boundaries
 -- Expected: 1 row inserted.
