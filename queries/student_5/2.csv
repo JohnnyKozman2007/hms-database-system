@@ -1,0 +1,16 @@
+SUPPLIERID,COMPANYNAME,CONTACTPERSON,PHONE,PHONETYPE,EMAIL,ADDRESS,CONTRACTSTATUS
+SUP001,Pharco Pharmaceuticals,Hossam El-Gamal,0224180001,Landline,orders@pharco.eg,"12 El-Horreya Road, Alexandria 21500",Active
+SUP002,EIPICO Medical Supplies,Maged Soliman,0224180002,Landline,supply@eipico.eg,"45 Tenth of Ramadan St, Cairo 11511",Active
+SUP003,Eva Pharma Egypt,Nermine Adel,0224180003,Landline,hospital@evapharma.eg,"8 Pyramids Road, Giza 12511",Active
+SUP004,Amoun Pharmaceutical Co,Khaled Rashad,0224180004,Landline,sales@amoun.eg,"22 Obour Industrial Blvd, Cairo 11828",Active
+SUP005,Hikma Pharma Egypt,Laila Mansour,01061800005,Mobile,procurement@hikma.eg,"19 Smart Village Way, Giza 12577",Active
+SUP006,Sanofi Egypt Distribution,Sherif Kamel,0224180006,Landline,b2b@sanofi.eg,"3 El-Thawra Street, Cairo 11341",Active
+SUP007,Novartis Pharma Cairo,Rania Fathy,0224180007,Landline,orders@novartis.eg,"77 Corniche El-Nil, Cairo 11431",Active
+SUP008,GlaxoSmithKline Egypt,Tarek Nabil,0224180008,Landline,care@gsk.eg,"14 El-Salam City Road, Cairo 11772",Active
+SUP009,Pfizer Egypt Healthcare,Dina Mostafa,01161800009,Mobile,hospital@pfizer.eg,"50 New Cairo Ninety St, Cairo 11835",Active
+SUP010,AstraZeneca Nile Logistics,Wael Ibrahim,0224180010,Landline,logistics@astrazeneca.eg,"6 Sheikh Zayed Ave, Giza 12588",Active
+SUP011,Sedico Pharmaceuticals,Heba Zaki,0224180011,Landline,orders@sedico.eg,"31 Sixth of October Blvd, Giza 12566",Active
+SUP012,Minapharm Biologics,Omar Hegazy,0224180012,Landline,biologics@minapharm.eg,"16 Badr Industrial St, Cairo 11829",Under Review
+SUP013,Rameda Medical Group,Salma Tawfik,01261800013,Mobile,supply@rameda.eg,"9 Industrial Zone Road, Giza 12568",Active
+SUP014,Delta Nile Diagnostics,Youssef Samir,0224180014,Landline,info@deltanile.eg,"28 El-Gomhoreya Street, Mansoura 35511",Inactive
+SUP015,Alexandria MedTech Corp,Nadia Barakat,0224180015,Landline,contracts@alexmedtech.eg,"41 Fouad Street, Alexandria 21519",Terminated

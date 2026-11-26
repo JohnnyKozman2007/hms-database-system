@@ -1,0 +1,151 @@
+PATIENTID,PATIENTNAME,BLOODTYPE,ADMISSIONID,ROOMID,ADMISSIONDATE,DISCHARGEDATE,ADMISSIONSTATUS,ADMISSIONREASON
+PAT001,Ahmed Mansour,A+,ADM001,RM001,11/22/2026,,Admitted,Acute chest pain evaluation and cardiac telemetry monitoring
+PAT011,Khaled Helmy,B+,ADM011,RM006,11/21/2026,,Admitted,Post-delivery maternal and neonatal observation
+PAT002,Fatma Zaki,A-,ADM002,RM002,11/20/2026,,Admitted,Severe community-acquired pneumonia requiring IV antibiotics
+PAT012,Salma Farouk,B-,ADM012,RM007,11/20/2026,,Admitted,Acute kidney injury fluid and electrolyte management
+PAT003,Mohamed Barakat,B+,ADM003,RM002,11/19/2026,,Admitted,Post-operative recovery following orthopedic fracture repair
+PAT013,Tarek Soliman,AB+,ADM013,RM007,11/19/2026,,Admitted,Acute chest pain evaluation and cardiac telemetry monitoring
+PAT004,Aya Khattab,B-,ADM004,RM003,11/18/2026,,Admitted,Uncontrolled diabetic ketoacidosis stabilization
+PAT014,Hana Gaber,AB-,ADM014,RM008,11/18/2026,,Admitted,Severe community-acquired pneumonia requiring IV antibiotics
+PAT005,Mahmoud Kamel,AB+,ADM005,RM003,11/17/2026,,Admitted,Acute appendicitis requiring inpatient surgical care
+PAT015,Hassan Hassan,O+,ADM015,RM008,11/17/2026,,Admitted,Post-operative recovery following orthopedic fracture repair
+PAT006,Mariam Yassin,AB-,ADM006,RM003,11/16/2026,,Admitted,Hypertensive crisis management and renal monitoring
+PAT016,Mona Mostafa,O-,ADM016,RM008,11/16/2026,,Admitted,Uncontrolled diabetic ketoacidosis stabilization
+PAT007,Youssef Fawzy,O+,ADM007,RM003,11/15/2026,,Admitted,Severe asthma exacerbation requiring nebulization therapy
+PAT017,Ali Refaat,A+,ADM017,RM009,11/15/2026,,Admitted,Acute appendicitis requiring inpatient surgical care
+PAT008,Sara Ibrahim,O-,ADM008,RM004,11/14/2026,,Admitted,Cerebrovascular accident observation and neurology workup
+PAT018,Heba Lotfy,A-,ADM018,RM010,11/14/2026,,Admitted,Hypertensive crisis management and renal monitoring
+PAT009,Omar Saeed,A+,ADM009,RM005,11/13/2026,,Admitted,Gastrointestinal bleeding stabilization and endoscopy prep
+PAT010,Nour Nassar,A-,ADM010,RM006,11/12/2026,,Admitted,High-grade fever and sepsis protocol administration
+PAT039,Ashraf Gaber,O+,ADM134,RM014,4/26/2025,4/29/2025,Discharged,Severe community-acquired pneumonia requiring IV antibiotics
+PAT028,Farah Barakat,B-,ADM133,RM013,4/17/2025,4/19/2025,Discharged,Acute chest pain evaluation and cardiac telemetry monitoring
+PAT017,Ali Refaat,A+,ADM132,RM012,4/8/2025,4/21/2025,Discharged,Acute kidney injury fluid and electrolyte management
+PAT006,Mariam Yassin,AB-,ADM131,RM011,3/30/2025,4/11/2025,Discharged,Post-delivery maternal and neonatal observation
+PAT070,Dalia Tawfik,AB-,ADM130,RM010,3/21/2025,4/1/2025,Discharged,High-grade fever and sepsis protocol administration
+PAT059,Omar Saeed,B+,ADM129,RM009,3/12/2025,3/22/2025,Discharged,Gastrointestinal bleeding stabilization and endoscopy prep
+PAT048,Basma Nabil,O-,ADM128,RM008,3/3/2025,3/12/2025,Discharged,Cerebrovascular accident observation and neurology workup
+PAT037,Walid Farouk,AB+,ADM127,RM007,2/22/2025,3/2/2025,Discharged,Severe asthma exacerbation requiring nebulization therapy
+PAT026,Laila Mansour,A-,ADM126,RM006,2/13/2025,2/20/2025,Discharged,Hypertensive crisis management and renal monitoring
+PAT015,Hassan Hassan,O+,ADM125,RM005,2/4/2025,2/10/2025,Discharged,Acute appendicitis requiring inpatient surgical care
+PAT004,Aya Khattab,B-,ADM124,RM004,1/26/2025,1/31/2025,Discharged,Uncontrolled diabetic ketoacidosis stabilization
+PAT068,Heba Lotfy,B-,ADM123,RM003,1/17/2025,1/21/2025,Discharged,Post-operative recovery following orthopedic fracture repair
+PAT057,Youssef Fawzy,A+,ADM122,RM002,1/8/2025,1/11/2025,Discharged,Severe community-acquired pneumonia requiring IV antibiotics
+PAT046,Esraa Diab,AB-,ADM121,RM001,12/30/2024,1/1/2025,Discharged,Acute chest pain evaluation and cardiac telemetry monitoring
+PAT035,Tamer Nassar,B+,ADM120,RM040,12/21/2024,1/3/2025,Discharged,Acute kidney injury fluid and electrolyte management
+PAT024,Nadia Hegazy,O-,ADM119,RM039,12/12/2024,12/24/2024,Discharged,Post-delivery maternal and neonatal observation
+PAT013,Tarek Soliman,AB+,ADM118,RM038,12/3/2024,12/14/2024,Discharged,High-grade fever and sepsis protocol administration
+PAT002,Fatma Zaki,A-,ADM117,RM037,11/24/2024,12/4/2024,Discharged,Gastrointestinal bleeding stabilization and endoscopy prep
+PAT066,Mona Mostafa,A-,ADM116,RM036,11/15/2024,11/24/2024,Discharged,Cerebrovascular accident observation and neurology workup
+PAT055,Mahmoud Kamel,O+,ADM115,RM035,11/6/2024,11/14/2024,Discharged,Severe asthma exacerbation requiring nebulization therapy
+PAT044,Marwa Abdelaziz,B-,ADM114,RM034,10/28/2024,11/4/2024,Discharged,Hypertensive crisis management and renal monitoring
+PAT033,Ramy Ibrahim,A+,ADM113,RM033,10/19/2024,10/25/2024,Discharged,Acute appendicitis requiring inpatient surgical care
+PAT022,Rania El-Masry,AB-,ADM112,RM032,10/10/2024,10/15/2024,Discharged,Uncontrolled diabetic ketoacidosis stabilization
+PAT011,Khaled Helmy,B+,ADM111,RM031,10/1/2024,10/5/2024,Discharged,Post-operative recovery following orthopedic fracture repair
+PAT075,Sherif Shawky,B+,ADM110,RM030,9/22/2024,9/25/2024,Discharged,Severe community-acquired pneumonia requiring IV antibiotics
+PAT064,Hana Gaber,O-,ADM109,RM029,9/13/2024,9/15/2024,Discharged,Acute chest pain evaluation and cardiac telemetry monitoring
+PAT053,Mohamed Barakat,AB+,ADM108,RM028,9/4/2024,9/17/2024,Discharged,Acute kidney injury fluid and electrolyte management
+PAT042,Hagar Refaat,A-,ADM107,RM027,8/26/2024,9/7/2024,Discharged,Post-delivery maternal and neonatal observation
+PAT031,Hossam Yassin,O+,ADM106,RM026,8/17/2024,8/28/2024,Discharged,High-grade fever and sepsis protocol administration
+PAT020,Dalia Tawfik,B-,ADM105,RM025,8/8/2024,8/18/2024,Discharged,Gastrointestinal bleeding stabilization and endoscopy prep
+PAT009,Omar Saeed,A+,ADM104,RM024,7/30/2024,8/8/2024,Discharged,Cerebrovascular accident observation and neurology workup
+PAT073,Karim Nabil,A+,ADM103,RM023,7/21/2024,7/29/2024,Discharged,Severe asthma exacerbation requiring nebulization therapy
+PAT062,Salma Farouk,AB-,ADM102,RM022,7/12/2024,7/19/2024,Discharged,Hypertensive crisis management and renal monitoring
+PAT051,Ahmed Mansour,B+,ADM101,RM021,7/3/2024,7/9/2024,Discharged,Acute appendicitis requiring inpatient surgical care
+PAT040,Eman Hassan,O-,ADM100,RM020,6/24/2024,6/29/2024,Discharged,Uncontrolled diabetic ketoacidosis stabilization
+PAT029,Wael Khattab,AB+,ADM099,RM019,6/15/2024,6/19/2024,Discharged,Post-operative recovery following orthopedic fracture repair
+PAT018,Heba Lotfy,A-,ADM098,RM018,6/6/2024,6/9/2024,Discharged,Severe community-acquired pneumonia requiring IV antibiotics
+PAT007,Youssef Fawzy,O+,ADM097,RM017,5/28/2024,5/30/2024,Discharged,Acute chest pain evaluation and cardiac telemetry monitoring
+PAT071,Ibrahim Diab,O+,ADM096,RM016,5/19/2024,6/1/2024,Discharged,Acute kidney injury fluid and electrolyte management
+PAT060,Nour Nassar,B-,ADM095,RM015,5/10/2024,5/22/2024,Discharged,Post-delivery maternal and neonatal observation
+PAT049,Hany Hegazy,A+,ADM094,RM014,5/1/2024,5/12/2024,Discharged,High-grade fever and sepsis protocol administration
+PAT038,Amira Soliman,AB-,ADM093,RM013,4/22/2024,5/2/2024,Discharged,Gastrointestinal bleeding stabilization and endoscopy prep
+PAT027,Amr Zaki,B+,ADM092,RM012,4/13/2024,4/22/2024,Discharged,Cerebrovascular accident observation and neurology workup
+PAT016,Mona Mostafa,O-,ADM091,RM011,4/4/2024,4/12/2024,Discharged,Severe asthma exacerbation requiring nebulization therapy
+PAT005,Mahmoud Kamel,AB+,ADM090,RM010,3/26/2024,4/2/2024,Discharged,Hypertensive crisis management and renal monitoring
+PAT069,Mostafa Abdelaziz,AB+,ADM089,RM009,3/17/2024,3/23/2024,Discharged,Acute appendicitis requiring inpatient surgical care
+PAT058,Sara Ibrahim,A-,ADM088,RM008,3/8/2024,3/13/2024,Discharged,Uncontrolled diabetic ketoacidosis stabilization
+PAT047,Adel El-Masry,O+,ADM087,RM007,2/28/2024,3/3/2024,Discharged,Post-operative recovery following orthopedic fracture repair
+PAT036,Noha Helmy,B-,ADM086,RM006,2/19/2024,2/22/2024,Discharged,Severe community-acquired pneumonia requiring IV antibiotics
+PAT025,Sherif Shawky,A+,ADM085,RM005,2/10/2024,2/12/2024,Discharged,Acute chest pain evaluation and cardiac telemetry monitoring
+PAT014,Hana Gaber,AB-,ADM084,RM004,2/1/2024,2/14/2024,Discharged,Acute kidney injury fluid and electrolyte management
+PAT003,Mohamed Barakat,B+,ADM083,RM003,1/23/2024,2/4/2024,Discharged,Post-delivery maternal and neonatal observation
+PAT067,Ali Refaat,B+,ADM082,RM002,1/14/2024,1/25/2024,Discharged,High-grade fever and sepsis protocol administration
+PAT056,Mariam Yassin,O-,ADM081,RM001,1/5/2024,1/15/2024,Discharged,Gastrointestinal bleeding stabilization and endoscopy prep
+PAT045,Gamal Tawfik,AB+,ADM080,RM040,12/27/2023,1/5/2024,Discharged,Cerebrovascular accident observation and neurology workup
+PAT034,Dina Saeed,A-,ADM079,RM039,12/18/2023,12/26/2023,Discharged,Severe asthma exacerbation requiring nebulization therapy
+PAT023,Karim Nabil,O+,ADM078,RM038,12/9/2023,12/16/2023,Discharged,Hypertensive crisis management and renal monitoring
+PAT012,Salma Farouk,B-,ADM077,RM037,11/30/2023,12/6/2023,Discharged,Acute appendicitis requiring inpatient surgical care
+PAT001,Ahmed Mansour,A+,ADM076,RM036,11/21/2023,11/26/2023,Discharged,Uncontrolled diabetic ketoacidosis stabilization
+PAT065,Hassan Hassan,A+,ADM075,RM035,11/12/2023,11/16/2023,Discharged,Post-operative recovery following orthopedic fracture repair
+PAT054,Aya Khattab,AB-,ADM074,RM034,11/3/2023,11/6/2023,Discharged,Severe community-acquired pneumonia requiring IV antibiotics
+PAT043,Nabil Lotfy,B+,ADM073,RM033,10/25/2023,10/27/2023,Discharged,Acute chest pain evaluation and cardiac telemetry monitoring
+PAT032,Reem Fawzy,O-,ADM072,RM032,10/16/2023,10/29/2023,Discharged,Acute kidney injury fluid and electrolyte management
+PAT021,Ibrahim Diab,AB+,ADM071,RM031,10/7/2023,10/19/2023,Discharged,Post-delivery maternal and neonatal observation
+PAT010,Nour Nassar,A-,ADM070,RM030,9/28/2023,10/9/2023,Discharged,High-grade fever and sepsis protocol administration
+PAT074,Nadia Hegazy,A-,ADM069,RM029,9/19/2023,9/29/2023,Discharged,Gastrointestinal bleeding stabilization and endoscopy prep
+PAT063,Tarek Soliman,O+,ADM068,RM028,9/10/2023,9/19/2023,Discharged,Cerebrovascular accident observation and neurology workup
+PAT052,Fatma Zaki,B-,ADM067,RM027,9/1/2023,9/9/2023,Discharged,Severe asthma exacerbation requiring nebulization therapy
+PAT041,Sameh Mostafa,A+,ADM066,RM026,8/23/2023,8/30/2023,Discharged,Hypertensive crisis management and renal monitoring
+PAT030,Yasmine Kamel,AB-,ADM065,RM025,8/14/2023,8/20/2023,Discharged,Acute appendicitis requiring inpatient surgical care
+PAT019,Mostafa Abdelaziz,B+,ADM064,RM024,8/5/2023,8/10/2023,Discharged,Uncontrolled diabetic ketoacidosis stabilization
+PAT008,Sara Ibrahim,O-,ADM063,RM023,7/27/2023,7/31/2023,Discharged,Post-operative recovery following orthopedic fracture repair
+PAT072,Rania El-Masry,O-,ADM062,RM022,7/18/2023,7/21/2023,Discharged,Severe community-acquired pneumonia requiring IV antibiotics
+PAT061,Khaled Helmy,AB+,ADM061,RM021,7/9/2023,7/11/2023,Discharged,Acute chest pain evaluation and cardiac telemetry monitoring
+PAT050,Samar Shawky,A-,ADM060,RM020,6/30/2023,7/13/2023,Discharged,Acute kidney injury fluid and electrolyte management
+PAT039,Ashraf Gaber,O+,ADM059,RM019,6/21/2023,7/3/2023,Discharged,Post-delivery maternal and neonatal observation
+PAT028,Farah Barakat,B-,ADM058,RM018,6/12/2023,6/23/2023,Discharged,High-grade fever and sepsis protocol administration
+PAT017,Ali Refaat,A+,ADM057,RM017,6/3/2023,6/13/2023,Discharged,Gastrointestinal bleeding stabilization and endoscopy prep
+PAT006,Mariam Yassin,AB-,ADM056,RM016,5/25/2023,6/3/2023,Discharged,Cerebrovascular accident observation and neurology workup
+PAT070,Dalia Tawfik,AB-,ADM055,RM015,5/16/2023,5/24/2023,Discharged,Severe asthma exacerbation requiring nebulization therapy
+PAT059,Omar Saeed,B+,ADM054,RM014,5/7/2023,5/14/2023,Discharged,Hypertensive crisis management and renal monitoring
+PAT048,Basma Nabil,O-,ADM053,RM013,4/28/2023,5/4/2023,Discharged,Acute appendicitis requiring inpatient surgical care
+PAT037,Walid Farouk,AB+,ADM052,RM012,4/19/2023,4/24/2023,Discharged,Uncontrolled diabetic ketoacidosis stabilization
+PAT026,Laila Mansour,A-,ADM051,RM011,4/10/2023,4/14/2023,Discharged,Post-operative recovery following orthopedic fracture repair
+PAT015,Hassan Hassan,O+,ADM050,RM010,4/1/2023,4/4/2023,Discharged,Severe community-acquired pneumonia requiring IV antibiotics
+PAT004,Aya Khattab,B-,ADM049,RM009,3/23/2023,3/25/2023,Discharged,Acute chest pain evaluation and cardiac telemetry monitoring
+PAT068,Heba Lotfy,B-,ADM048,RM008,3/14/2023,3/27/2023,Discharged,Acute kidney injury fluid and electrolyte management
+PAT057,Youssef Fawzy,A+,ADM047,RM007,3/5/2023,3/17/2023,Discharged,Post-delivery maternal and neonatal observation
+PAT046,Esraa Diab,AB-,ADM046,RM006,2/24/2023,3/7/2023,Discharged,High-grade fever and sepsis protocol administration
+PAT035,Tamer Nassar,B+,ADM045,RM005,2/15/2023,2/25/2023,Discharged,Gastrointestinal bleeding stabilization and endoscopy prep
+PAT024,Nadia Hegazy,O-,ADM044,RM004,2/6/2023,2/15/2023,Discharged,Cerebrovascular accident observation and neurology workup
+PAT013,Tarek Soliman,AB+,ADM043,RM003,1/28/2023,2/5/2023,Discharged,Severe asthma exacerbation requiring nebulization therapy
+PAT002,Fatma Zaki,A-,ADM042,RM002,1/19/2023,1/26/2023,Discharged,Hypertensive crisis management and renal monitoring
+PAT066,Mona Mostafa,A-,ADM041,RM001,1/10/2023,1/16/2023,Discharged,Acute appendicitis requiring inpatient surgical care
+PAT055,Mahmoud Kamel,O+,ADM040,RM040,1/1/2023,1/6/2023,Discharged,Uncontrolled diabetic ketoacidosis stabilization
+PAT044,Marwa Abdelaziz,B-,ADM039,RM039,12/23/2022,12/27/2022,Discharged,Post-operative recovery following orthopedic fracture repair
+PAT033,Ramy Ibrahim,A+,ADM038,RM038,12/14/2022,12/17/2022,Discharged,Severe community-acquired pneumonia requiring IV antibiotics
+PAT022,Rania El-Masry,AB-,ADM037,RM037,12/5/2022,12/7/2022,Discharged,Acute chest pain evaluation and cardiac telemetry monitoring
+PAT011,Khaled Helmy,B+,ADM036,RM036,11/26/2022,12/9/2022,Discharged,Acute kidney injury fluid and electrolyte management
+PAT075,Sherif Shawky,B+,ADM035,RM035,11/17/2022,11/29/2022,Discharged,Post-delivery maternal and neonatal observation
+PAT064,Hana Gaber,O-,ADM034,RM034,11/8/2022,11/19/2022,Discharged,High-grade fever and sepsis protocol administration
+PAT053,Mohamed Barakat,AB+,ADM033,RM033,10/30/2022,11/9/2022,Discharged,Gastrointestinal bleeding stabilization and endoscopy prep
+PAT042,Hagar Refaat,A-,ADM032,RM032,10/21/2022,10/30/2022,Discharged,Cerebrovascular accident observation and neurology workup
+PAT031,Hossam Yassin,O+,ADM031,RM031,10/12/2022,10/20/2022,Discharged,Severe asthma exacerbation requiring nebulization therapy
+PAT020,Dalia Tawfik,B-,ADM030,RM030,10/3/2022,10/10/2022,Discharged,Hypertensive crisis management and renal monitoring
+PAT009,Omar Saeed,A+,ADM029,RM029,9/24/2022,9/30/2022,Discharged,Acute appendicitis requiring inpatient surgical care
+PAT073,Karim Nabil,A+,ADM028,RM028,9/15/2022,9/20/2022,Discharged,Uncontrolled diabetic ketoacidosis stabilization
+PAT062,Salma Farouk,AB-,ADM027,RM027,9/6/2022,9/10/2022,Discharged,Post-operative recovery following orthopedic fracture repair
+PAT051,Ahmed Mansour,B+,ADM026,RM026,8/28/2022,8/31/2022,Discharged,Severe community-acquired pneumonia requiring IV antibiotics
+PAT040,Eman Hassan,O-,ADM025,RM025,8/19/2022,8/21/2022,Discharged,Acute chest pain evaluation and cardiac telemetry monitoring
+PAT029,Wael Khattab,AB+,ADM024,RM024,8/10/2022,8/23/2022,Discharged,Acute kidney injury fluid and electrolyte management
+PAT018,Heba Lotfy,A-,ADM023,RM023,8/1/2022,8/13/2022,Discharged,Post-delivery maternal and neonatal observation
+PAT007,Youssef Fawzy,O+,ADM022,RM022,7/23/2022,8/3/2022,Discharged,High-grade fever and sepsis protocol administration
+PAT071,Ibrahim Diab,O+,ADM021,RM021,7/14/2022,7/24/2022,Discharged,Gastrointestinal bleeding stabilization and endoscopy prep
+PAT060,Nour Nassar,B-,ADM020,RM020,7/5/2022,7/14/2022,Discharged,Cerebrovascular accident observation and neurology workup
+PAT049,Hany Hegazy,A+,ADM019,RM019,6/26/2022,7/4/2022,Discharged,Severe asthma exacerbation requiring nebulization therapy
+PAT065,Hassan Hassan,A+,ADM150,RM030,6/5/2022,6/12/2022,Discharged,Hypertensive crisis management and renal monitoring
+PAT054,Aya Khattab,AB-,ADM149,RM029,5/27/2022,6/2/2022,Discharged,Acute appendicitis requiring inpatient surgical care
+PAT043,Nabil Lotfy,B+,ADM148,RM028,5/18/2022,5/23/2022,Discharged,Uncontrolled diabetic ketoacidosis stabilization
+PAT032,Reem Fawzy,O-,ADM147,RM027,5/9/2022,5/13/2022,Discharged,Post-operative recovery following orthopedic fracture repair
+PAT021,Ibrahim Diab,AB+,ADM146,RM026,4/30/2022,5/3/2022,Discharged,Severe community-acquired pneumonia requiring IV antibiotics
+PAT010,Nour Nassar,A-,ADM145,RM025,4/21/2022,4/23/2022,Discharged,Acute chest pain evaluation and cardiac telemetry monitoring
+PAT074,Nadia Hegazy,A-,ADM144,RM024,4/12/2022,4/25/2022,Discharged,Acute kidney injury fluid and electrolyte management
+PAT063,Tarek Soliman,O+,ADM143,RM023,4/3/2022,4/15/2022,Discharged,Post-delivery maternal and neonatal observation
+PAT052,Fatma Zaki,B-,ADM142,RM022,3/25/2022,4/5/2022,Discharged,High-grade fever and sepsis protocol administration
+PAT041,Sameh Mostafa,A+,ADM141,RM021,3/16/2022,3/26/2022,Discharged,Gastrointestinal bleeding stabilization and endoscopy prep
+PAT030,Yasmine Kamel,AB-,ADM140,RM020,3/7/2022,3/16/2022,Discharged,Cerebrovascular accident observation and neurology workup
+PAT019,Mostafa Abdelaziz,B+,ADM139,RM019,2/26/2022,3/6/2022,Discharged,Severe asthma exacerbation requiring nebulization therapy
+PAT008,Sara Ibrahim,O-,ADM138,RM018,2/17/2022,2/24/2022,Discharged,Hypertensive crisis management and renal monitoring
+PAT072,Rania El-Masry,O-,ADM137,RM017,2/8/2022,2/14/2022,Discharged,Acute appendicitis requiring inpatient surgical care
+PAT061,Khaled Helmy,AB+,ADM136,RM016,1/30/2022,2/4/2022,Discharged,Uncontrolled diabetic ketoacidosis stabilization
+PAT050,Samar Shawky,A-,ADM135,RM015,1/21/2022,1/25/2022,Discharged,Post-operative recovery following orthopedic fracture repair

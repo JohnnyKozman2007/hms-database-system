@@ -1,0 +1,301 @@
+APPOINTMENTID,APPOINTMENTDATE,APPOINTMENTTIME,STATUS,PATIENTID,PATIENTNAME,DOCTORID,DOCTORNAME,SPECIALTY,REASON
+APT180,2/20/2027,12:45,Scheduled,PAT080,Yasmine Kamel,DOC020,Farah Yassin,Laparoscopic Surgery,Oncology chemotherapy cycle review and blood count check
+APT088,2/18/2027,16:45,Rescheduled,PAT088,Amira Soliman,DOC008,Dalia Farouk,Diagnostic Radiology,Pre-operative anesthesia clearance consultation
+APT268,2/18/2027,12:45,Scheduled,PAT068,Heba Lotfy,DOC008,Dalia Farouk,Diagnostic Radiology,Pre-operative anesthesia clearance consultation
+APT176,2/16/2027,16:45,Rescheduled,PAT076,Laila Mansour,DOC016,Wael Saeed,Sports Medicine,Diabetes medication titration and HbA1c review
+APT264,2/14/2027,16:45,Rescheduled,PAT064,Hana Gaber,DOC004,Heba Abdelrahman,Pediatrics,Annual pediatric growth and immunization checkup
+APT084,2/14/2027,12:45,Scheduled,PAT084,Dina Saeed,DOC004,Heba Abdelrahman,Pediatrics,Annual pediatric growth and immunization checkup
+APT172,2/12/2027,12:45,Scheduled,PAT072,Rania El-Masry,DOC002,Ahmed El-Sayed,Cardiology,Initial consultation for persistent migraine headaches
+APT080,2/10/2027,16:45,Rescheduled,PAT080,Yasmine Kamel,DOC020,Farah Yassin,Laparoscopic Surgery,Oncology chemotherapy cycle review and blood count check
+APT260,2/10/2027,12:45,Scheduled,PAT060,Nour Nassar,DOC020,Farah Yassin,Laparoscopic Surgery,Oncology chemotherapy cycle review and blood count check
+APT168,2/8/2027,16:45,Rescheduled,PAT068,Heba Lotfy,DOC008,Dalia Farouk,Diagnostic Radiology,Pre-operative anesthesia clearance consultation
+APT256,2/6/2027,16:45,Rescheduled,PAT056,Mariam Yassin,DOC016,Wael Saeed,Sports Medicine,Diabetes medication titration and HbA1c review
+APT076,2/6/2027,12:45,Scheduled,PAT076,Laila Mansour,DOC016,Wael Saeed,Sports Medicine,Diabetes medication titration and HbA1c review
+APT164,2/4/2027,12:45,Scheduled,PAT064,Hana Gaber,DOC004,Heba Abdelrahman,Pediatrics,Annual pediatric growth and immunization checkup
+APT072,2/2/2027,16:45,Rescheduled,PAT072,Rania El-Masry,DOC012,Omar Gamal,Pediatric Cardiology,Initial consultation for persistent migraine headaches
+APT252,2/2/2027,12:45,Scheduled,PAT052,Fatma Zaki,DOC012,Omar Gamal,Pediatric Cardiology,Initial consultation for persistent migraine headaches
+APT160,1/31/2027,16:45,Rescheduled,PAT060,Nour Nassar,DOC020,Farah Yassin,Laparoscopic Surgery,Oncology chemotherapy cycle review and blood count check
+APT248,1/29/2027,16:45,Rescheduled,PAT048,Basma Nabil,DOC008,Dalia Farouk,Diagnostic Radiology,Pre-operative anesthesia clearance consultation
+APT068,1/29/2027,12:45,Scheduled,PAT068,Heba Lotfy,DOC008,Dalia Farouk,Diagnostic Radiology,Pre-operative anesthesia clearance consultation
+APT156,1/27/2027,12:45,Scheduled,PAT056,Mariam Yassin,DOC016,Wael Saeed,Sports Medicine,Diabetes medication titration and HbA1c review
+APT064,1/25/2027,16:45,Rescheduled,PAT064,Hana Gaber,DOC002,Ahmed El-Sayed,Cardiology,Annual pediatric growth and immunization checkup
+APT244,1/25/2027,12:45,Scheduled,PAT044,Marwa Abdelaziz,DOC002,Ahmed El-Sayed,Cardiology,Annual pediatric growth and immunization checkup
+APT152,1/23/2027,16:45,Rescheduled,PAT052,Fatma Zaki,DOC012,Omar Gamal,Pediatric Cardiology,Initial consultation for persistent migraine headaches
+APT240,1/21/2027,16:45,Rescheduled,PAT040,Eman Hassan,DOC020,Farah Yassin,Laparoscopic Surgery,Oncology chemotherapy cycle review and blood count check
+APT060,1/21/2027,12:45,Scheduled,PAT060,Nour Nassar,DOC020,Farah Yassin,Laparoscopic Surgery,Oncology chemotherapy cycle review and blood count check
+APT148,1/19/2027,12:45,Scheduled,PAT048,Basma Nabil,DOC008,Dalia Farouk,Diagnostic Radiology,Pre-operative anesthesia clearance consultation
+APT056,1/17/2027,16:45,Rescheduled,PAT056,Mariam Yassin,DOC016,Wael Saeed,Sports Medicine,Diabetes medication titration and HbA1c review
+APT236,1/17/2027,12:45,Scheduled,PAT036,Noha Helmy,DOC016,Wael Saeed,Sports Medicine,Diabetes medication titration and HbA1c review
+APT144,1/15/2027,16:45,Rescheduled,PAT044,Marwa Abdelaziz,DOC004,Heba Abdelrahman,Pediatrics,Annual pediatric growth and immunization checkup
+APT232,1/13/2027,16:45,Rescheduled,PAT032,Reem Fawzy,DOC012,Omar Gamal,Pediatric Cardiology,Initial consultation for persistent migraine headaches
+APT052,1/13/2027,12:45,Scheduled,PAT052,Fatma Zaki,DOC012,Omar Gamal,Pediatric Cardiology,Initial consultation for persistent migraine headaches
+APT140,1/11/2027,12:45,Scheduled,PAT040,Eman Hassan,DOC020,Farah Yassin,Laparoscopic Surgery,Oncology chemotherapy cycle review and blood count check
+APT048,1/9/2027,16:45,Rescheduled,PAT048,Basma Nabil,DOC008,Dalia Farouk,Diagnostic Radiology,Pre-operative anesthesia clearance consultation
+APT228,1/9/2027,12:45,Scheduled,PAT028,Farah Barakat,DOC008,Dalia Farouk,Diagnostic Radiology,Pre-operative anesthesia clearance consultation
+APT136,1/7/2027,16:45,Rescheduled,PAT036,Noha Helmy,DOC002,Ahmed El-Sayed,Cardiology,Diabetes medication titration and HbA1c review
+APT224,1/5/2027,16:45,Rescheduled,PAT024,Nadia Hegazy,DOC004,Heba Abdelrahman,Pediatrics,Annual pediatric growth and immunization checkup
+APT044,1/5/2027,12:45,Scheduled,PAT044,Marwa Abdelaziz,DOC004,Heba Abdelrahman,Pediatrics,Annual pediatric growth and immunization checkup
+APT132,1/3/2027,12:45,Scheduled,PAT032,Reem Fawzy,DOC012,Omar Gamal,Pediatric Cardiology,Initial consultation for persistent migraine headaches
+APT040,1/1/2027,16:45,Rescheduled,PAT040,Eman Hassan,DOC020,Farah Yassin,Laparoscopic Surgery,Oncology chemotherapy cycle review and blood count check
+APT220,1/1/2027,12:45,Scheduled,PAT020,Dalia Tawfik,DOC020,Farah Yassin,Laparoscopic Surgery,Oncology chemotherapy cycle review and blood count check
+APT128,12/30/2026,16:45,Rescheduled,PAT028,Farah Barakat,DOC008,Dalia Farouk,Diagnostic Radiology,Pre-operative anesthesia clearance consultation
+APT216,12/28/2026,16:45,Rescheduled,PAT016,Mona Mostafa,DOC016,Wael Saeed,Sports Medicine,Diabetes medication titration and HbA1c review
+APT036,12/28/2026,12:45,Scheduled,PAT036,Noha Helmy,DOC016,Wael Saeed,Sports Medicine,Diabetes medication titration and HbA1c review
+APT124,12/26/2026,12:45,Scheduled,PAT024,Nadia Hegazy,DOC004,Heba Abdelrahman,Pediatrics,Annual pediatric growth and immunization checkup
+APT032,12/24/2026,16:45,Rescheduled,PAT032,Reem Fawzy,DOC012,Omar Gamal,Pediatric Cardiology,Initial consultation for persistent migraine headaches
+APT212,12/24/2026,12:45,Scheduled,PAT012,Salma Farouk,DOC012,Omar Gamal,Pediatric Cardiology,Initial consultation for persistent migraine headaches
+APT120,12/22/2026,16:45,Rescheduled,PAT020,Dalia Tawfik,DOC020,Farah Yassin,Laparoscopic Surgery,Oncology chemotherapy cycle review and blood count check
+APT300,12/22/2026,12:45,Scheduled,PAT100,Samar Shawky,DOC020,Farah Yassin,Laparoscopic Surgery,Oncology chemotherapy cycle review and blood count check
+APT208,12/20/2026,16:45,Rescheduled,PAT008,Sara Ibrahim,DOC002,Ahmed El-Sayed,Cardiology,Pre-operative anesthesia clearance consultation
+APT028,12/20/2026,12:45,Scheduled,PAT028,Farah Barakat,DOC002,Ahmed El-Sayed,Cardiology,Pre-operative anesthesia clearance consultation
+APT296,12/18/2026,16:45,Rescheduled,PAT096,Esraa Diab,DOC016,Wael Saeed,Sports Medicine,Diabetes medication titration and HbA1c review
+APT116,12/18/2026,12:45,Scheduled,PAT016,Mona Mostafa,DOC016,Wael Saeed,Sports Medicine,Diabetes medication titration and HbA1c review
+APT024,12/16/2026,16:45,Rescheduled,PAT024,Nadia Hegazy,DOC004,Heba Abdelrahman,Pediatrics,Annual pediatric growth and immunization checkup
+APT204,12/16/2026,12:45,Scheduled,PAT004,Aya Khattab,DOC004,Heba Abdelrahman,Pediatrics,Annual pediatric growth and immunization checkup
+APT112,12/14/2026,16:45,Rescheduled,PAT012,Salma Farouk,DOC012,Omar Gamal,Pediatric Cardiology,Initial consultation for persistent migraine headaches
+APT292,12/14/2026,12:45,Scheduled,PAT092,Hagar Refaat,DOC012,Omar Gamal,Pediatric Cardiology,Initial consultation for persistent migraine headaches
+APT200,12/12/2026,16:45,Rescheduled,PAT100,Samar Shawky,DOC020,Farah Yassin,Laparoscopic Surgery,Oncology chemotherapy cycle review and blood count check
+APT020,12/12/2026,12:45,Scheduled,PAT020,Dalia Tawfik,DOC020,Farah Yassin,Laparoscopic Surgery,Oncology chemotherapy cycle review and blood count check
+APT288,12/10/2026,16:45,Rescheduled,PAT088,Amira Soliman,DOC008,Dalia Farouk,Diagnostic Radiology,Pre-operative anesthesia clearance consultation
+APT108,12/10/2026,12:45,Scheduled,PAT008,Sara Ibrahim,DOC008,Dalia Farouk,Diagnostic Radiology,Pre-operative anesthesia clearance consultation
+APT016,12/8/2026,16:45,Rescheduled,PAT016,Mona Mostafa,DOC016,Wael Saeed,Sports Medicine,Diabetes medication titration and HbA1c review
+APT196,12/8/2026,12:45,Scheduled,PAT096,Esraa Diab,DOC016,Wael Saeed,Sports Medicine,Diabetes medication titration and HbA1c review
+APT104,12/6/2026,16:45,Rescheduled,PAT004,Aya Khattab,DOC004,Heba Abdelrahman,Pediatrics,Annual pediatric growth and immunization checkup
+APT284,12/6/2026,12:45,Scheduled,PAT084,Dina Saeed,DOC004,Heba Abdelrahman,Pediatrics,Annual pediatric growth and immunization checkup
+APT192,12/4/2026,16:45,Rescheduled,PAT092,Hagar Refaat,DOC012,Omar Gamal,Pediatric Cardiology,Initial consultation for persistent migraine headaches
+APT012,12/4/2026,12:45,Scheduled,PAT012,Salma Farouk,DOC012,Omar Gamal,Pediatric Cardiology,Initial consultation for persistent migraine headaches
+APT280,12/2/2026,16:45,Rescheduled,PAT080,Yasmine Kamel,DOC002,Ahmed El-Sayed,Cardiology,Oncology chemotherapy cycle review and blood count check
+APT100,12/2/2026,12:45,Scheduled,PAT100,Samar Shawky,DOC002,Ahmed El-Sayed,Cardiology,Oncology chemotherapy cycle review and blood count check
+APT008,11/30/2026,16:45,Rescheduled,PAT008,Sara Ibrahim,DOC008,Dalia Farouk,Diagnostic Radiology,Pre-operative anesthesia clearance consultation
+APT188,11/30/2026,12:45,Scheduled,PAT088,Amira Soliman,DOC008,Dalia Farouk,Diagnostic Radiology,Pre-operative anesthesia clearance consultation
+APT096,11/28/2026,16:45,Rescheduled,PAT096,Esraa Diab,DOC016,Wael Saeed,Sports Medicine,Diabetes medication titration and HbA1c review
+APT276,11/28/2026,12:45,Scheduled,PAT076,Laila Mansour,DOC016,Wael Saeed,Sports Medicine,Diabetes medication titration and HbA1c review
+APT184,11/26/2026,16:45,Rescheduled,PAT084,Dina Saeed,DOC004,Heba Abdelrahman,Pediatrics,Annual pediatric growth and immunization checkup
+APT004,11/26/2026,12:45,Scheduled,PAT004,Aya Khattab,DOC004,Heba Abdelrahman,Pediatrics,Annual pediatric growth and immunization checkup
+APT272,11/24/2026,16:45,Rescheduled,PAT072,Rania El-Masry,DOC012,Omar Gamal,Pediatric Cardiology,Initial consultation for persistent migraine headaches
+APT092,11/24/2026,12:45,Scheduled,PAT092,Hagar Refaat,DOC012,Omar Gamal,Pediatric Cardiology,Initial consultation for persistent migraine headaches
+APT001,11/22/2026,17:25,Scheduled,PAT001,Ahmed Mansour,DOC002,Ahmed El-Sayed,Cardiology,Routine cardiology follow-up and blood pressure review
+APT299,8/28/2025,14:00,Completed,PAT099,Hany Hegazy,DOC019,Nour El-Din,Interventional Radiology,Follow-up on abnormal laboratory lipid panel results
+APT298,8/26/2025,13:30,Completed,PAT098,Basma Nabil,DOC002,Ahmed El-Sayed,Cardiology,Pre-operative anesthesia clearance consultation
+APT297,8/24/2025,13:00,Completed,PAT097,Adel El-Masry,DOC017,Laila Ashraf,Neurophysiology,Shortness of breath and spirometry assessment
+APT295,8/20/2025,12:00,In-Progress,PAT095,Gamal Tawfik,DOC015,Mariam Tawfik,Neonatology,Evaluation of chronic lower back and knee pain
+APT294,8/18/2025,11:30,No-Show,PAT094,Marwa Abdelaziz,DOC014,Hassan Zaki,Acute Care,Annual pediatric growth and immunization checkup
+APT293,8/16/2025,11:00,Cancelled,PAT093,Nabil Lotfy,DOC013,Rania Samir,Trauma Care,Post-surgical wound inspection and suture removal
+APT291,8/12/2025,10:00,Completed,PAT091,Sameh Mostafa,DOC011,Salma Fathy,Electrophysiology,Routine cardiology follow-up and blood pressure review
+APT290,8/10/2025,09:30,Completed,PAT090,Eman Hassan,DOC010,Youssef Adel,Clinical Cardiology,Oncology chemotherapy cycle review and blood count check
+APT289,8/8/2025,09:00,Completed,PAT089,Ashraf Gaber,DOC002,Ahmed El-Sayed,Cardiology,Follow-up on abnormal laboratory lipid panel results
+APT287,8/4/2025,16:00,In-Progress,PAT087,Walid Farouk,DOC007,Sherif Nabil,Medical Oncology,Shortness of breath and spirometry assessment
+APT286,8/2/2025,15:30,No-Show,PAT086,Noha Helmy,DOC006,Nadia Kamel,Neurology,Diabetes medication titration and HbA1c review
+APT285,7/31/2025,15:00,Cancelled,PAT085,Tamer Nassar,DOC005,Tarek Ibrahim,Orthopedic Surgery,Evaluation of chronic lower back and knee pain
+APT283,7/27/2025,14:00,Completed,PAT083,Ramy Ibrahim,DOC003,Mona Hassan,Emergency Medicine,Post-surgical wound inspection and suture removal
+APT282,7/25/2025,13:30,Completed,PAT082,Reem Fawzy,DOC002,Ahmed El-Sayed,Cardiology,Initial consultation for persistent migraine headaches
+APT281,7/23/2025,13:00,Completed,PAT081,Hossam Yassin,DOC001,Karim Mansour,Interventional Cardiology,Routine cardiology follow-up and blood pressure review
+APT279,7/19/2025,12:00,In-Progress,PAT079,Wael Khattab,DOC019,Nour El-Din,Interventional Radiology,Follow-up on abnormal laboratory lipid panel results
+APT278,7/17/2025,11:30,No-Show,PAT078,Farah Barakat,DOC018,Amr Soliman,Radiation Oncology,Pre-operative anesthesia clearance consultation
+APT277,7/15/2025,11:00,Cancelled,PAT077,Amr Zaki,DOC017,Laila Ashraf,Neurophysiology,Shortness of breath and spirometry assessment
+APT275,7/11/2025,10:00,Completed,PAT075,Sherif Shawky,DOC015,Mariam Tawfik,Neonatology,Evaluation of chronic lower back and knee pain
+APT274,7/9/2025,09:30,Completed,PAT074,Nadia Hegazy,DOC014,Hassan Zaki,Acute Care,Annual pediatric growth and immunization checkup
+APT273,7/7/2025,09:00,Completed,PAT073,Karim Nabil,DOC013,Rania Samir,Trauma Care,Post-surgical wound inspection and suture removal
+APT271,7/3/2025,16:00,In-Progress,PAT071,Ibrahim Diab,DOC002,Ahmed El-Sayed,Cardiology,Routine cardiology follow-up and blood pressure review
+APT270,7/1/2025,15:30,No-Show,PAT070,Dalia Tawfik,DOC010,Youssef Adel,Clinical Cardiology,Oncology chemotherapy cycle review and blood count check
+APT269,6/29/2025,15:00,Cancelled,PAT069,Mostafa Abdelaziz,DOC009,Khaled Mostafa,General Surgery,Follow-up on abnormal laboratory lipid panel results
+APT267,6/25/2025,14:00,Completed,PAT067,Ali Refaat,DOC007,Sherif Nabil,Medical Oncology,Shortness of breath and spirometry assessment
+APT266,6/23/2025,13:30,Completed,PAT066,Mona Mostafa,DOC006,Nadia Kamel,Neurology,Diabetes medication titration and HbA1c review
+APT265,6/21/2025,13:00,Completed,PAT065,Hassan Hassan,DOC005,Tarek Ibrahim,Orthopedic Surgery,Evaluation of chronic lower back and knee pain
+APT263,6/17/2025,12:00,In-Progress,PAT063,Tarek Soliman,DOC003,Mona Hassan,Emergency Medicine,Post-surgical wound inspection and suture removal
+APT262,6/15/2025,11:30,No-Show,PAT062,Salma Farouk,DOC002,Ahmed El-Sayed,Cardiology,Initial consultation for persistent migraine headaches
+APT261,6/13/2025,11:00,Cancelled,PAT061,Khaled Helmy,DOC001,Karim Mansour,Interventional Cardiology,Routine cardiology follow-up and blood pressure review
+APT259,6/9/2025,10:00,Completed,PAT059,Omar Saeed,DOC019,Nour El-Din,Interventional Radiology,Follow-up on abnormal laboratory lipid panel results
+APT258,6/7/2025,09:30,Completed,PAT058,Sara Ibrahim,DOC018,Amr Soliman,Radiation Oncology,Pre-operative anesthesia clearance consultation
+APT257,6/5/2025,09:00,Completed,PAT057,Youssef Fawzy,DOC017,Laila Ashraf,Neurophysiology,Shortness of breath and spirometry assessment
+APT255,6/1/2025,16:00,In-Progress,PAT055,Mahmoud Kamel,DOC015,Mariam Tawfik,Neonatology,Evaluation of chronic lower back and knee pain
+APT254,5/30/2025,15:30,No-Show,PAT054,Aya Khattab,DOC014,Hassan Zaki,Acute Care,Annual pediatric growth and immunization checkup
+APT253,5/28/2025,15:00,Cancelled,PAT053,Mohamed Barakat,DOC002,Ahmed El-Sayed,Cardiology,Post-surgical wound inspection and suture removal
+APT251,5/24/2025,14:00,Completed,PAT051,Ahmed Mansour,DOC011,Salma Fathy,Electrophysiology,Routine cardiology follow-up and blood pressure review
+APT250,5/22/2025,13:30,Completed,PAT050,Samar Shawky,DOC010,Youssef Adel,Clinical Cardiology,Oncology chemotherapy cycle review and blood count check
+APT249,5/20/2025,13:00,Completed,PAT049,Hany Hegazy,DOC009,Khaled Mostafa,General Surgery,Follow-up on abnormal laboratory lipid panel results
+APT247,5/16/2025,12:00,In-Progress,PAT047,Adel El-Masry,DOC007,Sherif Nabil,Medical Oncology,Shortness of breath and spirometry assessment
+APT246,5/14/2025,11:30,No-Show,PAT046,Esraa Diab,DOC006,Nadia Kamel,Neurology,Diabetes medication titration and HbA1c review
+APT245,5/12/2025,11:00,Cancelled,PAT045,Gamal Tawfik,DOC005,Tarek Ibrahim,Orthopedic Surgery,Evaluation of chronic lower back and knee pain
+APT243,5/8/2025,10:00,Completed,PAT043,Nabil Lotfy,DOC003,Mona Hassan,Emergency Medicine,Post-surgical wound inspection and suture removal
+APT242,5/6/2025,09:30,Completed,PAT042,Hagar Refaat,DOC002,Ahmed El-Sayed,Cardiology,Initial consultation for persistent migraine headaches
+APT241,5/4/2025,09:00,Completed,PAT041,Sameh Mostafa,DOC001,Karim Mansour,Interventional Cardiology,Routine cardiology follow-up and blood pressure review
+APT239,4/30/2025,16:00,In-Progress,PAT039,Ashraf Gaber,DOC019,Nour El-Din,Interventional Radiology,Follow-up on abnormal laboratory lipid panel results
+APT238,4/28/2025,15:30,No-Show,PAT038,Amira Soliman,DOC018,Amr Soliman,Radiation Oncology,Pre-operative anesthesia clearance consultation
+APT237,4/26/2025,15:00,Cancelled,PAT037,Walid Farouk,DOC017,Laila Ashraf,Neurophysiology,Shortness of breath and spirometry assessment
+APT235,4/22/2025,14:00,Completed,PAT035,Tamer Nassar,DOC002,Ahmed El-Sayed,Cardiology,Evaluation of chronic lower back and knee pain
+APT234,4/20/2025,13:30,Completed,PAT034,Dina Saeed,DOC014,Hassan Zaki,Acute Care,Annual pediatric growth and immunization checkup
+APT233,4/18/2025,13:00,Completed,PAT033,Ramy Ibrahim,DOC013,Rania Samir,Trauma Care,Post-surgical wound inspection and suture removal
+APT231,4/14/2025,12:00,In-Progress,PAT031,Hossam Yassin,DOC011,Salma Fathy,Electrophysiology,Routine cardiology follow-up and blood pressure review
+APT230,4/12/2025,11:30,No-Show,PAT030,Yasmine Kamel,DOC010,Youssef Adel,Clinical Cardiology,Oncology chemotherapy cycle review and blood count check
+APT229,4/10/2025,11:00,Cancelled,PAT029,Wael Khattab,DOC009,Khaled Mostafa,General Surgery,Follow-up on abnormal laboratory lipid panel results
+APT227,4/6/2025,10:00,Completed,PAT027,Amr Zaki,DOC007,Sherif Nabil,Medical Oncology,Shortness of breath and spirometry assessment
+APT226,4/4/2025,09:30,Completed,PAT026,Laila Mansour,DOC002,Ahmed El-Sayed,Cardiology,Diabetes medication titration and HbA1c review
+APT225,4/2/2025,09:00,Completed,PAT025,Sherif Shawky,DOC005,Tarek Ibrahim,Orthopedic Surgery,Evaluation of chronic lower back and knee pain
+APT223,3/29/2025,16:00,In-Progress,PAT023,Karim Nabil,DOC003,Mona Hassan,Emergency Medicine,Post-surgical wound inspection and suture removal
+APT222,3/27/2025,15:30,No-Show,PAT022,Rania El-Masry,DOC002,Ahmed El-Sayed,Cardiology,Initial consultation for persistent migraine headaches
+APT221,3/25/2025,15:00,Cancelled,PAT021,Ibrahim Diab,DOC001,Karim Mansour,Interventional Cardiology,Routine cardiology follow-up and blood pressure review
+APT219,3/21/2025,14:00,Completed,PAT019,Mostafa Abdelaziz,DOC019,Nour El-Din,Interventional Radiology,Follow-up on abnormal laboratory lipid panel results
+APT218,3/19/2025,13:30,Completed,PAT018,Heba Lotfy,DOC018,Amr Soliman,Radiation Oncology,Pre-operative anesthesia clearance consultation
+APT217,3/17/2025,13:00,Completed,PAT017,Ali Refaat,DOC002,Ahmed El-Sayed,Cardiology,Shortness of breath and spirometry assessment
+APT215,3/13/2025,12:00,In-Progress,PAT015,Hassan Hassan,DOC015,Mariam Tawfik,Neonatology,Evaluation of chronic lower back and knee pain
+APT214,3/11/2025,11:30,No-Show,PAT014,Hana Gaber,DOC014,Hassan Zaki,Acute Care,Annual pediatric growth and immunization checkup
+APT213,3/9/2025,11:00,Cancelled,PAT013,Tarek Soliman,DOC013,Rania Samir,Trauma Care,Post-surgical wound inspection and suture removal
+APT211,3/5/2025,10:00,Completed,PAT011,Khaled Helmy,DOC011,Salma Fathy,Electrophysiology,Routine cardiology follow-up and blood pressure review
+APT210,3/3/2025,09:30,Completed,PAT010,Nour Nassar,DOC010,Youssef Adel,Clinical Cardiology,Oncology chemotherapy cycle review and blood count check
+APT209,3/1/2025,09:00,Completed,PAT009,Omar Saeed,DOC009,Khaled Mostafa,General Surgery,Follow-up on abnormal laboratory lipid panel results
+APT207,2/25/2025,16:00,In-Progress,PAT007,Youssef Fawzy,DOC007,Sherif Nabil,Medical Oncology,Shortness of breath and spirometry assessment
+APT206,2/23/2025,15:30,No-Show,PAT006,Mariam Yassin,DOC006,Nadia Kamel,Neurology,Diabetes medication titration and HbA1c review
+APT205,2/21/2025,15:00,Cancelled,PAT005,Mahmoud Kamel,DOC005,Tarek Ibrahim,Orthopedic Surgery,Evaluation of chronic lower back and knee pain
+APT203,2/17/2025,14:00,Completed,PAT003,Mohamed Barakat,DOC003,Mona Hassan,Emergency Medicine,Post-surgical wound inspection and suture removal
+APT202,2/15/2025,13:30,Completed,PAT002,Fatma Zaki,DOC002,Ahmed El-Sayed,Cardiology,Initial consultation for persistent migraine headaches
+APT201,2/13/2025,13:00,Completed,PAT001,Ahmed Mansour,DOC001,Karim Mansour,Interventional Cardiology,Routine cardiology follow-up and blood pressure review
+APT199,2/9/2025,12:00,In-Progress,PAT099,Hany Hegazy,DOC002,Ahmed El-Sayed,Cardiology,Follow-up on abnormal laboratory lipid panel results
+APT198,2/7/2025,11:30,No-Show,PAT098,Basma Nabil,DOC018,Amr Soliman,Radiation Oncology,Pre-operative anesthesia clearance consultation
+APT197,2/5/2025,11:00,Cancelled,PAT097,Adel El-Masry,DOC017,Laila Ashraf,Neurophysiology,Shortness of breath and spirometry assessment
+APT195,2/1/2025,10:00,Completed,PAT095,Gamal Tawfik,DOC015,Mariam Tawfik,Neonatology,Evaluation of chronic lower back and knee pain
+APT194,1/30/2025,09:30,Completed,PAT094,Marwa Abdelaziz,DOC014,Hassan Zaki,Acute Care,Annual pediatric growth and immunization checkup
+APT193,1/28/2025,09:00,Completed,PAT093,Nabil Lotfy,DOC013,Rania Samir,Trauma Care,Post-surgical wound inspection and suture removal
+APT191,1/24/2025,16:00,In-Progress,PAT091,Sameh Mostafa,DOC011,Salma Fathy,Electrophysiology,Routine cardiology follow-up and blood pressure review
+APT190,1/22/2025,15:30,No-Show,PAT090,Eman Hassan,DOC002,Ahmed El-Sayed,Cardiology,Oncology chemotherapy cycle review and blood count check
+APT189,1/20/2025,15:00,Cancelled,PAT089,Ashraf Gaber,DOC009,Khaled Mostafa,General Surgery,Follow-up on abnormal laboratory lipid panel results
+APT187,1/16/2025,14:00,Completed,PAT087,Walid Farouk,DOC007,Sherif Nabil,Medical Oncology,Shortness of breath and spirometry assessment
+APT186,1/14/2025,13:30,Completed,PAT086,Noha Helmy,DOC006,Nadia Kamel,Neurology,Diabetes medication titration and HbA1c review
+APT185,1/12/2025,13:00,Completed,PAT085,Tamer Nassar,DOC005,Tarek Ibrahim,Orthopedic Surgery,Evaluation of chronic lower back and knee pain
+APT183,1/8/2025,12:00,In-Progress,PAT083,Ramy Ibrahim,DOC003,Mona Hassan,Emergency Medicine,Post-surgical wound inspection and suture removal
+APT182,1/6/2025,11:30,No-Show,PAT082,Reem Fawzy,DOC002,Ahmed El-Sayed,Cardiology,Initial consultation for persistent migraine headaches
+APT181,1/4/2025,11:00,Cancelled,PAT081,Hossam Yassin,DOC002,Ahmed El-Sayed,Cardiology,Routine cardiology follow-up and blood pressure review
+APT179,12/31/2024,10:00,Completed,PAT079,Wael Khattab,DOC019,Nour El-Din,Interventional Radiology,Follow-up on abnormal laboratory lipid panel results
+APT178,12/29/2024,09:30,Completed,PAT078,Farah Barakat,DOC018,Amr Soliman,Radiation Oncology,Pre-operative anesthesia clearance consultation
+APT177,12/27/2024,09:00,Completed,PAT077,Amr Zaki,DOC017,Laila Ashraf,Neurophysiology,Shortness of breath and spirometry assessment
+APT175,12/23/2024,16:00,In-Progress,PAT075,Sherif Shawky,DOC015,Mariam Tawfik,Neonatology,Evaluation of chronic lower back and knee pain
+APT174,12/21/2024,15:30,No-Show,PAT074,Nadia Hegazy,DOC014,Hassan Zaki,Acute Care,Annual pediatric growth and immunization checkup
+APT173,12/19/2024,15:00,Cancelled,PAT073,Karim Nabil,DOC013,Rania Samir,Trauma Care,Post-surgical wound inspection and suture removal
+APT171,12/15/2024,14:00,Completed,PAT071,Ibrahim Diab,DOC011,Salma Fathy,Electrophysiology,Routine cardiology follow-up and blood pressure review
+APT170,12/13/2024,13:30,Completed,PAT070,Dalia Tawfik,DOC010,Youssef Adel,Clinical Cardiology,Oncology chemotherapy cycle review and blood count check
+APT169,12/11/2024,13:00,Completed,PAT069,Mostafa Abdelaziz,DOC009,Khaled Mostafa,General Surgery,Follow-up on abnormal laboratory lipid panel results
+APT167,12/7/2024,12:00,In-Progress,PAT067,Ali Refaat,DOC007,Sherif Nabil,Medical Oncology,Shortness of breath and spirometry assessment
+APT166,12/5/2024,11:30,No-Show,PAT066,Mona Mostafa,DOC006,Nadia Kamel,Neurology,Diabetes medication titration and HbA1c review
+APT165,12/3/2024,11:00,Cancelled,PAT065,Hassan Hassan,DOC005,Tarek Ibrahim,Orthopedic Surgery,Evaluation of chronic lower back and knee pain
+APT163,11/29/2024,10:00,Completed,PAT063,Tarek Soliman,DOC002,Ahmed El-Sayed,Cardiology,Post-surgical wound inspection and suture removal
+APT162,11/27/2024,09:30,Completed,PAT062,Salma Farouk,DOC002,Ahmed El-Sayed,Cardiology,Initial consultation for persistent migraine headaches
+APT161,11/25/2024,09:00,Completed,PAT061,Khaled Helmy,DOC001,Karim Mansour,Interventional Cardiology,Routine cardiology follow-up and blood pressure review
+APT159,11/21/2024,16:00,In-Progress,PAT059,Omar Saeed,DOC019,Nour El-Din,Interventional Radiology,Follow-up on abnormal laboratory lipid panel results
+APT158,11/19/2024,15:30,No-Show,PAT058,Sara Ibrahim,DOC018,Amr Soliman,Radiation Oncology,Pre-operative anesthesia clearance consultation
+APT157,11/17/2024,15:00,Cancelled,PAT057,Youssef Fawzy,DOC017,Laila Ashraf,Neurophysiology,Shortness of breath and spirometry assessment
+APT155,11/13/2024,14:00,Completed,PAT055,Mahmoud Kamel,DOC015,Mariam Tawfik,Neonatology,Evaluation of chronic lower back and knee pain
+APT154,11/11/2024,13:30,Completed,PAT054,Aya Khattab,DOC002,Ahmed El-Sayed,Cardiology,Annual pediatric growth and immunization checkup
+APT153,11/9/2024,13:00,Completed,PAT053,Mohamed Barakat,DOC013,Rania Samir,Trauma Care,Post-surgical wound inspection and suture removal
+APT151,11/5/2024,12:00,In-Progress,PAT051,Ahmed Mansour,DOC011,Salma Fathy,Electrophysiology,Routine cardiology follow-up and blood pressure review
+APT150,11/3/2024,11:30,No-Show,PAT050,Samar Shawky,DOC010,Youssef Adel,Clinical Cardiology,Oncology chemotherapy cycle review and blood count check
+APT149,11/1/2024,11:00,Cancelled,PAT049,Hany Hegazy,DOC009,Khaled Mostafa,General Surgery,Follow-up on abnormal laboratory lipid panel results
+APT147,10/28/2024,10:00,Completed,PAT047,Adel El-Masry,DOC007,Sherif Nabil,Medical Oncology,Shortness of breath and spirometry assessment
+APT146,10/26/2024,09:30,Completed,PAT046,Esraa Diab,DOC006,Nadia Kamel,Neurology,Diabetes medication titration and HbA1c review
+APT145,10/24/2024,09:00,Completed,PAT045,Gamal Tawfik,DOC002,Ahmed El-Sayed,Cardiology,Evaluation of chronic lower back and knee pain
+APT143,10/20/2024,16:00,In-Progress,PAT043,Nabil Lotfy,DOC003,Mona Hassan,Emergency Medicine,Post-surgical wound inspection and suture removal
+APT142,10/18/2024,15:30,No-Show,PAT042,Hagar Refaat,DOC002,Ahmed El-Sayed,Cardiology,Initial consultation for persistent migraine headaches
+APT141,10/16/2024,15:00,Cancelled,PAT041,Sameh Mostafa,DOC001,Karim Mansour,Interventional Cardiology,Routine cardiology follow-up and blood pressure review
+APT139,10/12/2024,14:00,Completed,PAT039,Ashraf Gaber,DOC019,Nour El-Din,Interventional Radiology,Follow-up on abnormal laboratory lipid panel results
+APT138,10/10/2024,13:30,Completed,PAT038,Amira Soliman,DOC018,Amr Soliman,Radiation Oncology,Pre-operative anesthesia clearance consultation
+APT137,10/8/2024,13:00,Completed,PAT037,Walid Farouk,DOC017,Laila Ashraf,Neurophysiology,Shortness of breath and spirometry assessment
+APT135,10/4/2024,12:00,In-Progress,PAT035,Tamer Nassar,DOC015,Mariam Tawfik,Neonatology,Evaluation of chronic lower back and knee pain
+APT134,10/2/2024,11:30,No-Show,PAT034,Dina Saeed,DOC014,Hassan Zaki,Acute Care,Annual pediatric growth and immunization checkup
+APT133,9/30/2024,11:00,Cancelled,PAT033,Ramy Ibrahim,DOC013,Rania Samir,Trauma Care,Post-surgical wound inspection and suture removal
+APT131,9/26/2024,10:00,Completed,PAT031,Hossam Yassin,DOC011,Salma Fathy,Electrophysiology,Routine cardiology follow-up and blood pressure review
+APT130,9/24/2024,09:30,Completed,PAT030,Yasmine Kamel,DOC010,Youssef Adel,Clinical Cardiology,Oncology chemotherapy cycle review and blood count check
+APT129,9/22/2024,09:00,Completed,PAT029,Wael Khattab,DOC009,Khaled Mostafa,General Surgery,Follow-up on abnormal laboratory lipid panel results
+APT127,9/18/2024,16:00,In-Progress,PAT027,Amr Zaki,DOC002,Ahmed El-Sayed,Cardiology,Shortness of breath and spirometry assessment
+APT126,9/16/2024,15:30,No-Show,PAT026,Laila Mansour,DOC006,Nadia Kamel,Neurology,Diabetes medication titration and HbA1c review
+APT125,9/14/2024,15:00,Cancelled,PAT025,Sherif Shawky,DOC005,Tarek Ibrahim,Orthopedic Surgery,Evaluation of chronic lower back and knee pain
+APT123,9/10/2024,14:00,Completed,PAT023,Karim Nabil,DOC003,Mona Hassan,Emergency Medicine,Post-surgical wound inspection and suture removal
+APT122,9/8/2024,13:30,Completed,PAT022,Rania El-Masry,DOC002,Ahmed El-Sayed,Cardiology,Initial consultation for persistent migraine headaches
+APT121,9/6/2024,13:00,Completed,PAT021,Ibrahim Diab,DOC001,Karim Mansour,Interventional Cardiology,Routine cardiology follow-up and blood pressure review
+APT119,9/2/2024,12:00,In-Progress,PAT019,Mostafa Abdelaziz,DOC019,Nour El-Din,Interventional Radiology,Follow-up on abnormal laboratory lipid panel results
+APT118,8/31/2024,11:30,No-Show,PAT018,Heba Lotfy,DOC002,Ahmed El-Sayed,Cardiology,Pre-operative anesthesia clearance consultation
+APT117,8/29/2024,11:00,Cancelled,PAT017,Ali Refaat,DOC017,Laila Ashraf,Neurophysiology,Shortness of breath and spirometry assessment
+APT115,8/25/2024,10:00,Completed,PAT015,Hassan Hassan,DOC015,Mariam Tawfik,Neonatology,Evaluation of chronic lower back and knee pain
+APT114,8/23/2024,09:30,Completed,PAT014,Hana Gaber,DOC014,Hassan Zaki,Acute Care,Annual pediatric growth and immunization checkup
+APT113,8/21/2024,09:00,Completed,PAT013,Tarek Soliman,DOC013,Rania Samir,Trauma Care,Post-surgical wound inspection and suture removal
+APT111,8/17/2024,16:00,In-Progress,PAT011,Khaled Helmy,DOC011,Salma Fathy,Electrophysiology,Routine cardiology follow-up and blood pressure review
+APT110,8/15/2024,15:30,No-Show,PAT010,Nour Nassar,DOC010,Youssef Adel,Clinical Cardiology,Oncology chemotherapy cycle review and blood count check
+APT109,8/13/2024,15:00,Cancelled,PAT009,Omar Saeed,DOC002,Ahmed El-Sayed,Cardiology,Follow-up on abnormal laboratory lipid panel results
+APT107,8/9/2024,14:00,Completed,PAT007,Youssef Fawzy,DOC007,Sherif Nabil,Medical Oncology,Shortness of breath and spirometry assessment
+APT106,8/7/2024,13:30,Completed,PAT006,Mariam Yassin,DOC006,Nadia Kamel,Neurology,Diabetes medication titration and HbA1c review
+APT105,8/5/2024,13:00,Completed,PAT005,Mahmoud Kamel,DOC005,Tarek Ibrahim,Orthopedic Surgery,Evaluation of chronic lower back and knee pain
+APT103,8/1/2024,12:00,In-Progress,PAT003,Mohamed Barakat,DOC003,Mona Hassan,Emergency Medicine,Post-surgical wound inspection and suture removal
+APT102,7/30/2024,11:30,No-Show,PAT002,Fatma Zaki,DOC002,Ahmed El-Sayed,Cardiology,Initial consultation for persistent migraine headaches
+APT101,7/28/2024,11:00,Cancelled,PAT001,Ahmed Mansour,DOC001,Karim Mansour,Interventional Cardiology,Routine cardiology follow-up and blood pressure review
+APT099,7/24/2024,10:00,Completed,PAT099,Hany Hegazy,DOC019,Nour El-Din,Interventional Radiology,Follow-up on abnormal laboratory lipid panel results
+APT098,7/22/2024,09:30,Completed,PAT098,Basma Nabil,DOC018,Amr Soliman,Radiation Oncology,Pre-operative anesthesia clearance consultation
+APT097,7/20/2024,09:00,Completed,PAT097,Adel El-Masry,DOC017,Laila Ashraf,Neurophysiology,Shortness of breath and spirometry assessment
+APT095,7/16/2024,16:00,In-Progress,PAT095,Gamal Tawfik,DOC015,Mariam Tawfik,Neonatology,Evaluation of chronic lower back and knee pain
+APT094,7/14/2024,15:30,No-Show,PAT094,Marwa Abdelaziz,DOC014,Hassan Zaki,Acute Care,Annual pediatric growth and immunization checkup
+APT093,7/12/2024,15:00,Cancelled,PAT093,Nabil Lotfy,DOC013,Rania Samir,Trauma Care,Post-surgical wound inspection and suture removal
+APT091,7/8/2024,14:00,Completed,PAT091,Sameh Mostafa,DOC002,Ahmed El-Sayed,Cardiology,Routine cardiology follow-up and blood pressure review
+APT090,7/6/2024,13:30,Completed,PAT090,Eman Hassan,DOC010,Youssef Adel,Clinical Cardiology,Oncology chemotherapy cycle review and blood count check
+APT089,7/4/2024,13:00,Completed,PAT089,Ashraf Gaber,DOC009,Khaled Mostafa,General Surgery,Follow-up on abnormal laboratory lipid panel results
+APT087,6/30/2024,12:00,In-Progress,PAT087,Walid Farouk,DOC007,Sherif Nabil,Medical Oncology,Shortness of breath and spirometry assessment
+APT086,6/28/2024,11:30,No-Show,PAT086,Noha Helmy,DOC006,Nadia Kamel,Neurology,Diabetes medication titration and HbA1c review
+APT085,6/26/2024,11:00,Cancelled,PAT085,Tamer Nassar,DOC005,Tarek Ibrahim,Orthopedic Surgery,Evaluation of chronic lower back and knee pain
+APT083,6/22/2024,10:00,Completed,PAT083,Ramy Ibrahim,DOC003,Mona Hassan,Emergency Medicine,Post-surgical wound inspection and suture removal
+APT082,6/20/2024,09:30,Completed,PAT082,Reem Fawzy,DOC002,Ahmed El-Sayed,Cardiology,Initial consultation for persistent migraine headaches
+APT081,6/18/2024,09:00,Completed,PAT081,Hossam Yassin,DOC001,Karim Mansour,Interventional Cardiology,Routine cardiology follow-up and blood pressure review
+APT079,6/14/2024,16:00,In-Progress,PAT079,Wael Khattab,DOC019,Nour El-Din,Interventional Radiology,Follow-up on abnormal laboratory lipid panel results
+APT078,6/12/2024,15:30,No-Show,PAT078,Farah Barakat,DOC018,Amr Soliman,Radiation Oncology,Pre-operative anesthesia clearance consultation
+APT077,6/10/2024,15:00,Cancelled,PAT077,Amr Zaki,DOC017,Laila Ashraf,Neurophysiology,Shortness of breath and spirometry assessment
+APT075,6/6/2024,14:00,Completed,PAT075,Sherif Shawky,DOC015,Mariam Tawfik,Neonatology,Evaluation of chronic lower back and knee pain
+APT074,6/4/2024,13:30,Completed,PAT074,Nadia Hegazy,DOC014,Hassan Zaki,Acute Care,Annual pediatric growth and immunization checkup
+APT073,6/2/2024,13:00,Completed,PAT073,Karim Nabil,DOC002,Ahmed El-Sayed,Cardiology,Post-surgical wound inspection and suture removal
+APT071,5/29/2024,12:00,In-Progress,PAT071,Ibrahim Diab,DOC011,Salma Fathy,Electrophysiology,Routine cardiology follow-up and blood pressure review
+APT070,5/27/2024,11:30,No-Show,PAT070,Dalia Tawfik,DOC010,Youssef Adel,Clinical Cardiology,Oncology chemotherapy cycle review and blood count check
+APT069,5/25/2024,11:00,Cancelled,PAT069,Mostafa Abdelaziz,DOC009,Khaled Mostafa,General Surgery,Follow-up on abnormal laboratory lipid panel results
+APT067,5/21/2024,10:00,Completed,PAT067,Ali Refaat,DOC007,Sherif Nabil,Medical Oncology,Shortness of breath and spirometry assessment
+APT066,5/19/2024,09:30,Completed,PAT066,Mona Mostafa,DOC006,Nadia Kamel,Neurology,Diabetes medication titration and HbA1c review
+APT065,5/17/2024,09:00,Completed,PAT065,Hassan Hassan,DOC005,Tarek Ibrahim,Orthopedic Surgery,Evaluation of chronic lower back and knee pain
+APT063,5/13/2024,16:00,In-Progress,PAT063,Tarek Soliman,DOC003,Mona Hassan,Emergency Medicine,Post-surgical wound inspection and suture removal
+APT062,5/11/2024,15:30,No-Show,PAT062,Salma Farouk,DOC002,Ahmed El-Sayed,Cardiology,Initial consultation for persistent migraine headaches
+APT061,5/9/2024,15:00,Cancelled,PAT061,Khaled Helmy,DOC001,Karim Mansour,Interventional Cardiology,Routine cardiology follow-up and blood pressure review
+APT059,5/5/2024,14:00,Completed,PAT059,Omar Saeed,DOC019,Nour El-Din,Interventional Radiology,Follow-up on abnormal laboratory lipid panel results
+APT058,5/3/2024,13:30,Completed,PAT058,Sara Ibrahim,DOC018,Amr Soliman,Radiation Oncology,Pre-operative anesthesia clearance consultation
+APT057,5/1/2024,13:00,Completed,PAT057,Youssef Fawzy,DOC017,Laila Ashraf,Neurophysiology,Shortness of breath and spirometry assessment
+APT055,4/27/2024,12:00,In-Progress,PAT055,Mahmoud Kamel,DOC002,Ahmed El-Sayed,Cardiology,Evaluation of chronic lower back and knee pain
+APT054,4/25/2024,11:30,No-Show,PAT054,Aya Khattab,DOC014,Hassan Zaki,Acute Care,Annual pediatric growth and immunization checkup
+APT053,4/23/2024,11:00,Cancelled,PAT053,Mohamed Barakat,DOC013,Rania Samir,Trauma Care,Post-surgical wound inspection and suture removal
+APT051,4/19/2024,10:00,Completed,PAT051,Ahmed Mansour,DOC011,Salma Fathy,Electrophysiology,Routine cardiology follow-up and blood pressure review
+APT050,4/17/2024,09:30,Completed,PAT050,Samar Shawky,DOC010,Youssef Adel,Clinical Cardiology,Oncology chemotherapy cycle review and blood count check
+APT049,4/15/2024,09:00,Completed,PAT049,Hany Hegazy,DOC009,Khaled Mostafa,General Surgery,Follow-up on abnormal laboratory lipid panel results
+APT047,4/11/2024,16:00,In-Progress,PAT047,Adel El-Masry,DOC007,Sherif Nabil,Medical Oncology,Shortness of breath and spirometry assessment
+APT046,4/9/2024,15:30,No-Show,PAT046,Esraa Diab,DOC002,Ahmed El-Sayed,Cardiology,Diabetes medication titration and HbA1c review
+APT045,4/7/2024,15:00,Cancelled,PAT045,Gamal Tawfik,DOC005,Tarek Ibrahim,Orthopedic Surgery,Evaluation of chronic lower back and knee pain
+APT043,4/3/2024,14:00,Completed,PAT043,Nabil Lotfy,DOC003,Mona Hassan,Emergency Medicine,Post-surgical wound inspection and suture removal
+APT042,4/1/2024,13:30,Completed,PAT042,Hagar Refaat,DOC002,Ahmed El-Sayed,Cardiology,Initial consultation for persistent migraine headaches
+APT041,3/30/2024,13:00,Completed,PAT041,Sameh Mostafa,DOC001,Karim Mansour,Interventional Cardiology,Routine cardiology follow-up and blood pressure review
+APT039,3/26/2024,12:00,In-Progress,PAT039,Ashraf Gaber,DOC019,Nour El-Din,Interventional Radiology,Follow-up on abnormal laboratory lipid panel results
+APT038,3/24/2024,11:30,No-Show,PAT038,Amira Soliman,DOC018,Amr Soliman,Radiation Oncology,Pre-operative anesthesia clearance consultation
+APT037,3/22/2024,11:00,Cancelled,PAT037,Walid Farouk,DOC002,Ahmed El-Sayed,Cardiology,Shortness of breath and spirometry assessment
+APT035,3/18/2024,10:00,Completed,PAT035,Tamer Nassar,DOC015,Mariam Tawfik,Neonatology,Evaluation of chronic lower back and knee pain
+APT034,3/16/2024,09:30,Completed,PAT034,Dina Saeed,DOC014,Hassan Zaki,Acute Care,Annual pediatric growth and immunization checkup
+APT033,3/14/2024,09:00,Completed,PAT033,Ramy Ibrahim,DOC013,Rania Samir,Trauma Care,Post-surgical wound inspection and suture removal
+APT031,3/10/2024,16:00,In-Progress,PAT031,Hossam Yassin,DOC011,Salma Fathy,Electrophysiology,Routine cardiology follow-up and blood pressure review
+APT030,3/8/2024,15:30,No-Show,PAT030,Yasmine Kamel,DOC010,Youssef Adel,Clinical Cardiology,Oncology chemotherapy cycle review and blood count check
+APT029,3/6/2024,15:00,Cancelled,PAT029,Wael Khattab,DOC009,Khaled Mostafa,General Surgery,Follow-up on abnormal laboratory lipid panel results
+APT027,3/2/2024,14:00,Completed,PAT027,Amr Zaki,DOC007,Sherif Nabil,Medical Oncology,Shortness of breath and spirometry assessment
+APT026,2/29/2024,13:30,Completed,PAT026,Laila Mansour,DOC006,Nadia Kamel,Neurology,Diabetes medication titration and HbA1c review
+APT025,2/27/2024,13:00,Completed,PAT025,Sherif Shawky,DOC005,Tarek Ibrahim,Orthopedic Surgery,Evaluation of chronic lower back and knee pain
+APT023,2/23/2024,12:00,In-Progress,PAT023,Karim Nabil,DOC003,Mona Hassan,Emergency Medicine,Post-surgical wound inspection and suture removal
+APT022,2/21/2024,11:30,No-Show,PAT022,Rania El-Masry,DOC002,Ahmed El-Sayed,Cardiology,Initial consultation for persistent migraine headaches
+APT021,2/19/2024,11:00,Cancelled,PAT021,Ibrahim Diab,DOC001,Karim Mansour,Interventional Cardiology,Routine cardiology follow-up and blood pressure review
+APT019,2/15/2024,10:00,Completed,PAT019,Mostafa Abdelaziz,DOC002,Ahmed El-Sayed,Cardiology,Follow-up on abnormal laboratory lipid panel results
+APT018,2/13/2024,09:30,Completed,PAT018,Heba Lotfy,DOC018,Amr Soliman,Radiation Oncology,Pre-operative anesthesia clearance consultation
+APT017,2/11/2024,09:00,Completed,PAT017,Ali Refaat,DOC017,Laila Ashraf,Neurophysiology,Shortness of breath and spirometry assessment
+APT015,2/7/2024,16:00,In-Progress,PAT015,Hassan Hassan,DOC015,Mariam Tawfik,Neonatology,Evaluation of chronic lower back and knee pain
+APT014,2/5/2024,15:30,No-Show,PAT014,Hana Gaber,DOC014,Hassan Zaki,Acute Care,Annual pediatric growth and immunization checkup
+APT013,2/3/2024,15:00,Cancelled,PAT013,Tarek Soliman,DOC013,Rania Samir,Trauma Care,Post-surgical wound inspection and suture removal
+APT011,1/30/2024,14:00,Completed,PAT011,Khaled Helmy,DOC011,Salma Fathy,Electrophysiology,Routine cardiology follow-up and blood pressure review
+APT010,1/28/2024,13:30,Completed,PAT010,Nour Nassar,DOC002,Ahmed El-Sayed,Cardiology,Oncology chemotherapy cycle review and blood count check
+APT009,1/26/2024,13:00,Completed,PAT009,Omar Saeed,DOC009,Khaled Mostafa,General Surgery,Follow-up on abnormal laboratory lipid panel results
+APT007,1/22/2024,12:00,In-Progress,PAT007,Youssef Fawzy,DOC007,Sherif Nabil,Medical Oncology,Shortness of breath and spirometry assessment
+APT006,1/20/2024,11:30,No-Show,PAT006,Mariam Yassin,DOC006,Nadia Kamel,Neurology,Diabetes medication titration and HbA1c review
+APT005,1/18/2024,11:00,Cancelled,PAT005,Mahmoud Kamel,DOC005,Tarek Ibrahim,Orthopedic Surgery,Evaluation of chronic lower back and knee pain
+APT003,1/14/2024,10:00,Completed,PAT003,Mohamed Barakat,DOC003,Mona Hassan,Emergency Medicine,Post-surgical wound inspection and suture removal
+APT002,1/12/2024,09:30,Completed,PAT002,Fatma Zaki,DOC002,Ahmed El-Sayed,Cardiology,Initial consultation for persistent migraine headaches

@@ -1,0 +1,201 @@
+TESTID,TESTTYPE,REQUESTEDDATE,COMPLETEDDATE,TESTSTATUS,TESTRESULT,TESTCOST,PATIENTID,PATIENTNAME,BLOODTYPE,DOCTORID,DOCTORNAME,SPECIALTY
+LAB001,Complete Blood Count (CBC),11/22/2026,,Pending,,180,PAT001,Ahmed Mansour,A+,DOC002,Ahmed El-Sayed,Cardiology
+LAB200,Renal Function Urea Creatinine,9/3/2025,,Pending,,230,PAT100,Samar Shawky,B-,DOC020,Farah Yassin,Laparoscopic Surgery
+LAB199,Liver Function Test Panel,8/31/2025,9/3/2025,Completed,"ALT 24 U/L, AST 22 U/L, Total Bilirubin 0.8 mg/dL - normal.",310,PAT099,Hany Hegazy,B+,DOC019,Nour El-Din,Interventional Radiology
+LAB198,C-Reactive Protein Quantitative,8/28/2025,8/30/2025,Completed,CRP 4.2 mg/L - mild nonspecific inflammatory elevation.,210,PAT098,Basma Nabil,A-,DOC018,Amr Soliman,Radiation Oncology
+LAB197,Urinalysis Complete Microscopy,8/25/2025,8/26/2025,Completed,"Clear yellow urine, negative for nitrites and leukocyte esterase.",120,PAT097,Adel El-Masry,A+,DOC017,Laila Ashraf,Neurophysiology
+LAB196,Cardiac Troponin I Assay,8/22/2025,,Cancelled,,450,PAT096,Esraa Diab,O-,DOC016,Wael Saeed,Sports Medicine
+LAB195,Thyroid Stimulating Hormone,8/19/2025,,Sample Collected,,290,PAT095,Gamal Tawfik,O+,DOC015,Mariam Tawfik,Neonatology
+LAB194,Hemoglobin A1c (HbA1c),8/16/2025,,In-Progress,,240,PAT094,Marwa Abdelaziz,AB-,DOC014,Hassan Zaki,Acute Care
+LAB193,Lipid Profile Panel,8/13/2025,,Pending,,260,PAT093,Nabil Lotfy,AB+,DOC013,Rania Samir,Trauma Care
+LAB192,Comprehensive Metabolic Panel,8/10/2025,8/14/2025,Completed,Electrolytes and hepatic enzymes within reference range.,320,PAT092,Hagar Refaat,B-,DOC012,Omar Gamal,Pediatric Cardiology
+LAB191,Complete Blood Count (CBC),8/7/2025,8/10/2025,Completed,"WBC 6.8, RBC 4.9, Hgb 14.2 g/dL - within normal limits.",180,PAT091,Sameh Mostafa,B+,DOC011,Salma Fathy,Electrophysiology
+LAB190,Renal Function Urea Creatinine,8/4/2025,8/6/2025,Completed,"Serum creatinine 0.95 mg/dL, eGFR > 90 mL/min - normal.",230,PAT090,Eman Hassan,A-,DOC010,Youssef Adel,Clinical Cardiology
+LAB189,Liver Function Test Panel,8/1/2025,,Cancelled,Order cancelled by requesting physician prior to assay.,310,PAT089,Ashraf Gaber,A+,DOC009,Khaled Mostafa,General Surgery
+LAB188,C-Reactive Protein Quantitative,7/29/2025,,Sample Collected,,210,PAT088,Amira Soliman,O-,DOC008,Dalia Farouk,Diagnostic Radiology
+LAB187,Urinalysis Complete Microscopy,7/26/2025,,In-Progress,,120,PAT087,Walid Farouk,O+,DOC007,Sherif Nabil,Medical Oncology
+LAB186,Cardiac Troponin I Assay,7/23/2025,,Pending,,450,PAT086,Noha Helmy,AB-,DOC006,Nadia Kamel,Neurology
+LAB185,Thyroid Stimulating Hormone,7/20/2025,7/21/2025,Completed,TSH 2.1 mIU/L - normal euthyroid status.,290,PAT085,Tamer Nassar,AB+,DOC005,Tarek Ibrahim,Orthopedic Surgery
+LAB184,Hemoglobin A1c (HbA1c),7/17/2025,7/21/2025,Completed,HbA1c measured at 6.4% indicating borderline glycemic control.,240,PAT084,Dina Saeed,B-,DOC004,Heba Abdelrahman,Pediatrics
+LAB183,Lipid Profile Panel,7/14/2025,7/17/2025,Completed,"Total cholesterol 195 mg/dL, LDL 118 mg/dL, HDL 52 mg/dL.",260,PAT083,Ramy Ibrahim,B+,DOC003,Mona Hassan,Emergency Medicine
+LAB182,Comprehensive Metabolic Panel,7/11/2025,,Cancelled,,320,PAT082,Reem Fawzy,A-,DOC002,Ahmed El-Sayed,Cardiology
+LAB181,Complete Blood Count (CBC),7/8/2025,,Sample Collected,,180,PAT081,Hossam Yassin,A+,DOC001,Karim Mansour,Interventional Cardiology
+LAB180,Renal Function Urea Creatinine,7/5/2025,,In-Progress,,230,PAT080,Yasmine Kamel,O-,DOC020,Farah Yassin,Laparoscopic Surgery
+LAB179,Liver Function Test Panel,7/2/2025,,Pending,,310,PAT079,Wael Khattab,O+,DOC019,Nour El-Din,Interventional Radiology
+LAB178,C-Reactive Protein Quantitative,6/29/2025,7/1/2025,Completed,CRP 4.2 mg/L - mild nonspecific inflammatory elevation.,210,PAT078,Farah Barakat,AB-,DOC018,Amr Soliman,Radiation Oncology
+LAB177,Urinalysis Complete Microscopy,6/26/2025,6/27/2025,Completed,"Clear yellow urine, negative for nitrites and leukocyte esterase.",120,PAT077,Amr Zaki,AB+,DOC017,Laila Ashraf,Neurophysiology
+LAB176,Cardiac Troponin I Assay,6/23/2025,6/27/2025,Completed,Troponin I < 0.01 ng/mL - negative for acute myocardial injury.,450,PAT076,Laila Mansour,B-,DOC016,Wael Saeed,Sports Medicine
+LAB175,Thyroid Stimulating Hormone,6/20/2025,,Cancelled,Order cancelled by requesting physician prior to assay.,290,PAT075,Sherif Shawky,B+,DOC015,Mariam Tawfik,Neonatology
+LAB174,Hemoglobin A1c (HbA1c),6/17/2025,,Sample Collected,,240,PAT074,Nadia Hegazy,A-,DOC014,Hassan Zaki,Acute Care
+LAB173,Lipid Profile Panel,6/14/2025,,In-Progress,,260,PAT073,Karim Nabil,A+,DOC013,Rania Samir,Trauma Care
+LAB172,Comprehensive Metabolic Panel,6/11/2025,,Pending,,320,PAT072,Rania El-Masry,O-,DOC012,Omar Gamal,Pediatric Cardiology
+LAB171,Complete Blood Count (CBC),6/8/2025,6/11/2025,Completed,"WBC 6.8, RBC 4.9, Hgb 14.2 g/dL - within normal limits.",180,PAT071,Ibrahim Diab,O+,DOC011,Salma Fathy,Electrophysiology
+LAB170,Renal Function Urea Creatinine,6/5/2025,6/7/2025,Completed,"Serum creatinine 0.95 mg/dL, eGFR > 90 mL/min - normal.",230,PAT070,Dalia Tawfik,AB-,DOC010,Youssef Adel,Clinical Cardiology
+LAB169,Liver Function Test Panel,6/2/2025,6/3/2025,Completed,"ALT 24 U/L, AST 22 U/L, Total Bilirubin 0.8 mg/dL - normal.",310,PAT069,Mostafa Abdelaziz,AB+,DOC009,Khaled Mostafa,General Surgery
+LAB168,C-Reactive Protein Quantitative,5/30/2025,,Cancelled,,210,PAT068,Heba Lotfy,B-,DOC008,Dalia Farouk,Diagnostic Radiology
+LAB167,Urinalysis Complete Microscopy,5/27/2025,,Sample Collected,,120,PAT067,Ali Refaat,B+,DOC007,Sherif Nabil,Medical Oncology
+LAB166,Cardiac Troponin I Assay,5/24/2025,,In-Progress,,450,PAT066,Mona Mostafa,A-,DOC006,Nadia Kamel,Neurology
+LAB165,Thyroid Stimulating Hormone,5/21/2025,,Pending,,290,PAT065,Hassan Hassan,A+,DOC005,Tarek Ibrahim,Orthopedic Surgery
+LAB164,Hemoglobin A1c (HbA1c),5/18/2025,5/22/2025,Completed,HbA1c measured at 6.4% indicating borderline glycemic control.,240,PAT064,Hana Gaber,O-,DOC004,Heba Abdelrahman,Pediatrics
+LAB163,Lipid Profile Panel,5/15/2025,5/18/2025,Completed,"Total cholesterol 195 mg/dL, LDL 118 mg/dL, HDL 52 mg/dL.",260,PAT063,Tarek Soliman,O+,DOC003,Mona Hassan,Emergency Medicine
+LAB162,Comprehensive Metabolic Panel,5/12/2025,5/14/2025,Completed,Electrolytes and hepatic enzymes within reference range.,320,PAT062,Salma Farouk,AB-,DOC002,Ahmed El-Sayed,Cardiology
+LAB161,Complete Blood Count (CBC),5/9/2025,,Cancelled,Order cancelled by requesting physician prior to assay.,180,PAT061,Khaled Helmy,AB+,DOC001,Karim Mansour,Interventional Cardiology
+LAB160,Renal Function Urea Creatinine,5/6/2025,,Sample Collected,,230,PAT060,Nour Nassar,B-,DOC020,Farah Yassin,Laparoscopic Surgery
+LAB159,Liver Function Test Panel,5/3/2025,,In-Progress,,310,PAT059,Omar Saeed,B+,DOC019,Nour El-Din,Interventional Radiology
+LAB158,C-Reactive Protein Quantitative,4/30/2025,,Pending,,210,PAT058,Sara Ibrahim,A-,DOC018,Amr Soliman,Radiation Oncology
+LAB157,Urinalysis Complete Microscopy,4/27/2025,4/28/2025,Completed,"Clear yellow urine, negative for nitrites and leukocyte esterase.",120,PAT057,Youssef Fawzy,A+,DOC017,Laila Ashraf,Neurophysiology
+LAB156,Cardiac Troponin I Assay,4/24/2025,4/28/2025,Completed,Troponin I < 0.01 ng/mL - negative for acute myocardial injury.,450,PAT056,Mariam Yassin,O-,DOC016,Wael Saeed,Sports Medicine
+LAB155,Thyroid Stimulating Hormone,4/21/2025,4/24/2025,Completed,TSH 2.1 mIU/L - normal euthyroid status.,290,PAT055,Mahmoud Kamel,O+,DOC015,Mariam Tawfik,Neonatology
+LAB154,Hemoglobin A1c (HbA1c),4/18/2025,,Cancelled,,240,PAT054,Aya Khattab,AB-,DOC014,Hassan Zaki,Acute Care
+LAB153,Lipid Profile Panel,4/15/2025,,Sample Collected,,260,PAT053,Mohamed Barakat,AB+,DOC013,Rania Samir,Trauma Care
+LAB152,Comprehensive Metabolic Panel,4/12/2025,,In-Progress,,320,PAT052,Fatma Zaki,B-,DOC012,Omar Gamal,Pediatric Cardiology
+LAB151,Complete Blood Count (CBC),4/9/2025,,Pending,,180,PAT051,Ahmed Mansour,B+,DOC011,Salma Fathy,Electrophysiology
+LAB150,Renal Function Urea Creatinine,4/6/2025,4/8/2025,Completed,"Serum creatinine 0.95 mg/dL, eGFR > 90 mL/min - normal.",230,PAT050,Samar Shawky,A-,DOC010,Youssef Adel,Clinical Cardiology
+LAB149,Liver Function Test Panel,4/3/2025,4/4/2025,Completed,"ALT 24 U/L, AST 22 U/L, Total Bilirubin 0.8 mg/dL - normal.",310,PAT049,Hany Hegazy,A+,DOC009,Khaled Mostafa,General Surgery
+LAB148,C-Reactive Protein Quantitative,3/31/2025,4/4/2025,Completed,CRP 4.2 mg/L - mild nonspecific inflammatory elevation.,210,PAT048,Basma Nabil,O-,DOC008,Dalia Farouk,Diagnostic Radiology
+LAB147,Urinalysis Complete Microscopy,3/28/2025,,Cancelled,Order cancelled by requesting physician prior to assay.,120,PAT047,Adel El-Masry,O+,DOC007,Sherif Nabil,Medical Oncology
+LAB146,Cardiac Troponin I Assay,3/25/2025,,Sample Collected,,450,PAT046,Esraa Diab,AB-,DOC006,Nadia Kamel,Neurology
+LAB145,Thyroid Stimulating Hormone,3/22/2025,,In-Progress,,290,PAT045,Gamal Tawfik,AB+,DOC005,Tarek Ibrahim,Orthopedic Surgery
+LAB144,Hemoglobin A1c (HbA1c),3/19/2025,,Pending,,240,PAT044,Marwa Abdelaziz,B-,DOC004,Heba Abdelrahman,Pediatrics
+LAB143,Lipid Profile Panel,3/16/2025,3/19/2025,Completed,"Total cholesterol 195 mg/dL, LDL 118 mg/dL, HDL 52 mg/dL.",260,PAT043,Nabil Lotfy,B+,DOC003,Mona Hassan,Emergency Medicine
+LAB142,Comprehensive Metabolic Panel,3/13/2025,3/15/2025,Completed,Electrolytes and hepatic enzymes within reference range.,320,PAT042,Hagar Refaat,A-,DOC002,Ahmed El-Sayed,Cardiology
+LAB141,Complete Blood Count (CBC),3/10/2025,3/11/2025,Completed,"WBC 6.8, RBC 4.9, Hgb 14.2 g/dL - within normal limits.",180,PAT041,Sameh Mostafa,A+,DOC001,Karim Mansour,Interventional Cardiology
+LAB140,Renal Function Urea Creatinine,3/7/2025,,Cancelled,,230,PAT040,Eman Hassan,O-,DOC020,Farah Yassin,Laparoscopic Surgery
+LAB139,Liver Function Test Panel,3/4/2025,,Sample Collected,,310,PAT039,Ashraf Gaber,O+,DOC019,Nour El-Din,Interventional Radiology
+LAB138,C-Reactive Protein Quantitative,3/1/2025,,In-Progress,,210,PAT038,Amira Soliman,AB-,DOC018,Amr Soliman,Radiation Oncology
+LAB137,Urinalysis Complete Microscopy,2/26/2025,,Pending,,120,PAT037,Walid Farouk,AB+,DOC017,Laila Ashraf,Neurophysiology
+LAB136,Cardiac Troponin I Assay,2/23/2025,2/27/2025,Completed,Troponin I < 0.01 ng/mL - negative for acute myocardial injury.,450,PAT036,Noha Helmy,B-,DOC016,Wael Saeed,Sports Medicine
+LAB135,Thyroid Stimulating Hormone,2/20/2025,2/23/2025,Completed,TSH 2.1 mIU/L - normal euthyroid status.,290,PAT035,Tamer Nassar,B+,DOC015,Mariam Tawfik,Neonatology
+LAB134,Hemoglobin A1c (HbA1c),2/17/2025,2/19/2025,Completed,HbA1c measured at 6.4% indicating borderline glycemic control.,240,PAT034,Dina Saeed,A-,DOC014,Hassan Zaki,Acute Care
+LAB133,Lipid Profile Panel,2/14/2025,,Cancelled,Order cancelled by requesting physician prior to assay.,260,PAT033,Ramy Ibrahim,A+,DOC013,Rania Samir,Trauma Care
+LAB132,Comprehensive Metabolic Panel,2/11/2025,,Sample Collected,,320,PAT032,Reem Fawzy,O-,DOC012,Omar Gamal,Pediatric Cardiology
+LAB131,Complete Blood Count (CBC),2/8/2025,,In-Progress,,180,PAT031,Hossam Yassin,O+,DOC011,Salma Fathy,Electrophysiology
+LAB130,Renal Function Urea Creatinine,2/5/2025,,Pending,,230,PAT030,Yasmine Kamel,AB-,DOC010,Youssef Adel,Clinical Cardiology
+LAB129,Liver Function Test Panel,2/2/2025,2/3/2025,Completed,"ALT 24 U/L, AST 22 U/L, Total Bilirubin 0.8 mg/dL - normal.",310,PAT029,Wael Khattab,AB+,DOC009,Khaled Mostafa,General Surgery
+LAB128,C-Reactive Protein Quantitative,1/30/2025,2/3/2025,Completed,CRP 4.2 mg/L - mild nonspecific inflammatory elevation.,210,PAT028,Farah Barakat,B-,DOC008,Dalia Farouk,Diagnostic Radiology
+LAB127,Urinalysis Complete Microscopy,1/27/2025,1/30/2025,Completed,"Clear yellow urine, negative for nitrites and leukocyte esterase.",120,PAT027,Amr Zaki,B+,DOC007,Sherif Nabil,Medical Oncology
+LAB126,Cardiac Troponin I Assay,1/24/2025,,Cancelled,,450,PAT026,Laila Mansour,A-,DOC006,Nadia Kamel,Neurology
+LAB125,Thyroid Stimulating Hormone,1/21/2025,,Sample Collected,,290,PAT025,Sherif Shawky,A+,DOC005,Tarek Ibrahim,Orthopedic Surgery
+LAB124,Hemoglobin A1c (HbA1c),1/18/2025,,In-Progress,,240,PAT024,Nadia Hegazy,O-,DOC004,Heba Abdelrahman,Pediatrics
+LAB123,Lipid Profile Panel,1/15/2025,,Pending,,260,PAT023,Karim Nabil,O+,DOC003,Mona Hassan,Emergency Medicine
+LAB122,Comprehensive Metabolic Panel,1/12/2025,1/14/2025,Completed,Electrolytes and hepatic enzymes within reference range.,320,PAT022,Rania El-Masry,AB-,DOC002,Ahmed El-Sayed,Cardiology
+LAB121,Complete Blood Count (CBC),1/9/2025,1/10/2025,Completed,"WBC 6.8, RBC 4.9, Hgb 14.2 g/dL - within normal limits.",180,PAT021,Ibrahim Diab,AB+,DOC001,Karim Mansour,Interventional Cardiology
+LAB120,Renal Function Urea Creatinine,1/6/2025,1/10/2025,Completed,"Serum creatinine 0.95 mg/dL, eGFR > 90 mL/min - normal.",230,PAT020,Dalia Tawfik,B-,DOC020,Farah Yassin,Laparoscopic Surgery
+LAB119,Liver Function Test Panel,1/3/2025,,Cancelled,Order cancelled by requesting physician prior to assay.,310,PAT019,Mostafa Abdelaziz,B+,DOC019,Nour El-Din,Interventional Radiology
+LAB118,C-Reactive Protein Quantitative,12/31/2024,,Sample Collected,,210,PAT018,Heba Lotfy,A-,DOC018,Amr Soliman,Radiation Oncology
+LAB117,Urinalysis Complete Microscopy,12/28/2024,,In-Progress,,120,PAT017,Ali Refaat,A+,DOC017,Laila Ashraf,Neurophysiology
+LAB116,Cardiac Troponin I Assay,12/25/2024,,Pending,,450,PAT016,Mona Mostafa,O-,DOC016,Wael Saeed,Sports Medicine
+LAB115,Thyroid Stimulating Hormone,12/22/2024,12/25/2024,Completed,TSH 2.1 mIU/L - normal euthyroid status.,290,PAT015,Hassan Hassan,O+,DOC015,Mariam Tawfik,Neonatology
+LAB114,Hemoglobin A1c (HbA1c),12/19/2024,12/21/2024,Completed,HbA1c measured at 6.4% indicating borderline glycemic control.,240,PAT014,Hana Gaber,AB-,DOC014,Hassan Zaki,Acute Care
+LAB113,Lipid Profile Panel,12/16/2024,12/17/2024,Completed,"Total cholesterol 195 mg/dL, LDL 118 mg/dL, HDL 52 mg/dL.",260,PAT013,Tarek Soliman,AB+,DOC013,Rania Samir,Trauma Care
+LAB112,Comprehensive Metabolic Panel,12/13/2024,,Cancelled,,320,PAT012,Salma Farouk,B-,DOC012,Omar Gamal,Pediatric Cardiology
+LAB111,Complete Blood Count (CBC),12/10/2024,,Sample Collected,,180,PAT011,Khaled Helmy,B+,DOC011,Salma Fathy,Electrophysiology
+LAB110,Renal Function Urea Creatinine,12/7/2024,,In-Progress,,230,PAT010,Nour Nassar,A-,DOC010,Youssef Adel,Clinical Cardiology
+LAB109,Liver Function Test Panel,12/4/2024,,Pending,,310,PAT009,Omar Saeed,A+,DOC009,Khaled Mostafa,General Surgery
+LAB108,C-Reactive Protein Quantitative,12/1/2024,12/5/2024,Completed,CRP 4.2 mg/L - mild nonspecific inflammatory elevation.,210,PAT008,Sara Ibrahim,O-,DOC008,Dalia Farouk,Diagnostic Radiology
+LAB107,Urinalysis Complete Microscopy,11/28/2024,12/1/2024,Completed,"Clear yellow urine, negative for nitrites and leukocyte esterase.",120,PAT007,Youssef Fawzy,O+,DOC007,Sherif Nabil,Medical Oncology
+LAB106,Cardiac Troponin I Assay,11/25/2024,11/27/2024,Completed,Troponin I < 0.01 ng/mL - negative for acute myocardial injury.,450,PAT006,Mariam Yassin,AB-,DOC006,Nadia Kamel,Neurology
+LAB105,Thyroid Stimulating Hormone,11/22/2024,,Cancelled,Order cancelled by requesting physician prior to assay.,290,PAT005,Mahmoud Kamel,AB+,DOC005,Tarek Ibrahim,Orthopedic Surgery
+LAB104,Hemoglobin A1c (HbA1c),11/19/2024,,Sample Collected,,240,PAT004,Aya Khattab,B-,DOC004,Heba Abdelrahman,Pediatrics
+LAB103,Lipid Profile Panel,11/16/2024,,In-Progress,,260,PAT003,Mohamed Barakat,B+,DOC003,Mona Hassan,Emergency Medicine
+LAB102,Comprehensive Metabolic Panel,11/13/2024,,Pending,,320,PAT002,Fatma Zaki,A-,DOC002,Ahmed El-Sayed,Cardiology
+LAB101,Complete Blood Count (CBC),11/10/2024,11/11/2024,Completed,"WBC 6.8, RBC 4.9, Hgb 14.2 g/dL - within normal limits.",180,PAT001,Ahmed Mansour,A+,DOC001,Karim Mansour,Interventional Cardiology
+LAB100,Renal Function Urea Creatinine,11/7/2024,11/11/2024,Completed,"Serum creatinine 0.95 mg/dL, eGFR > 90 mL/min - normal.",230,PAT100,Samar Shawky,B-,DOC020,Farah Yassin,Laparoscopic Surgery
+LAB099,Liver Function Test Panel,11/4/2024,11/7/2024,Completed,"ALT 24 U/L, AST 22 U/L, Total Bilirubin 0.8 mg/dL - normal.",310,PAT099,Hany Hegazy,B+,DOC019,Nour El-Din,Interventional Radiology
+LAB098,C-Reactive Protein Quantitative,11/1/2024,,Cancelled,,210,PAT098,Basma Nabil,A-,DOC018,Amr Soliman,Radiation Oncology
+LAB097,Urinalysis Complete Microscopy,10/29/2024,,Sample Collected,,120,PAT097,Adel El-Masry,A+,DOC017,Laila Ashraf,Neurophysiology
+LAB096,Cardiac Troponin I Assay,10/26/2024,,In-Progress,,450,PAT096,Esraa Diab,O-,DOC016,Wael Saeed,Sports Medicine
+LAB095,Thyroid Stimulating Hormone,10/23/2024,,Pending,,290,PAT095,Gamal Tawfik,O+,DOC015,Mariam Tawfik,Neonatology
+LAB094,Hemoglobin A1c (HbA1c),10/20/2024,10/22/2024,Completed,HbA1c measured at 6.4% indicating borderline glycemic control.,240,PAT094,Marwa Abdelaziz,AB-,DOC014,Hassan Zaki,Acute Care
+LAB093,Lipid Profile Panel,10/17/2024,10/18/2024,Completed,"Total cholesterol 195 mg/dL, LDL 118 mg/dL, HDL 52 mg/dL.",260,PAT093,Nabil Lotfy,AB+,DOC013,Rania Samir,Trauma Care
+LAB092,Comprehensive Metabolic Panel,10/14/2024,10/18/2024,Completed,Electrolytes and hepatic enzymes within reference range.,320,PAT092,Hagar Refaat,B-,DOC012,Omar Gamal,Pediatric Cardiology
+LAB091,Complete Blood Count (CBC),10/11/2024,,Cancelled,Order cancelled by requesting physician prior to assay.,180,PAT091,Sameh Mostafa,B+,DOC011,Salma Fathy,Electrophysiology
+LAB090,Renal Function Urea Creatinine,10/8/2024,,Sample Collected,,230,PAT090,Eman Hassan,A-,DOC010,Youssef Adel,Clinical Cardiology
+LAB089,Liver Function Test Panel,10/5/2024,,In-Progress,,310,PAT089,Ashraf Gaber,A+,DOC009,Khaled Mostafa,General Surgery
+LAB088,C-Reactive Protein Quantitative,10/2/2024,,Pending,,210,PAT088,Amira Soliman,O-,DOC008,Dalia Farouk,Diagnostic Radiology
+LAB087,Urinalysis Complete Microscopy,9/29/2024,10/2/2024,Completed,"Clear yellow urine, negative for nitrites and leukocyte esterase.",120,PAT087,Walid Farouk,O+,DOC007,Sherif Nabil,Medical Oncology
+LAB086,Cardiac Troponin I Assay,9/26/2024,9/28/2024,Completed,Troponin I < 0.01 ng/mL - negative for acute myocardial injury.,450,PAT086,Noha Helmy,AB-,DOC006,Nadia Kamel,Neurology
+LAB085,Thyroid Stimulating Hormone,9/23/2024,9/24/2024,Completed,TSH 2.1 mIU/L - normal euthyroid status.,290,PAT085,Tamer Nassar,AB+,DOC005,Tarek Ibrahim,Orthopedic Surgery
+LAB084,Hemoglobin A1c (HbA1c),9/20/2024,,Cancelled,,240,PAT084,Dina Saeed,B-,DOC004,Heba Abdelrahman,Pediatrics
+LAB083,Lipid Profile Panel,9/17/2024,,Sample Collected,,260,PAT083,Ramy Ibrahim,B+,DOC003,Mona Hassan,Emergency Medicine
+LAB082,Comprehensive Metabolic Panel,9/14/2024,,In-Progress,,320,PAT082,Reem Fawzy,A-,DOC002,Ahmed El-Sayed,Cardiology
+LAB081,Complete Blood Count (CBC),9/11/2024,,Pending,,180,PAT081,Hossam Yassin,A+,DOC001,Karim Mansour,Interventional Cardiology
+LAB080,Renal Function Urea Creatinine,9/8/2024,9/12/2024,Completed,"Serum creatinine 0.95 mg/dL, eGFR > 90 mL/min - normal.",230,PAT080,Yasmine Kamel,O-,DOC020,Farah Yassin,Laparoscopic Surgery
+LAB079,Liver Function Test Panel,9/5/2024,9/8/2024,Completed,"ALT 24 U/L, AST 22 U/L, Total Bilirubin 0.8 mg/dL - normal.",310,PAT079,Wael Khattab,O+,DOC019,Nour El-Din,Interventional Radiology
+LAB078,C-Reactive Protein Quantitative,9/2/2024,9/4/2024,Completed,CRP 4.2 mg/L - mild nonspecific inflammatory elevation.,210,PAT078,Farah Barakat,AB-,DOC018,Amr Soliman,Radiation Oncology
+LAB077,Urinalysis Complete Microscopy,8/30/2024,,Cancelled,Order cancelled by requesting physician prior to assay.,120,PAT077,Amr Zaki,AB+,DOC017,Laila Ashraf,Neurophysiology
+LAB076,Cardiac Troponin I Assay,8/27/2024,,Sample Collected,,450,PAT076,Laila Mansour,B-,DOC016,Wael Saeed,Sports Medicine
+LAB075,Thyroid Stimulating Hormone,8/24/2024,,In-Progress,,290,PAT075,Sherif Shawky,B+,DOC015,Mariam Tawfik,Neonatology
+LAB074,Hemoglobin A1c (HbA1c),8/21/2024,,Pending,,240,PAT074,Nadia Hegazy,A-,DOC014,Hassan Zaki,Acute Care
+LAB073,Lipid Profile Panel,8/18/2024,8/19/2024,Completed,"Total cholesterol 195 mg/dL, LDL 118 mg/dL, HDL 52 mg/dL.",260,PAT073,Karim Nabil,A+,DOC013,Rania Samir,Trauma Care
+LAB072,Comprehensive Metabolic Panel,8/15/2024,8/19/2024,Completed,Electrolytes and hepatic enzymes within reference range.,320,PAT072,Rania El-Masry,O-,DOC012,Omar Gamal,Pediatric Cardiology
+LAB071,Complete Blood Count (CBC),8/12/2024,8/15/2024,Completed,"WBC 6.8, RBC 4.9, Hgb 14.2 g/dL - within normal limits.",180,PAT071,Ibrahim Diab,O+,DOC011,Salma Fathy,Electrophysiology
+LAB070,Renal Function Urea Creatinine,8/9/2024,,Cancelled,,230,PAT070,Dalia Tawfik,AB-,DOC010,Youssef Adel,Clinical Cardiology
+LAB069,Liver Function Test Panel,8/6/2024,,Sample Collected,,310,PAT069,Mostafa Abdelaziz,AB+,DOC009,Khaled Mostafa,General Surgery
+LAB068,C-Reactive Protein Quantitative,8/3/2024,,In-Progress,,210,PAT068,Heba Lotfy,B-,DOC008,Dalia Farouk,Diagnostic Radiology
+LAB067,Urinalysis Complete Microscopy,7/31/2024,,Pending,,120,PAT067,Ali Refaat,B+,DOC007,Sherif Nabil,Medical Oncology
+LAB066,Cardiac Troponin I Assay,7/28/2024,7/30/2024,Completed,Troponin I < 0.01 ng/mL - negative for acute myocardial injury.,450,PAT066,Mona Mostafa,A-,DOC006,Nadia Kamel,Neurology
+LAB065,Thyroid Stimulating Hormone,7/25/2024,7/26/2024,Completed,TSH 2.1 mIU/L - normal euthyroid status.,290,PAT065,Hassan Hassan,A+,DOC005,Tarek Ibrahim,Orthopedic Surgery
+LAB064,Hemoglobin A1c (HbA1c),7/22/2024,7/26/2024,Completed,HbA1c measured at 6.4% indicating borderline glycemic control.,240,PAT064,Hana Gaber,O-,DOC004,Heba Abdelrahman,Pediatrics
+LAB063,Lipid Profile Panel,7/19/2024,,Cancelled,Order cancelled by requesting physician prior to assay.,260,PAT063,Tarek Soliman,O+,DOC003,Mona Hassan,Emergency Medicine
+LAB062,Comprehensive Metabolic Panel,7/16/2024,,Sample Collected,,320,PAT062,Salma Farouk,AB-,DOC002,Ahmed El-Sayed,Cardiology
+LAB061,Complete Blood Count (CBC),7/13/2024,,In-Progress,,180,PAT061,Khaled Helmy,AB+,DOC001,Karim Mansour,Interventional Cardiology
+LAB060,Renal Function Urea Creatinine,7/10/2024,,Pending,,230,PAT060,Nour Nassar,B-,DOC020,Farah Yassin,Laparoscopic Surgery
+LAB059,Liver Function Test Panel,7/7/2024,7/10/2024,Completed,"ALT 24 U/L, AST 22 U/L, Total Bilirubin 0.8 mg/dL - normal.",310,PAT059,Omar Saeed,B+,DOC019,Nour El-Din,Interventional Radiology
+LAB058,C-Reactive Protein Quantitative,7/4/2024,7/6/2024,Completed,CRP 4.2 mg/L - mild nonspecific inflammatory elevation.,210,PAT058,Sara Ibrahim,A-,DOC018,Amr Soliman,Radiation Oncology
+LAB057,Urinalysis Complete Microscopy,7/1/2024,7/2/2024,Completed,"Clear yellow urine, negative for nitrites and leukocyte esterase.",120,PAT057,Youssef Fawzy,A+,DOC017,Laila Ashraf,Neurophysiology
+LAB056,Cardiac Troponin I Assay,6/28/2024,,Cancelled,,450,PAT056,Mariam Yassin,O-,DOC016,Wael Saeed,Sports Medicine
+LAB055,Thyroid Stimulating Hormone,6/25/2024,,Sample Collected,,290,PAT055,Mahmoud Kamel,O+,DOC015,Mariam Tawfik,Neonatology
+LAB054,Hemoglobin A1c (HbA1c),6/22/2024,,In-Progress,,240,PAT054,Aya Khattab,AB-,DOC014,Hassan Zaki,Acute Care
+LAB053,Lipid Profile Panel,6/19/2024,,Pending,,260,PAT053,Mohamed Barakat,AB+,DOC013,Rania Samir,Trauma Care
+LAB052,Comprehensive Metabolic Panel,6/16/2024,6/20/2024,Completed,Electrolytes and hepatic enzymes within reference range.,320,PAT052,Fatma Zaki,B-,DOC012,Omar Gamal,Pediatric Cardiology
+LAB051,Complete Blood Count (CBC),6/13/2024,6/16/2024,Completed,"WBC 6.8, RBC 4.9, Hgb 14.2 g/dL - within normal limits.",180,PAT051,Ahmed Mansour,B+,DOC011,Salma Fathy,Electrophysiology
+LAB050,Renal Function Urea Creatinine,6/10/2024,6/12/2024,Completed,"Serum creatinine 0.95 mg/dL, eGFR > 90 mL/min - normal.",230,PAT050,Samar Shawky,A-,DOC010,Youssef Adel,Clinical Cardiology
+LAB049,Liver Function Test Panel,6/7/2024,,Cancelled,Order cancelled by requesting physician prior to assay.,310,PAT049,Hany Hegazy,A+,DOC009,Khaled Mostafa,General Surgery
+LAB048,C-Reactive Protein Quantitative,6/4/2024,,Sample Collected,,210,PAT048,Basma Nabil,O-,DOC008,Dalia Farouk,Diagnostic Radiology
+LAB047,Urinalysis Complete Microscopy,6/1/2024,,In-Progress,,120,PAT047,Adel El-Masry,O+,DOC007,Sherif Nabil,Medical Oncology
+LAB046,Cardiac Troponin I Assay,5/29/2024,,Pending,,450,PAT046,Esraa Diab,AB-,DOC006,Nadia Kamel,Neurology
+LAB045,Thyroid Stimulating Hormone,5/26/2024,5/27/2024,Completed,TSH 2.1 mIU/L - normal euthyroid status.,290,PAT045,Gamal Tawfik,AB+,DOC005,Tarek Ibrahim,Orthopedic Surgery
+LAB044,Hemoglobin A1c (HbA1c),5/23/2024,5/27/2024,Completed,HbA1c measured at 6.4% indicating borderline glycemic control.,240,PAT044,Marwa Abdelaziz,B-,DOC004,Heba Abdelrahman,Pediatrics
+LAB043,Lipid Profile Panel,5/20/2024,5/23/2024,Completed,"Total cholesterol 195 mg/dL, LDL 118 mg/dL, HDL 52 mg/dL.",260,PAT043,Nabil Lotfy,B+,DOC003,Mona Hassan,Emergency Medicine
+LAB042,Comprehensive Metabolic Panel,5/17/2024,,Cancelled,,320,PAT042,Hagar Refaat,A-,DOC002,Ahmed El-Sayed,Cardiology
+LAB041,Complete Blood Count (CBC),5/14/2024,,Sample Collected,,180,PAT041,Sameh Mostafa,A+,DOC001,Karim Mansour,Interventional Cardiology
+LAB040,Renal Function Urea Creatinine,5/11/2024,,In-Progress,,230,PAT040,Eman Hassan,O-,DOC020,Farah Yassin,Laparoscopic Surgery
+LAB039,Liver Function Test Panel,5/8/2024,,Pending,,310,PAT039,Ashraf Gaber,O+,DOC019,Nour El-Din,Interventional Radiology
+LAB038,C-Reactive Protein Quantitative,5/5/2024,5/7/2024,Completed,CRP 4.2 mg/L - mild nonspecific inflammatory elevation.,210,PAT038,Amira Soliman,AB-,DOC018,Amr Soliman,Radiation Oncology
+LAB037,Urinalysis Complete Microscopy,5/2/2024,5/3/2024,Completed,"Clear yellow urine, negative for nitrites and leukocyte esterase.",120,PAT037,Walid Farouk,AB+,DOC017,Laila Ashraf,Neurophysiology
+LAB036,Cardiac Troponin I Assay,4/29/2024,5/3/2024,Completed,Troponin I < 0.01 ng/mL - negative for acute myocardial injury.,450,PAT036,Noha Helmy,B-,DOC016,Wael Saeed,Sports Medicine
+LAB035,Thyroid Stimulating Hormone,4/26/2024,,Cancelled,Order cancelled by requesting physician prior to assay.,290,PAT035,Tamer Nassar,B+,DOC015,Mariam Tawfik,Neonatology
+LAB034,Hemoglobin A1c (HbA1c),4/23/2024,,Sample Collected,,240,PAT034,Dina Saeed,A-,DOC014,Hassan Zaki,Acute Care
+LAB033,Lipid Profile Panel,4/20/2024,,In-Progress,,260,PAT033,Ramy Ibrahim,A+,DOC013,Rania Samir,Trauma Care
+LAB032,Comprehensive Metabolic Panel,4/17/2024,,Pending,,320,PAT032,Reem Fawzy,O-,DOC012,Omar Gamal,Pediatric Cardiology
+LAB031,Complete Blood Count (CBC),4/14/2024,4/17/2024,Completed,"WBC 6.8, RBC 4.9, Hgb 14.2 g/dL - within normal limits.",180,PAT031,Hossam Yassin,O+,DOC011,Salma Fathy,Electrophysiology
+LAB030,Renal Function Urea Creatinine,4/11/2024,4/13/2024,Completed,"Serum creatinine 0.95 mg/dL, eGFR > 90 mL/min - normal.",230,PAT030,Yasmine Kamel,AB-,DOC010,Youssef Adel,Clinical Cardiology
+LAB029,Liver Function Test Panel,4/8/2024,4/9/2024,Completed,"ALT 24 U/L, AST 22 U/L, Total Bilirubin 0.8 mg/dL - normal.",310,PAT029,Wael Khattab,AB+,DOC009,Khaled Mostafa,General Surgery
+LAB028,C-Reactive Protein Quantitative,4/5/2024,,Cancelled,,210,PAT028,Farah Barakat,B-,DOC008,Dalia Farouk,Diagnostic Radiology
+LAB027,Urinalysis Complete Microscopy,4/2/2024,,Sample Collected,,120,PAT027,Amr Zaki,B+,DOC007,Sherif Nabil,Medical Oncology
+LAB026,Cardiac Troponin I Assay,3/30/2024,,In-Progress,,450,PAT026,Laila Mansour,A-,DOC006,Nadia Kamel,Neurology
+LAB025,Thyroid Stimulating Hormone,3/27/2024,,Pending,,290,PAT025,Sherif Shawky,A+,DOC005,Tarek Ibrahim,Orthopedic Surgery
+LAB024,Hemoglobin A1c (HbA1c),3/24/2024,3/28/2024,Completed,HbA1c measured at 6.4% indicating borderline glycemic control.,240,PAT024,Nadia Hegazy,O-,DOC004,Heba Abdelrahman,Pediatrics
+LAB023,Lipid Profile Panel,3/21/2024,3/24/2024,Completed,"Total cholesterol 195 mg/dL, LDL 118 mg/dL, HDL 52 mg/dL.",260,PAT023,Karim Nabil,O+,DOC003,Mona Hassan,Emergency Medicine
+LAB022,Comprehensive Metabolic Panel,3/18/2024,3/20/2024,Completed,Electrolytes and hepatic enzymes within reference range.,320,PAT022,Rania El-Masry,AB-,DOC002,Ahmed El-Sayed,Cardiology
+LAB021,Complete Blood Count (CBC),3/15/2024,,Cancelled,Order cancelled by requesting physician prior to assay.,180,PAT021,Ibrahim Diab,AB+,DOC001,Karim Mansour,Interventional Cardiology
+LAB020,Renal Function Urea Creatinine,3/12/2024,,Sample Collected,,230,PAT020,Dalia Tawfik,B-,DOC020,Farah Yassin,Laparoscopic Surgery
+LAB019,Liver Function Test Panel,3/9/2024,,In-Progress,,310,PAT019,Mostafa Abdelaziz,B+,DOC019,Nour El-Din,Interventional Radiology
+LAB018,C-Reactive Protein Quantitative,3/6/2024,,Pending,,210,PAT018,Heba Lotfy,A-,DOC018,Amr Soliman,Radiation Oncology
+LAB017,Urinalysis Complete Microscopy,3/3/2024,3/4/2024,Completed,"Clear yellow urine, negative for nitrites and leukocyte esterase.",120,PAT017,Ali Refaat,A+,DOC017,Laila Ashraf,Neurophysiology
+LAB016,Cardiac Troponin I Assay,2/29/2024,3/4/2024,Completed,Troponin I < 0.01 ng/mL - negative for acute myocardial injury.,450,PAT016,Mona Mostafa,O-,DOC016,Wael Saeed,Sports Medicine
+LAB015,Thyroid Stimulating Hormone,2/26/2024,2/29/2024,Completed,TSH 2.1 mIU/L - normal euthyroid status.,290,PAT015,Hassan Hassan,O+,DOC015,Mariam Tawfik,Neonatology
+LAB014,Hemoglobin A1c (HbA1c),2/23/2024,,Cancelled,,240,PAT014,Hana Gaber,AB-,DOC014,Hassan Zaki,Acute Care
+LAB013,Lipid Profile Panel,2/20/2024,,Sample Collected,,260,PAT013,Tarek Soliman,AB+,DOC013,Rania Samir,Trauma Care
+LAB012,Comprehensive Metabolic Panel,2/17/2024,,In-Progress,,320,PAT012,Salma Farouk,B-,DOC012,Omar Gamal,Pediatric Cardiology
+LAB011,Complete Blood Count (CBC),2/14/2024,,Pending,,180,PAT011,Khaled Helmy,B+,DOC011,Salma Fathy,Electrophysiology
+LAB010,Renal Function Urea Creatinine,2/11/2024,2/13/2024,Completed,"Serum creatinine 0.95 mg/dL, eGFR > 90 mL/min - normal.",230,PAT010,Nour Nassar,A-,DOC010,Youssef Adel,Clinical Cardiology
+LAB009,Liver Function Test Panel,2/8/2024,2/9/2024,Completed,"ALT 24 U/L, AST 22 U/L, Total Bilirubin 0.8 mg/dL - normal.",310,PAT009,Omar Saeed,A+,DOC009,Khaled Mostafa,General Surgery
+LAB008,C-Reactive Protein Quantitative,2/5/2024,2/9/2024,Completed,CRP 4.2 mg/L - mild nonspecific inflammatory elevation.,210,PAT008,Sara Ibrahim,O-,DOC008,Dalia Farouk,Diagnostic Radiology
+LAB007,Urinalysis Complete Microscopy,2/2/2024,,Cancelled,Order cancelled by requesting physician prior to assay.,120,PAT007,Youssef Fawzy,O+,DOC007,Sherif Nabil,Medical Oncology
+LAB006,Cardiac Troponin I Assay,1/30/2024,,Sample Collected,,450,PAT006,Mariam Yassin,AB-,DOC006,Nadia Kamel,Neurology
+LAB005,Thyroid Stimulating Hormone,1/27/2024,,In-Progress,,290,PAT005,Mahmoud Kamel,AB+,DOC005,Tarek Ibrahim,Orthopedic Surgery
+LAB004,Hemoglobin A1c (HbA1c),1/24/2024,,Pending,,240,PAT004,Aya Khattab,B-,DOC004,Heba Abdelrahman,Pediatrics
+LAB003,Lipid Profile Panel,1/21/2024,1/24/2024,Completed,"Total cholesterol 195 mg/dL, LDL 118 mg/dL, HDL 52 mg/dL.",260,PAT003,Mohamed Barakat,B+,DOC003,Mona Hassan,Emergency Medicine
+LAB002,Comprehensive Metabolic Panel,1/18/2024,1/20/2024,Completed,Electrolytes and hepatic enzymes within reference range.,320,PAT002,Fatma Zaki,A-,DOC002,Ahmed El-Sayed,Cardiology

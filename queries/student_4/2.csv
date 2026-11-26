@@ -1,0 +1,201 @@
+TESTID,PATIENTID,DOCTORID,TESTTYPE,REQUESTEDDATE,COMPLETEDDATE,TESTSTATUS,TESTRESULT,TESTCOST
+LAB001,PAT001,DOC002,Complete Blood Count (CBC),11/22/2026,,Pending,,180
+LAB200,PAT100,DOC020,Renal Function Urea Creatinine,9/3/2025,,Pending,,230
+LAB199,PAT099,DOC019,Liver Function Test Panel,8/31/2025,9/3/2025,Completed,"ALT 24 U/L, AST 22 U/L, Total Bilirubin 0.8 mg/dL - normal.",310
+LAB198,PAT098,DOC018,C-Reactive Protein Quantitative,8/28/2025,8/30/2025,Completed,CRP 4.2 mg/L - mild nonspecific inflammatory elevation.,210
+LAB197,PAT097,DOC017,Urinalysis Complete Microscopy,8/25/2025,8/26/2025,Completed,"Clear yellow urine, negative for nitrites and leukocyte esterase.",120
+LAB196,PAT096,DOC016,Cardiac Troponin I Assay,8/22/2025,,Cancelled,,450
+LAB195,PAT095,DOC015,Thyroid Stimulating Hormone,8/19/2025,,Sample Collected,,290
+LAB194,PAT094,DOC014,Hemoglobin A1c (HbA1c),8/16/2025,,In-Progress,,240
+LAB193,PAT093,DOC013,Lipid Profile Panel,8/13/2025,,Pending,,260
+LAB192,PAT092,DOC012,Comprehensive Metabolic Panel,8/10/2025,8/14/2025,Completed,Electrolytes and hepatic enzymes within reference range.,320
+LAB191,PAT091,DOC011,Complete Blood Count (CBC),8/7/2025,8/10/2025,Completed,"WBC 6.8, RBC 4.9, Hgb 14.2 g/dL - within normal limits.",180
+LAB190,PAT090,DOC010,Renal Function Urea Creatinine,8/4/2025,8/6/2025,Completed,"Serum creatinine 0.95 mg/dL, eGFR > 90 mL/min - normal.",230
+LAB189,PAT089,DOC009,Liver Function Test Panel,8/1/2025,,Cancelled,Order cancelled by requesting physician prior to assay.,310
+LAB188,PAT088,DOC008,C-Reactive Protein Quantitative,7/29/2025,,Sample Collected,,210
+LAB187,PAT087,DOC007,Urinalysis Complete Microscopy,7/26/2025,,In-Progress,,120
+LAB186,PAT086,DOC006,Cardiac Troponin I Assay,7/23/2025,,Pending,,450
+LAB185,PAT085,DOC005,Thyroid Stimulating Hormone,7/20/2025,7/21/2025,Completed,TSH 2.1 mIU/L - normal euthyroid status.,290
+LAB184,PAT084,DOC004,Hemoglobin A1c (HbA1c),7/17/2025,7/21/2025,Completed,HbA1c measured at 6.4% indicating borderline glycemic control.,240
+LAB183,PAT083,DOC003,Lipid Profile Panel,7/14/2025,7/17/2025,Completed,"Total cholesterol 195 mg/dL, LDL 118 mg/dL, HDL 52 mg/dL.",260
+LAB182,PAT082,DOC002,Comprehensive Metabolic Panel,7/11/2025,,Cancelled,,320
+LAB181,PAT081,DOC001,Complete Blood Count (CBC),7/8/2025,,Sample Collected,,180
+LAB180,PAT080,DOC020,Renal Function Urea Creatinine,7/5/2025,,In-Progress,,230
+LAB179,PAT079,DOC019,Liver Function Test Panel,7/2/2025,,Pending,,310
+LAB178,PAT078,DOC018,C-Reactive Protein Quantitative,6/29/2025,7/1/2025,Completed,CRP 4.2 mg/L - mild nonspecific inflammatory elevation.,210
+LAB177,PAT077,DOC017,Urinalysis Complete Microscopy,6/26/2025,6/27/2025,Completed,"Clear yellow urine, negative for nitrites and leukocyte esterase.",120
+LAB176,PAT076,DOC016,Cardiac Troponin I Assay,6/23/2025,6/27/2025,Completed,Troponin I < 0.01 ng/mL - negative for acute myocardial injury.,450
+LAB175,PAT075,DOC015,Thyroid Stimulating Hormone,6/20/2025,,Cancelled,Order cancelled by requesting physician prior to assay.,290
+LAB174,PAT074,DOC014,Hemoglobin A1c (HbA1c),6/17/2025,,Sample Collected,,240
+LAB173,PAT073,DOC013,Lipid Profile Panel,6/14/2025,,In-Progress,,260
+LAB172,PAT072,DOC012,Comprehensive Metabolic Panel,6/11/2025,,Pending,,320
+LAB171,PAT071,DOC011,Complete Blood Count (CBC),6/8/2025,6/11/2025,Completed,"WBC 6.8, RBC 4.9, Hgb 14.2 g/dL - within normal limits.",180
+LAB170,PAT070,DOC010,Renal Function Urea Creatinine,6/5/2025,6/7/2025,Completed,"Serum creatinine 0.95 mg/dL, eGFR > 90 mL/min - normal.",230
+LAB169,PAT069,DOC009,Liver Function Test Panel,6/2/2025,6/3/2025,Completed,"ALT 24 U/L, AST 22 U/L, Total Bilirubin 0.8 mg/dL - normal.",310
+LAB168,PAT068,DOC008,C-Reactive Protein Quantitative,5/30/2025,,Cancelled,,210
+LAB167,PAT067,DOC007,Urinalysis Complete Microscopy,5/27/2025,,Sample Collected,,120
+LAB166,PAT066,DOC006,Cardiac Troponin I Assay,5/24/2025,,In-Progress,,450
+LAB165,PAT065,DOC005,Thyroid Stimulating Hormone,5/21/2025,,Pending,,290
+LAB164,PAT064,DOC004,Hemoglobin A1c (HbA1c),5/18/2025,5/22/2025,Completed,HbA1c measured at 6.4% indicating borderline glycemic control.,240
+LAB163,PAT063,DOC003,Lipid Profile Panel,5/15/2025,5/18/2025,Completed,"Total cholesterol 195 mg/dL, LDL 118 mg/dL, HDL 52 mg/dL.",260
+LAB162,PAT062,DOC002,Comprehensive Metabolic Panel,5/12/2025,5/14/2025,Completed,Electrolytes and hepatic enzymes within reference range.,320
+LAB161,PAT061,DOC001,Complete Blood Count (CBC),5/9/2025,,Cancelled,Order cancelled by requesting physician prior to assay.,180
+LAB160,PAT060,DOC020,Renal Function Urea Creatinine,5/6/2025,,Sample Collected,,230
+LAB159,PAT059,DOC019,Liver Function Test Panel,5/3/2025,,In-Progress,,310
+LAB158,PAT058,DOC018,C-Reactive Protein Quantitative,4/30/2025,,Pending,,210
+LAB157,PAT057,DOC017,Urinalysis Complete Microscopy,4/27/2025,4/28/2025,Completed,"Clear yellow urine, negative for nitrites and leukocyte esterase.",120
+LAB156,PAT056,DOC016,Cardiac Troponin I Assay,4/24/2025,4/28/2025,Completed,Troponin I < 0.01 ng/mL - negative for acute myocardial injury.,450
+LAB155,PAT055,DOC015,Thyroid Stimulating Hormone,4/21/2025,4/24/2025,Completed,TSH 2.1 mIU/L - normal euthyroid status.,290
+LAB154,PAT054,DOC014,Hemoglobin A1c (HbA1c),4/18/2025,,Cancelled,,240
+LAB153,PAT053,DOC013,Lipid Profile Panel,4/15/2025,,Sample Collected,,260
+LAB152,PAT052,DOC012,Comprehensive Metabolic Panel,4/12/2025,,In-Progress,,320
+LAB151,PAT051,DOC011,Complete Blood Count (CBC),4/9/2025,,Pending,,180
+LAB150,PAT050,DOC010,Renal Function Urea Creatinine,4/6/2025,4/8/2025,Completed,"Serum creatinine 0.95 mg/dL, eGFR > 90 mL/min - normal.",230
+LAB149,PAT049,DOC009,Liver Function Test Panel,4/3/2025,4/4/2025,Completed,"ALT 24 U/L, AST 22 U/L, Total Bilirubin 0.8 mg/dL - normal.",310
+LAB148,PAT048,DOC008,C-Reactive Protein Quantitative,3/31/2025,4/4/2025,Completed,CRP 4.2 mg/L - mild nonspecific inflammatory elevation.,210
+LAB147,PAT047,DOC007,Urinalysis Complete Microscopy,3/28/2025,,Cancelled,Order cancelled by requesting physician prior to assay.,120
+LAB146,PAT046,DOC006,Cardiac Troponin I Assay,3/25/2025,,Sample Collected,,450
+LAB145,PAT045,DOC005,Thyroid Stimulating Hormone,3/22/2025,,In-Progress,,290
+LAB144,PAT044,DOC004,Hemoglobin A1c (HbA1c),3/19/2025,,Pending,,240
+LAB143,PAT043,DOC003,Lipid Profile Panel,3/16/2025,3/19/2025,Completed,"Total cholesterol 195 mg/dL, LDL 118 mg/dL, HDL 52 mg/dL.",260
+LAB142,PAT042,DOC002,Comprehensive Metabolic Panel,3/13/2025,3/15/2025,Completed,Electrolytes and hepatic enzymes within reference range.,320
+LAB141,PAT041,DOC001,Complete Blood Count (CBC),3/10/2025,3/11/2025,Completed,"WBC 6.8, RBC 4.9, Hgb 14.2 g/dL - within normal limits.",180
+LAB140,PAT040,DOC020,Renal Function Urea Creatinine,3/7/2025,,Cancelled,,230
+LAB139,PAT039,DOC019,Liver Function Test Panel,3/4/2025,,Sample Collected,,310
+LAB138,PAT038,DOC018,C-Reactive Protein Quantitative,3/1/2025,,In-Progress,,210
+LAB137,PAT037,DOC017,Urinalysis Complete Microscopy,2/26/2025,,Pending,,120
+LAB136,PAT036,DOC016,Cardiac Troponin I Assay,2/23/2025,2/27/2025,Completed,Troponin I < 0.01 ng/mL - negative for acute myocardial injury.,450
+LAB135,PAT035,DOC015,Thyroid Stimulating Hormone,2/20/2025,2/23/2025,Completed,TSH 2.1 mIU/L - normal euthyroid status.,290
+LAB134,PAT034,DOC014,Hemoglobin A1c (HbA1c),2/17/2025,2/19/2025,Completed,HbA1c measured at 6.4% indicating borderline glycemic control.,240
+LAB133,PAT033,DOC013,Lipid Profile Panel,2/14/2025,,Cancelled,Order cancelled by requesting physician prior to assay.,260
+LAB132,PAT032,DOC012,Comprehensive Metabolic Panel,2/11/2025,,Sample Collected,,320
+LAB131,PAT031,DOC011,Complete Blood Count (CBC),2/8/2025,,In-Progress,,180
+LAB130,PAT030,DOC010,Renal Function Urea Creatinine,2/5/2025,,Pending,,230
+LAB129,PAT029,DOC009,Liver Function Test Panel,2/2/2025,2/3/2025,Completed,"ALT 24 U/L, AST 22 U/L, Total Bilirubin 0.8 mg/dL - normal.",310
+LAB128,PAT028,DOC008,C-Reactive Protein Quantitative,1/30/2025,2/3/2025,Completed,CRP 4.2 mg/L - mild nonspecific inflammatory elevation.,210
+LAB127,PAT027,DOC007,Urinalysis Complete Microscopy,1/27/2025,1/30/2025,Completed,"Clear yellow urine, negative for nitrites and leukocyte esterase.",120
+LAB126,PAT026,DOC006,Cardiac Troponin I Assay,1/24/2025,,Cancelled,,450
+LAB125,PAT025,DOC005,Thyroid Stimulating Hormone,1/21/2025,,Sample Collected,,290
+LAB124,PAT024,DOC004,Hemoglobin A1c (HbA1c),1/18/2025,,In-Progress,,240
+LAB123,PAT023,DOC003,Lipid Profile Panel,1/15/2025,,Pending,,260
+LAB122,PAT022,DOC002,Comprehensive Metabolic Panel,1/12/2025,1/14/2025,Completed,Electrolytes and hepatic enzymes within reference range.,320
+LAB121,PAT021,DOC001,Complete Blood Count (CBC),1/9/2025,1/10/2025,Completed,"WBC 6.8, RBC 4.9, Hgb 14.2 g/dL - within normal limits.",180
+LAB120,PAT020,DOC020,Renal Function Urea Creatinine,1/6/2025,1/10/2025,Completed,"Serum creatinine 0.95 mg/dL, eGFR > 90 mL/min - normal.",230
+LAB119,PAT019,DOC019,Liver Function Test Panel,1/3/2025,,Cancelled,Order cancelled by requesting physician prior to assay.,310
+LAB118,PAT018,DOC018,C-Reactive Protein Quantitative,12/31/2024,,Sample Collected,,210
+LAB117,PAT017,DOC017,Urinalysis Complete Microscopy,12/28/2024,,In-Progress,,120
+LAB116,PAT016,DOC016,Cardiac Troponin I Assay,12/25/2024,,Pending,,450
+LAB115,PAT015,DOC015,Thyroid Stimulating Hormone,12/22/2024,12/25/2024,Completed,TSH 2.1 mIU/L - normal euthyroid status.,290
+LAB114,PAT014,DOC014,Hemoglobin A1c (HbA1c),12/19/2024,12/21/2024,Completed,HbA1c measured at 6.4% indicating borderline glycemic control.,240
+LAB113,PAT013,DOC013,Lipid Profile Panel,12/16/2024,12/17/2024,Completed,"Total cholesterol 195 mg/dL, LDL 118 mg/dL, HDL 52 mg/dL.",260
+LAB112,PAT012,DOC012,Comprehensive Metabolic Panel,12/13/2024,,Cancelled,,320
+LAB111,PAT011,DOC011,Complete Blood Count (CBC),12/10/2024,,Sample Collected,,180
+LAB110,PAT010,DOC010,Renal Function Urea Creatinine,12/7/2024,,In-Progress,,230
+LAB109,PAT009,DOC009,Liver Function Test Panel,12/4/2024,,Pending,,310
+LAB108,PAT008,DOC008,C-Reactive Protein Quantitative,12/1/2024,12/5/2024,Completed,CRP 4.2 mg/L - mild nonspecific inflammatory elevation.,210
+LAB107,PAT007,DOC007,Urinalysis Complete Microscopy,11/28/2024,12/1/2024,Completed,"Clear yellow urine, negative for nitrites and leukocyte esterase.",120
+LAB106,PAT006,DOC006,Cardiac Troponin I Assay,11/25/2024,11/27/2024,Completed,Troponin I < 0.01 ng/mL - negative for acute myocardial injury.,450
+LAB105,PAT005,DOC005,Thyroid Stimulating Hormone,11/22/2024,,Cancelled,Order cancelled by requesting physician prior to assay.,290
+LAB104,PAT004,DOC004,Hemoglobin A1c (HbA1c),11/19/2024,,Sample Collected,,240
+LAB103,PAT003,DOC003,Lipid Profile Panel,11/16/2024,,In-Progress,,260
+LAB102,PAT002,DOC002,Comprehensive Metabolic Panel,11/13/2024,,Pending,,320
+LAB101,PAT001,DOC001,Complete Blood Count (CBC),11/10/2024,11/11/2024,Completed,"WBC 6.8, RBC 4.9, Hgb 14.2 g/dL - within normal limits.",180
+LAB100,PAT100,DOC020,Renal Function Urea Creatinine,11/7/2024,11/11/2024,Completed,"Serum creatinine 0.95 mg/dL, eGFR > 90 mL/min - normal.",230
+LAB099,PAT099,DOC019,Liver Function Test Panel,11/4/2024,11/7/2024,Completed,"ALT 24 U/L, AST 22 U/L, Total Bilirubin 0.8 mg/dL - normal.",310
+LAB098,PAT098,DOC018,C-Reactive Protein Quantitative,11/1/2024,,Cancelled,,210
+LAB097,PAT097,DOC017,Urinalysis Complete Microscopy,10/29/2024,,Sample Collected,,120
+LAB096,PAT096,DOC016,Cardiac Troponin I Assay,10/26/2024,,In-Progress,,450
+LAB095,PAT095,DOC015,Thyroid Stimulating Hormone,10/23/2024,,Pending,,290
+LAB094,PAT094,DOC014,Hemoglobin A1c (HbA1c),10/20/2024,10/22/2024,Completed,HbA1c measured at 6.4% indicating borderline glycemic control.,240
+LAB093,PAT093,DOC013,Lipid Profile Panel,10/17/2024,10/18/2024,Completed,"Total cholesterol 195 mg/dL, LDL 118 mg/dL, HDL 52 mg/dL.",260
+LAB092,PAT092,DOC012,Comprehensive Metabolic Panel,10/14/2024,10/18/2024,Completed,Electrolytes and hepatic enzymes within reference range.,320
+LAB091,PAT091,DOC011,Complete Blood Count (CBC),10/11/2024,,Cancelled,Order cancelled by requesting physician prior to assay.,180
+LAB090,PAT090,DOC010,Renal Function Urea Creatinine,10/8/2024,,Sample Collected,,230
+LAB089,PAT089,DOC009,Liver Function Test Panel,10/5/2024,,In-Progress,,310
+LAB088,PAT088,DOC008,C-Reactive Protein Quantitative,10/2/2024,,Pending,,210
+LAB087,PAT087,DOC007,Urinalysis Complete Microscopy,9/29/2024,10/2/2024,Completed,"Clear yellow urine, negative for nitrites and leukocyte esterase.",120
+LAB086,PAT086,DOC006,Cardiac Troponin I Assay,9/26/2024,9/28/2024,Completed,Troponin I < 0.01 ng/mL - negative for acute myocardial injury.,450
+LAB085,PAT085,DOC005,Thyroid Stimulating Hormone,9/23/2024,9/24/2024,Completed,TSH 2.1 mIU/L - normal euthyroid status.,290
+LAB084,PAT084,DOC004,Hemoglobin A1c (HbA1c),9/20/2024,,Cancelled,,240
+LAB083,PAT083,DOC003,Lipid Profile Panel,9/17/2024,,Sample Collected,,260
+LAB082,PAT082,DOC002,Comprehensive Metabolic Panel,9/14/2024,,In-Progress,,320
+LAB081,PAT081,DOC001,Complete Blood Count (CBC),9/11/2024,,Pending,,180
+LAB080,PAT080,DOC020,Renal Function Urea Creatinine,9/8/2024,9/12/2024,Completed,"Serum creatinine 0.95 mg/dL, eGFR > 90 mL/min - normal.",230
+LAB079,PAT079,DOC019,Liver Function Test Panel,9/5/2024,9/8/2024,Completed,"ALT 24 U/L, AST 22 U/L, Total Bilirubin 0.8 mg/dL - normal.",310
+LAB078,PAT078,DOC018,C-Reactive Protein Quantitative,9/2/2024,9/4/2024,Completed,CRP 4.2 mg/L - mild nonspecific inflammatory elevation.,210
+LAB077,PAT077,DOC017,Urinalysis Complete Microscopy,8/30/2024,,Cancelled,Order cancelled by requesting physician prior to assay.,120
+LAB076,PAT076,DOC016,Cardiac Troponin I Assay,8/27/2024,,Sample Collected,,450
+LAB075,PAT075,DOC015,Thyroid Stimulating Hormone,8/24/2024,,In-Progress,,290
+LAB074,PAT074,DOC014,Hemoglobin A1c (HbA1c),8/21/2024,,Pending,,240
+LAB073,PAT073,DOC013,Lipid Profile Panel,8/18/2024,8/19/2024,Completed,"Total cholesterol 195 mg/dL, LDL 118 mg/dL, HDL 52 mg/dL.",260
+LAB072,PAT072,DOC012,Comprehensive Metabolic Panel,8/15/2024,8/19/2024,Completed,Electrolytes and hepatic enzymes within reference range.,320
+LAB071,PAT071,DOC011,Complete Blood Count (CBC),8/12/2024,8/15/2024,Completed,"WBC 6.8, RBC 4.9, Hgb 14.2 g/dL - within normal limits.",180
+LAB070,PAT070,DOC010,Renal Function Urea Creatinine,8/9/2024,,Cancelled,,230
+LAB069,PAT069,DOC009,Liver Function Test Panel,8/6/2024,,Sample Collected,,310
+LAB068,PAT068,DOC008,C-Reactive Protein Quantitative,8/3/2024,,In-Progress,,210
+LAB067,PAT067,DOC007,Urinalysis Complete Microscopy,7/31/2024,,Pending,,120
+LAB066,PAT066,DOC006,Cardiac Troponin I Assay,7/28/2024,7/30/2024,Completed,Troponin I < 0.01 ng/mL - negative for acute myocardial injury.,450
+LAB065,PAT065,DOC005,Thyroid Stimulating Hormone,7/25/2024,7/26/2024,Completed,TSH 2.1 mIU/L - normal euthyroid status.,290
+LAB064,PAT064,DOC004,Hemoglobin A1c (HbA1c),7/22/2024,7/26/2024,Completed,HbA1c measured at 6.4% indicating borderline glycemic control.,240
+LAB063,PAT063,DOC003,Lipid Profile Panel,7/19/2024,,Cancelled,Order cancelled by requesting physician prior to assay.,260
+LAB062,PAT062,DOC002,Comprehensive Metabolic Panel,7/16/2024,,Sample Collected,,320
+LAB061,PAT061,DOC001,Complete Blood Count (CBC),7/13/2024,,In-Progress,,180
+LAB060,PAT060,DOC020,Renal Function Urea Creatinine,7/10/2024,,Pending,,230
+LAB059,PAT059,DOC019,Liver Function Test Panel,7/7/2024,7/10/2024,Completed,"ALT 24 U/L, AST 22 U/L, Total Bilirubin 0.8 mg/dL - normal.",310
+LAB058,PAT058,DOC018,C-Reactive Protein Quantitative,7/4/2024,7/6/2024,Completed,CRP 4.2 mg/L - mild nonspecific inflammatory elevation.,210
+LAB057,PAT057,DOC017,Urinalysis Complete Microscopy,7/1/2024,7/2/2024,Completed,"Clear yellow urine, negative for nitrites and leukocyte esterase.",120
+LAB056,PAT056,DOC016,Cardiac Troponin I Assay,6/28/2024,,Cancelled,,450
+LAB055,PAT055,DOC015,Thyroid Stimulating Hormone,6/25/2024,,Sample Collected,,290
+LAB054,PAT054,DOC014,Hemoglobin A1c (HbA1c),6/22/2024,,In-Progress,,240
+LAB053,PAT053,DOC013,Lipid Profile Panel,6/19/2024,,Pending,,260
+LAB052,PAT052,DOC012,Comprehensive Metabolic Panel,6/16/2024,6/20/2024,Completed,Electrolytes and hepatic enzymes within reference range.,320
+LAB051,PAT051,DOC011,Complete Blood Count (CBC),6/13/2024,6/16/2024,Completed,"WBC 6.8, RBC 4.9, Hgb 14.2 g/dL - within normal limits.",180
+LAB050,PAT050,DOC010,Renal Function Urea Creatinine,6/10/2024,6/12/2024,Completed,"Serum creatinine 0.95 mg/dL, eGFR > 90 mL/min - normal.",230
+LAB049,PAT049,DOC009,Liver Function Test Panel,6/7/2024,,Cancelled,Order cancelled by requesting physician prior to assay.,310
+LAB048,PAT048,DOC008,C-Reactive Protein Quantitative,6/4/2024,,Sample Collected,,210
+LAB047,PAT047,DOC007,Urinalysis Complete Microscopy,6/1/2024,,In-Progress,,120
+LAB046,PAT046,DOC006,Cardiac Troponin I Assay,5/29/2024,,Pending,,450
+LAB045,PAT045,DOC005,Thyroid Stimulating Hormone,5/26/2024,5/27/2024,Completed,TSH 2.1 mIU/L - normal euthyroid status.,290
+LAB044,PAT044,DOC004,Hemoglobin A1c (HbA1c),5/23/2024,5/27/2024,Completed,HbA1c measured at 6.4% indicating borderline glycemic control.,240
+LAB043,PAT043,DOC003,Lipid Profile Panel,5/20/2024,5/23/2024,Completed,"Total cholesterol 195 mg/dL, LDL 118 mg/dL, HDL 52 mg/dL.",260
+LAB042,PAT042,DOC002,Comprehensive Metabolic Panel,5/17/2024,,Cancelled,,320
+LAB041,PAT041,DOC001,Complete Blood Count (CBC),5/14/2024,,Sample Collected,,180
+LAB040,PAT040,DOC020,Renal Function Urea Creatinine,5/11/2024,,In-Progress,,230
+LAB039,PAT039,DOC019,Liver Function Test Panel,5/8/2024,,Pending,,310
+LAB038,PAT038,DOC018,C-Reactive Protein Quantitative,5/5/2024,5/7/2024,Completed,CRP 4.2 mg/L - mild nonspecific inflammatory elevation.,210
+LAB037,PAT037,DOC017,Urinalysis Complete Microscopy,5/2/2024,5/3/2024,Completed,"Clear yellow urine, negative for nitrites and leukocyte esterase.",120
+LAB036,PAT036,DOC016,Cardiac Troponin I Assay,4/29/2024,5/3/2024,Completed,Troponin I < 0.01 ng/mL - negative for acute myocardial injury.,450
+LAB035,PAT035,DOC015,Thyroid Stimulating Hormone,4/26/2024,,Cancelled,Order cancelled by requesting physician prior to assay.,290
+LAB034,PAT034,DOC014,Hemoglobin A1c (HbA1c),4/23/2024,,Sample Collected,,240
+LAB033,PAT033,DOC013,Lipid Profile Panel,4/20/2024,,In-Progress,,260
+LAB032,PAT032,DOC012,Comprehensive Metabolic Panel,4/17/2024,,Pending,,320
+LAB031,PAT031,DOC011,Complete Blood Count (CBC),4/14/2024,4/17/2024,Completed,"WBC 6.8, RBC 4.9, Hgb 14.2 g/dL - within normal limits.",180
+LAB030,PAT030,DOC010,Renal Function Urea Creatinine,4/11/2024,4/13/2024,Completed,"Serum creatinine 0.95 mg/dL, eGFR > 90 mL/min - normal.",230
+LAB029,PAT029,DOC009,Liver Function Test Panel,4/8/2024,4/9/2024,Completed,"ALT 24 U/L, AST 22 U/L, Total Bilirubin 0.8 mg/dL - normal.",310
+LAB028,PAT028,DOC008,C-Reactive Protein Quantitative,4/5/2024,,Cancelled,,210
+LAB027,PAT027,DOC007,Urinalysis Complete Microscopy,4/2/2024,,Sample Collected,,120
+LAB026,PAT026,DOC006,Cardiac Troponin I Assay,3/30/2024,,In-Progress,,450
+LAB025,PAT025,DOC005,Thyroid Stimulating Hormone,3/27/2024,,Pending,,290
+LAB024,PAT024,DOC004,Hemoglobin A1c (HbA1c),3/24/2024,3/28/2024,Completed,HbA1c measured at 6.4% indicating borderline glycemic control.,240
+LAB023,PAT023,DOC003,Lipid Profile Panel,3/21/2024,3/24/2024,Completed,"Total cholesterol 195 mg/dL, LDL 118 mg/dL, HDL 52 mg/dL.",260
+LAB022,PAT022,DOC002,Comprehensive Metabolic Panel,3/18/2024,3/20/2024,Completed,Electrolytes and hepatic enzymes within reference range.,320
+LAB021,PAT021,DOC001,Complete Blood Count (CBC),3/15/2024,,Cancelled,Order cancelled by requesting physician prior to assay.,180
+LAB020,PAT020,DOC020,Renal Function Urea Creatinine,3/12/2024,,Sample Collected,,230
+LAB019,PAT019,DOC019,Liver Function Test Panel,3/9/2024,,In-Progress,,310
+LAB018,PAT018,DOC018,C-Reactive Protein Quantitative,3/6/2024,,Pending,,210
+LAB017,PAT017,DOC017,Urinalysis Complete Microscopy,3/3/2024,3/4/2024,Completed,"Clear yellow urine, negative for nitrites and leukocyte esterase.",120
+LAB016,PAT016,DOC016,Cardiac Troponin I Assay,2/29/2024,3/4/2024,Completed,Troponin I < 0.01 ng/mL - negative for acute myocardial injury.,450
+LAB015,PAT015,DOC015,Thyroid Stimulating Hormone,2/26/2024,2/29/2024,Completed,TSH 2.1 mIU/L - normal euthyroid status.,290
+LAB014,PAT014,DOC014,Hemoglobin A1c (HbA1c),2/23/2024,,Cancelled,,240
+LAB013,PAT013,DOC013,Lipid Profile Panel,2/20/2024,,Sample Collected,,260
+LAB012,PAT012,DOC012,Comprehensive Metabolic Panel,2/17/2024,,In-Progress,,320
+LAB011,PAT011,DOC011,Complete Blood Count (CBC),2/14/2024,,Pending,,180
+LAB010,PAT010,DOC010,Renal Function Urea Creatinine,2/11/2024,2/13/2024,Completed,"Serum creatinine 0.95 mg/dL, eGFR > 90 mL/min - normal.",230
+LAB009,PAT009,DOC009,Liver Function Test Panel,2/8/2024,2/9/2024,Completed,"ALT 24 U/L, AST 22 U/L, Total Bilirubin 0.8 mg/dL - normal.",310
+LAB008,PAT008,DOC008,C-Reactive Protein Quantitative,2/5/2024,2/9/2024,Completed,CRP 4.2 mg/L - mild nonspecific inflammatory elevation.,210
+LAB007,PAT007,DOC007,Urinalysis Complete Microscopy,2/2/2024,,Cancelled,Order cancelled by requesting physician prior to assay.,120
+LAB006,PAT006,DOC006,Cardiac Troponin I Assay,1/30/2024,,Sample Collected,,450
+LAB005,PAT005,DOC005,Thyroid Stimulating Hormone,1/27/2024,,In-Progress,,290
+LAB004,PAT004,DOC004,Hemoglobin A1c (HbA1c),1/24/2024,,Pending,,240
+LAB003,PAT003,DOC003,Lipid Profile Panel,1/21/2024,1/24/2024,Completed,"Total cholesterol 195 mg/dL, LDL 118 mg/dL, HDL 52 mg/dL.",260
+LAB002,PAT002,DOC002,Comprehensive Metabolic Panel,1/18/2024,1/20/2024,Completed,Electrolytes and hepatic enzymes within reference range.,320

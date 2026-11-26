@@ -1,0 +1,9 @@
+DEPARTMENTID,DEPARTMENTNAME,LOCATION,NURSECOUNT
+DEPT01,Cardiology,"Building A, 1st Floor",5
+DEPT02,Emergency Medicine,"Building A, Ground Floor",5
+DEPT04,Orthopedics,"Building B, 1st Floor",4
+DEPT03,Pediatrics,"Building A, 2nd Floor",4
+DEPT08,General Surgery,"Building D, 4th Floor",3
+DEPT05,Neurology,"Building B, 3rd Floor",3
+DEPT06,Oncology,"Building C, 2nd Floor",3
+DEPT07,Radiology,"Building C, Ground Floor",3

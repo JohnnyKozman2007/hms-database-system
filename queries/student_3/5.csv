@@ -1,0 +1,21 @@
+DOCTORID,DOCTORNAME,SPECIALTY,APPOINTMENTCOUNT
+DOC002,Ahmed El-Sayed,Cardiology,47
+DOC003,Mona Hassan,Emergency Medicine,14
+DOC005,Tarek Ibrahim,Orthopedic Surgery,14
+DOC007,Sherif Nabil,Medical Oncology,14
+DOC012,Omar Gamal,Pediatric Cardiology,14
+DOC014,Hassan Zaki,Acute Care,14
+DOC016,Wael Saeed,Sports Medicine,14
+DOC001,Karim Mansour,Interventional Cardiology,13
+DOC004,Heba Abdelrahman,Pediatrics,13
+DOC006,Nadia Kamel,Neurology,13
+DOC008,Dalia Farouk,Diagnostic Radiology,13
+DOC009,Khaled Mostafa,General Surgery,13
+DOC010,Youssef Adel,Clinical Cardiology,13
+DOC011,Salma Fathy,Electrophysiology,13
+DOC013,Rania Samir,Trauma Care,13
+DOC015,Mariam Tawfik,Neonatology,13
+DOC017,Laila Ashraf,Neurophysiology,13
+DOC018,Amr Soliman,Radiation Oncology,13
+DOC019,Nour El-Din,Interventional Radiology,13
+DOC020,Farah Yassin,Laparoscopic Surgery,13
