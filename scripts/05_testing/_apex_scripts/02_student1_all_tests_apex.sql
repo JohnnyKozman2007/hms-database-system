@@ -37,7 +37,7 @@ BEGIN
     FROM vw_department_staff_summary WHERE DepartmentID = 'DEPT01';
 
     INSERT INTO Doctor (DoctorID, FirstName, LastName, Gender, Phone, PhoneType, Email, Specialty, HireDate, YearsOfExperience, DepartmentID)
-    VALUES ('DOC_VW1', 'Youssef', 'Adel', 'Male', '01099887701', 'Mobile', 'youssef.adel@hms.org', 'Cardiology', DATE '2018-01-10', 8, 'DEPT01');
+    VALUES ('DOC_VW1', 'Youssef', 'Adel', 'Male', '01099887701', 'Mobile', 'youssef.vw1@hms.org', 'Cardiology', DATE '2018-01-10', 8, 'DEPT01');
 
     INSERT INTO Nurse (NurseID, FirstName, LastName, Gender, Phone, PhoneType, Email, Shift, HireDate, YearsOfExperience, DepartmentID)
     VALUES ('NRS_VW1', 'Salma', 'Nader', 'Female', '01199887701', 'Mobile', 'salma.nader@hms.org', 'Morning', DATE '2020-03-15', 6, 'DEPT01');
@@ -90,9 +90,10 @@ VALUES ('DEPT_T5', 'Dup Phone Dept', 'Building A', '1st Floor', '0227951001', 'L
 -- Expected: ORA-00001: unique constraint (UQ_DEPT_PHONE) violated.
 
 -- [11] student_1\02_department\negative\08_invalid_phonetype
--- [NEGATIVE] Invalid PhoneType on UPDATE (chk_dept_phone_type)
+-- [NEGATIVE] Invalid PhoneType on UPDATE (chk_dept_phone_type / chk_dept_phone)
 UPDATE Department SET PhoneType = 'Fax' WHERE DepartmentID = 'DEPT01';
--- Expected: ORA-02290: check constraint (CHK_DEPT_PHONE_TYPE) violated.
+-- Expected: ORA-02290: check constraint (CHK_DEPT_PHONE_TYPE / CHK_DEPT_PHONE) violated.
+-- Note: Oracle does not guarantee evaluation order between two overlapping CHECK constraints.
 
 -- [12] student_1\02_department\negative\09_invalid_phone_format
 -- [NEGATIVE] Invalid Phone format on UPDATE (chk_dept_phone)

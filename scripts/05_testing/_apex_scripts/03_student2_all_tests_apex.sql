@@ -187,10 +187,11 @@ VALUES ('RM994', '994', 'Building A', '6th Floor', 'Private', 1, 1800.00);
 -- Expected / Actual (Screenshot): ORA-02290: check constraint (CHK_ROOM_FLOOR) violated.
 
 -- [24] student_2\03_room\negative\05_invalid_room_type
--- [NEGATIVE - Mohamed] Invalid RoomType (chk_room_type_cap / chk_room_type)
+-- [NEGATIVE - Mohamed] Invalid RoomType (chk_room_type / chk_room_type_cap)
 INSERT INTO Room (RoomID, RoomNumber, Building, Floor, RoomType, Capacity, DailyCharge)
 VALUES ('RM999', '999', 'Building A', 'Ground Floor', 'VIP Suite', 1, 3000.00);
--- Expected / Actual (Screenshot): ORA-02290: check constraint (CHK_ROOM_TYPE_CAP) violated.
+-- Expected / Actual (Screenshot): ORA-02290: check constraint (CHK_ROOM_TYPE / CHK_ROOM_TYPE_CAP) violated.
+-- Note: Oracle does not guarantee evaluation order between two overlapping CHECK constraints.
 
 -- [25] student_2\03_room\negative\06_private_room_capacity_2
 -- [NEGATIVE - Mohamed] Private room with Capacity = 2 (chk_room_type_cap)
@@ -317,9 +318,10 @@ VALUES ('ADM995', 'PAT020', 'RM010', 'Bad');
 -- Expected / Actual (Screenshot): ORA-02290: check constraint (CHK_ADM_REASON_LEN) violated.
 
 -- [42] student_2\04_admission\negative\10_invalid_admission_status
--- [NEGATIVE] Invalid AdmissionStatus on UPDATE (chk_adm_status)
+-- [NEGATIVE] Invalid AdmissionStatus on UPDATE (chk_adm_status / chk_adm_status_sync)
 UPDATE Admission SET AdmissionStatus = 'Pending' WHERE AdmissionID = 'ADM001';
--- Expected: ORA-02290: check constraint (CHK_ADM_STATUS) violated.
+-- Expected: ORA-02290: check constraint (CHK_ADM_STATUS / CHK_ADM_STATUS_SYNC) violated.
+-- Note: Oracle does not guarantee evaluation order between two overlapping CHECK constraints.
 
 -- [43] student_2\04_admission\positive\01_min_boundaries
 -- Expected: 1 row inserted.
