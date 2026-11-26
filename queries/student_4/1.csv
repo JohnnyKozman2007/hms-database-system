@@ -1,0 +1,51 @@
+MEDICATIONID,MEDICATIONNAME,MANUFACTURER,CATEGORY,DOSAGEFORM,UNITPRICE,QUANTITYINSTOCK,IMPORTDATE,EXPIRATIONDATE,SUPPLIERID
+MED001,Amoxicillin 500mg,Pharco Pharma,Antibiotic,Capsule,45,0,11/22/2026,11/21/2028,SUP001
+MED002,Paracetamol 500mg,EIPICO Labs,Analgesic,Tablet,18.5,602,10/18/2026,6/5/2027,SUP003
+MED003,Ibuprofen 400mg,Eva Pharma,Antipyretic,Tablet,26,838,10/13/2026,6/20/2027,SUP004
+MED004,Amlodipine 5mg,Amoun Pharma,Antihypertensive,Tablet,55,912,10/8/2026,7/5/2027,SUP005
+MED005,Metformin 850mg,Hikma Pharma,Antidiabetic,Tablet,38,951,10/3/2026,7/20/2027,SUP006
+MED006,Enoxaparin 40mg,Sanofi Egypt,Anticoagulant,Injection,210,1022,9/28/2026,8/4/2027,SUP007
+MED007,Cetirizine 10mg,Novartis Cairo,Antihistamine,Tablet,32,1042,9/23/2026,8/19/2027,SUP008
+MED008,Salbutamol Inhaler,GSK Healthcare,Bronchodilator,Inhaler,95,1113,9/18/2026,9/3/2027,SUP009
+MED009,Atorvastatin 20mg,Pfizer Egypt,Statin,Tablet,78,1148,9/13/2026,9/18/2027,SUP010
+MED010,Omeprazole 20mg,AstraZeneca Nile,Gastrointestinal,Capsule,62,1187,9/8/2026,10/3/2027,SUP011
+MED011,Prednisolone 5mg,Sedico Pharma,Corticosteroid,Tablet,29,1260,9/3/2026,10/18/2027,SUP012
+MED012,Sertraline 50mg,Minapharm Bio,Antidepressant,Tablet,115,1294,8/29/2026,11/2/2027,SUP013
+MED013,Oseltamivir 75mg,Rameda Group,Antiviral,Capsule,185,1372,8/24/2026,11/17/2027,SUP014
+MED014,Bisoprolol 5mg,Pharco Pharma,Cardiovascular,Tablet,64,1406,8/19/2026,12/2/2027,SUP001
+MED015,Hydrocortisone 1%,EIPICO Labs,Dermatological,Cream,42,1453,8/14/2026,12/17/2027,SUP002
+MED016,Azithromycin 500mg,Eva Pharma,Antibiotic,Tablet,88,1527,8/9/2026,1/1/2028,SUP003
+MED017,Ceftriaxone 1g Vial,Amoun Pharma,Antibiotic,Injection,125,1537,8/4/2026,1/16/2028,SUP004
+MED018,Diclofenac Sodium,Hikma Pharma,Analgesic,Suppository,48,1610,7/30/2026,1/31/2028,SUP005
+MED019,Losartan 50mg,Sanofi Egypt,Antihypertensive,Tablet,72,1654,7/25/2026,2/15/2028,SUP006
+MED020,Insulin Glargine,Sanofi Egypt,Antidiabetic,Injection,390,1727,7/20/2026,3/1/2028,SUP007
+MED021,Clopidogrel 75mg,Novartis Cairo,Anticoagulant,Tablet,130,1796,7/15/2026,3/16/2028,SUP008
+MED022,Loratadine Syrup,GSK Healthcare,Antihistamine,Syrup,44,1803,7/10/2026,3/31/2028,SUP009
+MED023,Budesonide Inhaler,AstraZeneca Nile,Bronchodilator,Inhaler,240,1880,7/5/2026,4/15/2028,SUP010
+MED024,Rosuvastatin 10mg,Pfizer Egypt,Statin,Tablet,98,1915,6/30/2026,4/30/2028,SUP011
+MED025,Esomeprazole 40mg,AstraZeneca Nile,Gastrointestinal,Capsule,112,1975,6/25/2026,5/15/2028,SUP012
+MED026,Dexamethasone 4mg,Sedico Pharma,Corticosteroid,Injection,36,1996,6/20/2026,5/30/2028,SUP013
+MED027,Escitalopram 10mg,Minapharm Bio,Antidepressant,Tablet,145,2070,6/15/2026,6/14/2028,SUP014
+MED028,Acyclovir 400mg,Rameda Group,Antiviral,Tablet,82,2116,6/10/2026,6/29/2028,SUP015
+MED029,Digoxin 0.25mg,Pharco Pharma,Cardiovascular,Tablet,34,2148,6/5/2026,7/14/2028,SUP001
+MED030,Mupirocin Ointment,EIPICO Labs,Dermatological,Ointment,68,2242,5/31/2026,7/29/2028,SUP003
+MED031,Ciprofloxacin 500mg,Eva Pharma,Antibiotic,Tablet,74,2285,5/26/2026,8/13/2028,SUP004
+MED032,Tramadol Relief 50mg,Amoun Pharma,Analgesic,Capsule,110,2314,5/21/2026,8/28/2028,SUP005
+MED033,Captopril 25mg,Hikma Pharma,Antihypertensive,Tablet,28,2343,5/16/2026,9/12/2028,SUP006
+MED034,Gliclazide 60mg,Sanofi Egypt,Antidiabetic,Tablet,85,2434,5/11/2026,9/27/2028,SUP007
+MED035,Warfarin 5mg,Novartis Cairo,Anticoagulant,Tablet,46,2455,5/6/2026,10/12/2028,SUP008
+MED036,Fexofenadine 120mg,GSK Healthcare,Antihistamine,Tablet,66,2500,5/1/2026,10/27/2028,SUP009
+MED037,Ipratropium Drops,AstraZeneca Nile,Bronchodilator,Drops,79,2591,4/26/2026,11/11/2028,SUP010
+MED038,Simvastatin 20mg,Pfizer Egypt,Statin,Tablet,58,2615,4/21/2026,11/26/2028,SUP011
+MED039,Ondansetron 4mg,Sedico Pharma,Gastrointestinal,Injection,92,2680,4/16/2026,12/11/2028,SUP012
+MED040,Methylprednisolone,Minapharm Bio,Corticosteroid,Injection,165,2723,4/11/2026,12/26/2028,SUP013
+MED041,Fluoxetine 20mg,Rameda Group,Antidepressant,Capsule,89,775,4/6/2026,5/21/2027,SUP014
+MED042,Valacyclovir 500mg,Pharco Pharma,Antiviral,Tablet,195,801,4/1/2026,6/5/2027,SUP001
+MED043,Nitroglycerin Patch,EIPICO Labs,Cardiovascular,Patch,155,868,3/27/2026,6/20/2027,SUP002
+MED044,Ketoconazole Cream,Eva Pharma,Dermatological,Cream,54,912,3/22/2026,7/5/2027,SUP003
+MED045,Metronidazole 500mg,Amoun Pharma,Antibiotic,Suspension,39,968,3/17/2026,7/20/2027,SUP004
+MED046,Vitamin D3 5000IU,Hikma Pharma,Other,Capsule,75,1042,3/12/2026,8/4/2027,SUP005
+MED047,Ferrous Sulfate Tabs,Pharco Pharma,Other,Tablet,31,1086,3/7/2026,8/19/2027,SUP001
+MED048,Calcium Carbonate,Pharco Pharma,Other,Tablet,43,1113,3/2/2026,9/3/2027,SUP001
+MED049,Amoxicillin Susp Old,Pharco Pharma,Antibiotic,Suspension,35,15,6/18/2022,7/19/2024,SUP001
+MED050,Cough Relief Old,Pharco Pharma,Other,Syrup,27,15,6/19/2022,7/20/2024,SUP001

@@ -1,0 +1,301 @@
+PRESCRIPTIONID,PRESCRIPTIONDATE,PRESCRIPTIONTIME,ENDDATE,PATIENTID,PATIENTNAME,DOCTORID,DOCTORNAME,MEDICATIONID,MEDICATIONNAME,DOSAGE,FREQUENCY,DURATION,QUANTITYPRESCRIBED,DISPENSESTATUS,TOTALMEDICATIONCOST
+RX001,11/22/2026,17:26,11/29/2026,PAT001,Ahmed Mansour,DOC002,Ahmed El-Sayed,MED001,Amoxicillin 500mg,500 mg,Three times daily,7,1,Pending,45
+RX300,9/21/2025,12:40,11/20/2025,PAT039,Ashraf Gaber,DOC020,Farah Yassin,MED019,Losartan 50mg,40 mg,After meals,60,5,Cancelled,360
+RX299,9/19/2025,12:20,10/19/2025,PAT038,Amira Soliman,DOC019,Nour El-Din,MED018,Diclofenac Sodium,5 ml,Before meals,30,3,Pending,144
+RX298,9/17/2025,12:00,10/1/2025,PAT037,Walid Farouk,DOC018,Amr Soliman,MED002,Paracetamol 500mg,1 puff,Weekly,14,2,Dispensed,37
+RX297,9/15/2025,11:40,9/25/2025,PAT036,Noha Helmy,DOC017,Laila Ashraf,MED016,Azithromycin 500mg,250 mg,At bedtime,10,1,Dispensed,88
+RX296,9/13/2025,11:20,9/20/2025,PAT035,Tamer Nassar,DOC016,Wael Saeed,MED015,Hydrocortisone 1%,100 mg,As needed (PRN),7,30,Dispensed,1260
+RX295,9/11/2025,11:00,9/16/2025,PAT034,Dina Saeed,DOC015,Mariam Tawfik,MED014,Bisoprolol 5mg,5 mg,Every 12 hours,5,20,Cancelled,1280
+RX294,9/9/2025,10:40,12/8/2025,PAT033,Ramy Ibrahim,DOC014,Hassan Zaki,MED013,Oseltamivir 75mg,20 mg,Every 8 hours,90,14,Pending,2590
+RX293,9/7/2025,10:20,11/6/2025,PAT032,Reem Fawzy,DOC013,Rania Samir,MED012,Sertraline 50mg,10 mg,Every 6 hours,60,10,Dispensed,1150
+RX292,9/5/2025,10:00,10/5/2025,PAT031,Hossam Yassin,DOC012,Omar Gamal,MED011,Prednisolone 5mg,400 mg,Four times daily,30,5,Dispensed,145
+RX291,9/3/2025,09:40,9/17/2025,PAT030,Yasmine Kamel,DOC011,Salma Fathy,MED010,Omeprazole 20mg,500 mg,Three times daily,14,3,Dispensed,186
+RX290,9/1/2025,09:20,9/11/2025,PAT029,Wael Khattab,DOC010,Youssef Adel,MED009,Atorvastatin 20mg,40 mg,Twice daily,10,2,Cancelled,156
+RX289,8/30/2025,09:00,9/6/2025,PAT028,Farah Barakat,DOC009,Khaled Mostafa,MED002,Paracetamol 500mg,5 ml,Once daily,7,1,Pending,18.5
+RX288,8/28/2025,12:40,9/2/2025,PAT027,Amr Zaki,DOC008,Dalia Farouk,MED007,Cetirizine 10mg,1 puff,After meals,5,30,Dispensed,960
+RX287,8/26/2025,12:20,11/24/2025,PAT026,Laila Mansour,DOC007,Sherif Nabil,MED006,Enoxaparin 40mg,250 mg,Before meals,90,20,Dispensed,4200
+RX286,8/24/2025,12:00,10/23/2025,PAT025,Sherif Shawky,DOC006,Nadia Kamel,MED005,Metformin 850mg,100 mg,Weekly,60,14,Dispensed,532
+RX285,8/22/2025,11:40,9/21/2025,PAT024,Nadia Hegazy,DOC005,Tarek Ibrahim,MED004,Amlodipine 5mg,5 mg,At bedtime,30,10,Cancelled,550
+RX284,8/20/2025,11:20,9/3/2025,PAT023,Karim Nabil,DOC004,Heba Abdelrahman,MED003,Ibuprofen 400mg,20 mg,As needed (PRN),14,5,Pending,130
+RX283,8/18/2025,11:00,8/28/2025,PAT022,Rania El-Masry,DOC003,Mona Hassan,MED002,Paracetamol 500mg,10 mg,Every 12 hours,10,3,Dispensed,55.5
+RX282,8/16/2025,10:40,8/23/2025,PAT021,Ibrahim Diab,DOC002,Ahmed El-Sayed,MED048,Calcium Carbonate,400 mg,Every 8 hours,7,2,Dispensed,86
+RX281,8/14/2025,10:20,8/19/2025,PAT020,Dalia Tawfik,DOC001,Karim Mansour,MED047,Ferrous Sulfate Tabs,500 mg,Every 6 hours,5,1,Dispensed,31
+RX280,8/12/2025,10:00,11/10/2025,PAT019,Mostafa Abdelaziz,DOC020,Farah Yassin,MED002,Paracetamol 500mg,40 mg,Four times daily,90,30,Cancelled,555
+RX279,8/10/2025,09:40,10/9/2025,PAT018,Heba Lotfy,DOC019,Nour El-Din,MED045,Metronidazole 500mg,5 ml,Three times daily,60,20,Pending,780
+RX278,8/8/2025,09:20,9/7/2025,PAT017,Ali Refaat,DOC018,Amr Soliman,MED044,Ketoconazole Cream,1 puff,Twice daily,30,14,Dispensed,756
+RX277,8/6/2025,09:00,8/20/2025,PAT016,Mona Mostafa,DOC017,Laila Ashraf,MED043,Nitroglycerin Patch,250 mg,Once daily,14,10,Dispensed,1550
+RX276,8/4/2025,12:40,8/14/2025,PAT100,Samar Shawky,DOC016,Wael Saeed,MED042,Valacyclovir 500mg,100 mg,After meals,10,5,Dispensed,975
+RX275,8/2/2025,12:20,8/9/2025,PAT099,Hany Hegazy,DOC015,Mariam Tawfik,MED041,Fluoxetine 20mg,5 mg,Before meals,7,3,Cancelled,267
+RX274,7/31/2025,12:00,8/5/2025,PAT098,Basma Nabil,DOC014,Hassan Zaki,MED040,Methylprednisolone,20 mg,Weekly,5,2,Pending,330
+RX273,7/29/2025,11:40,10/27/2025,PAT097,Adel El-Masry,DOC013,Rania Samir,MED039,Ondansetron 4mg,10 mg,At bedtime,90,1,Dispensed,92
+RX272,7/27/2025,11:20,9/25/2025,PAT096,Esraa Diab,DOC012,Omar Gamal,MED038,Simvastatin 20mg,400 mg,As needed (PRN),60,30,Dispensed,1740
+RX271,7/25/2025,11:00,8/24/2025,PAT095,Gamal Tawfik,DOC011,Salma Fathy,MED002,Paracetamol 500mg,500 mg,Every 12 hours,30,20,Dispensed,370
+RX270,7/23/2025,10:40,8/6/2025,PAT094,Marwa Abdelaziz,DOC010,Youssef Adel,MED036,Fexofenadine 120mg,40 mg,Every 8 hours,14,14,Cancelled,924
+RX269,7/21/2025,10:20,7/31/2025,PAT093,Nabil Lotfy,DOC009,Khaled Mostafa,MED035,Warfarin 5mg,5 ml,Every 6 hours,10,10,Pending,460
+RX268,7/19/2025,10:00,7/26/2025,PAT092,Hagar Refaat,DOC008,Dalia Farouk,MED034,Gliclazide 60mg,1 puff,Four times daily,7,5,Dispensed,425
+RX267,7/17/2025,09:40,7/22/2025,PAT091,Sameh Mostafa,DOC007,Sherif Nabil,MED033,Captopril 25mg,250 mg,Three times daily,5,3,Dispensed,84
+RX266,7/15/2025,09:20,10/13/2025,PAT090,Eman Hassan,DOC006,Nadia Kamel,MED032,Tramadol Relief 50mg,100 mg,Twice daily,90,2,Dispensed,220
+RX265,7/13/2025,09:00,9/11/2025,PAT089,Ashraf Gaber,DOC005,Tarek Ibrahim,MED031,Ciprofloxacin 500mg,5 mg,Once daily,60,1,Cancelled,74
+RX264,7/11/2025,12:40,8/10/2025,PAT088,Amira Soliman,DOC004,Heba Abdelrahman,MED030,Mupirocin Ointment,20 mg,After meals,30,30,Pending,2040
+RX263,7/9/2025,12:20,7/23/2025,PAT087,Walid Farouk,DOC003,Mona Hassan,MED029,Digoxin 0.25mg,10 mg,Before meals,14,20,Dispensed,680
+RX262,7/7/2025,12:00,7/17/2025,PAT086,Noha Helmy,DOC002,Ahmed El-Sayed,MED002,Paracetamol 500mg,400 mg,Weekly,10,14,Dispensed,259
+RX261,7/5/2025,11:40,7/12/2025,PAT085,Tamer Nassar,DOC001,Karim Mansour,MED027,Escitalopram 10mg,500 mg,At bedtime,7,10,Dispensed,1450
+RX260,7/3/2025,11:20,7/8/2025,PAT084,Dina Saeed,DOC020,Farah Yassin,MED026,Dexamethasone 4mg,40 mg,As needed (PRN),5,5,Cancelled,180
+RX259,7/1/2025,11:00,9/29/2025,PAT083,Ramy Ibrahim,DOC019,Nour El-Din,MED025,Esomeprazole 40mg,5 ml,Every 12 hours,90,3,Pending,336
+RX258,6/29/2025,10:40,8/28/2025,PAT082,Reem Fawzy,DOC018,Amr Soliman,MED024,Rosuvastatin 10mg,1 puff,Every 8 hours,60,2,Dispensed,196
+RX257,6/27/2025,10:20,7/27/2025,PAT081,Hossam Yassin,DOC017,Laila Ashraf,MED023,Budesonide Inhaler,250 mg,Every 6 hours,30,1,Dispensed,240
+RX256,6/25/2025,10:00,7/9/2025,PAT080,Yasmine Kamel,DOC016,Wael Saeed,MED022,Loratadine Syrup,100 mg,Four times daily,14,30,Dispensed,1320
+RX255,6/23/2025,09:40,7/3/2025,PAT079,Wael Khattab,DOC015,Mariam Tawfik,MED021,Clopidogrel 75mg,5 mg,Three times daily,10,20,Cancelled,2600
+RX254,6/21/2025,09:20,6/28/2025,PAT078,Farah Barakat,DOC014,Hassan Zaki,MED020,Insulin Glargine,20 mg,Twice daily,7,14,Pending,5460
+RX253,6/19/2025,09:00,6/24/2025,PAT077,Amr Zaki,DOC013,Rania Samir,MED002,Paracetamol 500mg,10 mg,Once daily,5,10,Dispensed,185
+RX252,6/17/2025,12:40,9/15/2025,PAT076,Laila Mansour,DOC012,Omar Gamal,MED018,Diclofenac Sodium,400 mg,After meals,90,5,Dispensed,240
+RX251,6/15/2025,12:20,8/14/2025,PAT075,Sherif Shawky,DOC011,Salma Fathy,MED017,Ceftriaxone 1g Vial,500 mg,Before meals,60,3,Dispensed,375
+RX250,6/13/2025,12:00,7/13/2025,PAT074,Nadia Hegazy,DOC010,Youssef Adel,MED016,Azithromycin 500mg,40 mg,Weekly,30,2,Cancelled,176
+RX249,6/11/2025,11:40,6/25/2025,PAT073,Karim Nabil,DOC009,Khaled Mostafa,MED015,Hydrocortisone 1%,5 ml,At bedtime,14,1,Pending,42
+RX248,6/9/2025,11:20,6/19/2025,PAT072,Rania El-Masry,DOC008,Dalia Farouk,MED014,Bisoprolol 5mg,1 puff,As needed (PRN),10,30,Dispensed,1920
+RX247,6/7/2025,11:00,6/14/2025,PAT071,Ibrahim Diab,DOC007,Sherif Nabil,MED013,Oseltamivir 75mg,250 mg,Every 12 hours,7,20,Dispensed,3700
+RX246,6/5/2025,10:40,6/10/2025,PAT070,Dalia Tawfik,DOC006,Nadia Kamel,MED012,Sertraline 50mg,100 mg,Every 8 hours,5,14,Dispensed,1610
+RX245,6/3/2025,10:20,9/1/2025,PAT069,Mostafa Abdelaziz,DOC005,Tarek Ibrahim,MED011,Prednisolone 5mg,5 mg,Every 6 hours,90,10,Cancelled,290
+RX244,6/1/2025,10:00,7/31/2025,PAT068,Heba Lotfy,DOC004,Heba Abdelrahman,MED002,Paracetamol 500mg,20 mg,Four times daily,60,5,Pending,92.5
+RX243,5/30/2025,09:40,6/29/2025,PAT067,Ali Refaat,DOC003,Mona Hassan,MED009,Atorvastatin 20mg,10 mg,Three times daily,30,3,Dispensed,234
+RX242,5/28/2025,09:20,6/11/2025,PAT066,Mona Mostafa,DOC002,Ahmed El-Sayed,MED008,Salbutamol Inhaler,400 mg,Twice daily,14,2,Dispensed,190
+RX241,5/26/2025,09:00,6/5/2025,PAT065,Hassan Hassan,DOC001,Karim Mansour,MED007,Cetirizine 10mg,500 mg,Once daily,10,1,Dispensed,32
+RX240,5/24/2025,12:40,5/31/2025,PAT064,Hana Gaber,DOC020,Farah Yassin,MED006,Enoxaparin 40mg,40 mg,After meals,7,30,Cancelled,6300
+RX239,5/22/2025,12:20,5/27/2025,PAT063,Tarek Soliman,DOC019,Nour El-Din,MED005,Metformin 850mg,5 ml,Before meals,5,20,Pending,760
+RX238,5/20/2025,12:00,8/18/2025,PAT062,Salma Farouk,DOC018,Amr Soliman,MED004,Amlodipine 5mg,1 puff,Weekly,90,14,Dispensed,770
+RX237,5/18/2025,11:40,7/17/2025,PAT061,Khaled Helmy,DOC017,Laila Ashraf,MED003,Ibuprofen 400mg,250 mg,At bedtime,60,10,Dispensed,260
+RX236,5/16/2025,11:20,6/15/2025,PAT060,Nour Nassar,DOC016,Wael Saeed,MED002,Paracetamol 500mg,100 mg,As needed (PRN),30,5,Dispensed,92.5
+RX235,5/14/2025,11:00,5/28/2025,PAT059,Omar Saeed,DOC015,Mariam Tawfik,MED002,Paracetamol 500mg,5 mg,Every 12 hours,14,3,Cancelled,55.5
+RX234,5/12/2025,10:40,5/22/2025,PAT058,Sara Ibrahim,DOC014,Hassan Zaki,MED047,Ferrous Sulfate Tabs,20 mg,Every 8 hours,10,2,Pending,62
+RX233,5/10/2025,10:20,5/17/2025,PAT057,Youssef Fawzy,DOC013,Rania Samir,MED046,Vitamin D3 5000IU,10 mg,Every 6 hours,7,1,Dispensed,75
+RX232,5/8/2025,10:00,5/13/2025,PAT056,Mariam Yassin,DOC012,Omar Gamal,MED045,Metronidazole 500mg,400 mg,Four times daily,5,30,Dispensed,1170
+RX231,5/6/2025,09:40,8/4/2025,PAT055,Mahmoud Kamel,DOC011,Salma Fathy,MED044,Ketoconazole Cream,500 mg,Three times daily,90,20,Dispensed,1080
+RX230,5/4/2025,09:20,7/3/2025,PAT054,Aya Khattab,DOC010,Youssef Adel,MED043,Nitroglycerin Patch,40 mg,Twice daily,60,14,Cancelled,2170
+RX229,5/2/2025,09:00,6/1/2025,PAT053,Mohamed Barakat,DOC009,Khaled Mostafa,MED042,Valacyclovir 500mg,5 ml,Once daily,30,10,Pending,1950
+RX228,4/30/2025,12:40,5/14/2025,PAT052,Fatma Zaki,DOC008,Dalia Farouk,MED041,Fluoxetine 20mg,1 puff,After meals,14,5,Dispensed,445
+RX227,4/28/2025,12:20,5/8/2025,PAT051,Ahmed Mansour,DOC007,Sherif Nabil,MED040,Methylprednisolone,250 mg,Before meals,10,3,Dispensed,495
+RX226,4/26/2025,12:00,5/3/2025,PAT050,Samar Shawky,DOC006,Nadia Kamel,MED002,Paracetamol 500mg,100 mg,Weekly,7,2,Dispensed,37
+RX225,4/24/2025,11:40,4/29/2025,PAT049,Hany Hegazy,DOC005,Tarek Ibrahim,MED038,Simvastatin 20mg,5 mg,At bedtime,5,1,Cancelled,58
+RX224,4/22/2025,11:20,7/21/2025,PAT048,Basma Nabil,DOC004,Heba Abdelrahman,MED037,Ipratropium Drops,20 mg,As needed (PRN),90,30,Pending,2370
+RX223,4/20/2025,11:00,6/19/2025,PAT047,Adel El-Masry,DOC003,Mona Hassan,MED036,Fexofenadine 120mg,10 mg,Every 12 hours,60,20,Dispensed,1320
+RX222,4/18/2025,10:40,5/18/2025,PAT046,Esraa Diab,DOC002,Ahmed El-Sayed,MED035,Warfarin 5mg,400 mg,Every 8 hours,30,14,Dispensed,644
+RX221,4/16/2025,10:20,4/30/2025,PAT045,Gamal Tawfik,DOC001,Karim Mansour,MED034,Gliclazide 60mg,500 mg,Every 6 hours,14,10,Dispensed,850
+RX220,4/14/2025,10:00,4/24/2025,PAT044,Marwa Abdelaziz,DOC020,Farah Yassin,MED033,Captopril 25mg,40 mg,Four times daily,10,5,Cancelled,140
+RX219,4/12/2025,09:40,4/19/2025,PAT043,Nabil Lotfy,DOC019,Nour El-Din,MED032,Tramadol Relief 50mg,5 ml,Three times daily,7,3,Pending,330
+RX218,4/10/2025,09:20,4/15/2025,PAT042,Hagar Refaat,DOC018,Amr Soliman,MED031,Ciprofloxacin 500mg,1 puff,Twice daily,5,2,Dispensed,148
+RX217,4/8/2025,09:00,7/7/2025,PAT041,Sameh Mostafa,DOC017,Laila Ashraf,MED002,Paracetamol 500mg,250 mg,Once daily,90,1,Dispensed,18.5
+RX216,4/6/2025,12:40,6/5/2025,PAT040,Eman Hassan,DOC016,Wael Saeed,MED029,Digoxin 0.25mg,100 mg,After meals,60,30,Dispensed,1020
+RX215,4/4/2025,12:20,5/4/2025,PAT039,Ashraf Gaber,DOC015,Mariam Tawfik,MED028,Acyclovir 400mg,5 mg,Before meals,30,20,Cancelled,1640
+RX214,4/2/2025,12:00,4/16/2025,PAT038,Amira Soliman,DOC014,Hassan Zaki,MED027,Escitalopram 10mg,20 mg,Weekly,14,14,Pending,2030
+RX213,3/31/2025,11:40,4/10/2025,PAT037,Walid Farouk,DOC013,Rania Samir,MED026,Dexamethasone 4mg,10 mg,At bedtime,10,10,Dispensed,360
+RX212,3/29/2025,11:20,4/5/2025,PAT036,Noha Helmy,DOC012,Omar Gamal,MED025,Esomeprazole 40mg,400 mg,As needed (PRN),7,5,Dispensed,560
+RX211,3/27/2025,11:00,4/1/2025,PAT035,Tamer Nassar,DOC011,Salma Fathy,MED024,Rosuvastatin 10mg,500 mg,Every 12 hours,5,3,Dispensed,294
+RX210,3/25/2025,10:40,6/23/2025,PAT034,Dina Saeed,DOC010,Youssef Adel,MED023,Budesonide Inhaler,40 mg,Every 8 hours,90,2,Cancelled,480
+RX209,3/23/2025,10:20,5/22/2025,PAT033,Ramy Ibrahim,DOC009,Khaled Mostafa,MED022,Loratadine Syrup,5 ml,Every 6 hours,60,1,Pending,44
+RX208,3/21/2025,10:00,4/20/2025,PAT032,Reem Fawzy,DOC008,Dalia Farouk,MED002,Paracetamol 500mg,1 puff,Four times daily,30,30,Dispensed,555
+RX207,3/19/2025,09:40,4/2/2025,PAT031,Hossam Yassin,DOC007,Sherif Nabil,MED020,Insulin Glargine,250 mg,Three times daily,14,20,Dispensed,7800
+RX206,3/17/2025,09:20,3/27/2025,PAT030,Yasmine Kamel,DOC006,Nadia Kamel,MED019,Losartan 50mg,100 mg,Twice daily,10,14,Dispensed,1008
+RX205,3/15/2025,09:00,3/22/2025,PAT029,Wael Khattab,DOC005,Tarek Ibrahim,MED018,Diclofenac Sodium,5 mg,Once daily,7,10,Cancelled,480
+RX204,3/13/2025,12:40,3/18/2025,PAT028,Farah Barakat,DOC004,Heba Abdelrahman,MED017,Ceftriaxone 1g Vial,20 mg,After meals,5,5,Pending,625
+RX203,3/11/2025,12:20,6/9/2025,PAT027,Amr Zaki,DOC003,Mona Hassan,MED016,Azithromycin 500mg,10 mg,Before meals,90,3,Dispensed,264
+RX202,3/9/2025,12:00,5/8/2025,PAT026,Laila Mansour,DOC002,Ahmed El-Sayed,MED015,Hydrocortisone 1%,400 mg,Weekly,60,2,Dispensed,84
+RX201,3/7/2025,11:40,4/6/2025,PAT025,Sherif Shawky,DOC001,Karim Mansour,MED014,Bisoprolol 5mg,500 mg,At bedtime,30,1,Dispensed,64
+RX200,3/5/2025,11:20,3/19/2025,PAT024,Nadia Hegazy,DOC020,Farah Yassin,MED013,Oseltamivir 75mg,40 mg,As needed (PRN),14,30,Cancelled,5550
+RX199,3/3/2025,11:00,3/13/2025,PAT023,Karim Nabil,DOC019,Nour El-Din,MED002,Paracetamol 500mg,5 ml,Every 12 hours,10,20,Pending,370
+RX198,3/1/2025,10:40,3/8/2025,PAT022,Rania El-Masry,DOC018,Amr Soliman,MED011,Prednisolone 5mg,1 puff,Every 8 hours,7,14,Dispensed,406
+RX197,2/27/2025,10:20,3/4/2025,PAT021,Ibrahim Diab,DOC017,Laila Ashraf,MED010,Omeprazole 20mg,250 mg,Every 6 hours,5,10,Dispensed,620
+RX196,2/25/2025,10:00,5/26/2025,PAT020,Dalia Tawfik,DOC016,Wael Saeed,MED009,Atorvastatin 20mg,100 mg,Four times daily,90,5,Dispensed,390
+RX195,2/23/2025,09:40,4/24/2025,PAT019,Mostafa Abdelaziz,DOC015,Mariam Tawfik,MED008,Salbutamol Inhaler,5 mg,Three times daily,60,3,Cancelled,285
+RX194,2/21/2025,09:20,3/23/2025,PAT018,Heba Lotfy,DOC014,Hassan Zaki,MED007,Cetirizine 10mg,20 mg,Twice daily,30,2,Pending,64
+RX193,2/19/2025,09:00,3/5/2025,PAT017,Ali Refaat,DOC013,Rania Samir,MED006,Enoxaparin 40mg,10 mg,Once daily,14,1,Dispensed,210
+RX192,2/17/2025,12:40,2/27/2025,PAT016,Mona Mostafa,DOC012,Omar Gamal,MED005,Metformin 850mg,400 mg,After meals,10,30,Dispensed,1140
+RX191,2/15/2025,12:20,2/22/2025,PAT100,Samar Shawky,DOC011,Salma Fathy,MED004,Amlodipine 5mg,500 mg,Before meals,7,20,Dispensed,1100
+RX190,2/13/2025,12:00,2/18/2025,PAT099,Hany Hegazy,DOC010,Youssef Adel,MED002,Paracetamol 500mg,40 mg,Weekly,5,14,Cancelled,259
+RX189,2/11/2025,11:40,5/12/2025,PAT098,Basma Nabil,DOC009,Khaled Mostafa,MED002,Paracetamol 500mg,5 ml,At bedtime,90,10,Pending,185
+RX188,2/9/2025,11:20,4/10/2025,PAT097,Adel El-Masry,DOC008,Dalia Farouk,MED048,Calcium Carbonate,1 puff,As needed (PRN),60,5,Dispensed,215
+RX187,2/7/2025,11:00,3/9/2025,PAT096,Esraa Diab,DOC007,Sherif Nabil,MED047,Ferrous Sulfate Tabs,250 mg,Every 12 hours,30,3,Dispensed,93
+RX186,2/5/2025,10:40,2/19/2025,PAT095,Gamal Tawfik,DOC006,Nadia Kamel,MED046,Vitamin D3 5000IU,100 mg,Every 8 hours,14,2,Dispensed,150
+RX185,2/3/2025,10:20,2/13/2025,PAT094,Marwa Abdelaziz,DOC005,Tarek Ibrahim,MED045,Metronidazole 500mg,5 mg,Every 6 hours,10,1,Cancelled,39
+RX184,2/1/2025,10:00,2/8/2025,PAT093,Nabil Lotfy,DOC004,Heba Abdelrahman,MED044,Ketoconazole Cream,20 mg,Four times daily,7,30,Pending,1620
+RX183,1/30/2025,09:40,2/4/2025,PAT092,Hagar Refaat,DOC003,Mona Hassan,MED043,Nitroglycerin Patch,10 mg,Three times daily,5,20,Dispensed,3100
+RX182,1/28/2025,09:20,4/28/2025,PAT091,Sameh Mostafa,DOC002,Ahmed El-Sayed,MED042,Valacyclovir 500mg,400 mg,Twice daily,90,14,Dispensed,2730
+RX181,1/26/2025,09:00,3/27/2025,PAT090,Eman Hassan,DOC001,Karim Mansour,MED002,Paracetamol 500mg,500 mg,Once daily,60,10,Dispensed,185
+RX180,1/24/2025,12:40,2/23/2025,PAT089,Ashraf Gaber,DOC020,Farah Yassin,MED040,Methylprednisolone,40 mg,After meals,30,5,Cancelled,825
+RX179,1/22/2025,12:20,2/5/2025,PAT088,Amira Soliman,DOC019,Nour El-Din,MED039,Ondansetron 4mg,5 ml,Before meals,14,3,Pending,276
+RX178,1/20/2025,12:00,1/30/2025,PAT087,Walid Farouk,DOC018,Amr Soliman,MED038,Simvastatin 20mg,1 puff,Weekly,10,2,Dispensed,116
+RX177,1/18/2025,11:40,1/25/2025,PAT086,Noha Helmy,DOC017,Laila Ashraf,MED037,Ipratropium Drops,250 mg,At bedtime,7,1,Dispensed,79
+RX176,1/16/2025,11:20,1/21/2025,PAT085,Tamer Nassar,DOC016,Wael Saeed,MED036,Fexofenadine 120mg,100 mg,As needed (PRN),5,30,Dispensed,1980
+RX175,1/14/2025,11:00,4/14/2025,PAT084,Dina Saeed,DOC015,Mariam Tawfik,MED035,Warfarin 5mg,5 mg,Every 12 hours,90,20,Cancelled,920
+RX174,1/12/2025,10:40,3/13/2025,PAT083,Ramy Ibrahim,DOC014,Hassan Zaki,MED034,Gliclazide 60mg,20 mg,Every 8 hours,60,14,Pending,1190
+RX173,1/10/2025,10:20,2/9/2025,PAT082,Reem Fawzy,DOC013,Rania Samir,MED033,Captopril 25mg,10 mg,Every 6 hours,30,10,Dispensed,280
+RX172,1/8/2025,10:00,1/22/2025,PAT081,Hossam Yassin,DOC012,Omar Gamal,MED002,Paracetamol 500mg,400 mg,Four times daily,14,5,Dispensed,92.5
+RX171,1/6/2025,09:40,1/16/2025,PAT080,Yasmine Kamel,DOC011,Salma Fathy,MED031,Ciprofloxacin 500mg,500 mg,Three times daily,10,3,Dispensed,222
+RX170,1/4/2025,09:20,1/11/2025,PAT079,Wael Khattab,DOC010,Youssef Adel,MED030,Mupirocin Ointment,40 mg,Twice daily,7,2,Cancelled,136
+RX169,1/2/2025,09:00,1/7/2025,PAT078,Farah Barakat,DOC009,Khaled Mostafa,MED029,Digoxin 0.25mg,5 ml,Once daily,5,1,Pending,34
+RX168,12/31/2024,12:40,3/31/2025,PAT077,Amr Zaki,DOC008,Dalia Farouk,MED028,Acyclovir 400mg,1 puff,After meals,90,30,Dispensed,2460
+RX167,12/29/2024,12:20,2/27/2025,PAT076,Laila Mansour,DOC007,Sherif Nabil,MED027,Escitalopram 10mg,250 mg,Before meals,60,20,Dispensed,2900
+RX166,12/27/2024,12:00,1/26/2025,PAT075,Sherif Shawky,DOC006,Nadia Kamel,MED026,Dexamethasone 4mg,100 mg,Weekly,30,14,Dispensed,504
+RX165,12/25/2024,11:40,1/8/2025,PAT074,Nadia Hegazy,DOC005,Tarek Ibrahim,MED025,Esomeprazole 40mg,5 mg,At bedtime,14,10,Cancelled,1120
+RX164,12/23/2024,11:20,1/2/2025,PAT073,Karim Nabil,DOC004,Heba Abdelrahman,MED024,Rosuvastatin 10mg,20 mg,As needed (PRN),10,5,Pending,490
+RX163,12/21/2024,11:00,12/28/2024,PAT072,Rania El-Masry,DOC003,Mona Hassan,MED002,Paracetamol 500mg,10 mg,Every 12 hours,7,3,Dispensed,55.5
+RX162,12/19/2024,10:40,12/24/2024,PAT071,Ibrahim Diab,DOC002,Ahmed El-Sayed,MED022,Loratadine Syrup,400 mg,Every 8 hours,5,2,Dispensed,88
+RX161,12/17/2024,10:20,3/17/2025,PAT070,Dalia Tawfik,DOC001,Karim Mansour,MED021,Clopidogrel 75mg,500 mg,Every 6 hours,90,1,Dispensed,130
+RX160,12/15/2024,10:00,2/13/2025,PAT069,Mostafa Abdelaziz,DOC020,Farah Yassin,MED020,Insulin Glargine,40 mg,Four times daily,60,30,Cancelled,11700
+RX159,12/13/2024,09:40,1/12/2025,PAT068,Heba Lotfy,DOC019,Nour El-Din,MED019,Losartan 50mg,5 ml,Three times daily,30,20,Pending,1440
+RX158,12/11/2024,09:20,12/25/2024,PAT067,Ali Refaat,DOC018,Amr Soliman,MED018,Diclofenac Sodium,1 puff,Twice daily,14,14,Dispensed,672
+RX157,12/9/2024,09:00,12/19/2024,PAT066,Mona Mostafa,DOC017,Laila Ashraf,MED017,Ceftriaxone 1g Vial,250 mg,Once daily,10,10,Dispensed,1250
+RX156,12/7/2024,12:40,12/14/2024,PAT065,Hassan Hassan,DOC016,Wael Saeed,MED016,Azithromycin 500mg,100 mg,After meals,7,5,Dispensed,440
+RX155,12/5/2024,12:20,12/10/2024,PAT064,Hana Gaber,DOC015,Mariam Tawfik,MED015,Hydrocortisone 1%,5 mg,Before meals,5,3,Cancelled,126
+RX154,12/3/2024,12:00,3/3/2025,PAT063,Tarek Soliman,DOC014,Hassan Zaki,MED002,Paracetamol 500mg,20 mg,Weekly,90,2,Pending,37
+RX153,12/1/2024,11:40,1/30/2025,PAT062,Salma Farouk,DOC013,Rania Samir,MED013,Oseltamivir 75mg,10 mg,At bedtime,60,1,Dispensed,185
+RX152,11/29/2024,11:20,12/29/2024,PAT061,Khaled Helmy,DOC012,Omar Gamal,MED012,Sertraline 50mg,400 mg,As needed (PRN),30,30,Dispensed,3450
+RX151,11/27/2024,11:00,12/11/2024,PAT060,Nour Nassar,DOC011,Salma Fathy,MED011,Prednisolone 5mg,500 mg,Every 12 hours,14,20,Dispensed,580
+RX150,11/25/2024,10:40,12/5/2024,PAT059,Omar Saeed,DOC010,Youssef Adel,MED010,Omeprazole 20mg,40 mg,Every 8 hours,10,14,Cancelled,868
+RX149,11/23/2024,10:20,11/30/2024,PAT058,Sara Ibrahim,DOC009,Khaled Mostafa,MED009,Atorvastatin 20mg,5 ml,Every 6 hours,7,10,Pending,780
+RX148,11/21/2024,10:00,11/26/2024,PAT057,Youssef Fawzy,DOC008,Dalia Farouk,MED008,Salbutamol Inhaler,1 puff,Four times daily,5,5,Dispensed,475
+RX147,11/19/2024,09:40,2/17/2025,PAT056,Mariam Yassin,DOC007,Sherif Nabil,MED007,Cetirizine 10mg,250 mg,Three times daily,90,3,Dispensed,96
+RX146,11/17/2024,09:20,1/16/2025,PAT055,Mahmoud Kamel,DOC006,Nadia Kamel,MED006,Enoxaparin 40mg,100 mg,Twice daily,60,2,Dispensed,420
+RX145,11/15/2024,09:00,12/15/2024,PAT054,Aya Khattab,DOC005,Tarek Ibrahim,MED002,Paracetamol 500mg,5 mg,Once daily,30,1,Cancelled,18.5
+RX144,11/13/2024,12:40,11/27/2024,PAT053,Mohamed Barakat,DOC004,Heba Abdelrahman,MED004,Amlodipine 5mg,20 mg,After meals,14,30,Pending,1650
+RX143,11/11/2024,12:20,11/21/2024,PAT052,Fatma Zaki,DOC003,Mona Hassan,MED003,Ibuprofen 400mg,10 mg,Before meals,10,20,Dispensed,520
+RX142,11/9/2024,12:00,11/16/2024,PAT051,Ahmed Mansour,DOC002,Ahmed El-Sayed,MED002,Paracetamol 500mg,400 mg,Weekly,7,14,Dispensed,259
+RX141,11/7/2024,11:40,11/12/2024,PAT050,Samar Shawky,DOC001,Karim Mansour,MED048,Calcium Carbonate,500 mg,At bedtime,5,10,Dispensed,430
+RX140,11/5/2024,11:20,2/3/2025,PAT049,Hany Hegazy,DOC020,Farah Yassin,MED047,Ferrous Sulfate Tabs,40 mg,As needed (PRN),90,5,Cancelled,155
+RX139,11/3/2024,11:00,1/2/2025,PAT048,Basma Nabil,DOC019,Nour El-Din,MED046,Vitamin D3 5000IU,5 ml,Every 12 hours,60,3,Pending,225
+RX138,11/1/2024,10:40,12/1/2024,PAT047,Adel El-Masry,DOC018,Amr Soliman,MED045,Metronidazole 500mg,1 puff,Every 8 hours,30,2,Dispensed,78
+RX137,10/30/2024,10:20,11/13/2024,PAT046,Esraa Diab,DOC017,Laila Ashraf,MED044,Ketoconazole Cream,250 mg,Every 6 hours,14,1,Dispensed,54
+RX136,10/28/2024,10:00,11/7/2024,PAT045,Gamal Tawfik,DOC016,Wael Saeed,MED002,Paracetamol 500mg,100 mg,Four times daily,10,30,Dispensed,555
+RX135,10/26/2024,09:40,11/2/2024,PAT044,Marwa Abdelaziz,DOC015,Mariam Tawfik,MED042,Valacyclovir 500mg,5 mg,Three times daily,7,20,Cancelled,3900
+RX134,10/24/2024,09:20,10/29/2024,PAT043,Nabil Lotfy,DOC014,Hassan Zaki,MED041,Fluoxetine 20mg,20 mg,Twice daily,5,14,Pending,1246
+RX133,10/22/2024,09:00,1/20/2025,PAT042,Hagar Refaat,DOC013,Rania Samir,MED040,Methylprednisolone,10 mg,Once daily,90,10,Dispensed,1650
+RX132,10/20/2024,12:40,12/19/2024,PAT041,Sameh Mostafa,DOC012,Omar Gamal,MED039,Ondansetron 4mg,400 mg,After meals,60,5,Dispensed,460
+RX131,10/18/2024,12:20,11/17/2024,PAT040,Eman Hassan,DOC011,Salma Fathy,MED038,Simvastatin 20mg,500 mg,Before meals,30,3,Dispensed,174
+RX130,10/16/2024,12:00,10/30/2024,PAT039,Ashraf Gaber,DOC010,Youssef Adel,MED037,Ipratropium Drops,40 mg,Weekly,14,2,Cancelled,158
+RX129,10/14/2024,11:40,10/24/2024,PAT038,Amira Soliman,DOC009,Khaled Mostafa,MED036,Fexofenadine 120mg,5 ml,At bedtime,10,1,Pending,66
+RX128,10/12/2024,11:20,10/19/2024,PAT037,Walid Farouk,DOC008,Dalia Farouk,MED035,Warfarin 5mg,1 puff,As needed (PRN),7,30,Dispensed,1380
+RX127,10/10/2024,11:00,10/15/2024,PAT036,Noha Helmy,DOC007,Sherif Nabil,MED002,Paracetamol 500mg,250 mg,Every 12 hours,5,20,Dispensed,370
+RX126,10/8/2024,10:40,1/6/2025,PAT035,Tamer Nassar,DOC006,Nadia Kamel,MED033,Captopril 25mg,100 mg,Every 8 hours,90,14,Dispensed,392
+RX125,10/6/2024,10:20,12/5/2024,PAT034,Dina Saeed,DOC005,Tarek Ibrahim,MED032,Tramadol Relief 50mg,5 mg,Every 6 hours,60,10,Cancelled,1100
+RX124,10/4/2024,10:00,11/3/2024,PAT033,Ramy Ibrahim,DOC004,Heba Abdelrahman,MED031,Ciprofloxacin 500mg,20 mg,Four times daily,30,5,Pending,370
+RX123,10/2/2024,09:40,10/16/2024,PAT032,Reem Fawzy,DOC003,Mona Hassan,MED030,Mupirocin Ointment,10 mg,Three times daily,14,3,Dispensed,204
+RX122,9/30/2024,09:20,10/10/2024,PAT031,Hossam Yassin,DOC002,Ahmed El-Sayed,MED029,Digoxin 0.25mg,400 mg,Twice daily,10,2,Dispensed,68
+RX121,9/28/2024,09:00,10/5/2024,PAT030,Yasmine Kamel,DOC001,Karim Mansour,MED028,Acyclovir 400mg,500 mg,Once daily,7,1,Dispensed,82
+RX120,9/26/2024,12:40,10/1/2024,PAT029,Wael Khattab,DOC020,Farah Yassin,MED027,Escitalopram 10mg,40 mg,After meals,5,30,Cancelled,4350
+RX119,9/24/2024,12:20,12/23/2024,PAT028,Farah Barakat,DOC019,Nour El-Din,MED026,Dexamethasone 4mg,5 ml,Before meals,90,20,Pending,720
+RX118,9/22/2024,12:00,11/21/2024,PAT027,Amr Zaki,DOC018,Amr Soliman,MED002,Paracetamol 500mg,1 puff,Weekly,60,14,Dispensed,259
+RX117,9/20/2024,11:40,10/20/2024,PAT026,Laila Mansour,DOC017,Laila Ashraf,MED024,Rosuvastatin 10mg,250 mg,At bedtime,30,10,Dispensed,980
+RX116,9/18/2024,11:20,10/2/2024,PAT025,Sherif Shawky,DOC016,Wael Saeed,MED023,Budesonide Inhaler,100 mg,As needed (PRN),14,5,Dispensed,1200
+RX115,9/16/2024,11:00,9/26/2024,PAT024,Nadia Hegazy,DOC015,Mariam Tawfik,MED022,Loratadine Syrup,5 mg,Every 12 hours,10,3,Cancelled,132
+RX114,9/14/2024,10:40,9/21/2024,PAT023,Karim Nabil,DOC014,Hassan Zaki,MED021,Clopidogrel 75mg,20 mg,Every 8 hours,7,2,Pending,260
+RX113,9/12/2024,10:20,9/17/2024,PAT022,Rania El-Masry,DOC013,Rania Samir,MED020,Insulin Glargine,10 mg,Every 6 hours,5,1,Dispensed,390
+RX112,9/10/2024,10:00,12/9/2024,PAT021,Ibrahim Diab,DOC012,Omar Gamal,MED019,Losartan 50mg,400 mg,Four times daily,90,30,Dispensed,2160
+RX111,9/8/2024,09:40,11/7/2024,PAT020,Dalia Tawfik,DOC011,Salma Fathy,MED018,Diclofenac Sodium,500 mg,Three times daily,60,20,Dispensed,960
+RX110,9/6/2024,09:20,10/6/2024,PAT019,Mostafa Abdelaziz,DOC010,Youssef Adel,MED017,Ceftriaxone 1g Vial,40 mg,Twice daily,30,14,Cancelled,1750
+RX109,9/4/2024,09:00,9/18/2024,PAT018,Heba Lotfy,DOC009,Khaled Mostafa,MED002,Paracetamol 500mg,5 ml,Once daily,14,10,Pending,185
+RX108,9/2/2024,12:40,9/12/2024,PAT017,Ali Refaat,DOC008,Dalia Farouk,MED015,Hydrocortisone 1%,1 puff,After meals,10,5,Dispensed,210
+RX107,8/31/2024,12:20,9/7/2024,PAT016,Mona Mostafa,DOC007,Sherif Nabil,MED014,Bisoprolol 5mg,250 mg,Before meals,7,3,Dispensed,192
+RX106,8/29/2024,12:00,9/3/2024,PAT015,Hassan Hassan,DOC006,Nadia Kamel,MED013,Oseltamivir 75mg,100 mg,Weekly,5,2,Dispensed,370
+RX105,8/27/2024,11:40,11/25/2024,PAT014,Hana Gaber,DOC005,Tarek Ibrahim,MED012,Sertraline 50mg,5 mg,At bedtime,90,1,Cancelled,115
+RX104,8/25/2024,11:20,10/24/2024,PAT013,Tarek Soliman,DOC004,Heba Abdelrahman,MED011,Prednisolone 5mg,20 mg,As needed (PRN),60,30,Pending,870
+RX103,8/23/2024,11:00,9/22/2024,PAT012,Salma Farouk,DOC003,Mona Hassan,MED010,Omeprazole 20mg,10 mg,Every 12 hours,30,20,Dispensed,1240
+RX102,8/21/2024,10:40,9/4/2024,PAT011,Khaled Helmy,DOC002,Ahmed El-Sayed,MED009,Atorvastatin 20mg,400 mg,Every 8 hours,14,14,Dispensed,1092
+RX101,8/19/2024,10:20,8/29/2024,PAT010,Nour Nassar,DOC001,Karim Mansour,MED008,Salbutamol Inhaler,500 mg,Every 6 hours,10,10,Dispensed,950
+RX100,8/17/2024,10:00,8/24/2024,PAT009,Omar Saeed,DOC020,Farah Yassin,MED002,Paracetamol 500mg,40 mg,Four times daily,7,5,Cancelled,92.5
+RX099,8/15/2024,09:40,8/20/2024,PAT008,Sara Ibrahim,DOC019,Nour El-Din,MED006,Enoxaparin 40mg,5 ml,Three times daily,5,3,Pending,630
+RX098,8/13/2024,09:20,11/11/2024,PAT007,Youssef Fawzy,DOC018,Amr Soliman,MED005,Metformin 850mg,1 puff,Twice daily,90,2,Dispensed,76
+RX097,8/11/2024,09:00,10/10/2024,PAT006,Mariam Yassin,DOC017,Laila Ashraf,MED004,Amlodipine 5mg,250 mg,Once daily,60,1,Dispensed,55
+RX096,8/9/2024,12:40,9/8/2024,PAT005,Mahmoud Kamel,DOC016,Wael Saeed,MED003,Ibuprofen 400mg,100 mg,After meals,30,30,Dispensed,780
+RX095,8/7/2024,12:20,8/21/2024,PAT004,Aya Khattab,DOC015,Mariam Tawfik,MED002,Paracetamol 500mg,5 mg,Before meals,14,20,Cancelled,370
+RX094,8/5/2024,12:00,8/15/2024,PAT003,Mohamed Barakat,DOC014,Hassan Zaki,MED048,Calcium Carbonate,20 mg,Weekly,10,14,Pending,602
+RX093,8/3/2024,11:40,8/10/2024,PAT002,Fatma Zaki,DOC013,Rania Samir,MED047,Ferrous Sulfate Tabs,10 mg,At bedtime,7,10,Dispensed,310
+RX092,8/1/2024,11:20,8/6/2024,PAT001,Ahmed Mansour,DOC012,Omar Gamal,MED046,Vitamin D3 5000IU,400 mg,As needed (PRN),5,5,Dispensed,375
+RX091,7/30/2024,11:00,10/28/2024,PAT015,Hassan Hassan,DOC011,Salma Fathy,MED002,Paracetamol 500mg,500 mg,Every 12 hours,90,3,Dispensed,55.5
+RX090,7/28/2024,10:40,9/26/2024,PAT014,Hana Gaber,DOC010,Youssef Adel,MED044,Ketoconazole Cream,40 mg,Every 8 hours,60,2,Cancelled,108
+RX089,7/26/2024,10:20,8/25/2024,PAT013,Tarek Soliman,DOC009,Khaled Mostafa,MED043,Nitroglycerin Patch,5 ml,Every 6 hours,30,1,Pending,155
+RX088,7/24/2024,10:00,8/7/2024,PAT012,Salma Farouk,DOC008,Dalia Farouk,MED042,Valacyclovir 500mg,1 puff,Four times daily,14,30,Dispensed,5850
+RX087,7/22/2024,09:40,8/1/2024,PAT011,Khaled Helmy,DOC007,Sherif Nabil,MED041,Fluoxetine 20mg,250 mg,Three times daily,10,20,Dispensed,1780
+RX086,7/20/2024,09:20,7/27/2024,PAT010,Nour Nassar,DOC006,Nadia Kamel,MED040,Methylprednisolone,100 mg,Twice daily,7,14,Dispensed,2310
+RX085,7/18/2024,09:00,7/23/2024,PAT009,Omar Saeed,DOC005,Tarek Ibrahim,MED039,Ondansetron 4mg,5 mg,Once daily,5,10,Cancelled,920
+RX084,7/16/2024,12:40,10/14/2024,PAT008,Sara Ibrahim,DOC004,Heba Abdelrahman,MED038,Simvastatin 20mg,20 mg,After meals,90,5,Pending,290
+RX083,7/14/2024,12:20,9/12/2024,PAT007,Youssef Fawzy,DOC003,Mona Hassan,MED037,Ipratropium Drops,10 mg,Before meals,60,3,Dispensed,237
+RX082,7/12/2024,12:00,8/11/2024,PAT006,Mariam Yassin,DOC002,Ahmed El-Sayed,MED002,Paracetamol 500mg,400 mg,Weekly,30,2,Dispensed,37
+RX081,7/10/2024,11:40,7/24/2024,PAT005,Mahmoud Kamel,DOC001,Karim Mansour,MED035,Warfarin 5mg,500 mg,At bedtime,14,1,Dispensed,46
+RX080,7/8/2024,11:20,7/18/2024,PAT004,Aya Khattab,DOC020,Farah Yassin,MED034,Gliclazide 60mg,40 mg,As needed (PRN),10,30,Cancelled,2550
+RX079,7/6/2024,11:00,7/13/2024,PAT003,Mohamed Barakat,DOC019,Nour El-Din,MED033,Captopril 25mg,5 ml,Every 12 hours,7,20,Pending,560
+RX078,7/4/2024,10:40,7/9/2024,PAT002,Fatma Zaki,DOC018,Amr Soliman,MED032,Tramadol Relief 50mg,1 puff,Every 8 hours,5,14,Dispensed,1540
+RX077,7/2/2024,10:20,9/30/2024,PAT001,Ahmed Mansour,DOC017,Laila Ashraf,MED031,Ciprofloxacin 500mg,250 mg,Every 6 hours,90,10,Dispensed,740
+RX076,6/30/2024,10:00,8/29/2024,PAT015,Hassan Hassan,DOC016,Wael Saeed,MED030,Mupirocin Ointment,100 mg,Four times daily,60,5,Dispensed,340
+RX075,6/28/2024,09:40,7/28/2024,PAT014,Hana Gaber,DOC015,Mariam Tawfik,MED029,Digoxin 0.25mg,5 mg,Three times daily,30,3,Cancelled,102
+RX074,6/26/2024,09:20,7/10/2024,PAT013,Tarek Soliman,DOC014,Hassan Zaki,MED028,Acyclovir 400mg,20 mg,Twice daily,14,2,Pending,164
+RX073,6/24/2024,09:00,7/4/2024,PAT012,Salma Farouk,DOC013,Rania Samir,MED002,Paracetamol 500mg,10 mg,Once daily,10,1,Dispensed,18.5
+RX072,6/22/2024,12:40,6/29/2024,PAT011,Khaled Helmy,DOC012,Omar Gamal,MED026,Dexamethasone 4mg,400 mg,After meals,7,30,Dispensed,1080
+RX071,6/20/2024,12:20,6/25/2024,PAT010,Nour Nassar,DOC011,Salma Fathy,MED025,Esomeprazole 40mg,500 mg,Before meals,5,20,Dispensed,2240
+RX070,6/18/2024,12:00,9/16/2024,PAT009,Omar Saeed,DOC010,Youssef Adel,MED024,Rosuvastatin 10mg,40 mg,Weekly,90,14,Cancelled,1372
+RX069,6/16/2024,11:40,8/15/2024,PAT008,Sara Ibrahim,DOC009,Khaled Mostafa,MED023,Budesonide Inhaler,5 ml,At bedtime,60,10,Pending,2400
+RX068,6/14/2024,11:20,7/14/2024,PAT007,Youssef Fawzy,DOC008,Dalia Farouk,MED022,Loratadine Syrup,1 puff,As needed (PRN),30,5,Dispensed,220
+RX067,6/12/2024,11:00,6/26/2024,PAT006,Mariam Yassin,DOC007,Sherif Nabil,MED021,Clopidogrel 75mg,250 mg,Every 12 hours,14,3,Dispensed,390
+RX066,6/10/2024,10:40,6/20/2024,PAT005,Mahmoud Kamel,DOC006,Nadia Kamel,MED020,Insulin Glargine,100 mg,Every 8 hours,10,2,Dispensed,780
+RX065,6/8/2024,10:20,6/15/2024,PAT004,Aya Khattab,DOC005,Tarek Ibrahim,MED019,Losartan 50mg,5 mg,Every 6 hours,7,1,Cancelled,72
+RX064,6/6/2024,10:00,6/11/2024,PAT003,Mohamed Barakat,DOC004,Heba Abdelrahman,MED002,Paracetamol 500mg,20 mg,Four times daily,5,30,Pending,555
+RX063,6/4/2024,09:40,9/2/2024,PAT002,Fatma Zaki,DOC003,Mona Hassan,MED017,Ceftriaxone 1g Vial,10 mg,Three times daily,90,20,Dispensed,2500
+RX062,6/2/2024,09:20,8/1/2024,PAT001,Ahmed Mansour,DOC002,Ahmed El-Sayed,MED016,Azithromycin 500mg,400 mg,Twice daily,60,14,Dispensed,1232
+RX061,5/31/2024,09:00,6/30/2024,PAT015,Hassan Hassan,DOC001,Karim Mansour,MED015,Hydrocortisone 1%,500 mg,Once daily,30,10,Dispensed,420
+RX060,5/29/2024,12:40,6/12/2024,PAT014,Hana Gaber,DOC020,Farah Yassin,MED014,Bisoprolol 5mg,40 mg,After meals,14,5,Cancelled,320
+RX059,5/27/2024,12:20,6/6/2024,PAT013,Tarek Soliman,DOC019,Nour El-Din,MED013,Oseltamivir 75mg,5 ml,Before meals,10,3,Pending,555
+RX058,5/25/2024,12:00,6/1/2024,PAT012,Salma Farouk,DOC018,Amr Soliman,MED012,Sertraline 50mg,1 puff,Weekly,7,2,Dispensed,230
+RX057,5/23/2024,11:40,5/28/2024,PAT011,Khaled Helmy,DOC017,Laila Ashraf,MED011,Prednisolone 5mg,250 mg,At bedtime,5,1,Dispensed,29
+RX056,5/21/2024,11:20,8/19/2024,PAT010,Nour Nassar,DOC016,Wael Saeed,MED010,Omeprazole 20mg,100 mg,As needed (PRN),90,30,Dispensed,1860
+RX055,5/19/2024,11:00,7/18/2024,PAT009,Omar Saeed,DOC015,Mariam Tawfik,MED002,Paracetamol 500mg,5 mg,Every 12 hours,60,20,Cancelled,370
+RX054,5/17/2024,10:40,6/16/2024,PAT008,Sara Ibrahim,DOC014,Hassan Zaki,MED008,Salbutamol Inhaler,20 mg,Every 8 hours,30,14,Pending,1330
+RX053,5/15/2024,10:20,5/29/2024,PAT007,Youssef Fawzy,DOC013,Rania Samir,MED007,Cetirizine 10mg,10 mg,Every 6 hours,14,10,Dispensed,320
+RX052,5/13/2024,10:00,5/23/2024,PAT006,Mariam Yassin,DOC012,Omar Gamal,MED006,Enoxaparin 40mg,400 mg,Four times daily,10,5,Dispensed,1050
+RX051,5/11/2024,09:40,5/18/2024,PAT005,Mahmoud Kamel,DOC011,Salma Fathy,MED005,Metformin 850mg,500 mg,Three times daily,7,3,Dispensed,114
+RX050,5/9/2024,09:20,5/14/2024,PAT004,Aya Khattab,DOC010,Youssef Adel,MED004,Amlodipine 5mg,40 mg,Twice daily,5,2,Cancelled,110
+RX049,5/7/2024,09:00,8/5/2024,PAT003,Mohamed Barakat,DOC009,Khaled Mostafa,MED003,Ibuprofen 400mg,5 ml,Once daily,90,1,Pending,26
+RX048,5/5/2024,12:40,7/4/2024,PAT002,Fatma Zaki,DOC008,Dalia Farouk,MED002,Paracetamol 500mg,1 puff,After meals,60,30,Dispensed,555
+RX047,5/3/2024,12:20,6/2/2024,PAT001,Ahmed Mansour,DOC007,Sherif Nabil,MED048,Calcium Carbonate,250 mg,Before meals,30,20,Dispensed,860
+RX046,5/1/2024,12:00,5/15/2024,PAT015,Hassan Hassan,DOC006,Nadia Kamel,MED002,Paracetamol 500mg,100 mg,Weekly,14,14,Dispensed,259
+RX045,4/29/2024,11:40,5/9/2024,PAT014,Hana Gaber,DOC005,Tarek Ibrahim,MED046,Vitamin D3 5000IU,5 mg,At bedtime,10,10,Cancelled,750
+RX044,4/27/2024,11:20,5/4/2024,PAT013,Tarek Soliman,DOC004,Heba Abdelrahman,MED045,Metronidazole 500mg,20 mg,As needed (PRN),7,5,Pending,195
+RX043,4/25/2024,11:00,4/30/2024,PAT012,Salma Farouk,DOC003,Mona Hassan,MED044,Ketoconazole Cream,10 mg,Every 12 hours,5,3,Dispensed,162
+RX042,4/23/2024,10:40,7/22/2024,PAT011,Khaled Helmy,DOC002,Ahmed El-Sayed,MED043,Nitroglycerin Patch,400 mg,Every 8 hours,90,2,Dispensed,310
+RX041,4/21/2024,10:20,6/20/2024,PAT010,Nour Nassar,DOC001,Karim Mansour,MED001,Amoxicillin 500mg,500 mg,Every 6 hours,60,1,Cancelled,45
+RX040,4/19/2024,10:00,5/19/2024,PAT009,Omar Saeed,DOC020,Farah Yassin,MED041,Fluoxetine 20mg,40 mg,Four times daily,30,30,Cancelled,2670
+RX039,4/17/2024,09:40,5/1/2024,PAT008,Sara Ibrahim,DOC019,Nour El-Din,MED040,Methylprednisolone,5 ml,Three times daily,14,20,Pending,3300
+RX038,4/15/2024,09:20,4/25/2024,PAT007,Youssef Fawzy,DOC018,Amr Soliman,MED039,Ondansetron 4mg,1 puff,Twice daily,10,14,Dispensed,1288
+RX037,4/13/2024,09:00,4/20/2024,PAT006,Mariam Yassin,DOC017,Laila Ashraf,MED002,Paracetamol 500mg,250 mg,Once daily,7,10,Dispensed,185
+RX036,4/11/2024,12:40,4/16/2024,PAT005,Mahmoud Kamel,DOC016,Wael Saeed,MED037,Ipratropium Drops,100 mg,After meals,5,5,Dispensed,395
+RX035,4/9/2024,12:20,7/8/2024,PAT004,Aya Khattab,DOC015,Mariam Tawfik,MED036,Fexofenadine 120mg,5 mg,Before meals,90,3,Cancelled,198
+RX034,4/7/2024,12:00,6/6/2024,PAT003,Mohamed Barakat,DOC014,Hassan Zaki,MED035,Warfarin 5mg,20 mg,Weekly,60,2,Pending,92
+RX033,4/5/2024,11:40,5/5/2024,PAT002,Fatma Zaki,DOC013,Rania Samir,MED034,Gliclazide 60mg,10 mg,At bedtime,30,1,Dispensed,85
+RX032,4/3/2024,11:20,4/17/2024,PAT001,Ahmed Mansour,DOC012,Omar Gamal,MED033,Captopril 25mg,400 mg,As needed (PRN),14,30,Dispensed,840
+RX031,4/1/2024,11:00,4/11/2024,PAT015,Hassan Hassan,DOC011,Salma Fathy,MED032,Tramadol Relief 50mg,500 mg,Every 12 hours,10,20,Dispensed,2200
+RX030,3/30/2024,10:40,4/6/2024,PAT014,Hana Gaber,DOC010,Youssef Adel,MED031,Ciprofloxacin 500mg,40 mg,Every 8 hours,7,14,Cancelled,1036
+RX029,3/28/2024,10:20,4/2/2024,PAT013,Tarek Soliman,DOC009,Khaled Mostafa,MED030,Mupirocin Ointment,5 ml,Every 6 hours,5,10,Pending,680
+RX028,3/26/2024,10:00,6/24/2024,PAT012,Salma Farouk,DOC008,Dalia Farouk,MED002,Paracetamol 500mg,1 puff,Four times daily,90,5,Dispensed,92.5
+RX027,3/24/2024,09:40,5/23/2024,PAT011,Khaled Helmy,DOC007,Sherif Nabil,MED028,Acyclovir 400mg,250 mg,Three times daily,60,3,Dispensed,246
+RX026,3/22/2024,09:20,4/21/2024,PAT010,Nour Nassar,DOC006,Nadia Kamel,MED001,Amoxicillin 500mg,100 mg,Twice daily,30,2,Pending,90
+RX025,3/20/2024,09:00,4/3/2024,PAT009,Omar Saeed,DOC005,Tarek Ibrahim,MED026,Dexamethasone 4mg,5 mg,Once daily,14,1,Cancelled,36
+RX024,3/18/2024,12:40,3/28/2024,PAT008,Sara Ibrahim,DOC004,Heba Abdelrahman,MED025,Esomeprazole 40mg,20 mg,After meals,10,30,Pending,3360
+RX023,3/16/2024,12:20,3/23/2024,PAT007,Youssef Fawzy,DOC003,Mona Hassan,MED024,Rosuvastatin 10mg,10 mg,Before meals,7,20,Dispensed,1960
+RX022,3/14/2024,12:00,3/19/2024,PAT006,Mariam Yassin,DOC002,Ahmed El-Sayed,MED023,Budesonide Inhaler,400 mg,Weekly,5,14,Dispensed,3360
+RX021,3/12/2024,11:40,6/10/2024,PAT005,Mahmoud Kamel,DOC001,Karim Mansour,MED022,Loratadine Syrup,500 mg,At bedtime,90,10,Dispensed,440
+RX020,3/10/2024,11:20,5/9/2024,PAT004,Aya Khattab,DOC020,Farah Yassin,MED021,Clopidogrel 75mg,40 mg,As needed (PRN),60,5,Cancelled,650
+RX019,3/8/2024,11:00,4/7/2024,PAT003,Mohamed Barakat,DOC019,Nour El-Din,MED002,Paracetamol 500mg,5 ml,Every 12 hours,30,3,Pending,55.5
+RX018,3/6/2024,10:40,3/20/2024,PAT002,Fatma Zaki,DOC018,Amr Soliman,MED019,Losartan 50mg,1 puff,Every 8 hours,14,2,Dispensed,144
+RX017,3/4/2024,10:20,3/14/2024,PAT001,Ahmed Mansour,DOC017,Laila Ashraf,MED018,Diclofenac Sodium,250 mg,Every 6 hours,10,1,Dispensed,48
+RX016,3/2/2024,10:00,3/9/2024,PAT015,Hassan Hassan,DOC016,Wael Saeed,MED017,Ceftriaxone 1g Vial,100 mg,Four times daily,7,30,Dispensed,3750
+RX015,2/29/2024,09:40,3/5/2024,PAT014,Hana Gaber,DOC015,Mariam Tawfik,MED016,Azithromycin 500mg,5 mg,Three times daily,5,20,Cancelled,1760
+RX014,2/27/2024,09:20,5/27/2024,PAT013,Tarek Soliman,DOC014,Hassan Zaki,MED015,Hydrocortisone 1%,20 mg,Twice daily,90,14,Pending,588
+RX013,2/25/2024,09:00,4/25/2024,PAT012,Salma Farouk,DOC013,Rania Samir,MED014,Bisoprolol 5mg,10 mg,Once daily,60,10,Dispensed,640
+RX012,2/23/2024,12:40,3/24/2024,PAT011,Khaled Helmy,DOC012,Omar Gamal,MED013,Oseltamivir 75mg,400 mg,After meals,30,5,Dispensed,925
+RX011,2/21/2024,12:20,3/6/2024,PAT010,Nour Nassar,DOC011,Salma Fathy,MED001,Amoxicillin 500mg,500 mg,Before meals,14,3,Pending,135
+RX010,2/19/2024,12:00,2/29/2024,PAT009,Omar Saeed,DOC010,Youssef Adel,MED002,Paracetamol 500mg,40 mg,Weekly,10,2,Cancelled,37
+RX009,2/17/2024,11:40,2/24/2024,PAT008,Sara Ibrahim,DOC009,Khaled Mostafa,MED010,Omeprazole 20mg,5 ml,At bedtime,7,1,Pending,62
+RX008,2/15/2024,11:20,2/20/2024,PAT007,Youssef Fawzy,DOC008,Dalia Farouk,MED009,Atorvastatin 20mg,1 puff,As needed (PRN),5,30,Dispensed,2340
+RX007,2/13/2024,11:00,5/13/2024,PAT006,Mariam Yassin,DOC007,Sherif Nabil,MED008,Salbutamol Inhaler,250 mg,Every 12 hours,90,20,Dispensed,1900
+RX006,2/11/2024,10:40,4/11/2024,PAT005,Mahmoud Kamel,DOC006,Nadia Kamel,MED007,Cetirizine 10mg,100 mg,Every 8 hours,60,14,Dispensed,448
+RX005,2/9/2024,10:20,3/10/2024,PAT004,Aya Khattab,DOC005,Tarek Ibrahim,MED006,Enoxaparin 40mg,5 mg,Every 6 hours,30,10,Cancelled,2100
+RX004,2/7/2024,10:00,2/21/2024,PAT003,Mohamed Barakat,DOC004,Heba Abdelrahman,MED005,Metformin 850mg,20 mg,Four times daily,14,5,Pending,190
+RX003,2/5/2024,09:40,2/15/2024,PAT002,Fatma Zaki,DOC003,Mona Hassan,MED004,Amlodipine 5mg,10 mg,Three times daily,10,3,Dispensed,165
+RX002,2/3/2024,09:20,2/10/2024,PAT001,Ahmed Mansour,DOC002,Ahmed El-Sayed,MED003,Ibuprofen 400mg,400 mg,Twice daily,7,2,Dispensed,52

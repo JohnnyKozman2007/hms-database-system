@@ -1,0 +1,4 @@
+DEPARTMENTID,DEPARTMENTNAME,BUILDING,FLOORLEVEL,LOCATION,PHONE,DEPARTMENTDESCRIPTION
+DEPT01,Cardiology,Building A,1st Floor,"Building A, 1st Floor",0227951001,Diagnosis and treatment of heart and cardiovascular disorders.
+DEPT03,Pediatrics,Building A,2nd Floor,"Building A, 2nd Floor",0227951003,"Comprehensive medical care for infants, children, and adolescents."
+DEPT02,Emergency Medicine,Building A,Ground Floor,"Building A, Ground Floor",0227951002,"24/7 acute trauma, resuscitation, and emergency stabilization."

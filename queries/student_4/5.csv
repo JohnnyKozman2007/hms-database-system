@@ -1,0 +1,51 @@
+MEDICATIONID,MEDICATIONNAME,CATEGORY,DOSAGEFORM,PRESCRIPTIONCOUNT,TOTALUNITSPRESCRIBED
+MED002,Paracetamol 500mg,Analgesic,Tablet,39,424
+MED004,Amlodipine 5mg,Antihypertensive,Tablet,7,80
+MED006,Enoxaparin 40mg,Anticoagulant,Injection,7,71
+MED013,Oseltamivir 75mg,Antiviral,Capsule,7,75
+MED015,Hydrocortisone 1%,Dermatological,Cream,7,65
+MED003,Ibuprofen 400mg,Antipyretic,Tablet,6,68
+MED005,Metformin 850mg,Antidiabetic,Tablet,6,74
+MED007,Cetirizine 10mg,Antihistamine,Tablet,6,60
+MED008,Salbutamol Inhaler,Bronchodilator,Inhaler,6,54
+MED009,Atorvastatin 20mg,Statin,Tablet,6,64
+MED010,Omeprazole 20mg,Gastrointestinal,Capsule,6,78
+MED011,Prednisolone 5mg,Corticosteroid,Tablet,6,80
+MED014,Bisoprolol 5mg,Cardiovascular,Tablet,6,69
+MED016,Azithromycin 500mg,Antibiotic,Tablet,6,45
+MED017,Ceftriaxone 1g Vial,Antibiotic,Injection,6,82
+MED018,Diclofenac Sodium,Analgesic,Suppository,6,53
+MED019,Losartan 50mg,Antihypertensive,Tablet,6,72
+MED022,Loratadine Syrup,Antihistamine,Syrup,6,51
+MED024,Rosuvastatin 10mg,Statin,Tablet,6,54
+MED026,Dexamethasone 4mg,Corticosteroid,Injection,6,80
+MED031,Ciprofloxacin 500mg,Antibiotic,Tablet,6,35
+MED033,Captopril 25mg,Antihypertensive,Tablet,6,82
+MED035,Warfarin 5mg,Anticoagulant,Tablet,6,77
+MED040,Methylprednisolone,Corticosteroid,Injection,6,54
+MED044,Ketoconazole Cream,Dermatological,Cream,6,70
+MED012,Sertraline 50mg,Antidepressant,Tablet,5,57
+MED020,Insulin Glargine,Antidiabetic,Injection,5,67
+MED021,Clopidogrel 75mg,Anticoagulant,Tablet,5,31
+MED023,Budesonide Inhaler,Bronchodilator,Inhaler,5,32
+MED025,Esomeprazole 40mg,Gastrointestinal,Capsule,5,68
+MED028,Acyclovir 400mg,Antiviral,Tablet,5,56
+MED029,Digoxin 0.25mg,Cardiovascular,Tablet,5,56
+MED030,Mupirocin Ointment,Dermatological,Ointment,5,50
+MED032,Tramadol Relief 50mg,Analgesic,Capsule,5,49
+MED034,Gliclazide 60mg,Antidiabetic,Tablet,5,60
+MED036,Fexofenadine 120mg,Antihistamine,Tablet,5,68
+MED037,Ipratropium Drops,Bronchodilator,Drops,5,41
+MED038,Simvastatin 20mg,Statin,Tablet,5,41
+MED039,Ondansetron 4mg,Gastrointestinal,Injection,5,33
+MED041,Fluoxetine 20mg,Antidepressant,Capsule,5,72
+MED042,Valacyclovir 500mg,Antiviral,Tablet,5,79
+MED043,Nitroglycerin Patch,Cardiovascular,Patch,5,47
+MED045,Metronidazole 500mg,Antibiotic,Suspension,5,58
+MED046,Vitamin D3 5000IU,Other,Capsule,5,21
+MED047,Ferrous Sulfate Tabs,Other,Tablet,5,21
+MED048,Calcium Carbonate,Other,Tablet,5,51
+MED001,Amoxicillin 500mg,Antibiotic,Capsule,4,7
+MED027,Escitalopram 10mg,Antidepressant,Tablet,4,74
+MED049,Amoxicillin Susp Old,Antibiotic,Suspension,0,0
+MED050,Cough Relief Old,Other,Syrup,0,0

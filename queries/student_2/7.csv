@@ -1,0 +1,11 @@
+ROOMID,ROOMNUMBER,BUILDING,FLOOR,ROOMTYPE,CAPACITY,DAILYCHARGE,AVAILABILITYSTATUS
+RM041,541,Building A,4th Floor,Isolation,1,2600,Maintenance
+RM042,542,Building B,4th Floor,Emergency,2,1000,Maintenance
+RM043,543,Building C,4th Floor,Maternity,2,1700,Maintenance
+RM044,544,Building D,4th Floor,Pediatric,3,1000,Maintenance
+RM045,645,Building A,5th Floor,Operating Room,1,6200,Reserved
+RM046,646,Building B,5th Floor,Private,1,1800,Reserved
+RM047,647,Building C,5th Floor,Semi-Private,2,1150,Reserved
+RM048,648,Building D,5th Floor,General Ward,4,550,Available
+RM049,149,Building A,Ground Floor,ICU,1,4650,Available
+RM050,150,Building B,Ground Floor,Isolation,1,2800,Available

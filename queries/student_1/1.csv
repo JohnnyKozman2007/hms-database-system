@@ -1,0 +1,21 @@
+DOCTORID,FULLNAME,GENDER,SPECIALTY,PHONE,PHONETYPE,EMAIL,HIREDATE,YEARSOFEXPERIENCE,DEPARTMENTID,SUPERVISORID
+DOC001,Karim Mansour,Male,Interventional Cardiology,01012340001,Mobile,karim.mansour@hms.org,11/22/2026,0,DEPT01,
+DOC002,Ahmed El-Sayed,Male,Cardiology,01012340002,Mobile,ahmed.elsayed@hms.org,3/15/2005,21,DEPT01,
+DOC003,Mona Hassan,Female,Emergency Medicine,01012340003,Mobile,mona.hassan@hms.org,6/1/2008,18,DEPT02,
+DOC004,Heba Abdelrahman,Female,Pediatrics,01012340004,Mobile,heba.abdelrahman@hms.org,9/10/2010,16,DEPT03,
+DOC005,Tarek Ibrahim,Male,Orthopedic Surgery,01012340005,Mobile,tarek.ibrahim@hms.org,1/20/2004,22,DEPT04,
+DOC006,Nadia Kamel,Female,Neurology,0227952006,Landline,nadia.kamel@hms.org,11/5/2007,19,DEPT05,
+DOC007,Sherif Nabil,Male,Medical Oncology,01012340007,Mobile,sherif.nabil@hms.org,4/12/2006,20,DEPT06,
+DOC008,Dalia Farouk,Female,Diagnostic Radiology,0227952008,Landline,dalia.farouk@hms.org,2/18/2011,15,DEPT07,
+DOC009,Khaled Mostafa,Male,General Surgery,01012340009,Mobile,khaled.mostafa@hms.org,8/25/2002,24,DEPT08,
+DOC010,Youssef Adel,Male,Clinical Cardiology,01112340010,Mobile,youssef.adel@hms.org,5/14/2017,9,DEPT01,DOC002
+DOC011,Salma Fathy,Female,Electrophysiology,01112340011,Mobile,salma.fathy@hms.org,10/1/2019,7,DEPT01,DOC002
+DOC012,Omar Gamal,Male,Pediatric Cardiology,01112340012,Mobile,omar.gamal@hms.org,3/22/2021,5,DEPT01,DOC002
+DOC013,Rania Samir,Female,Trauma Care,01212340013,Mobile,rania.samir@hms.org,7/19/2016,10,DEPT02,DOC003
+DOC014,Hassan Zaki,Male,Acute Care,01212340014,Mobile,hassan.zaki@hms.org,1/10/2022,4,DEPT02,DOC003
+DOC015,Mariam Tawfik,Female,Neonatology,01212340015,Mobile,mariam.tawfik@hms.org,4/8/2018,8,DEPT03,DOC004
+DOC016,Wael Saeed,Male,Sports Medicine,01512340016,Mobile,wael.saeed@hms.org,9/30/2015,11,DEPT04,DOC005
+DOC017,Laila Ashraf,Female,Neurophysiology,01512340017,Mobile,laila.ashraf@hms.org,6/15/2020,6,DEPT05,DOC006
+DOC018,Amr Soliman,Male,Radiation Oncology,01512340018,Mobile,amr.soliman@hms.org,12/3/2014,12,DEPT06,DOC007
+DOC019,Nour El-Din,Male,Interventional Radiology,01092340019,Mobile,nour.eldin@hms.org,2/11/2019,7,DEPT07,DOC008
+DOC020,Farah Yassin,Female,Laparoscopic Surgery,01092340020,Mobile,farah.yassin@hms.org,11/20/2016,10,DEPT08,DOC009

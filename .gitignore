@@ -12,3 +12,6 @@ $RECYCLE.BIN/
 *~
 .vscode/
 .idea/
+
+# Archive / zip files
+*.zip

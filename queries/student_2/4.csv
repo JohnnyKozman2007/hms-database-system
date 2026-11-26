@@ -1,0 +1,51 @@
+ROOMID,ROOMNUMBER,BUILDING,FLOOR,ROOMTYPE,TOTALADMISSIONS,DISTINCTPATIENTSADMITTED
+RM003,103,Building C,Ground Floor,General Ward,7,7
+RM008,208,Building D,1st Floor,Pediatric,6,6
+RM002,102,Building B,Ground Floor,Semi-Private,5,4
+RM006,206,Building B,1st Floor,Emergency,5,5
+RM007,207,Building C,1st Floor,Maternity,5,5
+RM001,101,Building A,Ground Floor,Private,4,4
+RM004,104,Building D,Ground Floor,ICU,4,4
+RM005,205,Building A,1st Floor,Isolation,4,4
+RM009,309,Building A,2nd Floor,Operating Room,4,4
+RM010,310,Building B,2nd Floor,Private,4,4
+RM019,519,Building C,4th Floor,Private,4,4
+RM020,520,Building D,4th Floor,Semi-Private,4,4
+RM021,621,Building A,5th Floor,General Ward,4,4
+RM022,622,Building B,5th Floor,ICU,4,4
+RM023,623,Building C,5th Floor,Isolation,4,4
+RM024,624,Building D,5th Floor,Emergency,4,4
+RM025,125,Building A,Ground Floor,Maternity,4,4
+RM026,126,Building B,Ground Floor,Pediatric,4,4
+RM027,127,Building C,Ground Floor,Operating Room,4,4
+RM028,128,Building D,Ground Floor,Private,4,4
+RM029,229,Building A,1st Floor,Semi-Private,4,4
+RM030,230,Building B,1st Floor,General Ward,4,4
+RM011,311,Building C,2nd Floor,Semi-Private,3,3
+RM012,312,Building D,2nd Floor,General Ward,3,3
+RM013,413,Building A,3rd Floor,ICU,3,3
+RM014,414,Building B,3rd Floor,Isolation,3,3
+RM015,415,Building C,3rd Floor,Emergency,3,3
+RM016,416,Building D,3rd Floor,Maternity,3,3
+RM017,517,Building A,4th Floor,Pediatric,3,3
+RM018,518,Building B,4th Floor,Operating Room,3,3
+RM031,231,Building C,1st Floor,ICU,3,3
+RM032,232,Building D,1st Floor,Isolation,3,3
+RM033,333,Building A,2nd Floor,Emergency,3,3
+RM034,334,Building B,2nd Floor,Maternity,3,3
+RM035,335,Building C,2nd Floor,Pediatric,3,3
+RM036,336,Building D,2nd Floor,Operating Room,3,3
+RM037,437,Building A,3rd Floor,Private,3,3
+RM038,438,Building B,3rd Floor,Semi-Private,3,3
+RM039,439,Building C,3rd Floor,General Ward,3,3
+RM040,440,Building D,3rd Floor,ICU,3,3
+RM041,541,Building A,4th Floor,Isolation,0,0
+RM042,542,Building B,4th Floor,Emergency,0,0
+RM043,543,Building C,4th Floor,Maternity,0,0
+RM044,544,Building D,4th Floor,Pediatric,0,0
+RM045,645,Building A,5th Floor,Operating Room,0,0
+RM046,646,Building B,5th Floor,Private,0,0
+RM047,647,Building C,5th Floor,Semi-Private,0,0
+RM048,648,Building D,5th Floor,General Ward,0,0
+RM049,149,Building A,Ground Floor,ICU,0,0
+RM050,150,Building B,Ground Floor,Isolation,0,0

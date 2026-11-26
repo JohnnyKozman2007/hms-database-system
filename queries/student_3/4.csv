@@ -1,0 +1,251 @@
+RECORDID,RECORDDATE,FOLLOWUPDATE,PATIENTID,PATIENTNAME,BLOODTYPE,DOCTORID,DOCTORNAME,SPECIALTY,DIAGNOSIS,TREATMENT
+MR001,11/22/2026,,PAT001,Ahmed Mansour,A+,DOC002,Ahmed El-Sayed,Cardiology,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR225,7/16/2025,9/12/2025,PAT045,Gamal Tawfik,AB+,DOC015,Mariam Tawfik,Neonatology,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR224,7/12/2025,9/7/2025,PAT044,Marwa Abdelaziz,B-,DOC012,Omar Gamal,Pediatric Cardiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR223,7/8/2025,,PAT043,Nabil Lotfy,B+,DOC009,Khaled Mostafa,General Surgery,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR222,7/4/2025,8/28/2025,PAT042,Hagar Refaat,A-,DOC006,Nadia Kamel,Neurology,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR221,6/30/2025,8/23/2025,PAT041,Sameh Mostafa,A+,DOC003,Mona Hassan,Emergency Medicine,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR220,6/26/2025,,PAT040,Eman Hassan,O-,DOC020,Farah Yassin,Laparoscopic Surgery,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR219,6/22/2025,8/13/2025,PAT039,Ashraf Gaber,O+,DOC017,Laila Ashraf,Neurophysiology,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR218,6/18/2025,8/8/2025,PAT038,Amira Soliman,AB-,DOC014,Hassan Zaki,Acute Care,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR217,6/14/2025,,PAT037,Walid Farouk,AB+,DOC011,Salma Fathy,Electrophysiology,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR216,6/10/2025,7/29/2025,PAT036,Noha Helmy,B-,DOC008,Dalia Farouk,Diagnostic Radiology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR215,6/6/2025,7/24/2025,PAT035,Tamer Nassar,B+,DOC005,Tarek Ibrahim,Orthopedic Surgery,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR214,6/2/2025,,PAT034,Dina Saeed,A-,DOC002,Ahmed El-Sayed,Cardiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR213,5/29/2025,7/14/2025,PAT033,Ramy Ibrahim,A+,DOC019,Nour El-Din,Interventional Radiology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR212,5/25/2025,7/9/2025,PAT032,Reem Fawzy,O-,DOC016,Wael Saeed,Sports Medicine,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR211,5/21/2025,,PAT031,Hossam Yassin,O+,DOC013,Rania Samir,Trauma Care,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR210,5/17/2025,6/29/2025,PAT030,Yasmine Kamel,AB-,DOC010,Youssef Adel,Clinical Cardiology,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR209,5/13/2025,6/24/2025,PAT029,Wael Khattab,AB+,DOC007,Sherif Nabil,Medical Oncology,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR208,5/9/2025,,PAT028,Farah Barakat,B-,DOC004,Heba Abdelrahman,Pediatrics,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR207,5/5/2025,6/14/2025,PAT027,Amr Zaki,B+,DOC001,Karim Mansour,Interventional Cardiology,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR206,5/1/2025,6/9/2025,PAT026,Laila Mansour,A-,DOC018,Amr Soliman,Radiation Oncology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR205,4/27/2025,,PAT025,Sherif Shawky,A+,DOC015,Mariam Tawfik,Neonatology,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR204,4/23/2025,5/30/2025,PAT024,Nadia Hegazy,O-,DOC012,Omar Gamal,Pediatric Cardiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR203,4/19/2025,5/25/2025,PAT023,Karim Nabil,O+,DOC009,Khaled Mostafa,General Surgery,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR202,4/15/2025,,PAT022,Rania El-Masry,AB-,DOC006,Nadia Kamel,Neurology,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR201,4/11/2025,5/15/2025,PAT021,Ibrahim Diab,AB+,DOC003,Mona Hassan,Emergency Medicine,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR200,4/7/2025,5/10/2025,PAT020,Dalia Tawfik,B-,DOC020,Farah Yassin,Laparoscopic Surgery,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR199,4/3/2025,,PAT019,Mostafa Abdelaziz,B+,DOC017,Laila Ashraf,Neurophysiology,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR198,3/30/2025,4/30/2025,PAT018,Heba Lotfy,A-,DOC014,Hassan Zaki,Acute Care,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR197,3/26/2025,4/25/2025,PAT017,Ali Refaat,A+,DOC011,Salma Fathy,Electrophysiology,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR196,3/22/2025,,PAT016,Mona Mostafa,O-,DOC008,Dalia Farouk,Diagnostic Radiology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR195,3/18/2025,4/15/2025,PAT015,Hassan Hassan,O+,DOC005,Tarek Ibrahim,Orthopedic Surgery,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR194,3/14/2025,4/10/2025,PAT014,Hana Gaber,AB-,DOC002,Ahmed El-Sayed,Cardiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR193,3/10/2025,,PAT013,Tarek Soliman,AB+,DOC019,Nour El-Din,Interventional Radiology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR192,3/6/2025,3/31/2025,PAT012,Salma Farouk,B-,DOC016,Wael Saeed,Sports Medicine,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR191,3/2/2025,3/26/2025,PAT011,Khaled Helmy,B+,DOC013,Rania Samir,Trauma Care,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR190,2/26/2025,,PAT010,Nour Nassar,A-,DOC010,Youssef Adel,Clinical Cardiology,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR189,2/22/2025,3/16/2025,PAT009,Omar Saeed,A+,DOC007,Sherif Nabil,Medical Oncology,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR188,2/18/2025,3/11/2025,PAT008,Sara Ibrahim,O-,DOC004,Heba Abdelrahman,Pediatrics,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR187,2/14/2025,,PAT007,Youssef Fawzy,O+,DOC001,Karim Mansour,Interventional Cardiology,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR186,2/10/2025,3/1/2025,PAT006,Mariam Yassin,AB-,DOC018,Amr Soliman,Radiation Oncology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR185,2/6/2025,2/24/2025,PAT005,Mahmoud Kamel,AB+,DOC015,Mariam Tawfik,Neonatology,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR184,2/2/2025,,PAT004,Aya Khattab,B-,DOC012,Omar Gamal,Pediatric Cardiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR183,1/29/2025,2/14/2025,PAT003,Mohamed Barakat,B+,DOC009,Khaled Mostafa,General Surgery,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR182,1/25/2025,2/9/2025,PAT002,Fatma Zaki,A-,DOC006,Nadia Kamel,Neurology,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR181,1/21/2025,,PAT001,Ahmed Mansour,A+,DOC003,Mona Hassan,Emergency Medicine,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR180,1/17/2025,3/31/2025,PAT090,Eman Hassan,A-,DOC019,Nour El-Din,Interventional Radiology,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR179,1/13/2025,3/26/2025,PAT089,Ashraf Gaber,A+,DOC016,Wael Saeed,Sports Medicine,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR178,1/9/2025,,PAT088,Amira Soliman,O-,DOC013,Rania Samir,Trauma Care,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR177,1/5/2025,3/16/2025,PAT087,Walid Farouk,O+,DOC010,Youssef Adel,Clinical Cardiology,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR176,1/1/2025,3/11/2025,PAT086,Noha Helmy,AB-,DOC007,Sherif Nabil,Medical Oncology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR175,12/28/2024,,PAT085,Tamer Nassar,AB+,DOC004,Heba Abdelrahman,Pediatrics,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR174,12/24/2024,3/1/2025,PAT084,Dina Saeed,B-,DOC001,Karim Mansour,Interventional Cardiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR173,12/20/2024,2/24/2025,PAT083,Ramy Ibrahim,B+,DOC018,Amr Soliman,Radiation Oncology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR172,12/16/2024,,PAT082,Reem Fawzy,A-,DOC015,Mariam Tawfik,Neonatology,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR171,12/12/2024,2/14/2025,PAT081,Hossam Yassin,A+,DOC012,Omar Gamal,Pediatric Cardiology,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR170,12/8/2024,2/9/2025,PAT080,Yasmine Kamel,O-,DOC009,Khaled Mostafa,General Surgery,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR169,12/4/2024,,PAT079,Wael Khattab,O+,DOC006,Nadia Kamel,Neurology,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR168,11/30/2024,1/30/2025,PAT078,Farah Barakat,AB-,DOC003,Mona Hassan,Emergency Medicine,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR167,11/26/2024,1/25/2025,PAT077,Amr Zaki,AB+,DOC020,Farah Yassin,Laparoscopic Surgery,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR166,11/22/2024,,PAT076,Laila Mansour,B-,DOC017,Laila Ashraf,Neurophysiology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR165,11/18/2024,1/15/2025,PAT075,Sherif Shawky,B+,DOC014,Hassan Zaki,Acute Care,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR164,11/14/2024,1/10/2025,PAT074,Nadia Hegazy,A-,DOC011,Salma Fathy,Electrophysiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR163,11/10/2024,,PAT073,Karim Nabil,A+,DOC008,Dalia Farouk,Diagnostic Radiology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR162,11/6/2024,12/31/2024,PAT072,Rania El-Masry,O-,DOC005,Tarek Ibrahim,Orthopedic Surgery,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR161,11/2/2024,12/26/2024,PAT071,Ibrahim Diab,O+,DOC002,Ahmed El-Sayed,Cardiology,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR160,10/29/2024,,PAT070,Dalia Tawfik,AB-,DOC019,Nour El-Din,Interventional Radiology,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR159,10/25/2024,12/16/2024,PAT069,Mostafa Abdelaziz,AB+,DOC016,Wael Saeed,Sports Medicine,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR158,10/21/2024,12/11/2024,PAT068,Heba Lotfy,B-,DOC013,Rania Samir,Trauma Care,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR157,10/17/2024,,PAT067,Ali Refaat,B+,DOC010,Youssef Adel,Clinical Cardiology,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR156,10/13/2024,12/1/2024,PAT066,Mona Mostafa,A-,DOC007,Sherif Nabil,Medical Oncology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR155,10/9/2024,11/26/2024,PAT065,Hassan Hassan,A+,DOC004,Heba Abdelrahman,Pediatrics,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR154,10/5/2024,,PAT064,Hana Gaber,O-,DOC001,Karim Mansour,Interventional Cardiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR153,10/1/2024,11/16/2024,PAT063,Tarek Soliman,O+,DOC018,Amr Soliman,Radiation Oncology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR152,9/27/2024,11/11/2024,PAT062,Salma Farouk,AB-,DOC015,Mariam Tawfik,Neonatology,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR151,9/23/2024,,PAT061,Khaled Helmy,AB+,DOC012,Omar Gamal,Pediatric Cardiology,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR150,9/19/2024,11/1/2024,PAT060,Nour Nassar,B-,DOC009,Khaled Mostafa,General Surgery,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR149,9/15/2024,10/27/2024,PAT059,Omar Saeed,B+,DOC006,Nadia Kamel,Neurology,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR148,9/11/2024,,PAT058,Sara Ibrahim,A-,DOC003,Mona Hassan,Emergency Medicine,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR147,9/7/2024,10/17/2024,PAT057,Youssef Fawzy,A+,DOC020,Farah Yassin,Laparoscopic Surgery,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR146,9/3/2024,10/12/2024,PAT056,Mariam Yassin,O-,DOC017,Laila Ashraf,Neurophysiology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR145,8/30/2024,,PAT055,Mahmoud Kamel,O+,DOC014,Hassan Zaki,Acute Care,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR144,8/26/2024,10/2/2024,PAT054,Aya Khattab,AB-,DOC011,Salma Fathy,Electrophysiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR143,8/22/2024,9/27/2024,PAT053,Mohamed Barakat,AB+,DOC008,Dalia Farouk,Diagnostic Radiology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR142,8/18/2024,,PAT052,Fatma Zaki,B-,DOC005,Tarek Ibrahim,Orthopedic Surgery,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR141,8/14/2024,9/17/2024,PAT051,Ahmed Mansour,B+,DOC002,Ahmed El-Sayed,Cardiology,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR140,8/10/2024,9/12/2024,PAT050,Samar Shawky,A-,DOC019,Nour El-Din,Interventional Radiology,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR139,8/6/2024,,PAT049,Hany Hegazy,A+,DOC016,Wael Saeed,Sports Medicine,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR138,8/2/2024,9/2/2024,PAT048,Basma Nabil,O-,DOC013,Rania Samir,Trauma Care,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR137,7/29/2024,8/28/2024,PAT047,Adel El-Masry,O+,DOC010,Youssef Adel,Clinical Cardiology,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR136,7/25/2024,,PAT046,Esraa Diab,AB-,DOC007,Sherif Nabil,Medical Oncology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR135,7/21/2024,8/18/2024,PAT045,Gamal Tawfik,AB+,DOC004,Heba Abdelrahman,Pediatrics,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR134,7/17/2024,8/13/2024,PAT044,Marwa Abdelaziz,B-,DOC001,Karim Mansour,Interventional Cardiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR133,7/13/2024,,PAT043,Nabil Lotfy,B+,DOC018,Amr Soliman,Radiation Oncology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR132,7/9/2024,8/3/2024,PAT042,Hagar Refaat,A-,DOC015,Mariam Tawfik,Neonatology,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR131,7/5/2024,7/29/2024,PAT041,Sameh Mostafa,A+,DOC012,Omar Gamal,Pediatric Cardiology,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR130,7/1/2024,,PAT040,Eman Hassan,O-,DOC009,Khaled Mostafa,General Surgery,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR129,6/27/2024,7/19/2024,PAT039,Ashraf Gaber,O+,DOC006,Nadia Kamel,Neurology,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR128,6/23/2024,7/14/2024,PAT038,Amira Soliman,AB-,DOC003,Mona Hassan,Emergency Medicine,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR127,6/19/2024,,PAT037,Walid Farouk,AB+,DOC020,Farah Yassin,Laparoscopic Surgery,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR126,6/15/2024,7/4/2024,PAT036,Noha Helmy,B-,DOC017,Laila Ashraf,Neurophysiology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR125,6/11/2024,6/29/2024,PAT035,Tamer Nassar,B+,DOC014,Hassan Zaki,Acute Care,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR124,6/7/2024,,PAT034,Dina Saeed,A-,DOC011,Salma Fathy,Electrophysiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR123,6/3/2024,6/19/2024,PAT033,Ramy Ibrahim,A+,DOC008,Dalia Farouk,Diagnostic Radiology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR122,5/30/2024,6/14/2024,PAT032,Reem Fawzy,O-,DOC005,Tarek Ibrahim,Orthopedic Surgery,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR121,5/26/2024,,PAT031,Hossam Yassin,O+,DOC002,Ahmed El-Sayed,Cardiology,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR120,5/22/2024,8/3/2024,PAT030,Yasmine Kamel,AB-,DOC019,Nour El-Din,Interventional Radiology,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR119,5/18/2024,7/29/2024,PAT029,Wael Khattab,AB+,DOC016,Wael Saeed,Sports Medicine,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR118,5/14/2024,,PAT028,Farah Barakat,B-,DOC013,Rania Samir,Trauma Care,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR117,5/10/2024,7/19/2024,PAT027,Amr Zaki,B+,DOC010,Youssef Adel,Clinical Cardiology,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR116,5/6/2024,7/14/2024,PAT026,Laila Mansour,A-,DOC007,Sherif Nabil,Medical Oncology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR115,5/2/2024,,PAT025,Sherif Shawky,A+,DOC004,Heba Abdelrahman,Pediatrics,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR114,4/28/2024,7/4/2024,PAT024,Nadia Hegazy,O-,DOC001,Karim Mansour,Interventional Cardiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR113,4/24/2024,6/29/2024,PAT023,Karim Nabil,O+,DOC018,Amr Soliman,Radiation Oncology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR112,4/20/2024,,PAT022,Rania El-Masry,AB-,DOC015,Mariam Tawfik,Neonatology,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR111,4/16/2024,6/19/2024,PAT021,Ibrahim Diab,AB+,DOC012,Omar Gamal,Pediatric Cardiology,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR110,4/12/2024,6/14/2024,PAT020,Dalia Tawfik,B-,DOC009,Khaled Mostafa,General Surgery,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR109,4/8/2024,,PAT019,Mostafa Abdelaziz,B+,DOC006,Nadia Kamel,Neurology,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR108,4/4/2024,6/4/2024,PAT018,Heba Lotfy,A-,DOC003,Mona Hassan,Emergency Medicine,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR107,3/31/2024,5/30/2024,PAT017,Ali Refaat,A+,DOC020,Farah Yassin,Laparoscopic Surgery,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR106,3/27/2024,,PAT016,Mona Mostafa,O-,DOC017,Laila Ashraf,Neurophysiology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR105,3/23/2024,5/20/2024,PAT015,Hassan Hassan,O+,DOC014,Hassan Zaki,Acute Care,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR104,3/19/2024,5/15/2024,PAT014,Hana Gaber,AB-,DOC011,Salma Fathy,Electrophysiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR103,3/15/2024,,PAT013,Tarek Soliman,AB+,DOC008,Dalia Farouk,Diagnostic Radiology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR102,3/11/2024,5/5/2024,PAT012,Salma Farouk,B-,DOC005,Tarek Ibrahim,Orthopedic Surgery,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR101,3/7/2024,4/30/2024,PAT011,Khaled Helmy,B+,DOC002,Ahmed El-Sayed,Cardiology,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR100,3/3/2024,,PAT010,Nour Nassar,A-,DOC019,Nour El-Din,Interventional Radiology,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR099,2/28/2024,4/20/2024,PAT009,Omar Saeed,A+,DOC016,Wael Saeed,Sports Medicine,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR098,2/24/2024,4/15/2024,PAT008,Sara Ibrahim,O-,DOC013,Rania Samir,Trauma Care,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR097,2/20/2024,,PAT007,Youssef Fawzy,O+,DOC010,Youssef Adel,Clinical Cardiology,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR096,2/16/2024,4/5/2024,PAT006,Mariam Yassin,AB-,DOC007,Sherif Nabil,Medical Oncology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR095,2/12/2024,3/31/2024,PAT005,Mahmoud Kamel,AB+,DOC004,Heba Abdelrahman,Pediatrics,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR094,2/8/2024,,PAT004,Aya Khattab,B-,DOC001,Karim Mansour,Interventional Cardiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR093,2/4/2024,3/21/2024,PAT003,Mohamed Barakat,B+,DOC018,Amr Soliman,Radiation Oncology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR092,1/31/2024,3/16/2024,PAT002,Fatma Zaki,A-,DOC015,Mariam Tawfik,Neonatology,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR091,1/27/2024,,PAT001,Ahmed Mansour,A+,DOC012,Omar Gamal,Pediatric Cardiology,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR090,1/23/2024,3/6/2024,PAT090,Eman Hassan,A-,DOC008,Dalia Farouk,Diagnostic Radiology,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR089,1/19/2024,3/1/2024,PAT089,Ashraf Gaber,A+,DOC005,Tarek Ibrahim,Orthopedic Surgery,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR088,1/15/2024,,PAT088,Amira Soliman,O-,DOC002,Ahmed El-Sayed,Cardiology,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR087,1/11/2024,2/20/2024,PAT087,Walid Farouk,O+,DOC019,Nour El-Din,Interventional Radiology,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR086,1/7/2024,2/15/2024,PAT086,Noha Helmy,AB-,DOC016,Wael Saeed,Sports Medicine,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR085,1/3/2024,,PAT085,Tamer Nassar,AB+,DOC013,Rania Samir,Trauma Care,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR084,12/30/2023,2/5/2024,PAT084,Dina Saeed,B-,DOC010,Youssef Adel,Clinical Cardiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR083,12/26/2023,1/31/2024,PAT083,Ramy Ibrahim,B+,DOC007,Sherif Nabil,Medical Oncology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR082,12/22/2023,,PAT082,Reem Fawzy,A-,DOC004,Heba Abdelrahman,Pediatrics,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR081,12/18/2023,1/21/2024,PAT081,Hossam Yassin,A+,DOC001,Karim Mansour,Interventional Cardiology,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR080,12/14/2023,1/16/2024,PAT080,Yasmine Kamel,O-,DOC018,Amr Soliman,Radiation Oncology,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR079,12/10/2023,,PAT079,Wael Khattab,O+,DOC015,Mariam Tawfik,Neonatology,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR078,12/6/2023,1/6/2024,PAT078,Farah Barakat,AB-,DOC012,Omar Gamal,Pediatric Cardiology,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR077,12/2/2023,1/1/2024,PAT077,Amr Zaki,AB+,DOC009,Khaled Mostafa,General Surgery,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR076,11/28/2023,,PAT076,Laila Mansour,B-,DOC006,Nadia Kamel,Neurology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR075,11/24/2023,12/22/2023,PAT075,Sherif Shawky,B+,DOC003,Mona Hassan,Emergency Medicine,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR074,11/20/2023,12/17/2023,PAT074,Nadia Hegazy,A-,DOC020,Farah Yassin,Laparoscopic Surgery,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR073,11/16/2023,,PAT073,Karim Nabil,A+,DOC017,Laila Ashraf,Neurophysiology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR072,11/12/2023,12/7/2023,PAT072,Rania El-Masry,O-,DOC014,Hassan Zaki,Acute Care,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR071,11/8/2023,12/2/2023,PAT071,Ibrahim Diab,O+,DOC011,Salma Fathy,Electrophysiology,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR070,11/4/2023,,PAT070,Dalia Tawfik,AB-,DOC008,Dalia Farouk,Diagnostic Radiology,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR069,10/31/2023,11/22/2023,PAT069,Mostafa Abdelaziz,AB+,DOC005,Tarek Ibrahim,Orthopedic Surgery,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR068,10/27/2023,11/17/2023,PAT068,Heba Lotfy,B-,DOC002,Ahmed El-Sayed,Cardiology,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR067,10/23/2023,,PAT067,Ali Refaat,B+,DOC019,Nour El-Din,Interventional Radiology,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR066,10/19/2023,11/7/2023,PAT066,Mona Mostafa,A-,DOC016,Wael Saeed,Sports Medicine,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR065,10/15/2023,11/2/2023,PAT065,Hassan Hassan,A+,DOC013,Rania Samir,Trauma Care,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR064,10/11/2023,,PAT064,Hana Gaber,O-,DOC010,Youssef Adel,Clinical Cardiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR063,10/7/2023,10/23/2023,PAT063,Tarek Soliman,O+,DOC007,Sherif Nabil,Medical Oncology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR062,10/3/2023,10/18/2023,PAT062,Salma Farouk,AB-,DOC004,Heba Abdelrahman,Pediatrics,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR061,9/29/2023,,PAT061,Khaled Helmy,AB+,DOC001,Karim Mansour,Interventional Cardiology,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR060,9/25/2023,12/7/2023,PAT060,Nour Nassar,B-,DOC018,Amr Soliman,Radiation Oncology,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR059,9/21/2023,12/2/2023,PAT059,Omar Saeed,B+,DOC015,Mariam Tawfik,Neonatology,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR058,9/17/2023,,PAT058,Sara Ibrahim,A-,DOC012,Omar Gamal,Pediatric Cardiology,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR057,9/13/2023,11/22/2023,PAT057,Youssef Fawzy,A+,DOC009,Khaled Mostafa,General Surgery,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR056,9/9/2023,11/17/2023,PAT056,Mariam Yassin,O-,DOC006,Nadia Kamel,Neurology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR055,9/5/2023,,PAT055,Mahmoud Kamel,O+,DOC003,Mona Hassan,Emergency Medicine,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR054,9/1/2023,11/7/2023,PAT054,Aya Khattab,AB-,DOC020,Farah Yassin,Laparoscopic Surgery,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR053,8/28/2023,11/2/2023,PAT053,Mohamed Barakat,AB+,DOC017,Laila Ashraf,Neurophysiology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR052,8/24/2023,,PAT052,Fatma Zaki,B-,DOC014,Hassan Zaki,Acute Care,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR051,8/20/2023,10/23/2023,PAT051,Ahmed Mansour,B+,DOC011,Salma Fathy,Electrophysiology,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR050,8/16/2023,10/18/2023,PAT050,Samar Shawky,A-,DOC008,Dalia Farouk,Diagnostic Radiology,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR049,8/12/2023,,PAT049,Hany Hegazy,A+,DOC005,Tarek Ibrahim,Orthopedic Surgery,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR048,8/8/2023,10/8/2023,PAT048,Basma Nabil,O-,DOC002,Ahmed El-Sayed,Cardiology,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR047,8/4/2023,10/3/2023,PAT047,Adel El-Masry,O+,DOC019,Nour El-Din,Interventional Radiology,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR046,7/31/2023,,PAT046,Esraa Diab,AB-,DOC016,Wael Saeed,Sports Medicine,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR045,7/27/2023,9/23/2023,PAT045,Gamal Tawfik,AB+,DOC013,Rania Samir,Trauma Care,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR044,7/23/2023,9/18/2023,PAT044,Marwa Abdelaziz,B-,DOC010,Youssef Adel,Clinical Cardiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR043,7/19/2023,,PAT043,Nabil Lotfy,B+,DOC007,Sherif Nabil,Medical Oncology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR042,7/15/2023,9/8/2023,PAT042,Hagar Refaat,A-,DOC004,Heba Abdelrahman,Pediatrics,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR041,7/11/2023,9/3/2023,PAT041,Sameh Mostafa,A+,DOC001,Karim Mansour,Interventional Cardiology,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR040,7/7/2023,,PAT040,Eman Hassan,O-,DOC018,Amr Soliman,Radiation Oncology,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR039,7/3/2023,8/24/2023,PAT039,Ashraf Gaber,O+,DOC015,Mariam Tawfik,Neonatology,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR038,6/29/2023,8/19/2023,PAT038,Amira Soliman,AB-,DOC012,Omar Gamal,Pediatric Cardiology,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR037,6/25/2023,,PAT037,Walid Farouk,AB+,DOC009,Khaled Mostafa,General Surgery,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR036,6/21/2023,8/9/2023,PAT036,Noha Helmy,B-,DOC006,Nadia Kamel,Neurology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR035,6/17/2023,8/4/2023,PAT035,Tamer Nassar,B+,DOC003,Mona Hassan,Emergency Medicine,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR034,6/13/2023,,PAT034,Dina Saeed,A-,DOC020,Farah Yassin,Laparoscopic Surgery,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR033,6/9/2023,7/25/2023,PAT033,Ramy Ibrahim,A+,DOC017,Laila Ashraf,Neurophysiology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR032,6/5/2023,7/20/2023,PAT032,Reem Fawzy,O-,DOC014,Hassan Zaki,Acute Care,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR031,6/1/2023,,PAT031,Hossam Yassin,O+,DOC011,Salma Fathy,Electrophysiology,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR030,5/28/2023,7/10/2023,PAT030,Yasmine Kamel,AB-,DOC008,Dalia Farouk,Diagnostic Radiology,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR029,5/24/2023,7/5/2023,PAT029,Wael Khattab,AB+,DOC005,Tarek Ibrahim,Orthopedic Surgery,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR028,5/20/2023,,PAT028,Farah Barakat,B-,DOC002,Ahmed El-Sayed,Cardiology,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR027,5/16/2023,6/25/2023,PAT027,Amr Zaki,B+,DOC019,Nour El-Din,Interventional Radiology,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR026,5/12/2023,6/20/2023,PAT026,Laila Mansour,A-,DOC016,Wael Saeed,Sports Medicine,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR025,5/8/2023,,PAT025,Sherif Shawky,A+,DOC013,Rania Samir,Trauma Care,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR250,5/8/2023,,PAT070,Dalia Tawfik,AB-,DOC010,Youssef Adel,Clinical Cardiology,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR024,5/4/2023,6/10/2023,PAT024,Nadia Hegazy,O-,DOC010,Youssef Adel,Clinical Cardiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR249,5/4/2023,5/26/2023,PAT069,Mostafa Abdelaziz,AB+,DOC007,Sherif Nabil,Medical Oncology,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR023,4/30/2023,6/5/2023,PAT023,Karim Nabil,O+,DOC007,Sherif Nabil,Medical Oncology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR248,4/30/2023,5/21/2023,PAT068,Heba Lotfy,B-,DOC004,Heba Abdelrahman,Pediatrics,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR022,4/26/2023,,PAT022,Rania El-Masry,AB-,DOC004,Heba Abdelrahman,Pediatrics,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR247,4/26/2023,,PAT067,Ali Refaat,B+,DOC001,Karim Mansour,Interventional Cardiology,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR021,4/22/2023,5/26/2023,PAT021,Ibrahim Diab,AB+,DOC001,Karim Mansour,Interventional Cardiology,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR246,4/22/2023,5/11/2023,PAT066,Mona Mostafa,A-,DOC018,Amr Soliman,Radiation Oncology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR020,4/18/2023,5/21/2023,PAT020,Dalia Tawfik,B-,DOC018,Amr Soliman,Radiation Oncology,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR245,4/18/2023,5/6/2023,PAT065,Hassan Hassan,A+,DOC015,Mariam Tawfik,Neonatology,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR019,4/14/2023,,PAT019,Mostafa Abdelaziz,B+,DOC015,Mariam Tawfik,Neonatology,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR244,4/14/2023,,PAT064,Hana Gaber,O-,DOC012,Omar Gamal,Pediatric Cardiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR018,4/10/2023,5/11/2023,PAT018,Heba Lotfy,A-,DOC012,Omar Gamal,Pediatric Cardiology,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR243,4/10/2023,4/26/2023,PAT063,Tarek Soliman,O+,DOC009,Khaled Mostafa,General Surgery,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR017,4/6/2023,5/6/2023,PAT017,Ali Refaat,A+,DOC009,Khaled Mostafa,General Surgery,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR242,4/6/2023,4/21/2023,PAT062,Salma Farouk,AB-,DOC006,Nadia Kamel,Neurology,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR016,4/2/2023,,PAT016,Mona Mostafa,O-,DOC006,Nadia Kamel,Neurology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR241,4/2/2023,,PAT061,Khaled Helmy,AB+,DOC003,Mona Hassan,Emergency Medicine,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR015,3/29/2023,4/26/2023,PAT015,Hassan Hassan,O+,DOC003,Mona Hassan,Emergency Medicine,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR240,3/29/2023,6/10/2023,PAT060,Nour Nassar,B-,DOC020,Farah Yassin,Laparoscopic Surgery,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR014,3/25/2023,4/21/2023,PAT014,Hana Gaber,AB-,DOC020,Farah Yassin,Laparoscopic Surgery,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR239,3/25/2023,6/5/2023,PAT059,Omar Saeed,B+,DOC017,Laila Ashraf,Neurophysiology,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR013,3/21/2023,,PAT013,Tarek Soliman,AB+,DOC017,Laila Ashraf,Neurophysiology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR238,3/21/2023,,PAT058,Sara Ibrahim,A-,DOC014,Hassan Zaki,Acute Care,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR012,3/17/2023,4/11/2023,PAT012,Salma Farouk,B-,DOC014,Hassan Zaki,Acute Care,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR237,3/17/2023,5/26/2023,PAT057,Youssef Fawzy,A+,DOC011,Salma Fathy,Electrophysiology,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR011,3/13/2023,4/6/2023,PAT011,Khaled Helmy,B+,DOC011,Salma Fathy,Electrophysiology,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR236,3/13/2023,5/21/2023,PAT056,Mariam Yassin,O-,DOC008,Dalia Farouk,Diagnostic Radiology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR010,3/9/2023,,PAT010,Nour Nassar,A-,DOC008,Dalia Farouk,Diagnostic Radiology,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR235,3/9/2023,,PAT055,Mahmoud Kamel,O+,DOC005,Tarek Ibrahim,Orthopedic Surgery,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR009,3/5/2023,3/27/2023,PAT009,Omar Saeed,A+,DOC005,Tarek Ibrahim,Orthopedic Surgery,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR234,3/5/2023,5/11/2023,PAT054,Aya Khattab,AB-,DOC002,Ahmed El-Sayed,Cardiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR008,3/1/2023,3/22/2023,PAT008,Sara Ibrahim,O-,DOC002,Ahmed El-Sayed,Cardiology,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR233,3/1/2023,5/6/2023,PAT053,Mohamed Barakat,AB+,DOC019,Nour El-Din,Interventional Radiology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR007,2/25/2023,,PAT007,Youssef Fawzy,O+,DOC019,Nour El-Din,Interventional Radiology,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR232,2/25/2023,,PAT052,Fatma Zaki,B-,DOC016,Wael Saeed,Sports Medicine,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR006,2/21/2023,3/12/2023,PAT006,Mariam Yassin,AB-,DOC016,Wael Saeed,Sports Medicine,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.
+MR231,2/21/2023,4/26/2023,PAT051,Ahmed Mansour,B+,DOC013,Rania Samir,Trauma Care,Essential Hypertension Stage 2,Prescribed ACE inhibitor daily and low-sodium dietary regimen.
+MR005,2/17/2023,3/7/2023,PAT005,Mahmoud Kamel,AB+,DOC013,Rania Samir,Trauma Care,Chronic Migraine Without Aura,Preventive beta-blocker therapy and acute sumatriptan rescue plan.
+MR230,2/17/2023,4/21/2023,PAT050,Samar Shawky,A-,DOC010,Youssef Adel,Clinical Cardiology,Hyperlipidemia Mixed Type,Atorvastatin 20mg nightly and Mediterranean diet counseling.
+MR004,2/13/2023,,PAT004,Aya Khattab,B-,DOC010,Youssef Adel,Clinical Cardiology,Osteoarthritis of Right Knee,Physical therapy sessions and topical NSAID anti-inflammatory gel.
+MR229,2/13/2023,,PAT049,Hany Hegazy,A+,DOC007,Sherif Nabil,Medical Oncology,Mild Persistent Bronchial Asthma,Inhaled corticosteroid controller and albuterol rescue inhaler.
+MR003,2/9/2023,2/25/2023,PAT003,Mohamed Barakat,B+,DOC007,Sherif Nabil,Medical Oncology,Acute Bacterial Sinusitis,Oral Amoxicillin-Clavulanate course for 10 days plus saline spray.
+MR228,2/9/2023,4/11/2023,PAT048,Basma Nabil,O-,DOC004,Heba Abdelrahman,Pediatrics,Iron Deficiency Anemia,Oral ferrous sulfate supplementation for 3 months with CBC recheck.
+MR002,2/5/2023,2/20/2023,PAT002,Fatma Zaki,A-,DOC004,Heba Abdelrahman,Pediatrics,Type 2 Diabetes Mellitus,Initiated Metformin 500mg twice daily with glycemic self-monitoring.
+MR227,2/5/2023,4/6/2023,PAT047,Adel El-Masry,O+,DOC001,Karim Mansour,Interventional Cardiology,Gastroesophageal Reflux Disease,Proton pump inhibitor before breakfast and lifestyle adjustments.
+MR226,2/1/2023,,PAT046,Esraa Diab,AB-,DOC018,Amr Soliman,Radiation Oncology,Community-Acquired Pneumonia,Azithromycin and supportive hydration with chest X-ray follow-up.

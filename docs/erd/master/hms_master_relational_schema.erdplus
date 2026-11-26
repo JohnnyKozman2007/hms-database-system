@@ -1,0 +1,2730 @@
+{
+  "diagramType": 2,
+  "data": {
+    "nodes": [
+      {
+        "id": "a5e8190f-2cb5-53ef-9dd4-15ab103f5548",
+        "type": "Table",
+        "position": {
+          "x": -1850,
+          "y": -650
+        },
+        "data": {
+          "label": "Nurse",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "4d8e7f43-01ef-5cb3-9c16-50599f96faa7",
+              "name": "NurseID",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 0,
+              "size": "10"
+            },
+            {
+              "id": "f655be37-6169-5cdf-8f3d-532b8448acce",
+              "name": "FirstName",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 1,
+              "size": "50"
+            },
+            {
+              "id": "38ea520e-5ede-5f98-ac9c-936d39e40d09",
+              "name": "LastName",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 2,
+              "size": "50"
+            },
+            {
+              "id": "8a7376d2-6efe-5f24-b334-99bdad2d2817",
+              "name": "FullName",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 3,
+              "size": "101"
+            },
+            {
+              "id": "b7d94b4c-5764-5625-b52d-8a0a1b8002ff",
+              "name": "Gender",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 4,
+              "size": "10"
+            },
+            {
+              "id": "25e893b1-bfc2-56e7-8cd1-741720b875e9",
+              "name": "Phone",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": true,
+              "position": 5,
+              "size": "20"
+            },
+            {
+              "id": "8a0790d2-11bf-5f14-93e3-962e5d8336c1",
+              "name": "PhoneType",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 6,
+              "size": "10"
+            },
+            {
+              "id": "a6a845d9-06fd-5002-b566-16225091aa2c",
+              "name": "Email",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": true,
+              "position": 7,
+              "size": "100"
+            },
+            {
+              "id": "d3716dd3-db53-56f0-b09f-99aeca3f3317",
+              "name": "Shift",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 8,
+              "size": "20"
+            },
+            {
+              "id": "a4de0122-29ad-5ee0-945a-138a8c14d993",
+              "name": "HireDate",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 9
+            },
+            {
+              "id": "ae7a4a4a-d786-55a9-ac86-fb8342b13be0",
+              "name": "YearsOfExperience",
+              "type": "NUMERIC(p s)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 10,
+              "size": "2,0"
+            },
+            {
+              "id": "fb2dc6bf-4ad4-5817-866a-708d6a3f784e",
+              "name": "DepartmentID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "70743706-9a92-5c51-a637-9bbd81de6212",
+                "sourceTableId": "14b6efa9-4170-50fb-82d3-82d7aacb32c2",
+                "columns": [
+                  {
+                    "id": "fk_834cdb2b-fbc5-500d-a270-0b0a17188454",
+                    "name": "DepartmentID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 11
+            },
+            {
+              "id": "b5262273-cf8f-535e-b4d4-aea2291386a1",
+              "name": "SupervisorID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "a38ee0de-b7cb-5845-a686-cc9de881f415",
+                "sourceTableId": "a5e8190f-2cb5-53ef-9dd4-15ab103f5548",
+                "columns": [
+                  {
+                    "id": "fk_4d8e7f43-01ef-5cb3-9c16-50599f96faa7",
+                    "name": "SupervisorID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 12
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 260,
+          "height": 352
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "14b6efa9-4170-50fb-82d3-82d7aacb32c2",
+        "type": "Table",
+        "position": {
+          "x": -1250,
+          "y": -650
+        },
+        "data": {
+          "label": "Department",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "834cdb2b-fbc5-500d-a270-0b0a17188454",
+              "name": "DepartmentID",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 0,
+              "size": "10"
+            },
+            {
+              "id": "66582a5f-01cc-55ba-ae0f-56f9f3fbb262",
+              "name": "DepartmentName",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": true,
+              "position": 1,
+              "size": "50"
+            },
+            {
+              "id": "24818d39-5b1f-5de1-b1b5-8bf6ef24ecbd",
+              "name": "Building",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 2,
+              "size": "50"
+            },
+            {
+              "id": "9a548932-3d44-571b-8773-cb56b302065e",
+              "name": "FloorLevel",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 3,
+              "size": "20"
+            },
+            {
+              "id": "0f131d85-e17f-5b98-89ec-611a496edff7",
+              "name": "Location",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 4,
+              "size": "80"
+            },
+            {
+              "id": "111a1d36-983a-505d-8b72-837889fca13a",
+              "name": "Phone",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": true,
+              "position": 5,
+              "size": "20"
+            },
+            {
+              "id": "9f7f3382-0973-516e-9dbd-ef732e85eb6d",
+              "name": "PhoneType",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 6,
+              "size": "10"
+            },
+            {
+              "id": "8fd8f62e-bad2-53f5-920d-8d7a5a53764f",
+              "name": "DepartmentDescription",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": true,
+              "isUnique": false,
+              "position": 7,
+              "size": "255"
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 260,
+          "height": 232
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "0530c12d-70c1-5286-8877-c36520c83c3d",
+        "type": "Table",
+        "position": {
+          "x": -750,
+          "y": 0
+        },
+        "data": {
+          "label": "Doctor",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "e2a27b5c-e711-5d3e-b503-6491ad324f69",
+              "name": "DoctorID",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 0,
+              "size": "10"
+            },
+            {
+              "id": "471eb661-317c-5a7b-a251-7ce55462ae4d",
+              "name": "FirstName",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 1,
+              "size": "50"
+            },
+            {
+              "id": "95c60c20-f20a-5273-bdda-e781d6c2fea5",
+              "name": "LastName",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 2,
+              "size": "50"
+            },
+            {
+              "id": "16ea0358-dfc6-5546-a3e2-24a3317a6885",
+              "name": "FullName",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 3,
+              "size": "101"
+            },
+            {
+              "id": "81ef88d6-d9b2-555a-b971-3563707f36a8",
+              "name": "Gender",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 4,
+              "size": "10"
+            },
+            {
+              "id": "d1af79f3-f4cf-5e3a-8f36-1358dccd725f",
+              "name": "Phone",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": true,
+              "position": 5,
+              "size": "20"
+            },
+            {
+              "id": "bab07b5c-81ab-5e05-b398-147142ef4a1f",
+              "name": "PhoneType",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 6,
+              "size": "10"
+            },
+            {
+              "id": "b4ee00c8-85e4-52c8-95c3-61af59123d9a",
+              "name": "Email",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": true,
+              "position": 7,
+              "size": "100"
+            },
+            {
+              "id": "008d7f50-252a-5fd1-a8a2-3f69fe87e6d6",
+              "name": "Specialty",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 8,
+              "size": "50"
+            },
+            {
+              "id": "11f8fcea-54bf-5f5f-aebc-911f6018a236",
+              "name": "HireDate",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 9
+            },
+            {
+              "id": "c474a42e-da38-573c-ba7d-8087c6e69b6d",
+              "name": "YearsOfExperience",
+              "type": "NUMERIC(p s)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 10,
+              "size": "2,0"
+            },
+            {
+              "id": "6eb808c7-5a7f-58e2-be62-4aaa660f2087",
+              "name": "DepartmentID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "1c467465-88df-58d8-8579-f730b3e527fc",
+                "sourceTableId": "14b6efa9-4170-50fb-82d3-82d7aacb32c2",
+                "columns": [
+                  {
+                    "id": "fk_834cdb2b-fbc5-500d-a270-0b0a17188454",
+                    "name": "DepartmentID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 11
+            },
+            {
+              "id": "47754326-a32c-5e4c-960f-54e421ef026c",
+              "name": "SupervisorID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "543e227a-0808-5f81-881e-68ddefe5ad7b",
+                "sourceTableId": "0530c12d-70c1-5286-8877-c36520c83c3d",
+                "columns": [
+                  {
+                    "id": "fk_e2a27b5c-e711-5d3e-b503-6491ad324f69",
+                    "name": "SupervisorID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 12
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 260,
+          "height": 352
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "e8c886ac-bb10-593c-a315-7b10c66d580e",
+        "type": "Table",
+        "position": {
+          "x": -1850,
+          "y": 780
+        },
+        "data": {
+          "label": "Supplier",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "0b1f384f-4806-5a75-babd-8a4b310cb61c",
+              "name": "SupplierID",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 0,
+              "size": "10"
+            },
+            {
+              "id": "0001d063-de3b-53c2-8d46-ed3b68d9e0a7",
+              "name": "CompanyName",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": true,
+              "position": 1,
+              "size": "100"
+            },
+            {
+              "id": "7c332084-e1e9-5ff3-84e5-9587fd42259b",
+              "name": "ContactPerson",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 2,
+              "size": "100"
+            },
+            {
+              "id": "1ee877f2-1e5d-58d6-bcd9-15edf913cef6",
+              "name": "Phone",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": true,
+              "position": 3,
+              "size": "20"
+            },
+            {
+              "id": "fceb3b0e-ddf3-5e76-a9b6-f126c2b6dd76",
+              "name": "PhoneType",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 4,
+              "size": "10"
+            },
+            {
+              "id": "9d22f8a7-949b-5416-8519-a6c940f70068",
+              "name": "Email",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": true,
+              "position": 5,
+              "size": "100"
+            },
+            {
+              "id": "eca3524f-5256-5a4c-a812-5f25029b11cd",
+              "name": "BuildingNumber",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": true,
+              "isUnique": false,
+              "position": 6,
+              "size": "20"
+            },
+            {
+              "id": "dade5d8f-3c6b-5331-9994-55ec36c110f9",
+              "name": "Street",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 7,
+              "size": "100"
+            },
+            {
+              "id": "ce112c0f-fffe-5f24-abcc-eb2b1f72b67c",
+              "name": "City",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 8,
+              "size": "50"
+            },
+            {
+              "id": "1a72f301-b589-5c4f-9956-d4e73cbac810",
+              "name": "PostalCode",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 9,
+              "size": "20"
+            },
+            {
+              "id": "15bebf65-1502-5357-a49e-54a25705d95f",
+              "name": "Address",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 10,
+              "size": "250"
+            },
+            {
+              "id": "64fbeb63-7da7-5afa-aea5-ffe1f6454b1d",
+              "name": "ContractStatus",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 11,
+              "size": "20"
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 260,
+          "height": 328
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "b6b8c941-b196-5012-b716-1878a1ca9807",
+        "type": "Table",
+        "position": {
+          "x": -750,
+          "y": 820
+        },
+        "data": {
+          "label": "Medication",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "34f4b124-f5f8-5bf3-ad5a-b013d666a324",
+              "name": "MedicationID",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 0,
+              "size": "10"
+            },
+            {
+              "id": "8006e3d9-6195-5570-8f65-861203723c23",
+              "name": "MedicationName",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 1,
+              "size": "100",
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "1b5174bb-6842-5bdd-8dd7-bf9f26ad0637",
+              "name": "Manufacturer",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 2,
+              "size": "100",
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "e6ca3133-9419-5fee-b2fd-7791eb52f89c",
+              "name": "Category",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 3,
+              "size": "50"
+            },
+            {
+              "id": "023ebfaa-3364-5fdb-94c7-4df998542aad",
+              "name": "DosageForm",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 4,
+              "size": "30",
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "c8437863-e755-5098-ae32-e9c621251b5b",
+              "name": "UnitPrice",
+              "type": "NUMERIC(p s)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 5,
+              "size": "10,2"
+            },
+            {
+              "id": "e8c5bd8a-6a77-5375-9589-83ac0e066df7",
+              "name": "QuantityInStock",
+              "type": "NUMERIC(p s)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 6,
+              "size": "6,0"
+            },
+            {
+              "id": "14b26227-ac9c-5b94-a783-28126baf94f2",
+              "name": "ImportDate",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 7
+            },
+            {
+              "id": "f84e6304-9dfa-5742-9416-0201762b1abf",
+              "name": "ExpirationDate",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 8,
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "99d314e2-5fc9-5000-b35d-7c3472f85360",
+              "name": "SupplierID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "3271138a-b8c9-5a5f-a1a4-6827fddf1846",
+                "sourceTableId": "e8c886ac-bb10-593c-a315-7b10c66d580e",
+                "columns": [
+                  {
+                    "id": "fk_0b1f384f-4806-5a75-babd-8a4b310cb61c",
+                    "name": "SupplierID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 9
+            }
+          ],
+          "numberOfGroups": 1,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 260,
+          "height": 280
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "3f50a2e2-cc50-582d-bc99-9fcb6e1bf83d",
+        "type": "Table",
+        "position": {
+          "x": 0,
+          "y": -900
+        },
+        "data": {
+          "label": "Appointment",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "bb0eda4d-ab6b-53b9-959f-59c549be08e5",
+              "name": "AppointmentID",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 0,
+              "size": "10"
+            },
+            {
+              "id": "5102957d-bd10-52f3-aef3-83a9fe3dbc82",
+              "name": "AppointmentDate",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 1,
+              "uniqueGroups": [
+                1,
+                2
+              ]
+            },
+            {
+              "id": "25b364b5-b30c-5129-ab6f-a52c65ac41ac",
+              "name": "AppointmentTime",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 2,
+              "size": "5"
+            },
+            {
+              "id": "e6082dec-4d8c-5641-92c1-a853a7038243",
+              "name": "Status",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 3,
+              "size": "20"
+            },
+            {
+              "id": "5a25c9b1-24b3-557e-96e8-fb1b164e5db7",
+              "name": "Reason",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 4,
+              "size": "255"
+            },
+            {
+              "id": "0d475252-46f8-5ec6-a55c-81f0a506ef7d",
+              "name": "Notes",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": true,
+              "isUnique": false,
+              "position": 5,
+              "size": "500"
+            },
+            {
+              "id": "04cf93bb-2ada-564e-9961-fbf8b8fca785",
+              "name": "PatientID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "2e0d57bb-90de-5526-a2df-b8d6a6609f1b",
+                "sourceTableId": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+                "columns": [
+                  {
+                    "id": "fk_77420cc0-36c4-506f-a87d-b680a97f435d",
+                    "name": "PatientID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 6,
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "224f7075-4dac-521a-bdd3-cb00abe23dfa",
+              "name": "DoctorID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "a55c1844-b812-536b-9528-a872d0f31eb7",
+                "sourceTableId": "0530c12d-70c1-5286-8877-c36520c83c3d",
+                "columns": [
+                  {
+                    "id": "fk_e2a27b5c-e711-5d3e-b503-6491ad324f69",
+                    "name": "DoctorID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 7,
+              "uniqueGroups": [
+                2
+              ]
+            }
+          ],
+          "numberOfGroups": 2,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 260,
+          "height": 232
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "646dc577-e553-5eee-a987-0879cc53ea55",
+        "type": "Table",
+        "position": {
+          "x": 0,
+          "y": -450
+        },
+        "data": {
+          "label": "MedicalRecord",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "76932aa8-6291-5a4f-aaa2-a6cc11343e7a",
+              "name": "RecordID",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 0,
+              "size": "10"
+            },
+            {
+              "id": "8480cd14-a678-5698-bd3f-c1ee9bbd7758",
+              "name": "Diagnosis",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 1,
+              "size": "255"
+            },
+            {
+              "id": "252434e1-7203-5e4c-bd3d-61b008d19155",
+              "name": "Treatment",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 2,
+              "size": "500"
+            },
+            {
+              "id": "c411de53-11c2-5360-ab63-dd417211dec2",
+              "name": "Notes",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": true,
+              "isUnique": false,
+              "position": 3,
+              "size": "1000"
+            },
+            {
+              "id": "d61598ed-5ae9-544e-9876-bfb89e3c65db",
+              "name": "RecordDate",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 4,
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "1da028fa-be42-5933-bfe0-9bc2c565c960",
+              "name": "FollowUpDate",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": true,
+              "isUnique": false,
+              "position": 5
+            },
+            {
+              "id": "ebe4c844-4b12-5064-aa30-ff3354414893",
+              "name": "PatientID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "776922b3-acb2-5aee-acae-d64b088edc18",
+                "sourceTableId": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+                "columns": [
+                  {
+                    "id": "fk_77420cc0-36c4-506f-a87d-b680a97f435d",
+                    "name": "PatientID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 6,
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "93782b3e-1b18-5daa-9e47-9b53c1fcbd78",
+              "name": "DoctorID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "312067fe-8cca-5516-9a9f-4cb50bb2c003",
+                "sourceTableId": "0530c12d-70c1-5286-8877-c36520c83c3d",
+                "columns": [
+                  {
+                    "id": "fk_e2a27b5c-e711-5d3e-b503-6491ad324f69",
+                    "name": "DoctorID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 7,
+              "uniqueGroups": [
+                1
+              ]
+            }
+          ],
+          "numberOfGroups": 1,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 260,
+          "height": 232
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "3918b01d-0a8e-5fd5-80d6-7be67968aaa7",
+        "type": "Table",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "data": {
+          "label": "MedicalProcedure",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "2c73bb98-08d4-5bee-8444-ef1aaff47d2c",
+              "name": "ProcedureID",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 0,
+              "size": "10"
+            },
+            {
+              "id": "59a6e5e3-67f2-5889-9a8a-9be4263fd4e4",
+              "name": "ProcedureName",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 1,
+              "size": "100"
+            },
+            {
+              "id": "83f2f019-adcc-56c2-af37-592cb5a1c1e4",
+              "name": "ProcedureDate",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 2,
+              "uniqueGroups": [
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "id": "8a171927-7940-53c9-9b1e-05267662434f",
+              "name": "Duration",
+              "type": "NUMERIC(p s)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 3,
+              "size": "4,0"
+            },
+            {
+              "id": "fa6c7b1e-43ed-501a-8de4-0ccd8a5359bd",
+              "name": "EndTime",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 4
+            },
+            {
+              "id": "f423f80d-ced1-5dd0-aee5-386a8d72f395",
+              "name": "OperatingRoom",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 5,
+              "size": "30",
+              "uniqueGroups": [
+                2
+              ]
+            },
+            {
+              "id": "1224578b-07d6-5c6b-b006-836c41602f9d",
+              "name": "ProcedureCost",
+              "type": "NUMERIC(p s)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 6,
+              "size": "10,2"
+            },
+            {
+              "id": "c1783101-fb34-5ac5-9f62-c40d9db49be1",
+              "name": "Outcome",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 7,
+              "size": "30"
+            },
+            {
+              "id": "43e949c8-02b5-5b43-9f2d-afd02c6cf4f8",
+              "name": "PatientID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "b0273178-bdcd-55b7-8347-c25da1058a10",
+                "sourceTableId": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+                "columns": [
+                  {
+                    "id": "fk_77420cc0-36c4-506f-a87d-b680a97f435d",
+                    "name": "PatientID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 8,
+              "uniqueGroups": [
+                3
+              ]
+            },
+            {
+              "id": "f0fff99d-625d-5354-bf9e-3ed2e17261e5",
+              "name": "DoctorID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "cc0b2a73-5c8b-5331-a613-16397a0f4155",
+                "sourceTableId": "0530c12d-70c1-5286-8877-c36520c83c3d",
+                "columns": [
+                  {
+                    "id": "fk_e2a27b5c-e711-5d3e-b503-6491ad324f69",
+                    "name": "DoctorID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 9,
+              "uniqueGroups": [
+                1
+              ]
+            }
+          ],
+          "numberOfGroups": 3,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 260,
+          "height": 280
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "61ae3935-e268-52c5-81e0-55c4ab430fac",
+        "type": "Table",
+        "position": {
+          "x": 0,
+          "y": 480
+        },
+        "data": {
+          "label": "LaboratoryTest",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "32108fd8-2649-5079-b9c0-6e9c6beb64fd",
+              "name": "TestID",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 0,
+              "size": "10"
+            },
+            {
+              "id": "ffd88861-5276-588a-b5c0-62f7dedc6ce8",
+              "name": "TestType",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 1,
+              "size": "100",
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "65aa09ea-6460-507c-9ce3-5d342ef593f2",
+              "name": "RequestedDate",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 2,
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "13488cea-c226-55be-b3c8-fe4181cff7e1",
+              "name": "CompletedDate",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": true,
+              "isUnique": false,
+              "position": 3
+            },
+            {
+              "id": "1dcb150e-7609-590e-8839-3723f1bbfbc9",
+              "name": "TestStatus",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 4,
+              "size": "20"
+            },
+            {
+              "id": "5323295a-69d2-5572-b85c-7d150d5aca6f",
+              "name": "TestResult",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": true,
+              "isUnique": false,
+              "position": 5,
+              "size": "500"
+            },
+            {
+              "id": "8481e72e-b9df-59a2-89b3-21317cff72a6",
+              "name": "TestCost",
+              "type": "NUMERIC(p s)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 6,
+              "size": "10,2"
+            },
+            {
+              "id": "f7b9085b-5493-5425-a452-46db97cfb45d",
+              "name": "PatientID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "174b3bfa-5636-5e94-b3a4-225300a428d0",
+                "sourceTableId": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+                "columns": [
+                  {
+                    "id": "fk_77420cc0-36c4-506f-a87d-b680a97f435d",
+                    "name": "PatientID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 7,
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "b7f5cdca-3969-5b48-a4e1-4feebaa8f087",
+              "name": "DoctorID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "dab9233f-07da-5198-a275-595967eda78f",
+                "sourceTableId": "0530c12d-70c1-5286-8877-c36520c83c3d",
+                "columns": [
+                  {
+                    "id": "fk_e2a27b5c-e711-5d3e-b503-6491ad324f69",
+                    "name": "DoctorID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 8,
+              "uniqueGroups": [
+                1
+              ]
+            }
+          ],
+          "numberOfGroups": 1,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 260,
+          "height": 256
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "98788594-0754-52fd-bd1c-52e27bd41abe",
+        "type": "Table",
+        "position": {
+          "x": 0,
+          "y": 950
+        },
+        "data": {
+          "label": "Prescription",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "e89a0d64-feb6-5281-801b-c26ff64d6121",
+              "name": "PrescriptionID",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 0,
+              "size": "10"
+            },
+            {
+              "id": "d4d52347-68b9-5561-9579-f02f0e4baa09",
+              "name": "Dosage",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 1,
+              "size": "50"
+            },
+            {
+              "id": "e3dd0f7f-da3e-5ac6-9ce2-b3a826ddd332",
+              "name": "Frequency",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 2,
+              "size": "50"
+            },
+            {
+              "id": "b1dabbbd-df81-5ba8-b953-3cf73c6a95de",
+              "name": "Duration",
+              "type": "NUMERIC(p s)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 3,
+              "size": "3,0"
+            },
+            {
+              "id": "eb5f86c3-5d3d-526b-8dab-a8201332175b",
+              "name": "QuantityPrescribed",
+              "type": "NUMERIC(p s)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 4,
+              "size": "4,0"
+            },
+            {
+              "id": "80d68b36-2299-52d3-864b-f8ca96332322",
+              "name": "DispenseStatus",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 5,
+              "size": "20"
+            },
+            {
+              "id": "2f72861d-13a2-58c1-8d74-008bdd1ef2af",
+              "name": "PrescriptionDate",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 6,
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "3548e460-c407-56e7-8c7b-9d01d989e05c",
+              "name": "PrescriptionTime",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 7,
+              "size": "5"
+            },
+            {
+              "id": "b6c0fc3c-12b2-52a0-a6a2-d85ba0aed1dc",
+              "name": "EndDate",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 8
+            },
+            {
+              "id": "12f4af6b-f915-542e-a604-28e354db1fe8",
+              "name": "Notes",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": true,
+              "isUnique": false,
+              "position": 9,
+              "size": "500"
+            },
+            {
+              "id": "5b3e2914-31ce-57bb-b585-8923ffa6ea7a",
+              "name": "PatientID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "4b4ae581-3fba-5e14-9f08-c9dfa9df4e4f",
+                "sourceTableId": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+                "columns": [
+                  {
+                    "id": "fk_77420cc0-36c4-506f-a87d-b680a97f435d",
+                    "name": "PatientID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 10,
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "8c96eeea-fbc2-5c7e-b8ac-7998b92eabe1",
+              "name": "DoctorID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "eada9847-ac6a-5fe8-b938-9b5011ec654c",
+                "sourceTableId": "0530c12d-70c1-5286-8877-c36520c83c3d",
+                "columns": [
+                  {
+                    "id": "fk_e2a27b5c-e711-5d3e-b503-6491ad324f69",
+                    "name": "DoctorID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 11,
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "a997c689-f6e4-5551-a3f3-466eb7c069b8",
+              "name": "MedicationID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "42aa8b6f-c568-5d2f-8da7-6015175404bb",
+                "sourceTableId": "b6b8c941-b196-5012-b716-1878a1ca9807",
+                "columns": [
+                  {
+                    "id": "fk_34f4b124-f5f8-5bf3-ad5a-b013d666a324",
+                    "name": "MedicationID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 12,
+              "uniqueGroups": [
+                1
+              ]
+            }
+          ],
+          "numberOfGroups": 1,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 260,
+          "height": 352
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+        "type": "Table",
+        "position": {
+          "x": 750,
+          "y": 0
+        },
+        "data": {
+          "label": "Patient",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "77420cc0-36c4-506f-a87d-b680a97f435d",
+              "name": "PatientID",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 0,
+              "size": "10"
+            },
+            {
+              "id": "dcdf46c9-f027-56a9-90a1-8289219dddfa",
+              "name": "FirstName",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 1,
+              "size": "50"
+            },
+            {
+              "id": "2f12d9f8-fd43-5018-83d8-65c0ba5a2c67",
+              "name": "LastName",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 2,
+              "size": "50"
+            },
+            {
+              "id": "cf212fe1-014e-52f7-8223-4e7166cc5840",
+              "name": "FullName",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 3,
+              "size": "101"
+            },
+            {
+              "id": "aebb8f13-4ee2-5c8c-b5cc-4d5ea13265ab",
+              "name": "DateOfBirth",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 4
+            },
+            {
+              "id": "daedc88b-56fe-54a3-a185-8d06f4aec7b5",
+              "name": "Gender",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 5,
+              "size": "10"
+            },
+            {
+              "id": "47b7a165-940a-5d1b-9695-9ad1a611fff5",
+              "name": "BloodType",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 6,
+              "size": "5"
+            },
+            {
+              "id": "46a73104-6f1a-5e4c-8f58-473d897f45bc",
+              "name": "Phone",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": true,
+              "position": 7,
+              "size": "20"
+            },
+            {
+              "id": "a5fd662f-6223-5f56-aa2d-2adc4414ee60",
+              "name": "PhoneType",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 8,
+              "size": "10"
+            },
+            {
+              "id": "7f54345b-cfca-5a22-aa98-395d87a9df5f",
+              "name": "Email",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": true,
+              "position": 9,
+              "size": "100"
+            },
+            {
+              "id": "a2635efa-14f9-56e5-9203-7b6ed7249025",
+              "name": "BuildingNumber",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": true,
+              "isUnique": false,
+              "position": 10,
+              "size": "20"
+            },
+            {
+              "id": "fbdb3a74-6204-5ff1-90b0-8cde6fdee371",
+              "name": "Street",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 11,
+              "size": "100"
+            },
+            {
+              "id": "775c9912-9285-5a37-b86e-34bf22e4e5da",
+              "name": "City",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 12,
+              "size": "50"
+            },
+            {
+              "id": "2b8236d7-2dd2-5464-b05e-e767bd0d8a2c",
+              "name": "PostalCode",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 13,
+              "size": "20"
+            },
+            {
+              "id": "9752407b-3d83-5bf0-a404-7fa807998d47",
+              "name": "Address",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 14,
+              "size": "250"
+            },
+            {
+              "id": "ad576d44-6812-5df9-8754-5618bc99f7cb",
+              "name": "EmergencyContact",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 15,
+              "size": "20"
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 260,
+          "height": 424
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "02d6dcb6-fa32-5a8b-b440-c93fd588edbb",
+        "type": "Table",
+        "position": {
+          "x": 1400,
+          "y": -650
+        },
+        "data": {
+          "label": "Admission",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "a39ae6d4-f954-51f8-a668-fadb6c06faa0",
+              "name": "AdmissionID",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 0,
+              "size": "10"
+            },
+            {
+              "id": "be7972f9-dbaa-5e40-b3a8-de836b69fc7f",
+              "name": "AdmissionDate",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 1,
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "ff982185-0d05-594f-b9cc-a918b9af9ff1",
+              "name": "DischargeDate",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": true,
+              "isUnique": false,
+              "position": 2
+            },
+            {
+              "id": "9fe7a851-7200-54cf-801a-a1443e136fe4",
+              "name": "AdmissionReason",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 3,
+              "size": "255"
+            },
+            {
+              "id": "8b08ff22-8cb4-5a16-a429-284711eeadc4",
+              "name": "AdmissionStatus",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 4,
+              "size": "20"
+            },
+            {
+              "id": "a4d885cd-6fb9-5cb5-8af2-aa1764cda88b",
+              "name": "PatientID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "87e9ed54-2c60-53f0-9302-3e44df3db8e4",
+                "sourceTableId": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+                "columns": [
+                  {
+                    "id": "fk_77420cc0-36c4-506f-a87d-b680a97f435d",
+                    "name": "PatientID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 5,
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "9ada6bf6-e000-5692-a39a-18fd84bc00d2",
+              "name": "RoomID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "019baa27-872f-574e-ac2e-ff97180917d6",
+                "sourceTableId": "842ce4b1-b6e4-5061-ae74-b426f05d43f4",
+                "columns": [
+                  {
+                    "id": "fk_462a5f2b-233b-53e4-9fe0-a7f9bad68aa7",
+                    "name": "RoomID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 6
+            }
+          ],
+          "numberOfGroups": 1,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 260,
+          "height": 208
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "842ce4b1-b6e4-5061-ae74-b426f05d43f4",
+        "type": "Table",
+        "position": {
+          "x": 1980,
+          "y": -650
+        },
+        "data": {
+          "label": "Room",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "462a5f2b-233b-53e4-9fe0-a7f9bad68aa7",
+              "name": "RoomID",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 0,
+              "size": "10"
+            },
+            {
+              "id": "71056348-05f3-5f96-bf09-2802feb4c5de",
+              "name": "RoomNumber",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 1,
+              "size": "10",
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "914328e2-04bc-5ba2-a19f-99d2834326d6",
+              "name": "Building",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 2,
+              "size": "50",
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "bb92c924-3898-502e-94fa-4e5b35f04eb2",
+              "name": "Floor",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 3,
+              "size": "20",
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "a950eb8b-27b6-53ed-91b4-c5705742453d",
+              "name": "RoomType",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 4,
+              "size": "30"
+            },
+            {
+              "id": "81d59766-3ebc-5463-8f7f-afa6d257d07a",
+              "name": "Capacity",
+              "type": "NUMERIC(p s)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 5,
+              "size": "3,0"
+            },
+            {
+              "id": "ab9383e7-ddd6-5404-9a55-5e326a3eb380",
+              "name": "DailyCharge",
+              "type": "NUMERIC(p s)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 6,
+              "size": "10,2"
+            },
+            {
+              "id": "53ebed70-0203-5343-b342-7c049fdc2b3f",
+              "name": "AvailabilityStatus",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 7,
+              "size": "20"
+            }
+          ],
+          "numberOfGroups": 1,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 260,
+          "height": 232
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "7fa7ab6d-7e4b-5aa0-bc94-7604c96d5dca",
+        "type": "Table",
+        "position": {
+          "x": 1500,
+          "y": 0
+        },
+        "data": {
+          "label": "Insurance",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "2b7f192c-3fdb-588b-8194-7b0a0e7c6acb",
+              "name": "InsuranceID",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 0,
+              "size": "10"
+            },
+            {
+              "id": "c094eeec-e793-52de-a36c-b496c3d0897d",
+              "name": "InsuranceCompany",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 1,
+              "size": "100",
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "3914f75f-9045-5d1d-8368-f252efca46c1",
+              "name": "PolicyNumber",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": true,
+              "position": 2,
+              "size": "50"
+            },
+            {
+              "id": "cd554e83-1b6a-5d4e-82e1-f6fa860191d4",
+              "name": "CoveragePercentage",
+              "type": "NUMERIC(p s)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 3,
+              "size": "5,2"
+            },
+            {
+              "id": "017b56de-134d-5a3f-8b0a-c5c7025be141",
+              "name": "StartDate",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 4,
+              "uniqueGroups": [
+                1
+              ]
+            },
+            {
+              "id": "b8301ea6-fc3d-549a-bb14-fb69c143d0a5",
+              "name": "ExpirationDate",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 5
+            },
+            {
+              "id": "f963e6bd-e323-50ef-b1c6-3d330f1b3c32",
+              "name": "InsuranceStatus",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 6,
+              "size": "20"
+            },
+            {
+              "id": "42bf45d3-7fd3-5b63-8742-6278afbc0db4",
+              "name": "PatientID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "4a4c8334-ee5a-532c-a6c7-df1d208dd749",
+                "sourceTableId": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+                "columns": [
+                  {
+                    "id": "fk_77420cc0-36c4-506f-a87d-b680a97f435d",
+                    "name": "PatientID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 7,
+              "uniqueGroups": [
+                1
+              ]
+            }
+          ],
+          "numberOfGroups": 1,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 260,
+          "height": 232
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "af1bc364-d13f-54a7-a46a-fbb848bdd086",
+        "type": "Table",
+        "position": {
+          "x": 1400,
+          "y": 680
+        },
+        "data": {
+          "label": "Invoice",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "9a290d2a-bada-5793-911c-c635f9120dbc",
+              "name": "InvoiceID",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 0,
+              "size": "10"
+            },
+            {
+              "id": "54445dc1-3fcb-5199-9685-305b9f753114",
+              "name": "InvoiceDate",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 1
+            },
+            {
+              "id": "717c6066-c24d-5e42-8c0e-ffd04eadc112",
+              "name": "TotalAmount",
+              "type": "NUMERIC(p s)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 2,
+              "size": "10,2"
+            },
+            {
+              "id": "306782c4-09ed-5b68-8c19-864169c00452",
+              "name": "TaxAmount",
+              "type": "NUMERIC(p s)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 3,
+              "size": "10,2"
+            },
+            {
+              "id": "27080922-10d7-504d-981b-6c19872ec637",
+              "name": "Discount",
+              "type": "NUMERIC(p s)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 4,
+              "size": "10,2"
+            },
+            {
+              "id": "4df39d4d-6d7c-5731-98f2-a2a0389187bf",
+              "name": "NetAmount",
+              "type": "NUMERIC(p s)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 5,
+              "size": "12,2"
+            },
+            {
+              "id": "2bc3aa83-482f-56d0-a384-2b186650d08c",
+              "name": "DueDate",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 6
+            },
+            {
+              "id": "cc58e87c-5541-5b3a-8a31-e22c51fd43f6",
+              "name": "PaymentStatus",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 7,
+              "size": "20"
+            },
+            {
+              "id": "461ec9c7-5c49-5d66-81d0-727d58f75772",
+              "name": "PatientID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "026cf4e6-5cbd-533f-a560-699097a796a2",
+                "sourceTableId": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+                "columns": [
+                  {
+                    "id": "fk_77420cc0-36c4-506f-a87d-b680a97f435d",
+                    "name": "PatientID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 8
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 260,
+          "height": 256
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "924e9101-649f-5921-97fb-ee302ca45aed",
+        "type": "Table",
+        "position": {
+          "x": 1980,
+          "y": 680
+        },
+        "data": {
+          "label": "Payment",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "273bdb76-b9fe-5021-8c2e-79407dad3152",
+              "name": "PaymentID",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 0,
+              "size": "10"
+            },
+            {
+              "id": "0bdc7e08-09ca-595a-9f8b-54c6edea5ce1",
+              "name": "PaymentDate",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 1
+            },
+            {
+              "id": "47fb50c4-62d7-5f01-af09-a9ccefadf184",
+              "name": "AmountPaid",
+              "type": "NUMERIC(p s)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 2,
+              "size": "10,2"
+            },
+            {
+              "id": "c9fe7390-d53b-5186-b07a-77cf6cf1e505",
+              "name": "PaymentMethod",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 3,
+              "size": "30"
+            },
+            {
+              "id": "9deae38f-8c6d-5946-b50c-9ec69fb05289",
+              "name": "TransactionReference",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": true,
+              "position": 4,
+              "size": "100"
+            },
+            {
+              "id": "4a98fec7-c254-5385-a28f-fcce1522cb84",
+              "name": "PaymentStatus",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false,
+              "position": 5,
+              "size": "20"
+            },
+            {
+              "id": "12ee1ac5-edd6-547b-969b-5ef9d71f39df",
+              "name": "InvoiceID",
+              "type": "None",
+              "isForeignKey": true,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "010454a1-0175-5b1b-a648-e91f422071ac",
+                "sourceTableId": "af1bc364-d13f-54a7-a46a-fbb848bdd086",
+                "columns": [
+                  {
+                    "id": "fk_9a290d2a-bada-5793-911c-c635f9120dbc",
+                    "name": "InvoiceID",
+                    "type": "VARCHAR(n)"
+                  }
+                ]
+              },
+              "position": 6
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 260,
+          "height": 208
+        },
+        "selected": false,
+        "dragging": false
+      }
+    ],
+    "edges": [
+      {
+        "id": "14b6efa9-4170-50fb-82d3-82d7aacb32c2->a5e8190f-2cb5-53ef-9dd4-15ab103f5548_70743706-9a92-5c51-a637-9bbd81de6212",
+        "type": "Relational",
+        "source": "14b6efa9-4170-50fb-82d3-82d7aacb32c2",
+        "targetHandle": "foreign-key-handle-70743706-9a92-5c51-a637-9bbd81de6212",
+        "target": "a5e8190f-2cb5-53ef-9dd4-15ab103f5548",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "70743706-9a92-5c51-a637-9bbd81de6212",
+            "sourceTableId": "14b6efa9-4170-50fb-82d3-82d7aacb32c2",
+            "columns": [
+              {
+                "id": "fk_834cdb2b-fbc5-500d-a270-0b0a17188454",
+                "name": "DepartmentID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "a5e8190f-2cb5-53ef-9dd4-15ab103f5548->a5e8190f-2cb5-53ef-9dd4-15ab103f5548_a38ee0de-b7cb-5845-a686-cc9de881f415",
+        "type": "Relational",
+        "source": "a5e8190f-2cb5-53ef-9dd4-15ab103f5548",
+        "targetHandle": "foreign-key-handle-a38ee0de-b7cb-5845-a686-cc9de881f415",
+        "target": "a5e8190f-2cb5-53ef-9dd4-15ab103f5548",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "a38ee0de-b7cb-5845-a686-cc9de881f415",
+            "sourceTableId": "a5e8190f-2cb5-53ef-9dd4-15ab103f5548",
+            "columns": [
+              {
+                "id": "fk_4d8e7f43-01ef-5cb3-9c16-50599f96faa7",
+                "name": "SupervisorID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "14b6efa9-4170-50fb-82d3-82d7aacb32c2->0530c12d-70c1-5286-8877-c36520c83c3d_1c467465-88df-58d8-8579-f730b3e527fc",
+        "type": "Relational",
+        "source": "14b6efa9-4170-50fb-82d3-82d7aacb32c2",
+        "targetHandle": "foreign-key-handle-1c467465-88df-58d8-8579-f730b3e527fc",
+        "target": "0530c12d-70c1-5286-8877-c36520c83c3d",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "1c467465-88df-58d8-8579-f730b3e527fc",
+            "sourceTableId": "14b6efa9-4170-50fb-82d3-82d7aacb32c2",
+            "columns": [
+              {
+                "id": "fk_834cdb2b-fbc5-500d-a270-0b0a17188454",
+                "name": "DepartmentID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "0530c12d-70c1-5286-8877-c36520c83c3d->0530c12d-70c1-5286-8877-c36520c83c3d_543e227a-0808-5f81-881e-68ddefe5ad7b",
+        "type": "Relational",
+        "source": "0530c12d-70c1-5286-8877-c36520c83c3d",
+        "targetHandle": "foreign-key-handle-543e227a-0808-5f81-881e-68ddefe5ad7b",
+        "target": "0530c12d-70c1-5286-8877-c36520c83c3d",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "543e227a-0808-5f81-881e-68ddefe5ad7b",
+            "sourceTableId": "0530c12d-70c1-5286-8877-c36520c83c3d",
+            "columns": [
+              {
+                "id": "fk_e2a27b5c-e711-5d3e-b503-6491ad324f69",
+                "name": "SupervisorID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "e8c886ac-bb10-593c-a315-7b10c66d580e->b6b8c941-b196-5012-b716-1878a1ca9807_3271138a-b8c9-5a5f-a1a4-6827fddf1846",
+        "type": "Relational",
+        "source": "e8c886ac-bb10-593c-a315-7b10c66d580e",
+        "targetHandle": "foreign-key-handle-3271138a-b8c9-5a5f-a1a4-6827fddf1846",
+        "target": "b6b8c941-b196-5012-b716-1878a1ca9807",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "3271138a-b8c9-5a5f-a1a4-6827fddf1846",
+            "sourceTableId": "e8c886ac-bb10-593c-a315-7b10c66d580e",
+            "columns": [
+              {
+                "id": "fk_0b1f384f-4806-5a75-babd-8a4b310cb61c",
+                "name": "SupplierID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "16175acf-801c-54e7-a8a2-70395afdb7c6->3f50a2e2-cc50-582d-bc99-9fcb6e1bf83d_2e0d57bb-90de-5526-a2df-b8d6a6609f1b",
+        "type": "Relational",
+        "source": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+        "targetHandle": "foreign-key-handle-2e0d57bb-90de-5526-a2df-b8d6a6609f1b",
+        "target": "3f50a2e2-cc50-582d-bc99-9fcb6e1bf83d",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "2e0d57bb-90de-5526-a2df-b8d6a6609f1b",
+            "sourceTableId": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+            "columns": [
+              {
+                "id": "fk_77420cc0-36c4-506f-a87d-b680a97f435d",
+                "name": "PatientID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "0530c12d-70c1-5286-8877-c36520c83c3d->3f50a2e2-cc50-582d-bc99-9fcb6e1bf83d_a55c1844-b812-536b-9528-a872d0f31eb7",
+        "type": "Relational",
+        "source": "0530c12d-70c1-5286-8877-c36520c83c3d",
+        "targetHandle": "foreign-key-handle-a55c1844-b812-536b-9528-a872d0f31eb7",
+        "target": "3f50a2e2-cc50-582d-bc99-9fcb6e1bf83d",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "a55c1844-b812-536b-9528-a872d0f31eb7",
+            "sourceTableId": "0530c12d-70c1-5286-8877-c36520c83c3d",
+            "columns": [
+              {
+                "id": "fk_e2a27b5c-e711-5d3e-b503-6491ad324f69",
+                "name": "DoctorID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "16175acf-801c-54e7-a8a2-70395afdb7c6->646dc577-e553-5eee-a987-0879cc53ea55_776922b3-acb2-5aee-acae-d64b088edc18",
+        "type": "Relational",
+        "source": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+        "targetHandle": "foreign-key-handle-776922b3-acb2-5aee-acae-d64b088edc18",
+        "target": "646dc577-e553-5eee-a987-0879cc53ea55",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "776922b3-acb2-5aee-acae-d64b088edc18",
+            "sourceTableId": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+            "columns": [
+              {
+                "id": "fk_77420cc0-36c4-506f-a87d-b680a97f435d",
+                "name": "PatientID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "0530c12d-70c1-5286-8877-c36520c83c3d->646dc577-e553-5eee-a987-0879cc53ea55_312067fe-8cca-5516-9a9f-4cb50bb2c003",
+        "type": "Relational",
+        "source": "0530c12d-70c1-5286-8877-c36520c83c3d",
+        "targetHandle": "foreign-key-handle-312067fe-8cca-5516-9a9f-4cb50bb2c003",
+        "target": "646dc577-e553-5eee-a987-0879cc53ea55",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "312067fe-8cca-5516-9a9f-4cb50bb2c003",
+            "sourceTableId": "0530c12d-70c1-5286-8877-c36520c83c3d",
+            "columns": [
+              {
+                "id": "fk_e2a27b5c-e711-5d3e-b503-6491ad324f69",
+                "name": "DoctorID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "16175acf-801c-54e7-a8a2-70395afdb7c6->3918b01d-0a8e-5fd5-80d6-7be67968aaa7_b0273178-bdcd-55b7-8347-c25da1058a10",
+        "type": "Relational",
+        "source": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+        "targetHandle": "foreign-key-handle-b0273178-bdcd-55b7-8347-c25da1058a10",
+        "target": "3918b01d-0a8e-5fd5-80d6-7be67968aaa7",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "b0273178-bdcd-55b7-8347-c25da1058a10",
+            "sourceTableId": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+            "columns": [
+              {
+                "id": "fk_77420cc0-36c4-506f-a87d-b680a97f435d",
+                "name": "PatientID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "0530c12d-70c1-5286-8877-c36520c83c3d->3918b01d-0a8e-5fd5-80d6-7be67968aaa7_cc0b2a73-5c8b-5331-a613-16397a0f4155",
+        "type": "Relational",
+        "source": "0530c12d-70c1-5286-8877-c36520c83c3d",
+        "targetHandle": "foreign-key-handle-cc0b2a73-5c8b-5331-a613-16397a0f4155",
+        "target": "3918b01d-0a8e-5fd5-80d6-7be67968aaa7",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "cc0b2a73-5c8b-5331-a613-16397a0f4155",
+            "sourceTableId": "0530c12d-70c1-5286-8877-c36520c83c3d",
+            "columns": [
+              {
+                "id": "fk_e2a27b5c-e711-5d3e-b503-6491ad324f69",
+                "name": "DoctorID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "16175acf-801c-54e7-a8a2-70395afdb7c6->61ae3935-e268-52c5-81e0-55c4ab430fac_174b3bfa-5636-5e94-b3a4-225300a428d0",
+        "type": "Relational",
+        "source": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+        "targetHandle": "foreign-key-handle-174b3bfa-5636-5e94-b3a4-225300a428d0",
+        "target": "61ae3935-e268-52c5-81e0-55c4ab430fac",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "174b3bfa-5636-5e94-b3a4-225300a428d0",
+            "sourceTableId": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+            "columns": [
+              {
+                "id": "fk_77420cc0-36c4-506f-a87d-b680a97f435d",
+                "name": "PatientID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "0530c12d-70c1-5286-8877-c36520c83c3d->61ae3935-e268-52c5-81e0-55c4ab430fac_dab9233f-07da-5198-a275-595967eda78f",
+        "type": "Relational",
+        "source": "0530c12d-70c1-5286-8877-c36520c83c3d",
+        "targetHandle": "foreign-key-handle-dab9233f-07da-5198-a275-595967eda78f",
+        "target": "61ae3935-e268-52c5-81e0-55c4ab430fac",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "dab9233f-07da-5198-a275-595967eda78f",
+            "sourceTableId": "0530c12d-70c1-5286-8877-c36520c83c3d",
+            "columns": [
+              {
+                "id": "fk_e2a27b5c-e711-5d3e-b503-6491ad324f69",
+                "name": "DoctorID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "16175acf-801c-54e7-a8a2-70395afdb7c6->98788594-0754-52fd-bd1c-52e27bd41abe_4b4ae581-3fba-5e14-9f08-c9dfa9df4e4f",
+        "type": "Relational",
+        "source": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+        "targetHandle": "foreign-key-handle-4b4ae581-3fba-5e14-9f08-c9dfa9df4e4f",
+        "target": "98788594-0754-52fd-bd1c-52e27bd41abe",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "4b4ae581-3fba-5e14-9f08-c9dfa9df4e4f",
+            "sourceTableId": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+            "columns": [
+              {
+                "id": "fk_77420cc0-36c4-506f-a87d-b680a97f435d",
+                "name": "PatientID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "0530c12d-70c1-5286-8877-c36520c83c3d->98788594-0754-52fd-bd1c-52e27bd41abe_eada9847-ac6a-5fe8-b938-9b5011ec654c",
+        "type": "Relational",
+        "source": "0530c12d-70c1-5286-8877-c36520c83c3d",
+        "targetHandle": "foreign-key-handle-eada9847-ac6a-5fe8-b938-9b5011ec654c",
+        "target": "98788594-0754-52fd-bd1c-52e27bd41abe",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "eada9847-ac6a-5fe8-b938-9b5011ec654c",
+            "sourceTableId": "0530c12d-70c1-5286-8877-c36520c83c3d",
+            "columns": [
+              {
+                "id": "fk_e2a27b5c-e711-5d3e-b503-6491ad324f69",
+                "name": "DoctorID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "b6b8c941-b196-5012-b716-1878a1ca9807->98788594-0754-52fd-bd1c-52e27bd41abe_42aa8b6f-c568-5d2f-8da7-6015175404bb",
+        "type": "Relational",
+        "source": "b6b8c941-b196-5012-b716-1878a1ca9807",
+        "targetHandle": "foreign-key-handle-42aa8b6f-c568-5d2f-8da7-6015175404bb",
+        "target": "98788594-0754-52fd-bd1c-52e27bd41abe",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "42aa8b6f-c568-5d2f-8da7-6015175404bb",
+            "sourceTableId": "b6b8c941-b196-5012-b716-1878a1ca9807",
+            "columns": [
+              {
+                "id": "fk_34f4b124-f5f8-5bf3-ad5a-b013d666a324",
+                "name": "MedicationID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "16175acf-801c-54e7-a8a2-70395afdb7c6->02d6dcb6-fa32-5a8b-b440-c93fd588edbb_87e9ed54-2c60-53f0-9302-3e44df3db8e4",
+        "type": "Relational",
+        "source": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+        "targetHandle": "foreign-key-handle-87e9ed54-2c60-53f0-9302-3e44df3db8e4",
+        "target": "02d6dcb6-fa32-5a8b-b440-c93fd588edbb",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "87e9ed54-2c60-53f0-9302-3e44df3db8e4",
+            "sourceTableId": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+            "columns": [
+              {
+                "id": "fk_77420cc0-36c4-506f-a87d-b680a97f435d",
+                "name": "PatientID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "842ce4b1-b6e4-5061-ae74-b426f05d43f4->02d6dcb6-fa32-5a8b-b440-c93fd588edbb_019baa27-872f-574e-ac2e-ff97180917d6",
+        "type": "Relational",
+        "source": "842ce4b1-b6e4-5061-ae74-b426f05d43f4",
+        "targetHandle": "foreign-key-handle-019baa27-872f-574e-ac2e-ff97180917d6",
+        "target": "02d6dcb6-fa32-5a8b-b440-c93fd588edbb",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "019baa27-872f-574e-ac2e-ff97180917d6",
+            "sourceTableId": "842ce4b1-b6e4-5061-ae74-b426f05d43f4",
+            "columns": [
+              {
+                "id": "fk_462a5f2b-233b-53e4-9fe0-a7f9bad68aa7",
+                "name": "RoomID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "16175acf-801c-54e7-a8a2-70395afdb7c6->7fa7ab6d-7e4b-5aa0-bc94-7604c96d5dca_4a4c8334-ee5a-532c-a6c7-df1d208dd749",
+        "type": "Relational",
+        "source": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+        "targetHandle": "foreign-key-handle-4a4c8334-ee5a-532c-a6c7-df1d208dd749",
+        "target": "7fa7ab6d-7e4b-5aa0-bc94-7604c96d5dca",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "4a4c8334-ee5a-532c-a6c7-df1d208dd749",
+            "sourceTableId": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+            "columns": [
+              {
+                "id": "fk_77420cc0-36c4-506f-a87d-b680a97f435d",
+                "name": "PatientID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "16175acf-801c-54e7-a8a2-70395afdb7c6->af1bc364-d13f-54a7-a46a-fbb848bdd086_026cf4e6-5cbd-533f-a560-699097a796a2",
+        "type": "Relational",
+        "source": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+        "targetHandle": "foreign-key-handle-026cf4e6-5cbd-533f-a560-699097a796a2",
+        "target": "af1bc364-d13f-54a7-a46a-fbb848bdd086",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "026cf4e6-5cbd-533f-a560-699097a796a2",
+            "sourceTableId": "16175acf-801c-54e7-a8a2-70395afdb7c6",
+            "columns": [
+              {
+                "id": "fk_77420cc0-36c4-506f-a87d-b680a97f435d",
+                "name": "PatientID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "af1bc364-d13f-54a7-a46a-fbb848bdd086->924e9101-649f-5921-97fb-ee302ca45aed_010454a1-0175-5b1b-a648-e91f422071ac",
+        "type": "Relational",
+        "source": "af1bc364-d13f-54a7-a46a-fbb848bdd086",
+        "targetHandle": "foreign-key-handle-010454a1-0175-5b1b-a648-e91f422071ac",
+        "target": "924e9101-649f-5921-97fb-ee302ca45aed",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "010454a1-0175-5b1b-a648-e91f422071ac",
+            "sourceTableId": "af1bc364-d13f-54a7-a46a-fbb848bdd086",
+            "columns": [
+              {
+                "id": "fk_9a290d2a-bada-5793-911c-c635f9120dbc",
+                "name": "InvoiceID",
+                "type": "VARCHAR(n)"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "viewport": {
+      "x": 1900,
+      "y": 1200,
+      "zoom": 0.6
+    }
+  },
+  "name": "HMS Master Relational Schema (16 Tables)",
+  "folder": {
+    "name": "Diagrams",
+    "folderType": 1,
+    "depth": 0,
+    "id": 490617
+  },
+  "id": 730002,
+  "updatedAtTimestamp": 1795569000
+}

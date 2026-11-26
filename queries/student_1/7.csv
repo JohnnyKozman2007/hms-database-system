@@ -1,0 +1,9 @@
+DOCTORID,DOCTORNAME,SPECIALTY,YEARSOFEXPERIENCE,AVGEXPERIENCE
+DOC009,Khaled Mostafa,General Surgery,24,12.2
+DOC005,Tarek Ibrahim,Orthopedic Surgery,22,12.2
+DOC002,Ahmed El-Sayed,Cardiology,21,12.2
+DOC007,Sherif Nabil,Medical Oncology,20,12.2
+DOC006,Nadia Kamel,Neurology,19,12.2
+DOC003,Mona Hassan,Emergency Medicine,18,12.2
+DOC004,Heba Abdelrahman,Pediatrics,16,12.2
+DOC008,Dalia Farouk,Diagnostic Radiology,15,12.2

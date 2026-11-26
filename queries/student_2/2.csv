@@ -1,0 +1,34 @@
+ROOMID,ROOMNUMBER,BUILDING,FLOOR,ROOMTYPE,CAPACITY,DAILYCHARGE,AVAILABILITYSTATUS
+RM029,229,Building A,1st Floor,Semi-Private,2,1250,Available
+RM033,333,Building A,2nd Floor,Emergency,2,1050,Available
+RM013,413,Building A,3rd Floor,ICU,1,4600,Available
+RM037,437,Building A,3rd Floor,Private,1,1850,Available
+RM017,517,Building A,4th Floor,Pediatric,3,900,Available
+RM021,621,Building A,5th Floor,General Ward,4,450,Available
+RM025,125,Building A,Ground Floor,Maternity,2,1800,Available
+RM049,149,Building A,Ground Floor,ICU,1,4650,Available
+RM030,230,Building B,1st Floor,General Ward,4,650,Available
+RM034,334,Building B,2nd Floor,Maternity,2,1750,Available
+RM014,414,Building B,3rd Floor,Isolation,1,2750,Available
+RM038,438,Building B,3rd Floor,Semi-Private,2,1200,Available
+RM018,518,Building B,4th Floor,Operating Room,1,6100,Available
+RM022,622,Building B,5th Floor,ICU,1,4550,Available
+RM026,126,Building B,Ground Floor,Pediatric,3,850,Available
+RM050,150,Building B,Ground Floor,Isolation,1,2800,Available
+RM031,231,Building C,1st Floor,ICU,1,4500,Available
+RM011,311,Building C,2nd Floor,Semi-Private,2,1100,Available
+RM035,335,Building C,2nd Floor,Pediatric,3,1050,Available
+RM015,415,Building C,3rd Floor,Emergency,2,1150,Available
+RM039,439,Building C,3rd Floor,General Ward,4,600,Available
+RM019,519,Building C,4th Floor,Private,1,1950,Available
+RM023,623,Building C,5th Floor,Isolation,1,2700,Available
+RM027,127,Building C,Ground Floor,Operating Room,1,6050,Available
+RM032,232,Building D,1st Floor,Isolation,1,2650,Available
+RM012,312,Building D,2nd Floor,General Ward,4,500,Available
+RM036,336,Building D,2nd Floor,Operating Room,1,6000,Available
+RM016,416,Building D,3rd Floor,Maternity,2,1600,Available
+RM040,440,Building D,3rd Floor,ICU,1,4700,Available
+RM020,520,Building D,4th Floor,Semi-Private,2,1300,Available
+RM024,624,Building D,5th Floor,Emergency,2,1100,Available
+RM048,648,Building D,5th Floor,General Ward,4,550,Available
+RM028,128,Building D,Ground Floor,Private,1,1900,Available
