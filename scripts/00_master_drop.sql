@@ -20,8 +20,6 @@ DROP TRIGGER trg_pay_date_max;
 DROP TRIGGER trg_apt_date_horizon;
 DROP TRIGGER trg_proc_date_horizon;
 DROP TRIGGER trg_adm_sync_room_status;
-DROP TRIGGER trg_procedure_overlap_guard;
-DROP TRIGGER trg_appointment_conflict_guard;
 DROP TRIGGER trg_rx_manage_medication_stock;
 DROP TRIGGER trg_ins_status_date_guard;
 DROP TRIGGER trg_inv_status_guard;
@@ -30,8 +28,7 @@ DROP TRIGGER trg_pay_balance_and_status;
 
 -- 3. Stored Procedures & Functions
 DROP PROCEDURE sp_validate_date_upper_bound;
-DROP PROCEDURE sp_book_appointment;
-DROP PROCEDURE sp_schedule_procedure;
+DROP PROCEDURE sp_cancel_appointment;
 DROP FUNCTION fn_get_patient_financial_status;
 DROP FUNCTION fn_get_invoice_patient_copay;
 DROP FUNCTION fn_get_patient_net_balance;
