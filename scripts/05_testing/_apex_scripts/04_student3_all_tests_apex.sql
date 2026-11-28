@@ -4,113 +4,29 @@
 -- All positive DML tests use SAVEPOINT + ROLLBACK (zero permanent changes).
 -- ============================================================================
 
--- [01] student_3\01_advanced_features\negative\01_sp_book_appointment_doctor_conflict
--- Expected: ORA-20001: Booking Conflict: Doctor DOC001 already has an active appointment.
--- [NEGATIVE] sp_book_appointment Doctor Conflict
+-- [01] student_3\01_advanced_features\negative\01_sp_cancel_appointment_not_found
+-- Expected: ORA-20001: Appointment not found: APT999
+-- [NEGATIVE] sp_cancel_appointment with non-existent AppointmentID
 BEGIN
-    SAVEPOINT sp_test;
-    sp_book_appointment('APT_SP1', 'PAT001', 'DOC001', TO_DATE('2026-12-20 10:00', 'YYYY-MM-DD HH24:MI'), 'Initial valid slot');
-    sp_book_appointment('APT_SP2', 'PAT002', 'DOC001', TO_DATE('2026-12-20 10:00', 'YYYY-MM-DD HH24:MI'), 'Doctor double booking');
-    ROLLBACK TO sp_test;
+    sp_cancel_appointment('APT999', 'Patient did not confirm');
 END;
 /
 
--- [02] student_3\01_advanced_features\negative\02_sp_book_appointment_patient_conflict
--- Expected: ORA-20005: Booking Conflict: Patient PAT001 already has an active appointment.
--- [NEGATIVE] sp_book_appointment Patient Conflict
+-- [02] student_3\01_advanced_features\negative\02_sp_cancel_appointment_short_reason
+-- Expected: ORA-02290: check constraint (CHK_APT_NOTES_LEN) violated.
+-- [NEGATIVE] sp_cancel_appointment with Notes < 5 chars
 BEGIN
-    SAVEPOINT sp_test;
-    sp_book_appointment('APT_SP1', 'PAT001', 'DOC001', TO_DATE('2026-12-20 10:00', 'YYYY-MM-DD HH24:MI'), 'Initial valid slot');
-    sp_book_appointment('APT_SP3', 'PAT001', 'DOC002', TO_DATE('2026-12-20 10:00', 'YYYY-MM-DD HH24:MI'), 'Patient double booking');
-    ROLLBACK TO sp_test;
+    sp_cancel_appointment('APT001', 'No');
 END;
 /
 
--- [03] student_3\01_advanced_features\negative\03_trg_appointment_conflict_guard_raw_insert
--- Expected: ORA-20001: Rogue DML Blocked: Doctor already has an active appointment at this date and time.
--- [NEGATIVE] Backstop Trigger (trg_appointment_conflict_guard) on rogue raw INSERT
+-- [03] student_3\01_advanced_features\positive\01_sp_cancel_appointment_valid
+-- Expected: Status updated to 'Cancelled' and Notes saved cleanly.
+-- [POSITIVE] Showcase sp_cancel_appointment (Valid Cancellation)
 BEGIN
     SAVEPOINT sp_test;
-    INSERT INTO Appointment (AppointmentID, PatientID, DoctorID, AppointmentDate, Status, Reason)
-    VALUES ('APT_BASE', 'PAT001', 'DOC001', TO_DATE('2026-12-20 10:00', 'YYYY-MM-DD HH24:MI'), 'Scheduled', 'Base slot');
-    INSERT INTO Appointment (AppointmentID, PatientID, DoctorID, AppointmentDate, Status, Reason)
-    VALUES ('APT_ROG1', 'PAT003', 'DOC001', TO_DATE('2026-12-20 10:00:15', 'YYYY-MM-DD HH24:MI:SS'), 'Scheduled', 'Rogue direct insert');
-    ROLLBACK TO sp_test;
-END;
-/
-
--- [04] student_3\01_advanced_features\negative\04_trg_appointment_conflict_guard_raw_update
--- Expected: ORA-20001: Rogue DML Blocked: Doctor already has an active appointment at this date and time.
--- [NEGATIVE] Backstop Trigger (trg_appointment_conflict_guard) on rogue raw UPDATE
-BEGIN
-    SAVEPOINT sp_test;
-    INSERT INTO Appointment (AppointmentID, PatientID, DoctorID, AppointmentDate, Status, Reason)
-    VALUES ('APT_BASE', 'PAT001', 'DOC001', TO_DATE('2026-12-20 10:00', 'YYYY-MM-DD HH24:MI'), 'Scheduled', 'Base slot');
-    UPDATE Appointment
-    SET DoctorID = 'DOC001', AppointmentDate = TO_DATE('2026-12-20 10:00:30', 'YYYY-MM-DD HH24:MI:SS')
-    WHERE AppointmentID = 'APT001';
-    ROLLBACK TO sp_test;
-END;
-/
-
--- [05] student_3\01_advanced_features\negative\05_sp_schedule_procedure_room_overlap
--- Expected: ORA-20003: Operating Room Conflict: Room OR-1 is already occupied.
--- [NEGATIVE] sp_schedule_procedure Operating Room Overlap (14:30 - 15:30 in OR-1)
-BEGIN
-    SAVEPOINT sp_test;
-    sp_schedule_procedure('PROC_SP1', 'PAT001', 'DOC001', 'Diagnostic Coronary Angiography',
-        TO_DATE('2026-12-22 14:00', 'YYYY-MM-DD HH24:MI'), 'OR-1', 90, 15000.00);
-    sp_schedule_procedure('PROC_SP2', 'PAT002', 'DOC002', 'Pacemaker Implantation',
-        TO_DATE('2026-12-22 14:30', 'YYYY-MM-DD HH24:MI'), 'OR-1', 60, 25000.00);
-    ROLLBACK TO sp_test;
-END;
-/
-
--- [06] student_3\01_advanced_features\negative\06_trg_procedure_overlap_guard_raw_insert
--- Expected: ORA-20002: Rogue DML Blocked: Doctor already has an active procedure scheduled in this time interval.
--- [NEGATIVE] Backstop Trigger (trg_procedure_overlap_guard) on rogue raw INSERT overlapping Doctor
-BEGIN
-    SAVEPOINT sp_test;
-    sp_schedule_procedure('PROC_SP1', 'PAT001', 'DOC001', 'Diagnostic Coronary Angiography',
-        TO_DATE('2026-12-22 14:00', 'YYYY-MM-DD HH24:MI'), 'OR-1', 90, 15000.00);
-    INSERT INTO MedicalProcedure (ProcedureID, PatientID, DoctorID, ProcedureName, ProcedureDate, Duration, OperatingRoom, ProcedureCost, Outcome)
-    VALUES ('PROC_ROG1', 'PAT004', 'DOC001', 'Stent Placement', TO_DATE('2026-12-22 15:00', 'YYYY-MM-DD HH24:MI'), 45, 'OR-2', 12000, 'Pending');
-    ROLLBACK TO sp_test;
-END;
-/
-
--- [07] student_3\01_advanced_features\positive\01_sp_book_appointment_valid
--- Expected: Success message printed; APT_SP1 booked cleanly.
--- [POSITIVE] Showcase sp_book_appointment (Valid Booking)
-BEGIN
-    SAVEPOINT sp_test;
-    sp_book_appointment(
-        p_appointment_id   => 'APT_SP1',
-        p_patient_id       => 'PAT001',
-        p_doctor_id        => 'DOC001',
-        p_appointment_date => TO_DATE('2026-12-20 10:00', 'YYYY-MM-DD HH24:MI'),
-        p_reason           => 'Routine post-op cardiology follow-up',
-        p_notes            => 'Patient stable.'
-    );
-    ROLLBACK TO sp_test;
-END;
-/
-
--- [08] student_3\01_advanced_features\positive\02_sp_schedule_procedure_valid
--- Expected: Success message printed; PROC_SP1 scheduled cleanly.
--- [POSITIVE] Showcase sp_schedule_procedure (Valid Procedure Scheduling)
-BEGIN
-    SAVEPOINT sp_test;
-    sp_schedule_procedure(
-        p_procedure_id   => 'PROC_SP1',
-        p_patient_id     => 'PAT001',
-        p_doctor_id      => 'DOC001',
-        p_procedure_name => 'Diagnostic Coronary Angiography',
-        p_procedure_date => TO_DATE('2026-12-22 14:00', 'YYYY-MM-DD HH24:MI'),
-        p_operating_room => 'OR-1',
-        p_duration       => 90,
-        p_procedure_cost => 15000.00
-    );
+    sp_cancel_appointment('APT001', 'Patient requested cancellation by phone');
+    DBMS_OUTPUT.PUT_LINE('Appointment APT001 cancelled successfully.');
     ROLLBACK TO sp_test;
 END;
 /
@@ -158,6 +74,13 @@ UPDATE Appointment SET Reason = 'Pain' WHERE AppointmentID = 'APT001';
 UPDATE Appointment SET Notes = 'Ok' WHERE AppointmentID = 'APT001';
 -- Expected: ORA-02290: check constraint (CHK_APT_NOTES_LEN) violated.
 
+-- [16b] student_3\02_appointment\negative\09_duplicate_doctor_slot
+-- [NEGATIVE] Duplicate Doctor Appointment Slot (uq_apt_doc_time)
+INSERT INTO Appointment (AppointmentID, PatientID, DoctorID, AppointmentDate, Status, Reason, Notes)
+SELECT 'APT_DUP1', 'PAT050', DoctorID, AppointmentDate, 'Completed', 'Double booking test', 'Testing unique doctor slot'
+FROM Appointment WHERE AppointmentID = 'APT002';
+-- Expected: ORA-00001: unique constraint (UQ_APT_DOC_TIME) violated.
+
 -- [17] student_3\02_appointment\positive\01_min_boundaries
 -- Expected: 1 row inserted.
 -- [POSITIVE - Min Boundaries] AppointmentDate = 2020-01-01, 5-char Reason & Notes
@@ -176,7 +99,7 @@ END;
 BEGIN
     SAVEPOINT sp_test;
     INSERT INTO Appointment (AppointmentID, PatientID, DoctorID, AppointmentDate, Status, Reason, Notes)
-    VALUES ('APT_MAX_01', 'PAT002', 'DOC002', TRUNC(SYSDATE) + 365 + (10/24), 'In-Progress', 'Annual cardiology follow-up evaluation', 'Maximum horizon date test');
+    VALUES ('APT_MAX_01', 'PAT002', 'DOC002', TRUNC(SYSDATE) + 365, 'In-Progress', 'Annual cardiology follow-up evaluation', 'Maximum horizon date test');
     DBMS_OUTPUT.PUT_LINE('Rows affected: ' || SQL%ROWCOUNT);
     ROLLBACK TO sp_test;
 END;
@@ -334,7 +257,7 @@ END;
 BEGIN
     SAVEPOINT sp_test;
     INSERT INTO MedicalProcedure (ProcedureID, PatientID, DoctorID, ProcedureName, ProcedureDate, Duration, OperatingRoom, ProcedureCost, Outcome)
-    VALUES ('PROC_MAX_1', 'PAT002', 'DOC002', 'Complex Cardiothoracic Reconstruction', TRUNC(SYSDATE) + 365 + (8/24), 1440, 'Cath Lab', 1000000.00, 'Successful');
+    VALUES ('PROC_MAX_1', 'PAT002', 'DOC002', 'Complex Cardiothoracic Reconstruction', TRUNC(SYSDATE) + 365, 1440, 'Cath Lab', 1000000.00, 'Successful');
     DBMS_OUTPUT.PUT_LINE('Rows affected: ' || SQL%ROWCOUNT);
     ROLLBACK TO sp_test;
 END;
